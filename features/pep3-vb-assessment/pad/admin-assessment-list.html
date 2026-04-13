@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>评估工具管理 - RICE AI 后台管理系统</title>
+<style>
+:root {
+  --color-primary: #7C3AED;
+  --color-primary-hover: #6D28D9;
+  --color-primary-light: #EDE9FE;
+  --color-bg-page: #F5F5F5;
+  --color-bg-card: #FFFFFF;
+  --color-border: #E5E7EB;
+  --color-border-input: #D1D5DB;
+  --color-text-primary: #1F2937;
+  --color-text-secondary: #6B7280;
+  --color-text-placeholder: #9CA3AF;
+  --color-success: #059669;
+  --color-success-bg: #ECFDF5;
+  --color-warning: #EA580C;
+  --color-warning-bg: #FFF7ED;
+  --color-danger: #DC2626;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 9999px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-family); background: var(--color-bg-page); color: var(--color-text-primary); display: flex; height: 100vh; overflow: hidden; }
+
+/* 左侧导航 */
+.sidebar { width: 80px; background: #fff; border-right: 1px solid var(--color-border); display: flex; flex-direction: column; align-items: center; padding-top: 16px; flex-shrink: 0; overflow-y: auto; }
+.sidebar-logo { width: 40px; height: 40px; background: var(--color-primary); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 14px; margin-bottom: 20px; }
+.nav-item { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 10px 8px; width: 64px; border-radius: var(--radius-md); cursor: pointer; text-decoration: none; color: var(--color-text-secondary); font-size: 12px; margin-bottom: 4px; transition: all .15s; }
+.nav-item:hover { background: #F3F4F6; }
+.nav-item.active { background: var(--color-primary); color: #fff; }
+.nav-item .icon { font-size: 20px; line-height: 1; }
+
+/* 右侧主区域 */
+.main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+
+/* 顶部栏 */
+.topbar { height: 56px; background: #fff; border-bottom: 1px solid var(--color-border); display: flex; align-items: center; padding: 0 24px; flex-shrink: 0; }
+.topbar-left { display: flex; align-items: center; gap: 12px; }
+.topbar-left .logo-text { font-size: 14px; font-weight: 600; color: var(--color-text-primary); }
+.topbar-breadcrumb { margin-left: 24px; font-size: 13px; color: var(--color-text-secondary); }
+.topbar-breadcrumb a { color: var(--color-primary); text-decoration: none; }
+.topbar-right { margin-left: auto; display: flex; align-items: center; gap: 16px; font-size: 13px; color: var(--color-text-secondary); }
+.topbar-right .tool-btn { cursor: pointer; padding: 4px; border-radius: 4px; }
+.topbar-right .tool-btn:hover { background: #F3F4F6; }
+.topbar-right .avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--color-primary-light); display: flex; align-items: center; justify-content: center; font-size: 14px; color: var(--color-primary); cursor: pointer; }
+
+/* 内容区 */
+.content { flex: 1; overflow-y: auto; padding: 24px; }
+.page-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.page-title { font-size: 20px; font-weight: 600; }
+.btn-primary { background: var(--color-primary); color: #fff; border: none; padding: 8px 16px; border-radius: var(--radius-md); font-size: 14px; font-weight: 500; cursor: pointer; transition: background .15s; }
+.btn-primary:hover { background: var(--color-primary-hover); }
+
+/* 筛选区 */
+.filter-bar { background: #fff; border-radius: var(--radius-lg); padding: 16px 20px; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+.filter-bar input, .filter-bar select { height: 36px; border: 1px solid var(--color-border-input); border-radius: var(--radius-md); padding: 0 12px; font-size: 14px; color: var(--color-text-primary); outline: none; font-family: var(--font-family); }
+.filter-bar input { width: 240px; }
+.filter-bar input::placeholder { color: var(--color-text-placeholder); }
+.filter-bar input:focus, .filter-bar select:focus { border-color: var(--color-primary); box-shadow: 0 0 0 2px rgba(124,58,237,0.2); }
+.filter-bar select { min-width: 120px; cursor: pointer; color: var(--color-text-secondary); }
+.btn-secondary { background: #fff; border: 1px solid var(--color-border-input); color: #374151; padding: 7px 16px; border-radius: var(--radius-md); font-size: 14px; font-weight: 500; cursor: pointer; }
+.btn-secondary:hover { background: #F9FAFB; }
+.btn-search { background: var(--color-primary); color: #fff; border: none; padding: 7px 16px; border-radius: var(--radius-md); font-size: 14px; cursor: pointer; display: flex; align-items: center; gap: 4px; }
+.btn-search:hover { background: var(--color-primary-hover); }
+
+/* 卡片网格 */
+.card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.card { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 16px 20px; transition: box-shadow .2s; cursor: default; }
+.card:hover { box-shadow: var(--shadow-md); }
+.card[data-status="inactive"] { opacity: 0.55; }
+.card[data-status="inactive"]:hover { opacity: 0.85; }
+.card-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 12px; }
+.card-icon { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.card-icon.pep3 { background: #EDE9FE; color: var(--color-primary); }
+.card-icon.vbmapp { background: #DBEAFE; color: #2563EB; }
+.card-icon.ablls { background: #FEF3C7; color: #D97706; }
+.card-icon.cpep { background: #DCFCE7; color: #16A34A; }
+
+/* Toggle Switch 开关组件 */
+.toggle-switch-wrap { display: flex; align-items: center; gap: 8px; }
+.toggle-switch { position: relative; width: 40px; height: 22px; cursor: pointer; }
+.toggle-switch input { opacity: 0; width: 0; height: 0; position: absolute; }
+.toggle-slider { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #D1D5DB; border-radius: 11px; transition: background .2s; }
+.toggle-slider::before { content: ''; position: absolute; width: 18px; height: 18px; left: 2px; top: 2px; background: #fff; border-radius: 50%; transition: transform .2s; box-shadow: 0 1px 3px rgba(0,0,0,0.15); }
+.toggle-switch input:checked + .toggle-slider { background: var(--color-success); }
+.toggle-switch input:checked + .toggle-slider::before { transform: translateX(18px); }
+.toggle-label { font-size: 12px; font-weight: 500; }
+.toggle-label.active { color: var(--color-success); }
+.toggle-label.inactive { color: var(--color-text-placeholder); }
+
+.card-name { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+.card-desc { font-size: 13px; color: var(--color-text-secondary); margin-bottom: 12px; line-height: 1.5; height: 39px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.card-meta { font-size: 12px; color: var(--color-text-secondary); margin-bottom: 12px; }
+.card-meta span + span::before { content: " · "; }
+.card-actions { display: flex; gap: 16px; font-size: 13px; font-weight: 500; }
+.card-actions a { text-decoration: none; cursor: pointer; }
+.card-actions .edit { color: var(--color-primary); }
+
+/* 重置按钮 */
+.reset-btn { position: fixed; bottom: 20px; right: 20px; background: rgba(0,0,0,0.35); color: #fff; border: none; padding: 8px 14px; border-radius: var(--radius-md); font-size: 13px; cursor: pointer; z-index: 9999; opacity: 0.6; transition: opacity .2s; }
+.reset-btn:hover { opacity: 1; }
+
+/* Toast */
+.toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #1F2937; color: #fff; padding: 10px 24px; border-radius: var(--radius-md); font-size: 14px; z-index: 10000; display: none; }
+.toast.show { display: block; animation: fadeInOut 2s ease; }
+@keyframes fadeInOut { 0%{opacity:0;transform:translateX(-50%) translateY(-10px)} 15%{opacity:1;transform:translateX(-50%) translateY(0)} 85%{opacity:1} 100%{opacity:0} }
+
+/* 自定义下拉组件 */
+.custom-select { position: relative; }
+.custom-select-trigger { height: 36px; border: 1px solid #D1D5DB; border-radius: 8px; padding: 0 12px; font-size: 14px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; background: #fff; }
+.custom-select-trigger:hover { border-color: #7C3AED; }
+.custom-select-arrow { font-size: 10px; color: #9CA3AF; }
+.custom-select-value { color: #1F2937; }
+.custom-select-value.placeholder { color: #9CA3AF; }
+.custom-select-dropdown { position: absolute; top: 40px; left: 0; right: 0; background: #fff; border: 1px solid #E5E7EB; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 100; max-height: 280px; overflow-y: auto; }
+.custom-select-option { padding: 10px 12px; cursor: pointer; border-bottom: 1px solid #F3F4F6; }
+.custom-select-option:last-child { border-bottom: none; }
+.custom-select-option:hover { background: #F9FAFB; }
+.custom-select-option.selected { background: #EDE9FE; }
+.custom-select-option .opt-name { font-size: 14px; font-weight: 500; color: #1F2937; }
+.custom-select-option .opt-desc { font-size: 12px; color: #9CA3AF; margin-top: 2px; }
+</style>
+<script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+
+<!-- 左侧导航 -->
+<nav class="sidebar">
+  <div class="sidebar-logo">R</div>
+  <a class="nav-item" href="#"><span class="icon">📦</span>产品</a>
+  <a class="nav-item" href="#"><span class="icon">📋</span>订单</a>
+  <a class="nav-item" href="#"><span class="icon">👥</span>用户</a>
+  <a class="nav-item" href="#"><span class="icon">🎓</span>学生</a>
+  <a class="nav-item active" href="#"><span class="icon">📝</span>评估</a>
+  <a class="nav-item" href="#"><span class="icon">📚</span>课程包</a>
+  <a class="nav-item" href="#"><span class="icon">📖</span>学习</a>
+  <a class="nav-item" href="#"><span class="icon">🤖</span>AI助手</a>
+  <a class="nav-item" href="#"><span class="icon">📢</span>营销</a>
+  <a class="nav-item" href="#"><span class="icon">⚙️</span>设置</a>
+</nav>
+
+<!-- 主区域 -->
+<div class="main">
+  <!-- 顶部栏 -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <span class="logo-text">RICE AI 后台管理系统</span>
+    </div>
+    <div class="topbar-breadcrumb">评估工具管理</div>
+    <div class="topbar-right">
+      <span class="tool-btn" title="搜索 ⌘K">🔍 ⌘K</span>
+      <span class="tool-btn" title="全屏">⛶</span>
+      <span class="tool-btn" title="刷新">↻</span>
+      <span class="tool-btn" title="设置">⚙</span>
+      <span class="tool-btn" title="语言">En</span>
+      <div class="avatar">管</div>
+    </div>
+  </header>
+
+  <!-- 内容区 -->
+  <div class="content">
+    <div class="page-header">
+      <h1 class="page-title">评估工具管理</h1>
+    </div>
+
+    <!-- 筛选区 -->
+    <div class="filter-bar">
+      <input type="text" id="searchInput" placeholder="搜索评估工具名称...">
+      <select id="statusFilter" onchange="filterCards()">
+        <option value="">全部状态</option>
+        <option value="active">启用</option>
+        <option value="inactive">停用</option>
+      </select>
+      <button class="btn-search" onclick="filterCards()">🔍 搜索</button>
+      <button class="btn-secondary" onclick="resetFilter()">重置</button>
+    </div>
+
+    <!-- 卡片网格 -->
+    <div class="card-grid" id="cardGrid"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- 重置确认弹窗 -->
+<div id="resetConfirmModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:10001;align-items:center;justify-content:center">
+  <div style="background:#fff;border-radius:12px;padding:24px;width:380px">
+    <h3 style="font-size:16px;font-weight:600;margin-bottom:12px">确认重置</h3>
+    <p style="font-size:14px;color:#6B7280;margin-bottom:20px">确定要重置所有评估数据吗？此操作将清除所有本地数据并恢复默认状态。</p>
+    <div style="display:flex;gap:8px;justify-content:flex-end">
+      <button onclick="closeResetModal()" style="padding:8px 20px;border:1px solid #D1D5DB;border-radius:8px;background:#fff;cursor:pointer;font-size:14px;font-family:inherit">取消</button>
+      <button onclick="confirmResetAll()" style="padding:8px 20px;border:none;border-radius:8px;background:#DC2626;color:#fff;cursor:pointer;font-size:14px;font-family:inherit">确认重置</button>
+    </div>
+  </div>
+</div>
+
+<button class="reset-btn" id="resetBtn" onmousedown="startDragReset(event)" onclick="resetAll()">🔄 一键重置</button>
+<script>
+let resetDragging=false,resetOffsetX=0,resetOffsetY=0,resetMoved=false;
+(function(){var p=JSON.parse(localStorage.getItem('rice_reset_btn_pos')||'null');if(p){var b=document.getElementById('resetBtn');b.style.left=p.left+'px';b.style.top=p.top+'px';b.style.right='auto';b.style.bottom='auto';}})();
+function startDragReset(e){var b=document.getElementById('resetBtn');resetDragging=true;resetMoved=false;resetOffsetX=e.clientX-b.getBoundingClientRect().left;resetOffsetY=e.clientY-b.getBoundingClientRect().top;e.preventDefault();}
+document.addEventListener('mousemove',function(e){if(!resetDragging)return;resetMoved=true;var b=document.getElementById('resetBtn');b.style.left=(e.clientX-resetOffsetX)+'px';b.style.top=(e.clientY-resetOffsetY)+'px';b.style.right='auto';b.style.bottom='auto';});
+document.addEventListener('mouseup',function(){if(resetDragging&&resetMoved){var b=document.getElementById('resetBtn');localStorage.setItem('rice_reset_btn_pos',JSON.stringify({left:parseInt(b.style.left),top:parseInt(b.style.top)}));}resetDragging=false;});
+document.getElementById('resetBtn').addEventListener('click',function(e){if(resetMoved){e.stopImmediatePropagation();resetMoved=false;}},true);
+</script>
+
+<!-- 新建评估工具弹窗 -->
+<div id="createOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:1000;align-items:center;justify-content:center">
+  <div style="background:#fff;border-radius:12px;padding:32px;width:600px;max-width:90vw">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+      <h2 style="margin:0;font-size:20px;font-weight:600">新建评估工具</h2>
+      <button onclick="closeCreateModal()" style="background:none;border:none;font-size:20px;cursor:pointer;color:#6B7280;padding:4px">✕</button>
+    </div>
+    <p id="createSubtitle" style="font-size:13px;color:#6B7280;margin-bottom:24px">请先填写基本信息，然后选择配置方式</p>
+
+    <div id="createBasicInfo">
+      <div style="margin-bottom:16px;display:flex;align-items:center;gap:16px">
+        <div id="createAvatarPreview" onclick="document.getElementById('createAvatarInput').click()" style="width:64px;height:64px;border-radius:50%;background:#EDE9FE;display:flex;align-items:center;justify-content:center;cursor:pointer;overflow:hidden;flex-shrink:0;border:2px dashed #D1D5DB">
+          <span id="createAvatarIcon" style="font-size:28px">📋</span>
+        </div>
+        <input type="file" id="createAvatarInput" accept="image/*" style="display:none" onchange="handleCreateAvatar(this)">
+        <div>
+          <div style="font-size:13px;font-weight:500;margin-bottom:4px">工具图标</div>
+          <div style="font-size:12px;color:#9CA3AF">点击上传图片</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;margin-bottom:12px">
+        <div style="display:flex;flex-direction:column;gap:6px;width:180px;flex-shrink:0">
+          <label style="font-size:13px;color:#6B7280"><span style="color:#DC2626">*</span> 名称</label>
+          <input type="text" id="createName" placeholder="评估工具名称" style="height:36px;border:1px solid #D1D5DB;border-radius:8px;padding:0 12px;font-size:14px;outline:none;font-family:inherit">
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;flex:1;min-width:0">
+          <label style="font-size:13px;color:#6B7280"><span style="color:#DC2626">*</span> 类型</label>
+          <div class="custom-select" id="createTypeWrap" style="width:100%;position:relative">
+            <div class="custom-select-trigger" onclick="toggleTypeDropdown('createTypeWrap')" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
+              <span class="custom-select-value placeholder" id="createTypeDisplay" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1">请选择类型</span>
+              <span class="custom-select-arrow" style="flex-shrink:0">▼</span>
+            </div>
+            <input type="hidden" id="createType" value="">
+            <div class="custom-select-dropdown" style="display:none"></div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:24px">
+        <label style="font-size:13px;color:#6B7280">描述</label>
+        <textarea id="createDesc" placeholder="请输入评估工具描述，如适用年龄、评估领域、评分方式等" style="height:80px;border:1px solid #D1D5DB;border-radius:8px;padding:8px 12px;font-size:14px;font-family:inherit;outline:none;resize:vertical;width:100%"></textarea>
+      </div>
+    </div>
+
+    <div id="createMethodSection">
+      <div style="font-size:14px;font-weight:600;margin-bottom:12px">选择配置方式</div>
+      <div style="display:flex;gap:16px">
+        <div onclick="showImportStep()" style="flex:1;border:2px solid #E5E7EB;border-radius:12px;padding:20px;cursor:pointer;text-align:center;transition:all .2s" onmouseover="this.style.borderColor='#7C3AED';this.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)'" onmouseout="this.style.borderColor='#E5E7EB';this.style.boxShadow='none'">
+          <div style="font-size:36px;margin-bottom:12px">📥</div>
+          <div style="font-size:15px;font-weight:600;margin-bottom:6px">表格录入</div>
+          <div style="font-size:13px;color:#6B7280;line-height:1.5">下载模板，填写评估题目后上传导入</div>
+        </div>
+        <div onclick="createManual()" style="flex:1;border:2px solid #E5E7EB;border-radius:12px;padding:20px;cursor:pointer;text-align:center;transition:all .2s" onmouseover="this.style.borderColor='#7C3AED';this.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)'" onmouseout="this.style.borderColor='#E5E7EB';this.style.boxShadow='none'">
+          <div style="font-size:36px;margin-bottom:12px">✏️</div>
+          <div style="font-size:15px;font-weight:600;margin-bottom:6px">手动录入</div>
+          <div style="font-size:13px;color:#6B7280;line-height:1.5">在线逐条添加评估领域和题目</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="importStep" style="display:none;margin-top:16px">
+      <div style="margin-bottom:20px">
+        <div style="font-size:14px;font-weight:600;margin-bottom:12px">第1步：下载导入模板</div>
+        <div style="display:flex;gap:12px;margin-bottom:12px">
+          <a onclick="downloadTemplate('pep3')" style="display:flex;align-items:center;gap:6px;padding:10px 16px;border:1px solid #D1D5DB;border-radius:8px;cursor:pointer;font-size:13px;color:#7C3AED;text-decoration:none">📄 下载 PEP-3 模板</a>
+          <a onclick="downloadTemplate('vbmapp')" style="display:flex;align-items:center;gap:6px;padding:10px 16px;border:1px solid #D1D5DB;border-radius:8px;cursor:pointer;font-size:13px;color:#7C3AED;text-decoration:none">📄 下载 VB-MAPP 模板</a>
+        </div>
+        <div style="background:#F5F3FF;border-radius:8px;padding:12px 16px;font-size:12px;color:#6B7280;line-height:1.8">
+          <div style="font-weight:600;color:#7C3AED;margin-bottom:4px">📌 CSV 表头格式说明</div>
+          <div>评分列采用行级配置，列名格式为：<code style="background:#EDE9FE;padding:1px 6px;border-radius:4px;color:#7C3AED">评分_{字母}_{字段}</code>，字段包括 分值/标签/说明</div>
+          <div>例如：<code style="background:#EDE9FE;padding:1px 6px;border-radius:4px;color:#7C3AED">评分_a_分值</code>、<code style="background:#EDE9FE;padding:1px 6px;border-radius:4px;color:#7C3AED">评分_a_标签</code>、<code style="background:#EDE9FE;padding:1px 6px;border-radius:4px;color:#7C3AED">评分_a_说明</code></div>
+          <div>每道题自带评分分值/标签/说明，动态列数，用字母编号（a, b, c, ...）</div>
+        </div>
+      </div>
+      <div style="margin-bottom:20px">
+        <div style="font-size:14px;font-weight:600;margin-bottom:12px">第2步：上传填写好的文件</div>
+        <div style="border:2px dashed #D1D5DB;border-radius:8px;padding:32px;text-align:center;cursor:pointer" onclick="document.getElementById('importFileInput').click()">
+          <div style="font-size:28px;margin-bottom:8px">📁</div>
+          <div style="font-size:14px;color:#6B7280">拖拽文件到此处，或 <span style="color:#7C3AED;font-weight:500">点击选择文件</span></div>
+          <div style="font-size:12px;color:#9CA3AF;margin-top:4px">支持 .xlsx, .csv 格式</div>
+        </div>
+        <input type="file" id="importFileInput" accept=".xlsx,.csv" style="display:none" onchange="doImportUpload(this)">
+        <div id="importFileInfo" style="display:none;margin-top:10px;padding:10px 16px;background:#ECFDF5;border-radius:8px;font-size:13px;color:#059669;align-items:center;gap:8px">
+          <span>📄</span><span id="importFileName"></span>
+        </div>
+      </div>
+      <!-- 第3步：预览数据 -->
+      <div id="importPreviewSection" style="display:none;margin-bottom:20px">
+        <div style="font-size:14px;font-weight:600;margin-bottom:12px">第3步：预览数据</div>
+        <div id="importPreviewStats" style="margin-bottom:12px;font-size:13px;color:#6B7280"></div>
+      </div>
+      <div style="display:flex;gap:8px;justify-content:flex-end">
+        <button onclick="backToMethods()" style="padding:8px 20px;border:1px solid #D1D5DB;border-radius:8px;background:#fff;cursor:pointer;font-size:14px;font-family:inherit">返回</button>
+        <button id="confirmImportBtn" onclick="confirmImport()" style="display:none;padding:8px 20px;border:none;border-radius:8px;background:#7C3AED;color:#fff;cursor:pointer;font-size:14px;font-family:inherit">确认导入</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const STORAGE_KEY = 'rice_assessment_tools';
+
+let createAvatarBase64 = '';
+
+function handleCreateAvatar(input) {
+  if (!input.files || !input.files[0]) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    createAvatarBase64 = e.target.result;
+    const preview = document.getElementById('createAvatarPreview');
+    preview.innerHTML = `<img src="${e.target.result}" style="width:100%;height:100%;object-fit:cover">`;
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+// 类型 ID → 显示名映射
+const EVAL_TYPES = {
+  'pep3': 'PEP-3 · 心理教育评估',
+  'cpep': 'C-PEP · 孤独症儿童发展评估',
+  'vbmapp': 'VB-MAPP · 语言行为里程碑评估',
+  'common': '通用评估 · 综合型评估'
+};
+
+function getTypeDisplayName(typeId) {
+  return EVAL_TYPES[typeId] || typeId || '未知类型';
+}
+
+// 默认评估工具数据
+function getDefaultTools() {
+  return [
+    {
+      id: 'pep3',
+      name: 'PEP-3',
+      desc: '心理教育评估第三版，适用于2-7.5岁儿童的发展评估，涵盖认知、语言、动作等10个发展性子测验和3个养育者报告子测验。',
+      type: 'pep3',
+      questionCount: 138,
+      status: 'active',
+      updatedAt: '2024-01-15',
+      iconClass: 'pep3'
+    },
+    {
+      id: 'cpep',
+      name: 'C-PEP',
+      desc: '孤独症儿童发展评估表（中国残联版），适用于0-7岁孤独症儿童，涵盖感知觉、精细动作、大运动等7大功能领域共493题。',
+      type: 'cpep',
+      questionCount: 493,
+      status: 'active',
+      updatedAt: '2024-01-18',
+      iconClass: 'cpep'
+    },
+    {
+      id: 'vbmapp',
+      name: 'VB-MAPP',
+      desc: '语言行为里程碑评估与安置程序，基于ABA原理评估儿童语言和社交技能，包含里程碑评估、障碍评估和转衔评估三部分。',
+      type: 'vbmapp',
+      questionCount: 170,
+      status: 'active',
+      updatedAt: '2024-01-20',
+      iconClass: 'vbmapp'
+    }
+  ];
+}
+
+function loadTools() {
+  let tools = localStorage.getItem(STORAGE_KEY);
+  if (!tools) {
+    tools = getDefaultTools();
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(tools));
+  } else {
+    tools = JSON.parse(tools);
+  }
+  return tools;
+}
+
+function saveTools(tools) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(tools));
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast show';
+  setTimeout(() => t.className = 'toast', 2000);
+}
+
+function renderCards(tools) {
+  const grid = document.getElementById('cardGrid');
+  const newCardHtml = `<div class="card" onclick="openCreateModal()" style="border:2px dashed #D1D5DB;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:180px;transition:all .2s" onmouseover="this.style.borderColor='#7C3AED';this.style.background='#FAFBFF'" onmouseout="this.style.borderColor='#D1D5DB';this.style.background='#fff'"><div style="font-size:32px;margin-bottom:8px;color:#D1D5DB">+</div><div style="font-size:14px;font-weight:500;color:#9CA3AF">新建评估工具</div></div>`;
+  if (!tools || tools.length === 0) {
+    grid.innerHTML = newCardHtml;
+    return;
+  }
+  grid.innerHTML = tools.map(t => {
+    const avatarHtml = t.avatar
+      ? `<div class="card-icon ${t.iconClass}" style="overflow:hidden"><img src="${t.avatar}" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>`
+      : `<div class="card-icon ${t.iconClass}">📋</div>`;
+    return `
+    <div class="card" data-id="${t.id}" data-status="${t.status}" data-name="${t.name}">
+      <div class="card-header">
+        ${avatarHtml}
+        <div class="toggle-switch-wrap">
+          <label class="toggle-switch">
+            <input type="checkbox" ${t.status === 'active' ? 'checked' : ''} onchange="toggleStatus('${t.id}', this)">
+            <span class="toggle-slider"></span>
+          </label>
+          <span class="toggle-label ${t.status === 'active' ? 'active' : 'inactive'}">${t.status === 'active' ? '已启用' : '已停用'}</span>
+        </div>
+      </div>
+      <div class="card-name">${t.name}</div>
+      <div class="card-desc">${t.desc || '<span style="color:#C4C9D4;font-style:italic">暂无描述，点击编辑添加</span>'}</div>
+      <div class="card-meta" style="display:flex;align-items:center;justify-content:space-between">
+        <span style="font-size:12px;color:#6B7280">${getTypeDisplayName(t.type)} · ${t.questionCount}题 · 修改: ${t.updatedAt}</span>
+        <a class="edit" onclick="editTool('${t.id}')" style="color:#7C3AED;font-weight:500">编辑</a>
+      </div>
+    </div>
+  `;
+  }).join('') + newCardHtml;
+}
+
+function filterCards() {
+  const keyword = document.getElementById('searchInput').value.trim().toLowerCase();
+  const status = document.getElementById('statusFilter').value;
+  let tools = loadTools();
+  if (keyword) tools = tools.filter(t => t.name.toLowerCase().includes(keyword) || t.desc.includes(keyword));
+  if (status) tools = tools.filter(t => t.status === status);
+  renderCards(tools);
+}
+
+function resetFilter() {
+  document.getElementById('searchInput').value = '';
+  document.getElementById('statusFilter').value = '';
+  renderCards(loadTools());
+}
+
+function editTool(id) {
+  location.href = `admin-assessment-edit.html?id=${id}`;
+}
+
+function toggleStatus(id, checkbox) {
+  const tools = loadTools();
+  const tool = tools.find(t => t.id === id);
+  if (!tool) return;
+  const newStatus = checkbox.checked ? 'active' : 'inactive';
+  if (newStatus === 'active' && tool.questionCount === 0) {
+    showToast('该评估工具尚无题目，无法启用');
+    checkbox.checked = false;
+    return;
+  }
+  tool.status = newStatus;
+  saveTools(tools);
+  showToast(`已${newStatus === 'active' ? '启用' : '停用'} ${tool.name}`);
+  filterCards();
+}
+
+function resetAll() {
+  document.getElementById('resetConfirmModal').style.display = 'flex';
+}
+function confirmResetAll() {
+  Object.keys(localStorage).forEach(k => { if (k.startsWith('rice_assessment_')) localStorage.removeItem(k); });
+  document.getElementById('resetConfirmModal').style.display = 'none';
+  location.reload();
+}
+function closeResetModal() {
+  document.getElementById('resetConfirmModal').style.display = 'none';
+}
+
+// 新建评估工具弹窗
+function openCreateModal() {
+  document.getElementById('createName').value = '';
+  document.getElementById('createType').value = '';
+  var createDisplay = document.getElementById('createTypeDisplay');
+  createDisplay.textContent = '请选择类型';
+  createDisplay.classList.add('placeholder');
+  var createWrap = document.getElementById('createTypeWrap');
+  createWrap.querySelectorAll('.custom-select-option').forEach(function(opt) { opt.classList.remove('selected'); });
+  document.getElementById('createDesc').value = '';
+  document.getElementById('createBasicInfo').style.display = '';
+  document.getElementById('createMethodSection').style.display = '';
+  document.getElementById('importStep').style.display = 'none';
+  document.getElementById('createSubtitle').textContent = '请先填写基本信息，然后选择配置方式';
+  // 重置头像
+  createAvatarBase64 = '';
+  document.getElementById('createAvatarPreview').innerHTML = '<span id="createAvatarIcon" style="font-size:28px">📋</span>';
+  document.getElementById('createAvatarInput').value = '';
+  document.getElementById('createOverlay').style.display = 'flex';
+}
+
+function closeCreateModal() {
+  document.getElementById('createOverlay').style.display = 'none';
+}
+
+function validateCreateForm() {
+  const name = document.getElementById('createName').value.trim();
+  const type = document.getElementById('createType').value;
+  if (!name) { showToast('请输入评估工具名称'); return null; }
+  if (!type) { showToast('请选择评估工具类型'); return null; }
+  const tools = loadTools();
+  if (tools.some(t => t.name === name)) {
+    showToast('评估工具名称"' + name + '"已存在，请使用其他名称');
+    return null;
+  }
+  return { name, type, desc: document.getElementById('createDesc').value.trim() };
+}
+
+let cachedCreateForm = null;
+
+function showImportStep() {
+  const form = validateCreateForm();
+  if (!form) return;
+  cachedCreateForm = form; // 缓存表单数据
+  document.getElementById('createBasicInfo').style.display = 'none';
+  document.getElementById('createMethodSection').style.display = 'none';
+  document.getElementById('importStep').style.display = 'block';
+  document.getElementById('createSubtitle').textContent = '下载模板并填写评估题目，然后上传导入';
+}
+
+function backToMethods() {
+  document.getElementById('createBasicInfo').style.display = '';
+  document.getElementById('createMethodSection').style.display = '';
+  document.getElementById('importStep').style.display = 'none';
+  document.getElementById('createSubtitle').textContent = '请先填写基本信息，然后选择配置方式';
+  // 清除文件选择和预览状态
+  document.getElementById('importFileInput').value = '';
+  document.getElementById('importFileInfo').style.display = 'none';
+  document.getElementById('importPreviewSection').style.display = 'none';
+  document.getElementById('confirmImportBtn').style.display = 'none';
+  cachedImportData = null;
+}
+
+function createManual() {
+  const form = validateCreateForm();
+  if (!form) return;
+  // 创建工具并跳转编辑页
+  const tools = loadTools();
+  const newId = 'custom_' + Date.now();
+  tools.push({
+    id: newId, name: form.name, type: form.type, desc: form.desc,
+    questionCount: 0, status: 'inactive',
+    updatedAt: new Date().toISOString().slice(0,10),
+    iconClass: 'pep3',
+    avatar: createAvatarBase64
+  });
+  saveTools(tools);
+  localStorage.setItem('rice_assessment_config_' + newId, JSON.stringify({}));
+  closeCreateModal();
+  location.href = `admin-assessment-edit.html?id=${newId}`;
+}
+
+let cachedImportData = null; // {config, totalCount, invalidCount}
+
+function parseCSVLine(line) {
+  const result = [];
+  let current = '';
+  let inQuotes = false;
+  for (let i = 0; i < line.length; i++) {
+    const ch = line[i];
+    if (inQuotes) {
+      if (ch === '"' && i + 1 < line.length && line[i + 1] === '"') {
+        current += '"'; i++;
+      } else if (ch === '"') {
+        inQuotes = false;
+      } else {
+        current += ch;
+      }
+    } else {
+      if (ch === '"') { inQuotes = true; }
+      else if (ch === ',') { result.push(current); current = ''; }
+      else { current += ch; }
+    }
+  }
+  result.push(current);
+  return result;
+}
+
+function parseImportRows(e, isXlsx) {
+    let rows;
+    try {
+      if (isXlsx) {
+        const data = new Uint8Array(e.target.result);
+        const workbook = XLSX.read(data, { type: 'array' });
+        const sheet = workbook.Sheets[workbook.SheetNames[0]];
+        rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: '' });
+      } else {
+        const text = e.target.result;
+        rows = text.split('\n').map(l => l.trim()).filter(l => l).map(l => parseCSVLine(l));
+      }
+    } catch (err) {
+      showToast('文件解析失败：' + err.message);
+      return null;
+    }
+    return rows;
+}
+
+function doImportUpload(fileInput) {
+  if (!fileInput.files || fileInput.files.length === 0) return;
+  const file = fileInput.files[0];
+  const form = cachedCreateForm;
+  if (!form) { showToast('请先填写基本信息'); return; }
+
+  document.getElementById('importFileName').textContent = file.name;
+  document.getElementById('importFileInfo').style.display = 'flex';
+  showToast('正在解析 ' + file.name + '...');
+
+  const isXlsx = file.name.endsWith('.xlsx') || file.name.endsWith('.xls');
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const rows = parseImportRows(e, isXlsx);
+    if (!rows || rows.length < 2) { showToast('文件为空或格式不正确'); return; }
+
+    const header = rows[0].map(h => String(h).trim());
+    const sortIdx = header.indexOf('排序');
+    const groupIdx = header.indexOf('一级分类');
+    const domainIdx = header.indexOf('二级分类');
+    const itemNameIdx = header.indexOf('评估项目');
+    const descIdx = header.indexOf('操作描述');
+    const materialsIdx = header.indexOf('所需材料');
+    const ageIdx = header.indexOf('适用年龄');
+    const requiredIdx = header.indexOf('是否必答');
+    // 解析行级评分列：匹配 评分_([a-z])_(分值|标签|说明)
+    const scoreColMap = {}; // { 'a': {valueIdx, labelIdx, descIdx}, 'b': {...}, ... }
+    header.forEach((h, idx) => {
+      const m = h.match(/^评分_([a-z])_(分值|标签|说明)$/);
+      if (m) {
+        const letter = m[1];
+        const field = m[2];
+        if (!scoreColMap[letter]) scoreColMap[letter] = {};
+        if (field === '分值') scoreColMap[letter].valueIdx = idx;
+        else if (field === '标签') scoreColMap[letter].labelIdx = idx;
+        else if (field === '说明') scoreColMap[letter].descIdx = idx;
+      }
+    });
+    const scoreLetters = Object.keys(scoreColMap).sort();
+
+    if (groupIdx < 0 || domainIdx < 0 || descIdx < 0) {
+      showToast('文件格式不正确，需包含"一级分类、二级分类、操作描述"列');
+      return;
+    }
+
+    const config = {};
+    let totalCount = 0;
+    let invalidCount = 0;
+    for (let i = 1; i < rows.length; i++) {
+      const cols = rows[i].map(c => String(c).trim());
+      const group = cols[groupIdx] || '';
+      const domain = cols[domainIdx] || '';
+      const desc = cols[descIdx] || '';
+      if (!group || !domain) { invalidCount++; continue; }
+      const key = group + '__' + domain;
+      if (!config[key]) config[key] = [];
+      // 构建行级 scores 数组
+      const scores = scoreLetters.map(letter => {
+        const sc = scoreColMap[letter];
+        return {
+          value: sc.valueIdx != null ? (parseFloat(cols[sc.valueIdx]) || 0) : 0,
+          label: sc.labelIdx != null ? (cols[sc.labelIdx] || '') : '',
+          desc: sc.descIdx != null ? (cols[sc.descIdx] || '') : ''
+        };
+      });
+      const row = {
+        id: 'q_' + Date.now() + '_' + totalCount,
+        number: sortIdx >= 0 ? parseInt(cols[sortIdx]) || (config[key].length + 1) : config[key].length + 1,
+        itemName: itemNameIdx >= 0 ? (cols[itemNameIdx] || '') : '',
+        desc: desc,
+        materials: materialsIdx >= 0 ? (cols[materialsIdx] || '') : '',
+        ageRange: ageIdx >= 0 ? (cols[ageIdx] || '') : '',
+        required: requiredIdx >= 0 ? cols[requiredIdx] === '是' : true,
+        enabled: true,
+        scores: scores
+      };
+      config[key].push(row);
+      totalCount++;
+    }
+
+    if (totalCount === 0) { showToast('未解析到有效数据'); return; }
+
+    cachedImportData = { config, totalCount, invalidCount };
+
+    const statsHtml = `共 <b>${totalCount + invalidCount}</b> 行，有效 <b style="color:#059669">${totalCount}</b> 条` +
+      (invalidCount > 0 ? `，异常 <b style="color:#DC2626">${invalidCount}</b> 条（缺少必填字段已跳过）` : '');
+    document.getElementById('importPreviewStats').innerHTML = statsHtml;
+
+    document.getElementById('importPreviewSection').style.display = 'block';
+    document.getElementById('confirmImportBtn').style.display = 'inline-block';
+  };
+
+  if (isXlsx) {
+    reader.readAsArrayBuffer(file);
+  } else {
+    reader.readAsText(file);
+  }
+}
+
+function confirmImport() {
+  if (!cachedImportData || !cachedCreateForm) return;
+  const { config, totalCount } = cachedImportData;
+  const form = cachedCreateForm;
+
+  const tools = loadTools();
+  const newId = 'custom_' + Date.now();
+  tools.push({
+    id: newId, name: form.name, type: form.type, desc: form.desc,
+    questionCount: totalCount, status: 'inactive',
+    updatedAt: new Date().toISOString().slice(0,10),
+    iconClass: 'pep3',
+    avatar: createAvatarBase64
+  });
+  saveTools(tools);
+  localStorage.setItem('rice_assessment_config_' + newId, JSON.stringify(config));
+
+  cachedImportData = null;
+  closeCreateModal();
+  showToast('导入成功，共导入 ' + totalCount + ' 条题目');
+  renderCards(loadTools());
+  setTimeout(() => location.href = `admin-assessment-edit.html?id=${newId}`, 800);
+}
+
+function downloadTemplate(type) {
+  const fileName = type === 'pep3' ? 'pep3-import-template.csv' : 'vbmapp-import-template.csv';
+  const link = document.createElement('a');
+  link.href = '../../../data/' + fileName;
+  link.download = fileName;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  showToast('正在下载 ' + (type === 'pep3' ? 'PEP-3' : 'VB-MAPP') + ' 模板');
+}
+
+// 自定义下拉组件
+const TYPE_OPTIONS = [
+  { value: "pep3", name: "PEP-3 · 心理教育评估", desc: "Schopler修订版，适用于2-7.5岁儿童" },
+  { value: "cpep", name: "C-PEP · 孤独症儿童发展评估（残联版）", desc: "中国残联版，适用于0-7岁孤独症儿童" },
+  { value: "vbmapp", name: "VB-MAPP · 语言行为里程碑评估", desc: "基于ABA原理评估语言和社交技能" },
+  { value: "common", name: "通用评估 · 综合型评估", desc: "适用于自定义评估工具" }
+];
+
+function initTypeDropdown(wrapId, hiddenInputId, displayId) {
+  const wrap = document.getElementById(wrapId);
+  const dropdown = wrap.querySelector('.custom-select-dropdown');
+  dropdown.innerHTML = TYPE_OPTIONS.map(opt => `
+    <div class="custom-select-option" onclick="selectType('${wrapId}','${hiddenInputId}','${displayId}','${opt.value}')">
+      <div class="opt-name">${opt.name}</div>
+      <div class="opt-desc">${opt.desc}</div>
+    </div>
+  `).join('');
+}
+
+function toggleTypeDropdown(wrapId) {
+  const wrap = document.getElementById(wrapId);
+  const dropdown = wrap.querySelector('.custom-select-dropdown');
+  const isOpen = dropdown.style.display !== 'none';
+  document.querySelectorAll('.custom-select-dropdown').forEach(d => d.style.display = 'none');
+  dropdown.style.display = isOpen ? 'none' : 'block';
+}
+
+function selectType(wrapId, hiddenInputId, displayId, value) {
+  document.getElementById(hiddenInputId).value = value;
+  const display = document.getElementById(displayId);
+  const opt = TYPE_OPTIONS.find(o => o.value === value);
+  display.textContent = opt ? opt.name : value;
+  display.classList.remove('placeholder');
+  const wrap = document.getElementById(wrapId);
+  wrap.querySelectorAll('.custom-select-option').forEach(optEl => {
+    const nameEl = optEl.querySelector('.opt-name');
+    optEl.classList.toggle('selected', nameEl && opt && nameEl.textContent === opt.name);
+  });
+  wrap.querySelector('.custom-select-dropdown').style.display = 'none';
+}
+
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.custom-select')) {
+    document.querySelectorAll('.custom-select-dropdown').forEach(d => d.style.display = 'none');
+  }
+});
+
+// 初始化
+initTypeDropdown('createTypeWrap', 'createType', 'createTypeDisplay');
+renderCards(loadTools());
+</script>
+</body>
+</html>

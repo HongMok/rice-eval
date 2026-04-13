@@ -1,0 +1,14 @@
+.DS_Store
+*.DS_Store
+.vscode/
+node_modules/
+*.log
+
+# 大文件：视频、PDF、Office 文档（参考资料，不入库）
+*.mp4
+*.pdf
+*.doc
+*.docx
+*.xlsx
+*.xls
+~$*

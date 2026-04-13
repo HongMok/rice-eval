@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>评估结果 - 路由页</title>
+<style>
+:root {
+  --app-primary: #3B9BF5;
+  --app-bg: #F0F2F5;
+  --app-text: #1A2233;
+  --app-text-sec: #8C95A6;
+  --app-font: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", "Noto Sans SC", sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--app-font); background: var(--app-bg); color: var(--app-text); display: flex; align-items: center; justify-content: center; height: 100vh; }
+.loading { text-align: center; }
+.loading .spinner { width: 36px; height: 36px; border: 3px solid #E8ECF0; border-top-color: var(--app-primary); border-radius: 50%; animation: spin .8s linear infinite; margin: 0 auto 12px; }
+.loading .text { font-size: 14px; color: var(--app-text-sec); }
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+<div class="loading">
+  <div class="spinner"></div>
+  <div class="text">正在加载评估报告...</div>
+</div>
+<script>
+/* === 路由逻辑 === */
+(function() {
+  const params = new URLSearchParams(location.search);
+  const toolId = params.get('tool') || '';
+  const recordId = params.get('record') || '';
+
+  // 工具类型 → 独立报告页映射
+  const REPORT_PAGES = {
+    pep3: 'assessment-result-pep3.html',
+    cpep: 'assessment-result-cpep.html',
+    vbmapp: 'assessment-result-vbmapp.html'
+  };
+
+  // 尝试从 eval-type-config 读取（localStorage 缓存或硬编码 fallback）
+  let targetPage = REPORT_PAGES[toolId];
+
+  // 也尝试从 localStorage 中的配置读取
+  if (!targetPage) {
+    try {
+      const configStr = localStorage.getItem('rice_assessment_eval_type_config');
+      if (configStr) {
+        const config = JSON.parse(configStr);
+        const toolType = (config.types || []).find(t => t.id === toolId);
+        if (toolType && toolType.reportConfig && toolType.reportConfig.reportPage) {
+          targetPage = toolType.reportConfig.reportPage;
+        }
+      }
+    } catch(e) {}
+  }
+
+  if (targetPage && targetPage !== 'assessment-result.html') {
+    // 跳转到独立报告页，携带原有参数
+    const newUrl = targetPage + '?' + params.toString();
+    location.replace(newUrl);
+  }
+  // 如果是 common 类型或未找到配置，留在当前页作为通用报告页
+  // 通用报告页的完整逻辑保留在下方（fallback）
+})();
+</script>
+
+<!-- 以下为通用报告页 fallback（common 类型使用） -->
+<script>
+// 如果没有跳转，说明是通用类型，显示基础报告
+// 这里简单展示一个提示，实际通用报告逻辑可后续完善
+document.querySelector('.loading .text').textContent = '通用评估报告（开发中）';
+document.querySelector('.loading .spinner').style.display = 'none';
+</script>
+</body>
+</html>
