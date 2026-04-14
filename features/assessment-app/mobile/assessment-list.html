@@ -2,8 +2,8 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>评估报告列表 - 康复师App PAD端</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>评估报告列表 - 康复师App 手机端</title>
 <style>
 /* === 全局变量（蓝色主题 Part B） === */
 :root {
@@ -26,137 +26,474 @@
   --app-font: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", "Noto Sans SC", sans-serif;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: var(--app-font); background: var(--app-bg); color: var(--app-text); display: flex; height: 100vh; overflow: hidden; }
+html, body { height: 100%; }
+body {
+  font-family: var(--app-font);
+  background: var(--app-bg);
+  color: var(--app-text);
+  max-width: 420px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
 
-/* === 左侧导航栏 === */
-.sidebar { width: 160px; background: var(--app-card); display: flex; flex-direction: column; flex-shrink: 0; border-right: 1px solid var(--app-border); }
-.sidebar-profile { padding: 20px 16px; text-align: center; border-bottom: 1px solid var(--app-border); }
-.sidebar-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--app-primary-light); display: flex; align-items: center; justify-content: center; font-size: 20px; margin: 0 auto 8px; }
-.sidebar-name { font-size: 14px; font-weight: 600; }
-.sidebar-meta { font-size: 12px; color: var(--app-text-sec); }
-.sidebar-nav { flex: 1; padding: 8px 0; }
-.sidebar-item { display: flex; align-items: center; gap: 8px; padding: 10px 16px; font-size: 14px; color: var(--app-text-nav); cursor: pointer; border-left: 3px solid transparent; }
-.sidebar-item:hover { background: #F5F7FA; }
-.sidebar-item.active { background: var(--app-primary-light); color: var(--app-primary); border-left-color: var(--app-primary); font-weight: 500; }
-.sidebar-item .icon { font-size: 18px; }
-.sidebar-bottom { padding: 16px; border-top: 1px solid var(--app-border); }
-.sidebar-bottom a { font-size: 13px; color: var(--app-primary); text-decoration: none; }
+/* === 顶部导航栏 === */
+.top-header {
+  background: var(--app-card);
+  height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--app-border);
+  position: relative;
+}
+.back-btn {
+  font-size: 18px;
+  color: var(--app-text);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px 4px 0;
+  display: flex;
+  align-items: center;
+}
+.top-header-title {
+  font-size: 16px;
+  font-weight: 600;
+  flex: 1;
+}
 
-/* === 主内容区 === */
-.main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
-
-/* 顶部Tab栏 */
-.top-bar { background: var(--app-card); border-bottom: 1px solid var(--app-border); padding: 0 20px; display: flex; align-items: center; height: 48px; flex-shrink: 0; }
-.tab-group { display: flex; gap: 0; }
-.tab-btn { padding: 12px 20px; font-size: 14px; color: var(--app-text-nav); cursor: pointer; border: none; background: none; border-bottom: 2px solid transparent; font-family: var(--app-font); font-weight: 500; }
+/* === Tab 筛选栏 === */
+.tab-bar {
+  background: var(--app-card);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  height: 44px;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--app-border);
+}
+.tab-group {
+  display: flex;
+  gap: 0;
+  flex: 1;
+}
+.tab-btn {
+  padding: 10px 14px;
+  font-size: 14px;
+  color: var(--app-text-nav);
+  cursor: pointer;
+  border: none;
+  background: none;
+  border-bottom: 2px solid transparent;
+  font-family: var(--app-font);
+  font-weight: 500;
+}
 .tab-btn:hover { color: var(--app-primary); }
-.tab-btn.active { color: var(--app-primary); border-bottom-color: var(--app-primary); }
-.new-btn { margin-left: auto; color: var(--app-primary); font-size: 14px; font-weight: 500; cursor: pointer; background: none; border: none; font-family: var(--app-font); display: flex; align-items: center; gap: 4px; }
+.tab-btn.active {
+  color: var(--app-primary);
+  border-bottom-color: var(--app-primary);
+}
+.new-btn {
+  color: var(--app-primary);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: var(--app-font);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
 .new-btn:hover { color: var(--app-primary-hover); }
 
-/* 列表区域 */
-.list-area { flex: 1; overflow-y: auto; padding: 20px; }
-.list-empty { text-align: center; padding: 60px 0; color: var(--app-text-sec); font-size: 14px; }
+/* === 列表区域 === */
+.list-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  padding-bottom: 80px; /* space for test buttons above tab bar */
+  -webkit-overflow-scrolling: touch;
+}
+.list-empty {
+  text-align: center;
+  padding: 60px 0;
+  color: var(--app-text-sec);
+  font-size: 14px;
+}
 
-/* 评估记录行 */
-.record-row { background: var(--app-card); border-radius: var(--app-radius-xl); padding: 16px 20px; margin-bottom: 12px; box-shadow: var(--app-shadow); display: flex; align-items: center; justify-content: space-between; }
-.record-info { flex: 1; }
-.record-title { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+/* === 评估记录卡片（移动端竖排） === */
+.record-card {
+  background: var(--app-card);
+  border-radius: var(--app-radius-lg);
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: var(--app-shadow);
+  width: 100%;
+}
+.record-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.record-title {
+  font-size: 15px;
+  font-weight: 600;
+}
 .record-title .status-ongoing { color: var(--app-primary); }
 .record-title .status-done { color: var(--app-success); }
-.record-meta { display: flex; gap: 20px; font-size: 13px; color: var(--app-text-sec); flex-wrap: wrap; }
-.record-actions { display: flex; gap: 8px; flex-shrink: 0; margin-left: 16px; }
-.record-actions button { padding: 6px 16px; border-radius: var(--app-radius-md); font-size: 13px; cursor: pointer; font-family: var(--app-font); font-weight: 500; }
-.btn-delete { background: #fff; border: 1px solid var(--app-danger); color: var(--app-danger); }
+.record-status-badge {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+.record-status-badge.ongoing {
+  background: var(--app-primary-light);
+  color: var(--app-primary);
+}
+.record-status-badge.completed {
+  background: #F0FFF4;
+  color: var(--app-success);
+}
+.record-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--app-text-sec);
+  margin-bottom: 12px;
+}
+.record-meta-row {
+  display: flex;
+  gap: 16px;
+}
+.record-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+.record-actions button {
+  padding: 7px 18px;
+  border-radius: var(--app-radius-md);
+  font-size: 13px;
+  cursor: pointer;
+  font-family: var(--app-font);
+  font-weight: 500;
+}
+.btn-delete {
+  background: #fff;
+  border: 1px solid var(--app-danger);
+  color: var(--app-danger);
+}
 .btn-delete:hover { background: #FFF0F0; }
-.btn-continue { background: var(--app-primary); color: #fff; border: none; }
+.btn-continue {
+  background: var(--app-primary);
+  color: #fff;
+  border: none;
+  flex: 1;
+}
 .btn-continue:hover { background: var(--app-primary-hover); }
-.btn-view { background: var(--app-primary); color: #fff; border: none; }
+.btn-view {
+  background: var(--app-primary);
+  color: #fff;
+  border: none;
+  flex: 1;
+}
 .btn-view:hover { background: var(--app-primary-hover); }
 
+/* === 底部Tab导航 === */
+.bottom-tab {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 420px;
+  height: 56px;
+  background: var(--app-card);
+  border-top: 1px solid var(--app-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 100;
+  flex-shrink: 0;
+}
+.bottom-tab-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: var(--app-font);
+  padding: 4px 0;
+}
+.bottom-tab-icon { font-size: 20px; }
+.bottom-tab-label {
+  font-size: 10px;
+  color: var(--app-text-sec);
+}
+.bottom-tab-item.active .bottom-tab-label {
+  color: var(--app-primary);
+  font-weight: 500;
+}
+.bottom-tab-item.active .bottom-tab-icon {
+  color: var(--app-primary);
+}
+
 /* === 弹窗 === */
-.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 100; display: none; align-items: center; justify-content: center; }
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 200;
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+}
 .modal-overlay.show { display: flex; }
-.modal { background: #fff; border-radius: var(--app-radius-xl); padding: 24px; width: 480px; max-width: 90%; max-height: 80vh; display: flex; flex-direction: column; }
-.modal h3 { font-size: 16px; font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
-.modal h3 .close { cursor: pointer; font-size: 18px; color: var(--app-text-sec); background: none; border: none; }
-.modal #toolList { overflow-y: auto; flex: 1; }
+.modal {
+  background: #fff;
+  border-radius: var(--app-radius-xl) var(--app-radius-xl) 0 0;
+  padding: 20px 16px;
+  width: 100%;
+  max-width: 420px;
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.25s ease;
+}
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+.modal h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.modal h3 .close {
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--app-text-sec);
+  background: none;
+  border: none;
+  padding: 4px;
+}
+.modal #toolList {
+  overflow-y: auto;
+  flex: 1;
+  -webkit-overflow-scrolling: touch;
+}
 
 /* 评估工具选择卡片 */
-.tool-card { border: 1px solid var(--app-border); border-radius: var(--app-radius-lg); padding: 16px; margin-bottom: 12px; cursor: pointer; transition: all .15s; }
-.tool-card:hover { border-color: var(--app-primary); background: var(--app-primary-light); }
-.tool-card:active { transform: scale(0.99); }
-.tool-card .card-top { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
-.tool-card .card-icon { width: 40px; height: 40px; border-radius: var(--app-radius-md); display: flex; align-items: center; justify-content: center; font-size: 20px; }
+.tool-card {
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-lg);
+  padding: 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all .15s;
+}
+.tool-card:hover {
+  border-color: var(--app-primary);
+  background: var(--app-primary-light);
+}
+.tool-card:active { transform: scale(0.98); }
+.tool-card .card-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.tool-card .card-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--app-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
 .tool-card .card-icon.pep3 { background: #EDE9FE; }
 .tool-card .card-icon.vbmapp { background: #DBEAFE; }
 .tool-card .card-name { font-size: 15px; font-weight: 600; }
-.tool-card .card-desc { font-size: 13px; color: var(--app-text-sec); margin-bottom: 6px; }
-.tool-card .card-meta { font-size: 12px; color: var(--app-text-nav); display: flex; gap: 12px; }
+.tool-card .card-desc {
+  font-size: 13px;
+  color: var(--app-text-sec);
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+.tool-card .card-meta {
+  font-size: 12px;
+  color: var(--app-text-nav);
+  display: flex;
+  gap: 12px;
+}
 
 /* 删除确认弹窗 */
-.modal-delete p { font-size: 14px; color: var(--app-text-sec); line-height: 1.6; margin-bottom: 16px; }
-.modal-btns { display: flex; gap: 8px; justify-content: flex-end; }
-.modal-btns button { padding: 8px 20px; border-radius: var(--app-radius-md); font-size: 14px; cursor: pointer; font-family: var(--app-font); }
-.modal-btns .cancel { background: #fff; border: 1px solid var(--app-border); color: var(--app-text); }
-.modal-btns .confirm-delete { background: var(--app-danger); color: #fff; border: none; }
+.modal-delete { border-radius: var(--app-radius-xl); }
+.modal-delete p {
+  font-size: 14px;
+  color: var(--app-text-sec);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+.modal-btns {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+.modal-btns button {
+  padding: 8px 20px;
+  border-radius: var(--app-radius-md);
+  font-size: 14px;
+  cursor: pointer;
+  font-family: var(--app-font);
+}
+.modal-btns .cancel {
+  background: #fff;
+  border: 1px solid var(--app-border);
+  color: var(--app-text);
+}
+.modal-btns .confirm-delete {
+  background: var(--app-danger);
+  color: #fff;
+  border: none;
+}
 
-/* 通用 */
-.reset-btn { position: fixed; bottom: 20px; right: 20px; background: rgba(0,0,0,0.35); color: #fff; border: none; padding: 8px 14px; border-radius: var(--app-radius-md); font-size: 13px; cursor: pointer; z-index: 9999; opacity: 0.5; }
+/* === 测试数据按钮组（底部右侧，tab bar 上方） === */
+.test-btns {
+  position: fixed;
+  bottom: 64px;
+  right: calc((100vw - 420px) / 2 + 8px);
+  z-index: 99;
+  display: flex;
+  gap: 4px;
+}
+@media (max-width: 420px) {
+  .test-btns { right: 8px; }
+}
+.test-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  line-height: 1;
+  font-family: var(--app-font);
+}
+.test-btn.high { background: #F0FFF4; color: #52C41A; border: 1px solid #B7EB8F; }
+.test-btn.mid { background: #FFFBE6; color: #FAAD14; border: 1px solid #FFE58F; }
+.test-btn.low { background: #FFF1F0; color: #F5222D; border: 1px solid #FFA39E; }
+.test-btn:hover { filter: brightness(0.95); }
+
+/* === 重置按钮 === */
+.reset-btn {
+  position: fixed;
+  bottom: 64px;
+  left: calc((100vw - 420px) / 2 + 8px);
+  background: rgba(0,0,0,0.35);
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: var(--app-radius-md);
+  font-size: 12px;
+  cursor: pointer;
+  z-index: 99;
+  opacity: 0.5;
+}
+@media (max-width: 420px) {
+  .reset-btn { left: 8px; }
+}
 .reset-btn:hover { opacity: 1; }
 
-/* 测试数据按钮组 */
-.test-btns { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 9998; display: flex; flex-direction: column; gap: 2px; cursor: grab; user-select: none; }
-.test-btns.dragging { cursor: grabbing; }
-.test-btn { width: 40px; height: 40px; border: none; border-radius: 8px 0 0 8px; font-size: 12px; font-weight: 600; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.1; font-family: var(--app-font); box-shadow: -2px 0 8px rgba(0,0,0,0.1); }
-.test-btn.high { background: #F0FFF4; color: #52C41A; border: 1px solid #B7EB8F; border-right: none; }
-.test-btn.mid { background: #FFFBE6; color: #FAAD14; border: 1px solid #FFE58F; border-right: none; }
-.test-btn.low { background: #FFF1F0; color: #F5222D; border: 1px solid #FFA39E; border-right: none; }
-.test-btn:hover { filter: brightness(0.95); }
-.toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #1A2233; color: #fff; padding: 10px 20px; border-radius: var(--app-radius-md); font-size: 13px; z-index: 10000; display: none; }
-.toast.show { display: block; animation: fadeInOut 2s ease; }
-@keyframes fadeInOut { 0%{opacity:0;transform:translateX(-50%) translateY(-10px)} 15%{opacity:1;transform:translateX(-50%) translateY(0)} 85%{opacity:1} 100%{opacity:0} }
+/* === Toast === */
+.toast {
+  position: fixed;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1A2233;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: var(--app-radius-md);
+  font-size: 13px;
+  z-index: 10000;
+  display: none;
+  max-width: 300px;
+  text-align: center;
+}
+.toast.show {
+  display: block;
+  animation: fadeInOut 2s ease;
+}
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+  15% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  85% { opacity: 1; }
+  100% { opacity: 0; }
+}
 </style>
 </head>
 <body>
 
-<!-- 左侧导航 -->
-<nav class="sidebar">
-  <div class="sidebar-profile">
-    <div class="sidebar-avatar">👦</div>
-    <div class="sidebar-name">张小明</div>
-    <div class="sidebar-meta">男 · 7岁</div>
-  </div>
-  <div class="sidebar-nav">
-    <div class="sidebar-item"><span class="icon">📊</span>康复概述</div>
-    <div class="sidebar-item active"><span class="icon">📝</span>评估报告</div>
-    <div class="sidebar-item"><span class="icon">📖</span>1对1训练课</div>
-    <div class="sidebar-item"><span class="icon">👥</span>小组课</div>
-    <div class="sidebar-item"><span class="icon">📋</span>康复报告</div>
-    <div class="sidebar-item"><span class="icon">🏛️</span>残联报告</div>
-  </div>
-  <div class="sidebar-bottom">
-    <a href="#">🔒 冻结</a>
-  </div>
-</nav>
-
-<!-- 主内容 -->
-<div class="main">
-  <!-- 顶部Tab筛选 + 新建按钮 -->
-  <div class="top-bar">
-    <div class="tab-group">
-      <button class="tab-btn active" data-filter="all" onclick="switchTab(this)">全部</button>
-      <button class="tab-btn" data-filter="completed" onclick="switchTab(this)">已完成</button>
-      <button class="tab-btn" data-filter="ongoing" onclick="switchTab(this)">评估中</button>
-    </div>
-    <button class="new-btn" onclick="openNewModal()">📋 新建评估</button>
-  </div>
-
-  <!-- 列表区域 -->
-  <div class="list-area" id="listArea"></div>
+<!-- 顶部导航栏 -->
+<div class="top-header">
+  <button class="back-btn" onclick="history.back()">←</button>
+  <div class="top-header-title">张小明 的评估</div>
 </div>
 
-<!-- 新建评估弹窗 -->
+<!-- Tab 筛选栏 -->
+<div class="tab-bar">
+  <div class="tab-group">
+    <button class="tab-btn active" data-filter="all" onclick="switchTab(this)">全部</button>
+    <button class="tab-btn" data-filter="completed" onclick="switchTab(this)">已完成</button>
+    <button class="tab-btn" data-filter="ongoing" onclick="switchTab(this)">评估中</button>
+  </div>
+  <button class="new-btn" onclick="openNewModal()">📋 新建评估</button>
+</div>
+
+<!-- 列表区域 -->
+<div class="list-area" id="listArea"></div>
+
+<!-- 底部Tab导航 -->
+<div class="bottom-tab">
+  <button class="bottom-tab-item">
+    <span class="bottom-tab-icon">🏠</span>
+    <span class="bottom-tab-label">首页</span>
+  </button>
+  <button class="bottom-tab-item active">
+    <span class="bottom-tab-icon">👤</span>
+    <span class="bottom-tab-label">学员</span>
+  </button>
+  <button class="bottom-tab-item">
+    <span class="bottom-tab-icon">👤</span>
+    <span class="bottom-tab-label">我的</span>
+  </button>
+</div>
+
+<!-- 新建评估弹窗（底部弹出） -->
 <div class="modal-overlay" id="newModal">
   <div class="modal">
     <h3>选择评估工具 <button class="close" onclick="closeModal('newModal')">✕</button></h3>
@@ -165,8 +502,8 @@ body { font-family: var(--app-font); background: var(--app-bg); color: var(--app
 </div>
 
 <!-- 删除确认弹窗 -->
-<div class="modal-overlay" id="deleteModal">
-  <div class="modal modal-delete">
+<div class="modal-overlay" id="deleteModal" style="align-items:center;">
+  <div class="modal modal-delete" style="border-radius:var(--app-radius-xl);max-width:320px;">
     <h3>确认删除</h3>
     <p>确定要删除这条评估记录吗？删除后数据无法恢复。</p>
     <div class="modal-btns">
@@ -176,15 +513,27 @@ body { font-family: var(--app-font); background: var(--app-bg); color: var(--app
   </div>
 </div>
 
+<!-- 重置确认弹窗 -->
+<div class="modal-overlay" id="resetModal" style="align-items:center;">
+  <div class="modal modal-delete" style="border-radius:var(--app-radius-xl);max-width:320px;">
+    <h3>确认重置</h3>
+    <p>确定要重置所有评估数据吗？重置后将恢复默认模拟数据。</p>
+    <div class="modal-btns">
+      <button class="cancel" onclick="closeModal('resetModal')">取消</button>
+      <button class="confirm-delete" onclick="confirmReset()">重置</button>
+    </div>
+  </div>
+</div>
+
 <!-- 测试数据按钮 -->
 <div class="test-btns" id="testBtns">
-  <button class="test-btn high" onclick="generateTestData('high')" title="为所有工具生成高分测试数据">🟢<span>高</span></button>
-  <button class="test-btn mid" onclick="generateTestData('mid')" title="为所有工具生成中分测试数据">🟡<span>中</span></button>
-  <button class="test-btn low" onclick="generateTestData('low')" title="为所有工具生成低分测试数据">🔴<span>低</span></button>
+  <button class="test-btn high" onclick="generateTestData('high')" title="高分测试数据">🟢</button>
+  <button class="test-btn mid" onclick="generateTestData('mid')" title="中分测试数据">🟡</button>
+  <button class="test-btn low" onclick="generateTestData('low')" title="低分测试数据">🔴</button>
 </div>
 
 <div class="toast" id="toast"></div>
-<button class="reset-btn" onclick="resetAll()">🔄 一键重置</button>
+<button class="reset-btn" onclick="resetAll()">🔄 重置</button>
 
 <script>
 /* === 数据管理 === */
@@ -217,7 +566,6 @@ function initData() {
   if (!tools) {
     tools = getDefaultTools();
   } else {
-    // 补充缺失的默认工具
     const defaultTools = getDefaultTools();
     defaultTools.forEach(dt => {
       if (!tools.find(t => t.id === dt.id)) tools.push(dt);
@@ -268,23 +616,31 @@ function renderList() {
 
   area.innerHTML = filtered.map(r => {
     const statusText = r.status === 'completed' ? '已完成' : '评估中';
-    const statusClass = r.status === 'completed' ? 'status-done' : 'status-ongoing';
+    const statusClass = r.status === 'completed' ? 'completed' : 'ongoing';
     const dateStr = r.date.replace(/-/g, '.');
+    // 进度信息
+    const progress = r.status === 'ongoing' && r.totalCount
+      ? `<span>进度: ${r.answeredCount}/${r.totalCount}</span>` : '';
     // 操作按钮
     let actions = '';
     if (r.status === 'ongoing') {
       actions = `<button class="btn-delete" onclick="tryDelete('${r.id}')">删除</button>
                  <button class="btn-continue" onclick="continueAssessment('${r.id}','${r.toolId}')">继续评估</button>`;
     } else {
-      actions = `<button class="btn-view" onclick="viewResult('${r.id}','${r.toolId}')">查看</button>`;
+      actions = `<button class="btn-view" onclick="viewResult('${r.id}','${r.toolId}')">查看结果</button>`;
     }
-    return `<div class="record-row">
-      <div class="record-info">
-        <div class="record-title">${dateStr}-<span class="${statusClass}">${statusText}</span></div>
-        <div class="record-meta">
-          <span>评估时间: ${r.time || r.date}</span>
-          <span>评估工具: ${r.toolName}</span>
-          <span>评估师: ${r.assessor}</span>
+    return `<div class="record-card">
+      <div class="record-card-header">
+        <div class="record-title">${r.toolName} · ${dateStr}</div>
+        <span class="record-status-badge ${statusClass}">${statusText}</span>
+      </div>
+      <div class="record-meta">
+        <div class="record-meta-row">
+          <span>🕐 ${r.time || r.date}</span>
+        </div>
+        <div class="record-meta-row">
+          <span>👤 ${r.assessor}</span>
+          ${progress}
         </div>
       </div>
       <div class="record-actions">${actions}</div>
@@ -380,10 +736,13 @@ function showToast(msg) {
 }
 
 function resetAll() {
-  if (confirm('确定要重置所有评估数据吗？')) {
-    Object.keys(localStorage).forEach(k => { if (k.startsWith('rice_assessment_')) localStorage.removeItem(k); });
-    location.reload();
-  }
+  document.getElementById('resetModal').classList.add('show');
+}
+
+function confirmReset() {
+  closeModal('resetModal');
+  Object.keys(localStorage).forEach(k => { if (k.startsWith('rice_assessment_')) localStorage.removeItem(k); });
+  location.reload();
 }
 
 /* === 测试数据生成 === */
@@ -426,7 +785,7 @@ function generateTestData(level) {
       const entry = { value: scoreValue, label: '' };
       // 约50%的题目生成回合统计数据
       if (Math.random() < 0.5) {
-        const numRounds = 3 + Math.floor(Math.random() * 2); // 3-4 rounds
+        const numRounds = 3 + Math.floor(Math.random() * 2);
         const rounds = [];
         for (let r = 0; r < numRounds; r++) {
           const rr = Math.random();
@@ -458,36 +817,6 @@ function generateTestData(level) {
   showToast(`已生成${levelLabel}测试数据（${tools.length}个工具）`);
   renderList();
 }
-
-/* === 测试按钮拖拽 === */
-(function() {
-  const el = document.getElementById('testBtns');
-  let isDragging = false, startY = 0, startTop = 0;
-
-  el.addEventListener('mousedown', function(e) {
-    if (e.target.tagName === 'BUTTON') return; // 点击按钮不拖拽
-    isDragging = true;
-    startY = e.clientY;
-    startTop = el.getBoundingClientRect().top;
-    el.classList.add('dragging');
-    e.preventDefault();
-  });
-
-  document.addEventListener('mousemove', function(e) {
-    if (!isDragging) return;
-    const newTop = startTop + (e.clientY - startY);
-    const maxTop = window.innerHeight - el.offsetHeight;
-    el.style.top = Math.max(0, Math.min(newTop, maxTop)) + 'px';
-    el.style.transform = 'none';
-  });
-
-  document.addEventListener('mouseup', function() {
-    if (isDragging) {
-      isDragging = false;
-      el.classList.remove('dragging');
-    }
-  });
-})();
 
 // 初始化
 initData();

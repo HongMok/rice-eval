@@ -73,14 +73,11 @@ body { font-family: var(--app-font); background: var(--app-bg); color: var(--app
     location.replace(newUrl);
   }
   // 如果是 common 类型或未找到配置，留在当前页作为通用报告页
-  // 通用报告页的完整逻辑保留在下方（fallback）
 })();
 </script>
 
 <!-- 以下为通用报告页 fallback（common 类型使用） -->
 <script>
-// 如果没有跳转，说明是通用类型，显示基础报告
-// 这里简单展示一个提示，实际通用报告逻辑可后续完善
 document.querySelector('.loading .text').textContent = '通用评估报告（开发中）';
 document.querySelector('.loading .spinner').style.display = 'none';
 </script>

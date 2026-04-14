@@ -5,60 +5,17 @@
       "name": "PEP-3",
       "description": "心理教育评估（Schopler修订版）",
       "answerConfig": {
-        "listMode": "byOrder",
+        "listMode": "byDomain",
         "cardFields": ["itemName", "desc", "materials"],
         "showScoreDesc": false,
         "navCollapsedByDefault": false,
-        "quickActions": ["failAll", "passAll", "nextDomain"]
+        "quickActions": ["failAll", "passAll", "nextDomain"],
+        "allowPartialSubmit": false
       },
       "questionListConfig": {},
       "reportConfig": {
         "reportPage": "assessment-result-pep3.html",
-        "reportTitle": "PEP-3 心理教育评估报告",
-        "sections": [
-          {
-            "id": "basicInfo",
-            "title": "基本信息",
-            "fields": ["childName", "birthDate", "actualAge", "devAge", "assessDate", "assessor"]
-          },
-          {
-            "id": "funcDev",
-            "title": "功能发展评分",
-            "type": "scoreTable",
-            "domains": ["模仿", "知觉", "小肌肉", "大肌肉", "手眼协调", "认知理解", "认知表达"],
-            "columns": ["项目总分", "已有能力(P分)", "部分能力(E分)", "简要评价"],
-            "showTotal": true
-          },
-          {
-            "id": "behavior",
-            "title": "行为表现评分",
-            "type": "behaviorTable",
-            "domains": ["情感关系", "游戏及兴趣", "感觉反应", "语言异常"],
-            "ratingScale": ["A", "M", "S"]
-          },
-          {
-            "id": "eduOutline",
-            "title": "教育训练纲要",
-            "type": "textArea",
-            "editable": true
-          },
-          {
-            "id": "summary",
-            "title": "评估总结",
-            "type": "summaryTable",
-            "columns": ["已有能力(P分)", "部分能力(E分)", "未达到的能力(F分)"],
-            "showFuncDev": true,
-            "showBehavior": true
-          },
-          {
-            "id": "detailItems",
-            "title": "测试项目明细",
-            "type": "detailPages",
-            "pageCount": 9,
-            "showBehaviorColumns": true,
-            "showDevColumns": true
-          }
-        ]
+        "reportTitle": "PEP-3 心理教育评估报告"
       },
       "recordConfig": {}
     },
@@ -71,45 +28,13 @@
         "cardFields": ["itemName", "desc", "materials", "ageRange"],
         "showScoreDesc": true,
         "navCollapsedByDefault": true,
-        "quickActions": ["failAll", "passAll", "nextDomain"]
+        "quickActions": ["failAll", "passAll", "nextDomain"],
+        "allowPartialSubmit": false
       },
       "questionListConfig": {},
       "reportConfig": {
         "reportPage": "assessment-result-cpep.html",
-        "reportTitle": "C-PEP 孤独症儿童发展评估报告",
-        "sections": [
-          {
-            "id": "basicInfo",
-            "title": "基本信息",
-            "fields": ["childName", "birthDate", "actualAge", "assessDate", "assessor"]
-          },
-          {
-            "id": "domainScores",
-            "title": "各领域得分",
-            "type": "scoreTable",
-            "domains": ["感知觉", "精细动作", "粗大动作", "模仿", "认知", "语言理解", "语言表达"],
-            "columns": ["通过数", "中间反应数", "不通过数", "得分", "发展年龄"],
-            "scoring": { "pass": 1, "partial": "中间反应", "fail": 0 }
-          },
-          {
-            "id": "devProfile",
-            "title": "发展概况",
-            "type": "radarChart"
-          },
-          {
-            "id": "analysis",
-            "title": "综合分析",
-            "type": "textArea",
-            "editable": true,
-            "aiGenerated": true
-          },
-          {
-            "id": "recommendations",
-            "title": "训练建议",
-            "type": "textArea",
-            "editable": true
-          }
-        ]
+        "reportTitle": "C-PEP 孤独症儿童发展评估报告"
       },
       "recordConfig": {}
     },
@@ -122,75 +47,13 @@
         "cardFields": ["itemName", "desc"],
         "showScoreDesc": false,
         "navCollapsedByDefault": false,
-        "quickActions": ["failAll", "passAll", "nextDomain"]
+        "quickActions": ["failAll", "passAll", "nextDomain"],
+        "allowPartialSubmit": false
       },
       "questionListConfig": {},
       "reportConfig": {
         "reportPage": "assessment-result-vbmapp.html",
-        "reportTitle": "VB-MAPP 语言行为里程碑评估报告",
-        "sections": [
-          {
-            "id": "cover",
-            "title": "封面",
-            "fields": ["childName", "gender", "birthDate", "assessDate"]
-          },
-          {
-            "id": "about",
-            "title": "关于VB-MAPP",
-            "type": "staticText"
-          },
-          {
-            "id": "milestoneGrid",
-            "title": "里程碑计分总表",
-            "type": "milestoneGrid",
-            "levels": [
-              { "level": 1, "range": "0-18月", "maxScore": 5, "domains": ["提要求", "命名", "听者反应", "视觉配对", "游戏", "社交", "模仿", "仿说", "发音"] },
-              { "level": 2, "range": "18-30月", "maxScore": 10, "domains": ["提要求", "命名", "听者反应", "视觉配对", "游戏", "社交", "模仿", "仿说", "LRFFC", "对话", "集体技能", "语言结构"] },
-              { "level": 3, "range": "30-48月", "maxScore": 15, "domains": ["提要求", "命名", "听者反应", "视觉配对", "游戏", "社交", "阅读", "书写", "LRFFC", "对话", "集体技能", "语言结构", "数学"] }
-            ]
-          },
-          {
-            "id": "milestoneReport",
-            "title": "里程碑评估报告及建议",
-            "type": "domainReport",
-            "domains": ["提要求", "命名", "听者反应", "视觉配对", "游戏", "社交", "模仿", "仿说", "发音", "对话", "集体技能", "语言结构", "数学", "阅读", "书写", "LRFFC"],
-            "showScore": true,
-            "showRecommendation": true
-          },
-          {
-            "id": "barrierGrid",
-            "title": "障碍计分总表",
-            "type": "barrierGrid",
-            "barriers": ["行为问题", "教学控制", "提要求的缺陷", "命名的缺陷", "模仿的缺陷", "仿说的缺陷", "视觉感知和配对的缺失", "听者技能的缺陷", "对话的缺陷", "社会技能的缺陷", "依赖辅助", "猜想式回答", "扫视的缺陷", "条件性辨别的缺陷", "不能泛化", "薄弱动机", "对行为有要求就会减弱动机", "依赖强化物", "自我刺激", "发音清晰度的缺陷", "强迫性行为", "多动行为", "没有目光接触", "感觉防御"],
-            "maxScore": 4
-          },
-          {
-            "id": "barrierReport",
-            "title": "障碍评估报告及建议",
-            "type": "domainReport",
-            "showScore": true,
-            "showRecommendation": true
-          },
-          {
-            "id": "transitionGrid",
-            "title": "转衔评估计分总表",
-            "type": "transitionGrid",
-            "categories": [
-              { "title": "第一类", "areas": ["VB-MAPP里程碑得分", "VB-MAPP障碍得分", "负面行为和教学控制", "教室常规", "集体技能", "社会技能和社会游戏", "独立的学业工作"] },
-              { "title": "第二类", "areas": ["泛化", "强化物泛化", "获得技能的速度", "新技能的维持", "自然环境中的学习", "未经训练的转换"] },
-              { "title": "第三类", "areas": ["对改变的适应性", "自发的行为", "自我导向的休闲时间", "一般的自理能力", "入厕技能", "进餐技能"] }
-            ],
-            "maxScore": 5
-          },
-          {
-            "id": "transitionReport",
-            "title": "转衔评估报告及建议",
-            "type": "categoryReport",
-            "categories": ["第一类转衔：VB-MAPP得分和独立学习的能力", "第二类转衔：学习模式", "第三类转衔：自理、自发和自主"],
-            "showScore": true,
-            "showRecommendation": true
-          }
-        ]
+        "reportTitle": "VB-MAPP 语言行为里程碑评估报告"
       },
       "recordConfig": {}
     },
@@ -203,34 +66,13 @@
         "cardFields": ["itemName", "desc", "materials", "ageRange"],
         "showScoreDesc": true,
         "navCollapsedByDefault": false,
-        "quickActions": ["failAll", "passAll", "nextDomain"]
+        "quickActions": ["failAll", "passAll", "nextDomain"],
+        "allowPartialSubmit": true
       },
       "questionListConfig": {},
       "reportConfig": {
         "reportPage": "assessment-result.html",
-        "reportTitle": "评估报告",
-        "sections": [
-          {
-            "id": "basicInfo",
-            "title": "基本信息"
-          },
-          {
-            "id": "domainScores",
-            "title": "各领域得分",
-            "type": "scoreTable"
-          },
-          {
-            "id": "devProfile",
-            "title": "发展概况",
-            "type": "radarChart"
-          },
-          {
-            "id": "analysis",
-            "title": "综合分析",
-            "type": "textArea",
-            "editable": true
-          }
-        ]
+        "reportTitle": "评估报告"
       },
       "recordConfig": {}
     }

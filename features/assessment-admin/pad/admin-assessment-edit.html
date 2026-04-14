@@ -1,0 +1,1752 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>编辑评估工具 - RICE AI 后台管理系统</title>
+<style>
+:root {
+  --color-primary: #7C3AED;
+  --color-primary-hover: #6D28D9;
+  --color-primary-light: #EDE9FE;
+  --color-bg-page: #F5F5F5;
+  --color-bg-card: #FFFFFF;
+  --color-border: #E5E7EB;
+  --color-border-input: #D1D5DB;
+  --color-text-primary: #1F2937;
+  --color-text-secondary: #6B7280;
+  --color-text-placeholder: #9CA3AF;
+  --color-success: #059669;
+  --color-success-bg: #ECFDF5;
+  --color-warning: #EA580C;
+  --color-warning-bg: #FFF7ED;
+  --color-danger: #DC2626;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-family); background: var(--color-bg-page); color: var(--color-text-primary); display: flex; height: 100vh; overflow: hidden; }
+
+.sidebar { width: 80px; background: #fff; border-right: 1px solid var(--color-border); display: flex; flex-direction: column; align-items: center; padding-top: 16px; flex-shrink: 0; }
+.sidebar-logo { width: 40px; height: 40px; background: var(--color-primary); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 14px; margin-bottom: 20px; }
+.nav-item { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 10px 8px; width: 64px; border-radius: var(--radius-md); cursor: pointer; text-decoration: none; color: var(--color-text-secondary); font-size: 12px; margin-bottom: 4px; }
+.nav-item:hover { background: #F3F4F6; }
+.nav-item.active { background: var(--color-primary); color: #fff; }
+.nav-item .icon { font-size: 20px; }
+
+.main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+.topbar { height: 56px; background: #fff; border-bottom: 1px solid var(--color-border); display: flex; align-items: center; padding: 0 24px; flex-shrink: 0; }
+.topbar-left { display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 600; }
+.topbar-breadcrumb { margin-left: 24px; font-size: 13px; color: var(--color-text-secondary); }
+.topbar-breadcrumb a { color: var(--color-primary); text-decoration: none; cursor: pointer; }
+.topbar-right { margin-left: auto; display: flex; align-items: center; gap: 16px; font-size: 13px; color: var(--color-text-secondary); }
+.topbar-right .tool-btn { cursor: pointer; padding: 4px; border-radius: 4px; }
+.topbar-right .tool-btn:hover { background: #F3F4F6; }
+.topbar-right .avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--color-primary-light); display: flex; align-items: center; justify-content: center; font-size: 14px; color: var(--color-primary); }
+
+.content { flex: 1; overflow: hidden; padding: 24px; display: flex; flex-direction: column; }
+</style>
+<style>
+/* 基本信息 */
+.info-panel { background: #fff; border-radius: var(--radius-lg); padding: 20px; margin-bottom: 20px; }
+.info-panel h3 { font-size: 16px; font-weight: 600; margin-bottom: 16px; }
+.info-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-end; }
+.info-field { display: flex; flex-direction: column; gap: 6px; }
+.info-field label { font-size: 13px; color: var(--color-text-secondary); }
+.info-field input, .info-field select, .info-field textarea { height: 36px; border: 1px solid var(--color-border-input); border-radius: var(--radius-md); padding: 0 12px; font-size: 14px; font-family: var(--font-family); outline: none; }
+.info-field input:focus, .info-field select:focus, .info-field textarea:focus { border-color: var(--color-primary); box-shadow: 0 0 0 2px rgba(124,58,237,0.2); }
+.info-field textarea { height: 60px; padding: 8px 12px; resize: vertical; }
+
+/* 编辑区 */
+.edit-area { display: flex; gap: 20px; flex: 1; overflow: hidden; }
+
+/* 左侧树 */
+.tree-panel { width: 280px; flex-shrink: 0; background: #fff; border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column; }
+.tree-panel h3 { font-size: 14px; font-weight: 600; padding: 0 16px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; border-bottom: 1px solid var(--color-border); margin: 0; height: 48px; }
+.tree-panel h3 button { background: none; border: none; color: var(--color-primary); font-size: 13px; cursor: pointer; }
+.tree-panel-body { flex: 1; overflow-y: auto; padding: 12px 16px; }
+.tree-group { margin-bottom: 8px; }
+.tree-group-title { display: flex; align-items: center; gap: 6px; padding: 8px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 500; user-select: none; }
+.tree-group-title:hover { background: #F3F4F6; }
+.tree-group-title .arrow { font-size: 10px; transition: transform .2s; }
+.tree-group-title.collapsed .arrow { transform: rotate(-90deg); }
+.tree-children { padding-left: 20px; }
+.tree-children.hidden { display: none; }
+.tree-item { padding: 6px 10px; border-radius: 6px; cursor: pointer; font-size: 13px; color: var(--color-text-secondary); display: flex; align-items: center; gap: 6px; }
+.tree-item:hover { background: #F3F4F6; }
+.tree-item.active { background: var(--color-primary-light); color: var(--color-primary); font-weight: 500; }
+.tree-item .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--color-border-input); flex-shrink: 0; }
+.tree-item.active .dot { background: var(--color-primary); }
+.tree-edit-actions { display: none; margin-left: auto; gap: 4px; flex-shrink: 0; align-items: center; }
+.tree-group-title:hover .tree-edit-actions, .tree-item:hover .tree-edit-actions { display: flex; }
+.tree-edit-actions button { background: none; border: none; cursor: pointer; width: 24px; height: 24px; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: var(--color-text-secondary); font-size: 13px; }
+.tree-edit-actions button:hover { background: #F3F4F6; }
+.tree-edit-actions button.edit-btn:hover { color: var(--color-primary); }
+.tree-edit-actions button.delete-btn:hover { color: var(--color-danger); }
+
+/* 右侧题目列表 */
+.question-panel { flex: 1; background: #fff; border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column; }
+.question-panel h3 { font-size: 14px; font-weight: 600; padding: 0 20px; margin: 0; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; border-bottom: 1px solid var(--color-border); height: 48px; }
+.question-panel h3 .actions { display: flex; gap: 8px; }
+.question-panel h3 .actions button { padding: 5px 12px; border-radius: var(--radius-md); font-size: 13px; cursor: pointer; font-family: var(--font-family); }
+.btn-add { background: var(--color-primary); color: #fff; border: none; }
+.btn-add:hover { background: var(--color-primary-hover); }
+.btn-import { background: #fff; border: 1px solid var(--color-border-input); color: var(--color-text-primary); }
+.btn-import:hover { background: #F9FAFB; }
+
+.question-list { display: flex; flex-direction: column; gap: 12px; flex: 1; overflow: hidden; padding: 0 20px 20px; }
+.question-card { border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 14px 16px; transition: border-color .15s; }
+.question-card:hover { border-color: var(--color-primary); }
+.q-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.q-number { font-size: 13px; font-weight: 600; color: var(--color-primary); }
+.q-actions { display: flex; gap: 8px; }
+.q-actions button { background: none; border: none; font-size: 12px; cursor: pointer; padding: 2px 6px; border-radius: 4px; }
+.q-actions .q-edit-btn { color: var(--color-primary); }
+.q-actions .q-edit-btn:hover { background: var(--color-primary-light); }
+.q-actions .q-up-btn, .q-actions .q-down-btn { color: var(--color-text-secondary); }
+.q-actions .q-up-btn:hover, .q-actions .q-down-btn:hover { background: #F3F4F6; }
+.q-actions .q-delete-btn { color: var(--color-danger); }
+.q-actions .q-delete-btn:hover { background: #FEF2F2; }
+.q-desc { font-size: 14px; margin-bottom: 8px; line-height: 1.5; }
+.q-desc-input { width: 100%; border: 1px solid var(--color-primary); border-radius: var(--radius-md); padding: 8px 12px; font-size: 14px; font-family: var(--font-family); outline: none; margin-bottom: 8px; box-shadow: 0 0 0 2px rgba(124,58,237,0.2); }
+.q-scores { display: flex; gap: 8px; font-size: 12px; }
+.q-scores span { padding: 2px 10px; border-radius: var(--radius-md); background: #F3F4F6; color: var(--color-text-secondary); }
+
+.empty-state { text-align: center; padding: 60px 20px; color: var(--color-text-placeholder); font-size: 14px; }
+
+/* 题目表格 */
+.question-table-wrap { overflow-x: auto; overflow-y: auto; flex: 1; }
+.question-table { width: 100%; border-collapse: collapse; min-width: 1200px; table-layout: fixed; }
+.question-table th { background: #F9FAFB; padding: 10px 12px; text-align: left; font-weight: 500; color: #6B7280; font-size: 13px; border-bottom: 1px solid #E5E7EB; white-space: nowrap; position: sticky; top: 0; z-index: 2; }
+.question-table th.sortable { cursor: pointer; user-select: none; }
+.question-table th.sortable:hover { color: #7C3AED; }
+.question-table td { padding: 10px 12px; border-bottom: 1px solid #E5E7EB; font-size: 14px; vertical-align: middle; height: 48px; white-space: nowrap; }
+.question-table td.truncate { overflow: hidden; text-overflow: ellipsis; }
+.question-table tr:hover td { background: #FAFBFC; }
+.question-table .q-num { font-weight: 600; color: #7C3AED; }
+.question-table .q-actions { white-space: nowrap; position: sticky; right: 0; background: #fff; box-shadow: -4px 0 8px rgba(0,0,0,0.04); vertical-align: middle; text-align: center; }
+.question-table th.sticky-right { position: sticky; right: 0; background: #F9FAFB; box-shadow: -4px 0 8px rgba(0,0,0,0.04); z-index: 3; text-align: center; }
+.question-table tr:hover .q-actions { background: #FAFBFC; }
+.question-table .q-actions a { margin-right: 10px; font-size: 13px; cursor: pointer; text-decoration: none; }
+.question-table .q-actions .edit-link { color: #7C3AED; }
+.question-table .q-actions .delete-link { color: #DC2626; }
+
+/* Toggle Switch */
+.toggle-switch { position: relative; width: 40px; height: 22px; cursor: pointer; display: inline-block; }
+.toggle-switch input { opacity: 0; width: 0; height: 0; position: absolute; }
+.toggle-slider { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #D1D5DB; border-radius: 11px; transition: background .2s; }
+.toggle-slider::before { content: ''; position: absolute; width: 18px; height: 18px; left: 2px; top: 2px; background: #fff; border-radius: 50%; transition: transform .2s; box-shadow: 0 1px 3px rgba(0,0,0,0.15); }
+.toggle-switch input:checked + .toggle-slider { background: #059669; }
+.toggle-switch input:checked + .toggle-slider::before { transform: translateX(18px); }
+
+/* 底部操作 */
+.bottom-bar { background: #fff; border-top: 1px solid var(--color-border); padding: 12px 24px; display: flex; gap: 12px; flex-shrink: 0; }
+.btn-save { background: var(--color-primary); color: #fff; border: none; padding: 8px 24px; border-radius: var(--radius-md); font-size: 14px; font-weight: 500; cursor: pointer; }
+.btn-save:hover { background: var(--color-primary-hover); }
+
+/* 新建选择面板 */
+.create-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); z-index: 1000; display: flex; align-items: center; justify-content: center; }
+.create-panel { background: #fff; border-radius: var(--radius-lg); padding: 32px; width: 600px; max-width: 90vw; }
+.create-panel h2 { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+.create-panel .subtitle { font-size: 13px; color: var(--color-text-secondary); margin-bottom: 24px; }
+.create-basic-info { margin-bottom: 24px; }
+.create-basic-info .info-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.create-basic-info .info-field { display: flex; flex-direction: column; gap: 6px; }
+.create-basic-info .info-field label { font-size: 13px; color: var(--color-text-secondary); }
+.create-basic-info .info-field input, .create-basic-info .info-field select { height: 36px; border: 1px solid var(--color-border-input); border-radius: var(--radius-md); padding: 0 12px; font-size: 14px; font-family: var(--font-family); outline: none; }
+.create-basic-info .info-field input:focus, .create-basic-info .info-field select:focus { border-color: var(--color-primary); box-shadow: 0 0 0 2px rgba(124,58,237,0.2); }
+.create-method-title { font-size: 14px; font-weight: 600; margin-bottom: 12px; color: var(--color-text-primary); }
+.create-methods { display: flex; gap: 16px; }
+.method-card { flex: 1; border: 2px solid var(--color-border); border-radius: var(--radius-lg); padding: 20px; cursor: pointer; transition: all .2s; text-align: center; }
+.method-card:hover { border-color: var(--color-primary); box-shadow: var(--shadow-md); }
+.method-card .method-icon { font-size: 36px; margin-bottom: 12px; }
+.method-card .method-name { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+.method-card .method-desc { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; margin-bottom: 12px; }
+.method-card .template-links { display: flex; flex-direction: column; gap: 6px; }
+.method-card .template-links a { font-size: 12px; color: var(--color-primary); text-decoration: none; cursor: pointer; }
+.method-card .template-links a:hover { text-decoration: underline; }
+
+.reset-btn { position: fixed; bottom: 20px; right: 20px; background: rgba(0,0,0,0.35); color: #fff; border: none; padding: 8px 14px; border-radius: var(--radius-md); font-size: 13px; cursor: pointer; z-index: 9999; opacity: 0.6; }
+.reset-btn:hover { opacity: 1; }
+.toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #1F2937; color: #fff; padding: 10px 24px; border-radius: var(--radius-md); font-size: 14px; z-index: 10000; display: none; }
+.toast.show { display: block; animation: fadeInOut 2s ease; }
+@keyframes fadeInOut { 0%{opacity:0;transform:translateX(-50%) translateY(-10px)} 15%{opacity:1;transform:translateX(-50%) translateY(0)} 85%{opacity:1} 100%{opacity:0} }
+#questionDrawer { transition: transform 0.3s ease; }
+
+/* 自定义下拉组件 */
+.custom-select { position: relative; }
+.custom-select-trigger { height: 36px; border: 1px solid #D1D5DB; border-radius: 8px; padding: 0 12px; font-size: 14px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; background: #fff; }
+.custom-select-trigger:hover { border-color: #7C3AED; }
+.custom-select-arrow { font-size: 10px; color: #9CA3AF; }
+.custom-select-value { color: #1F2937; }
+.custom-select-value.placeholder { color: #9CA3AF; }
+.custom-select-dropdown { position: absolute; top: 40px; left: 0; right: 0; background: #fff; border: 1px solid #E5E7EB; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 100; max-height: 280px; overflow-y: auto; }
+.custom-select-option { padding: 10px 12px; cursor: pointer; border-bottom: 1px solid #F3F4F6; }
+.custom-select-option:last-child { border-bottom: none; }
+.custom-select-option:hover { background: #F9FAFB; }
+.custom-select-option.selected { background: #EDE9FE; }
+.custom-select-option .opt-name { font-size: 14px; font-weight: 500; color: #1F2937; }
+.custom-select-option .opt-desc { font-size: 12px; color: #9CA3AF; margin-top: 2px; }
+</style>
+</head>
+<body>
+
+<nav class="sidebar">
+  <div class="sidebar-logo">R</div>
+  <a class="nav-item"><span class="icon">📦</span>产品</a>
+  <a class="nav-item"><span class="icon">📋</span>订单</a>
+  <a class="nav-item"><span class="icon">👥</span>用户</a>
+  <a class="nav-item"><span class="icon">🎓</span>学生</a>
+  <a class="nav-item active"><span class="icon">📝</span>评估</a>
+  <a class="nav-item"><span class="icon">📚</span>课程包</a>
+  <a class="nav-item"><span class="icon">📖</span>学习</a>
+  <a class="nav-item"><span class="icon">🤖</span>AI助手</a>
+  <a class="nav-item"><span class="icon">📢</span>营销</a>
+  <a class="nav-item"><span class="icon">⚙️</span>设置</a>
+</nav>
+
+<div class="main">
+  <header class="topbar">
+    <div class="topbar-left"><span>RICE AI 后台管理系统</span></div>
+    <div class="topbar-breadcrumb">
+      <a onclick="location.href='admin-assessment-list.html'">< 返回</a> &nbsp; <span id="toolNameBreadcrumb">编辑评估工具</span>
+    </div>
+    <div class="topbar-right">
+      <span class="tool-btn">🔍 ⌘K</span>
+      <span class="tool-btn">⛶</span>
+      <span class="tool-btn">↻</span>
+      <span class="tool-btn">⚙</span>
+      <span class="tool-btn">En</span>
+      <div class="avatar">管</div>
+    </div>
+  </header>
+
+  <div class="content" id="mainContent">
+    <!-- 基本信息 + 评分体系（只读/编辑切换） -->
+    <div id="topInfoBar" style="background:#fff;border-radius:12px;padding:12px 20px;margin-bottom:12px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <div style="font-size:14px;font-weight:600">基本信息</div>
+        <a onclick="showInfoEditMode()" style="color:#7C3AED;font-size:13px;cursor:pointer">编辑</a>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px">
+        <div id="topInfoAvatar" style="width:32px;height:32px;border-radius:50%;background:#EDE9FE;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;font-size:16px">📋</div>
+        <span style="font-size:13px;color:#6B7280">名称:</span><span id="infoDisplay_name" style="font-size:14px;font-weight:500"></span>
+        <span style="font-size:13px;color:#6B7280;margin-left:16px">类型:</span><span id="infoDisplay_type" style="font-size:14px"></span>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px">
+        <span style="font-size:13px;color:#6B7280">描述:</span><span id="infoDisplay_desc" style="font-size:13px;color:#6B7280;line-height:1.5"></span>
+      </div>
+    </div>
+
+    <!-- 编辑遮罩层 -->
+    <div id="editOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.3);z-index:50"></div>
+
+    <!-- 编辑区 -->
+    <div class="edit-area">
+      <!-- 左侧树 -->
+      <div class="tree-panel">
+        <h3>领域目录 <div id="treeEditBtns" style="display:inline-flex;gap:8px;align-items:center"><button id="treeEditBtn" onclick="toggleTreeEditMode()" style="background:none;border:none;color:#7C3AED;font-size:13px;cursor:pointer">编辑</button></div></h3>
+        <div class="tree-panel-body" id="treeContainer"></div>
+      </div>
+
+      <!-- 右侧题目 -->
+      <div class="question-panel">
+        <h3>
+          <span id="currentDomain">请选择左侧子测验/领域</span>
+          <div class="actions" id="questionActions" style="display:none">
+            <button class="btn-add" onclick="addQuestion()">+ 添加题目</button>
+          </div>
+        </h3>
+        <div class="question-list" id="questionList">
+          <div class="empty-state">👈 请先在左侧选择一个子测验或领域</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 新建选择面板 -->
+<div class="create-overlay" id="createOverlay" style="display:none">
+  <div class="create-panel">
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <h2 style="margin:0">新建评估工具</h2>
+      <button onclick="closeCreatePanel()" style="background:none;border:none;font-size:20px;cursor:pointer;color:#6B7280;padding:4px">✕</button>
+    </div>
+    <p class="subtitle">请先填写基本信息，然后选择配置方式</p>
+    <div class="create-basic-info">
+      <div class="info-row">
+        <div class="info-field" style="width:180px">
+          <label>名称</label>
+          <input type="text" id="createName" placeholder="评估工具名称">
+        </div>
+        <div class="info-field" style="width:180px">
+          <label>类型</label>
+          <div class="custom-select" id="createTypeWrap2" style="width:180px;position:relative">
+            <div class="custom-select-trigger" onclick="toggleTypeDropdown('createTypeWrap2')">
+              <span class="custom-select-value placeholder" id="createTypeDisplay2">请选择类型</span>
+              <span class="custom-select-arrow">▼</span>
+            </div>
+            <input type="hidden" id="createType" value="">
+            <div class="custom-select-dropdown" style="display:none"></div>
+          </div>
+        </div>
+      </div>
+      <div class="info-row" style="margin-top:12px">
+        <div class="info-field" style="flex:1">
+          <label>描述</label>
+          <textarea id="createDesc" placeholder="请输入评估工具描述，如适用年龄、评估领域、评分方式等" style="height:80px;border:1px solid #D1D5DB;border-radius:8px;padding:8px 12px;font-size:14px;font-family:inherit;outline:none;resize:vertical;width:100%"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="create-method-title">选择配置方式</div>
+    <div class="create-methods">
+      <div class="method-card" onclick="createByImport()">
+        <div class="method-icon">📥</div>
+        <div class="method-name">表格录入</div>
+        <div class="method-desc">下载模板，填写评估题目后上传导入</div>
+      </div>
+      <div class="method-card" onclick="createManual()">
+        <div class="method-icon">✏️</div>
+        <div class="method-name">手动录入</div>
+        <div class="method-desc">在线逐条添加评估领域和题目</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- 重置确认弹窗 -->
+<div id="resetConfirmModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:10001;align-items:center;justify-content:center">
+  <div style="background:#fff;border-radius:12px;padding:24px;width:380px">
+    <h3 style="font-size:16px;font-weight:600;margin-bottom:12px">确认重置</h3>
+    <p style="font-size:14px;color:#6B7280;margin-bottom:20px">确定要重置所有评估数据吗？此操作将清除所有本地数据并恢复默认状态。</p>
+    <div style="display:flex;gap:8px;justify-content:flex-end">
+      <button onclick="closeResetModal()" style="padding:8px 20px;border:1px solid #D1D5DB;border-radius:8px;background:#fff;cursor:pointer;font-size:14px;font-family:inherit">取消</button>
+      <button onclick="confirmResetAll()" style="padding:8px 20px;border:none;border-radius:8px;background:#DC2626;color:#fff;cursor:pointer;font-size:14px;font-family:inherit">确认重置</button>
+    </div>
+  </div>
+</div>
+
+<!-- 添加分组弹窗 -->
+<div id="addGroupModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:1000;align-items:center;justify-content:center">
+  <div style="background:#fff;border-radius:12px;padding:24px;width:400px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+      <h3 style="font-size:16px;font-weight:600;margin:0">添加分组</h3>
+      <button onclick="closeAddGroupModal()" style="background:none;border:none;font-size:18px;cursor:pointer;color:#6B7280">✕</button>
+    </div>
+    <div style="margin-bottom:16px">
+      <label style="font-size:13px;color:#6B7280;display:block;margin-bottom:6px">分组名称</label>
+      <input type="text" id="addGroupInput" placeholder="请输入分组名称" style="width:100%;height:36px;border:1px solid #D1D5DB;border-radius:8px;padding:0 12px;font-size:14px;outline:none;font-family:inherit">
+    </div>
+    <div style="display:flex;gap:8px;justify-content:flex-end">
+      <button onclick="closeAddGroupModal()" style="padding:8px 20px;border:1px solid #D1D5DB;border-radius:8px;background:#fff;cursor:pointer;font-size:14px;font-family:inherit">取消</button>
+      <button onclick="confirmAddGroup()" style="padding:8px 20px;border:none;border-radius:8px;background:#7C3AED;color:#fff;cursor:pointer;font-size:14px;font-family:inherit">确定</button>
+    </div>
+  </div>
+</div>
+
+<!-- 添加子项弹窗 -->
+<div id="addSubItemModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:1000;align-items:center;justify-content:center">
+  <div style="background:#fff;border-radius:12px;padding:24px;width:400px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+      <h3 style="font-size:16px;font-weight:600;margin:0">添加子项</h3>
+      <button onclick="closeAddSubItemModal()" style="background:none;border:none;font-size:18px;cursor:pointer;color:#6B7280">✕</button>
+    </div>
+    <div style="margin-bottom:16px">
+      <label style="font-size:13px;color:#6B7280;display:block;margin-bottom:6px">子测验/领域名称</label>
+      <input type="text" id="addSubItemInput" placeholder="请输入名称" style="width:100%;height:36px;border:1px solid #D1D5DB;border-radius:8px;padding:0 12px;font-size:14px;outline:none;font-family:inherit">
+    </div>
+    <div style="display:flex;gap:8px;justify-content:flex-end">
+      <button onclick="closeAddSubItemModal()" style="padding:8px 20px;border:1px solid #D1D5DB;border-radius:8px;background:#fff;cursor:pointer;font-size:14px;font-family:inherit">取消</button>
+      <button onclick="confirmAddSubItem()" style="padding:8px 20px;border:none;border-radius:8px;background:#7C3AED;color:#fff;cursor:pointer;font-size:14px;font-family:inherit">确定</button>
+    </div>
+  </div>
+</div>
+
+<!-- 删除题目确认弹窗 -->
+<div id="deleteQuestionModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:1003;align-items:center;justify-content:center">
+  <div style="background:#fff;border-radius:12px;padding:24px;width:380px">
+    <h3 style="font-size:16px;font-weight:600;margin-bottom:12px">确认删除</h3>
+    <p style="font-size:14px;color:#6B7280;margin-bottom:20px">确定要删除这道题目吗？删除后无法恢复。</p>
+    <div style="display:flex;gap:8px;justify-content:flex-end">
+      <button onclick="closeDeleteModal()" style="padding:8px 20px;border:1px solid #D1D5DB;border-radius:8px;background:#fff;cursor:pointer;font-size:14px;font-family:inherit">取消</button>
+      <button onclick="confirmDeleteQuestion()" style="padding:8px 20px;border:none;border-radius:8px;background:#DC2626;color:#fff;cursor:pointer;font-size:14px;font-family:inherit">删除</button>
+    </div>
+  </div>
+</div>
+
+<!-- 基本信息编辑抽屉 -->
+<div id="infoDrawer" style="display:none;position:fixed;top:0;right:0;bottom:0;width:520px;background:#fff;box-shadow:-4px 0 24px rgba(0,0,0,0.12);z-index:1001;flex-direction:column">
+  <div style="padding:20px 24px;border-bottom:1px solid #E5E7EB;display:flex;align-items:center;justify-content:space-between">
+    <h3 style="font-size:16px;font-weight:600;margin:0">编辑基本信息</h3>
+    <button onclick="cancelInfoEdit()" style="background:none;border:none;font-size:20px;cursor:pointer;color:#6B7280">✕</button>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:24px">
+    <div style="margin-bottom:20px;display:flex;align-items:center;gap:16px">
+      <div id="editAvatarPreview" onclick="document.getElementById('editAvatarInput').click()" style="width:64px;height:64px;border-radius:50%;background:#EDE9FE;display:flex;align-items:center;justify-content:center;cursor:pointer;overflow:hidden;flex-shrink:0;border:2px dashed #D1D5DB">
+        <span style="font-size:28px">📋</span>
+      </div>
+      <input type="file" id="editAvatarInput" accept="image/*" style="display:none" onchange="handleEditAvatar(this)">
+      <div>
+        <div style="font-size:13px;font-weight:500;margin-bottom:4px">工具图标</div>
+        <div style="font-size:12px;color:#9CA3AF">点击更换图片</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:12px;margin-bottom:16px">
+      <div style="display:flex;flex-direction:column;gap:6px;width:200px;flex-shrink:0">
+        <label style="font-size:13px;color:#6B7280"><span style="color:#DC2626">*</span> 名称</label>
+        <input type="text" id="toolName" value="" placeholder="评估工具名称" style="height:36px;border:1px solid #D1D5DB;border-radius:8px;padding:0 12px;font-size:14px;outline:none;font-family:inherit">
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;flex:1">
+        <label style="font-size:13px;color:#6B7280">类型</label>
+        <!-- 新建时显示下拉，已创建后显示只读文本 -->
+        <div class="custom-select" id="toolTypeWrap" style="width:100%;position:relative;display:none">
+          <div class="custom-select-trigger" onclick="toggleTypeDropdown('toolTypeWrap')">
+            <span class="custom-select-value placeholder" id="toolTypeDisplay">请选择类型</span>
+            <span class="custom-select-arrow">▼</span>
+          </div>
+          <input type="hidden" id="toolType" value="">
+          <div class="custom-select-dropdown" style="display:none"></div>
+        </div>
+        <div id="toolTypeReadonly" style="height:36px;display:flex;align-items:center;font-size:14px;color:#6B7280;padding:0 12px;background:#F9FAFB;border:1px solid #E5E7EB;border-radius:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis"></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:20px">
+      <label style="font-size:13px;color:#6B7280">描述</label>
+      <textarea id="toolDesc" placeholder="评估工具描述" style="height:80px;border:1px solid #D1D5DB;border-radius:8px;padding:8px 12px;font-size:14px;font-family:inherit;outline:none;resize:vertical;width:100%"></textarea>
+    </div>
+    <div style="border-top:1px solid #E5E7EB;padding-top:16px">
+      <a onclick="tryDeleteTool()" style="color:#DC2626;font-size:13px;cursor:pointer">删除此评估工具</a>
+    </div>
+  </div>
+  <div style="padding:16px 24px;border-top:1px solid #E5E7EB;display:flex;gap:8px;justify-content:flex-end">
+    <button onclick="cancelInfoEdit()" style="padding:8px 20px;border:1px solid #D1D5DB;border-radius:8px;background:#fff;cursor:pointer;font-size:14px;font-family:inherit">取消</button>
+    <button onclick="hideInfoEditMode()" style="padding:8px 20px;border:none;border-radius:8px;background:#7C3AED;color:#fff;cursor:pointer;font-size:14px;font-family:inherit">保存</button>
+  </div>
+</div>
+<div id="infoDrawerOverlay" onclick="cancelInfoEdit()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.3);z-index:1000"></div>
+
+<!-- 右侧滑出编辑面板 -->
+<div id="questionDrawer" style="display:none;position:fixed;top:0;right:0;bottom:0;width:520px;background:#fff;box-shadow:-4px 0 24px rgba(0,0,0,0.12);z-index:1001;flex-direction:column">
+  <div style="padding:20px 24px;border-bottom:1px solid #E5E7EB;display:flex;align-items:center;justify-content:space-between">
+    <h3 id="drawerTitle" style="font-size:16px;font-weight:600;margin:0">编辑题目</h3>
+    <button onclick="closeDrawer()" style="background:none;border:none;font-size:20px;cursor:pointer;color:#6B7280">✕</button>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:24px">
+    <div style="margin-bottom:16px">
+      <label style="font-size:13px;color:#6B7280;display:block;margin-bottom:6px"><span style="color:#DC2626">*</span> 排序</label>
+      <input type="number" id="drawer_number" style="width:100px;height:36px;border:1px solid #D1D5DB;border-radius:8px;padding:0 12px;font-size:14px;outline:none">
+    </div>
+    <div style="margin-bottom:16px">
+      <label style="font-size:13px;color:#6B7280;display:block;margin-bottom:6px"><span style="color:#DC2626">*</span> 评估项目</label>
+      <input type="text" id="drawer_itemName" placeholder="简短名称" style="width:100%;height:36px;border:1px solid #D1D5DB;border-radius:8px;padding:0 12px;font-size:14px;outline:none">
+    </div>
+    <div style="margin-bottom:16px">
+      <label style="font-size:13px;color:#6B7280;display:block;margin-bottom:6px">操作描述</label>
+      <textarea id="drawer_desc" placeholder="详细描述评估操作" style="width:100%;height:80px;border:1px solid #D1D5DB;border-radius:8px;padding:8px 12px;font-size:14px;outline:none;resize:vertical;font-family:inherit"></textarea>
+    </div>
+    <div id="drawerScoreSection" style="margin-bottom:16px">
+      <label style="font-size:13px;color:#6B7280;display:block;margin-bottom:10px;font-weight:600"><span style="color:#DC2626">*</span> 评分说明</label>
+      <div id="drawerScoreFields"></div>
+    </div>
+    <!-- 扩展字段（默认折叠） -->
+    <div style="border-top:1px solid #E5E7EB;padding-top:12px">
+      <div onclick="toggleDrawerExpand()" style="display:flex;align-items:center;gap:6px;cursor:pointer;margin-bottom:12px;user-select:none">
+        <span id="drawerExpandArrow" style="font-size:10px;color:#6B7280;transition:transform .2s;transform:rotate(-90deg)">▼</span>
+        <span style="font-size:13px;color:#6B7280;font-weight:500">扩展字段</span>
+        <span style="font-size:11px;color:#9CA3AF">（所需材料、适用年龄等）</span>
+      </div>
+      <div id="drawerExpandSection" style="display:none">
+        <div style="margin-bottom:16px">
+          <label style="font-size:13px;color:#6B7280;display:block;margin-bottom:6px">所需材料</label>
+          <input type="text" id="drawer_materials" placeholder="评估所需教具" style="width:100%;height:36px;border:1px solid #D1D5DB;border-radius:8px;padding:0 12px;font-size:14px;outline:none">
+        </div>
+        <div style="display:flex;gap:16px;margin-bottom:16px">
+          <div style="flex:1">
+            <label style="font-size:13px;color:#6B7280;display:block;margin-bottom:6px">适用年龄</label>
+            <input type="text" id="drawer_ageRange" placeholder="如 12-24月" style="width:100%;height:36px;border:1px solid #D1D5DB;border-radius:8px;padding:0 12px;font-size:14px;outline:none">
+          </div>
+          <div style="flex:1">
+            <label style="font-size:13px;color:#6B7280;display:block;margin-bottom:6px">是否必答</label>
+            <select id="drawer_required" style="width:100%;height:36px;border:1px solid #D1D5DB;border-radius:8px;padding:0 12px;font-size:14px;outline:none">
+              <option value="是">是</option>
+              <option value="否">否</option>
+            </select>
+          </div>
+        </div>
+        <div style="margin-bottom:16px">
+          <label style="font-size:13px;color:#6B7280;display:block;margin-bottom:6px">启用状态</label>
+          <label class="toggle-switch" style="width:40px;height:22px">
+            <input type="checkbox" id="drawer_enabled" checked>
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="padding:16px 24px;border-top:1px solid #E5E7EB;display:flex;gap:8px;justify-content:flex-end">
+    <button onclick="closeDrawer()" style="padding:8px 20px;border:1px solid #D1D5DB;border-radius:8px;background:#fff;cursor:pointer;font-size:14px;font-family:inherit">取消</button>
+    <button onclick="saveDrawer()" style="padding:8px 20px;border:none;border-radius:8px;background:#7C3AED;color:#fff;cursor:pointer;font-size:14px;font-family:inherit">保存</button>
+  </div>
+</div>
+<div id="questionDrawerOverlay" onclick="closeDrawer()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.3);z-index:1000"></div>
+
+<button class="reset-btn" id="resetBtn" onmousedown="startDragReset(event)" onclick="resetAll()">🔄 一键重置</button>
+<script>
+// 重置按钮拖拽 + 位置持久化
+let resetDragging = false, resetOffsetX = 0, resetOffsetY = 0, resetMoved = false;
+(function initResetPos() {
+  const pos = JSON.parse(localStorage.getItem('rice_reset_btn_pos') || 'null');
+  if (pos) {
+    const btn = document.getElementById('resetBtn');
+    btn.style.left = pos.left + 'px'; btn.style.top = pos.top + 'px';
+    btn.style.right = 'auto'; btn.style.bottom = 'auto';
+  }
+})();
+function startDragReset(e) {
+  const btn = document.getElementById('resetBtn');
+  resetDragging = true; resetMoved = false;
+  resetOffsetX = e.clientX - btn.getBoundingClientRect().left;
+  resetOffsetY = e.clientY - btn.getBoundingClientRect().top;
+  e.preventDefault();
+}
+document.addEventListener('mousemove', function(e) {
+  if (!resetDragging) return;
+  resetMoved = true;
+  const btn = document.getElementById('resetBtn');
+  const x = e.clientX - resetOffsetX, y = e.clientY - resetOffsetY;
+  btn.style.left = x + 'px'; btn.style.top = y + 'px';
+  btn.style.right = 'auto'; btn.style.bottom = 'auto';
+});
+document.addEventListener('mouseup', function() {
+  if (resetDragging && resetMoved) {
+    const btn = document.getElementById('resetBtn');
+    localStorage.setItem('rice_reset_btn_pos', JSON.stringify({left: parseInt(btn.style.left), top: parseInt(btn.style.top)}));
+  }
+  resetDragging = false;
+});
+document.getElementById('resetBtn').addEventListener('click', function(e) {
+  if (resetMoved) { e.stopImmediatePropagation(); resetMoved = false; }
+}, true);
+</script>
+
+<script>
+const TOOLS_KEY = 'rice_assessment_tools';
+const CONFIG_KEY = 'rice_assessment_config_';
+
+let currentToolId = '';
+let currentDomainKey = '';
+let isNewMode = false;
+let sortOrder = 'asc';
+let pendingDeleteQId = '';
+let pendingSubItemGroupEl = null;
+let pendingSubItemGroupName = '';
+let drawerEditQId = null;
+
+let editAvatarBase64 = '';
+
+function handleEditAvatar(input) {
+  if (!input.files || !input.files[0]) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    editAvatarBase64 = e.target.result;
+    const preview = document.getElementById('editAvatarPreview');
+    preview.innerHTML = `<img src="${e.target.result}" style="width:100%;height:100%;object-fit:cover">`;
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+// PEP-3 结构
+const PEP3_STRUCTURE = [
+  { group: '发展性子测验', items: ['认知/语前语言','语言表达','语言理解','精细动作','粗大动作','视觉动作模仿'] },
+  { group: '行为特征子测验', items: ['情感表达','社会互动','非语言行为特征','语言行为特征'] },
+  { group: '养育者报告', items: ['问题行为','个人自理','适应行为'] }
+];
+
+// VB-MAPP 结构
+const VBMAPP_STRUCTURE = [
+  { group: 'Level 1 (0-18月)', items: ['Mand(要求)','Tact(命名)','Listener(听者反应)','VP/MTS(视觉配对)','Play(游戏)','Social(社交)','Imitation(模仿)','Echoic(仿说)','LRFFC(听者功能)'] },
+  { group: 'Level 2 (18-30月)', items: ['Mand(要求)','Tact(命名)','Listener(听者反应)','VP/MTS(视觉配对)','Play(游戏)','Social(社交)','Reading(阅读)','Writing(书写)','LRFFC(听者功能)','Intraverbal(对话)'] },
+  { group: 'Level 3 (30-48月)', items: ['Mand(要求)','Tact(命名)','Listener(听者反应)','VP/MTS(视觉配对)','Play(游戏)','Social(社交)','Reading(阅读)','Writing(书写)','LRFFC(听者功能)','Intraverbal(对话)','Group(团体)','Linguistics(语言结构)'] },
+  { group: '障碍评估', items: ['行为障碍','注意力障碍','社交障碍'] },
+  { group: '转衔评估', items: ['转衔技能'] }
+];
+
+// C-PEP 结构
+const CPEP_STRUCTURE = [
+  { group: '感知觉', items: ['视觉 视觉 注视','视觉 视觉 追踪','听觉','触觉','嗅觉','味觉','本体觉','前庭觉'] },
+  { group: '精细动作', items: ['手指精细动作','手眼协调','双手协调','工具使用'] },
+  { group: '大运动', items: ['坐','站','走','跑跳','平衡','球类'] },
+  { group: '言语/语言', items: ['语前技能','语言理解','语言表达','对话'] },
+  { group: '认知', items: ['注意力','记忆','概念','推理'] },
+  { group: '社会交往', items: ['社会认知','社会互动','游戏','情绪'] },
+  { group: '自理', items: ['进食','穿衣','如厕','个人卫生'] }
+];
+
+const SCORE_PRESETS = {
+  pep3: [{value:2,label:'通过'},{value:1,label:'萌芽'},{value:0,label:'不通过'}],
+  cpep: [{value:1,label:'通过'},{value:0.5,label:'中间反应'},{value:0,label:'不通过'}],
+  vbmapp: [{value:1,label:'1分'},{value:0.5,label:'0.5分'},{value:0,label:'0分'}]
+};
+
+function generateQuestions(toolId, domain, count) {
+  const questions = [];
+  const sampleMaterials = ['图片卡', '积木', '小铃铛', '拼图', '彩色小球', '杯子', '勺子', '形状板', '无'];
+  const sampleAges = ['6-12月', '12-18月', '18-24月', '24-36月', '36-48月', '48-60月'];
+  const defaultScores = toolId === 'vbmapp'
+    ? [{value:1,label:'达标',desc:'完全达到'},{value:0.5,label:'部分达标',desc:'部分达到'},{value:0,label:'未达标',desc:'未达到'}]
+    : [{value:2,label:'通过',desc:'独立完成'},{value:1,label:'萌芽',desc:'部分完成或需要提示'},{value:0,label:'不通过',desc:'无反应或无法完成'}];
+  for (let i = 1; i <= count; i++) {
+    questions.push({
+      id: `${toolId}_${domain}_${i}`,
+      number: i,
+      itemName: `${domain}第${i}项`,
+      desc: `${domain}领域第${i}题 — 模拟题目描述内容`,
+      materials: sampleMaterials[i % sampleMaterials.length],
+      ageRange: sampleAges[i % sampleAges.length],
+      required: true,
+      enabled: true,
+      scores: defaultScores.map(s => ({...s}))
+    });
+  }
+  return questions;
+}
+
+function initDefaultConfig(toolId) {
+  const key = CONFIG_KEY + toolId;
+  if (localStorage.getItem(key)) return JSON.parse(localStorage.getItem(key));
+  // Fallback: generate from structure
+  const structure = toolId === 'pep3' ? PEP3_STRUCTURE : toolId === 'vbmapp' ? VBMAPP_STRUCTURE : toolId === 'cpep' ? CPEP_STRUCTURE : [];
+  const config = {};
+  structure.forEach(g => {
+    g.items.forEach(item => {
+      const domainKey = `${g.group}__${item}`;
+      const qCount = toolId === 'pep3' ? [20,18,16,22,14,12,10,10,8,8,12,10,12][structure.flatMap(s=>s.items).indexOf(item)] || 10
+        : toolId === 'cpep' ? Math.floor(Math.random()*12)+8
+        : Math.floor(Math.random()*8)+5;
+      config[domainKey] = generateQuestions(toolId, item, qCount);
+    });
+  });
+  localStorage.setItem(key, JSON.stringify(config));
+  return config;
+}
+
+// 从 CSV 加载预设工具数据（异步，加载完刷新页面）
+function loadPresetFromCSV(toolId) {
+  const csvMap = { pep3: 'pep3-config.csv', vbmapp: 'vbmapp-config.csv', cpep: 'cpep-config.csv' };
+  const csvFile = csvMap[toolId];
+  if (!csvFile) return;
+  const key = CONFIG_KEY + toolId;
+  fetch('../../../data/' + csvFile).then(r => r.text()).then(text => {
+    const lines = text.split('\n').map(l => l.trim()).filter(l => l);
+    if (lines.length < 2) return;
+    // CSV with quoted fields - use proper parsing
+    function parseCSVLine(line) {
+      const result = [];
+      let current = '';
+      let inQuotes = false;
+      for (let i = 0; i < line.length; i++) {
+        const ch = line[i];
+        if (inQuotes) {
+          if (ch === '"' && i + 1 < line.length && line[i + 1] === '"') {
+            current += '"'; i++;
+          } else if (ch === '"') {
+            inQuotes = false;
+          } else {
+            current += ch;
+          }
+        } else {
+          if (ch === '"') { inQuotes = true; }
+          else if (ch === ',') { result.push(current); current = ''; }
+          else { current += ch; }
+        }
+      }
+      result.push(current);
+      return result;
+    }
+    const header = parseCSVLine(lines[0]);
+    const sortIdx = header.indexOf('排序');
+    const groupIdx = header.indexOf('一级分类');
+    const domainIdx = header.indexOf('二级分类');
+    const itemNameIdx = header.indexOf('评估项目');
+    const descIdx = header.indexOf('操作描述');
+    const materialsIdx = header.indexOf('所需材料');
+    const ageIdx = header.indexOf('适用年龄');
+    const requiredIdx = header.indexOf('是否必答');
+    // 解析行级评分列：匹配 评分_([a-z])_(分值|标签|说明)
+    const scoreColMap = {};
+    header.forEach((h, idx) => {
+      const m = h.match(/^评分_([a-z])_(分值|标签|说明)$/);
+      if (m) {
+        const letter = m[1];
+        const field = m[2];
+        if (!scoreColMap[letter]) scoreColMap[letter] = {};
+        if (field === '分值') scoreColMap[letter].valueIdx = idx;
+        else if (field === '标签') scoreColMap[letter].labelIdx = idx;
+        else if (field === '说明') scoreColMap[letter].descIdx = idx;
+      }
+    });
+    const scoreLetters = Object.keys(scoreColMap).sort();
+    if (groupIdx < 0 || domainIdx < 0 || descIdx < 0) return;
+    const config = {};
+    let totalCount = 0;
+    for (let i = 1; i < lines.length; i++) {
+      const cols = parseCSVLine(lines[i]);
+      const group = (cols[groupIdx] || '').trim();
+      const domain = (cols[domainIdx] || '').trim();
+      const desc = (cols[descIdx] || '').trim();
+      if (!group || !domain) continue;
+      const dk = group + '__' + domain;
+      if (!config[dk]) config[dk] = [];
+      const scores = scoreLetters.map(letter => {
+        const sc = scoreColMap[letter];
+        return {
+          value: sc.valueIdx != null ? (parseFloat(cols[sc.valueIdx]) || 0) : 0,
+          label: sc.labelIdx != null ? (cols[sc.labelIdx] || '').trim() : '',
+          desc: sc.descIdx != null ? (cols[sc.descIdx] || '').trim() : ''
+        };
+      });
+      config[dk].push({
+        id: 'q_' + toolId + '_' + totalCount,
+        number: sortIdx >= 0 ? parseInt(cols[sortIdx]) || (config[dk].length + 1) : config[dk].length + 1,
+        itemName: itemNameIdx >= 0 ? (cols[itemNameIdx] || '').trim() : '',
+        desc: desc,
+        materials: materialsIdx >= 0 ? (cols[materialsIdx] || '').trim() : '',
+        ageRange: ageIdx >= 0 ? (cols[ageIdx] || '').trim() : '',
+        required: requiredIdx >= 0 ? (cols[requiredIdx] || '').trim() === '是' : true,
+        enabled: true,
+        scores: scores
+      });
+      totalCount++;
+    }
+    if (totalCount > 0) {
+      localStorage.setItem(key, JSON.stringify(config));
+      // 更新题目数
+      const tools = JSON.parse(localStorage.getItem(TOOLS_KEY) || '[]');
+      const tool = tools.find(t => t.id === toolId);
+      if (tool) { tool.questionCount = totalCount; localStorage.setItem(TOOLS_KEY, JSON.stringify(tools)); }
+      renderTree();
+      setTimeout(() => { const firstItem = document.querySelector('.tree-item'); if (firstItem) firstItem.click(); }, 50);
+    }
+  }).catch(() => {});
+}
+
+// 类型 ID → 显示名映射
+const EVAL_TYPES = {
+  'pep3': 'PEP-3 · 心理教育评估',
+  'cpep': 'C-PEP · 孤独症儿童发展评估',
+  'vbmapp': 'VB-MAPP · 语言行为里程碑评估',
+  'common': '通用评估 · 综合型评估'
+};
+
+function getTypeDisplayName(typeId) {
+  return EVAL_TYPES[typeId] || typeId || '未知类型';
+}
+
+function getDefaultTools() {
+  return [
+    { id:'pep3', name:'PEP-3', desc:'心理教育评估第三版', type:'pep3', questionCount:138, status:'active', updatedAt:'2024-01-15', iconClass:'pep3' },
+    { id:'cpep', name:'C-PEP', desc:'孤独症儿童发展评估表（中国残联版）', type:'cpep', questionCount:493, status:'active', updatedAt:'2024-01-18', iconClass:'cpep' },
+    { id:'vbmapp', name:'VB-MAPP', desc:'语言行为里程碑评估', type:'vbmapp', questionCount:170, status:'active', updatedAt:'2024-01-20', iconClass:'vbmapp' }
+  ];
+}
+
+function loadTools() {
+  let tools = localStorage.getItem(TOOLS_KEY);
+  if (!tools) { tools = getDefaultTools(); localStorage.setItem(TOOLS_KEY, JSON.stringify(tools)); }
+  else tools = JSON.parse(tools);
+  return tools;
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.className = 'toast show';
+  setTimeout(() => t.className = 'toast', 2000);
+}
+
+// Get score headers from first question in current domain
+function getScoreHeadersFromData() {
+  const config = JSON.parse(localStorage.getItem(CONFIG_KEY + currentToolId) || '{}');
+  const questions = config[currentDomainKey] || [];
+  if (questions.length === 0) return [];
+  const firstQ = questions[0];
+  if (firstQ.scores && firstQ.scores.length > 0) {
+    return firstQ.scores.map(s => ({ value: s.value, label: s.label }));
+  }
+  return [];
+}
+
+function init() {
+  const params = new URLSearchParams(location.search);
+  const mode = params.get('mode');
+  currentToolId = params.get('id') || '';
+
+  if (mode === 'new' || !currentToolId) {
+    // 新建模式（从列表页手动录入跳转过来时已有id）
+    // 如果没有id，回到列表页
+    if (!currentToolId) { location.href = 'admin-assessment-list.html'; return; }
+  }
+
+  const tools = loadTools();
+  const tool = tools.find(t => t.id === currentToolId);
+  if (tool) {
+    document.getElementById('toolName').value = tool.name;
+    document.getElementById('toolType').value = tool.type;
+    // 已创建的工具：类型只读，不允许修改
+    if (tool.type) {
+      var opt = TYPE_OPTIONS.find(o => o.value === tool.type);
+      var typeDisplayName = opt ? opt.name : tool.type;
+      // 只读文本
+      document.getElementById('toolTypeReadonly').textContent = typeDisplayName;
+      document.getElementById('toolTypeReadonly').style.display = 'flex';
+      document.getElementById('toolTypeWrap').style.display = 'none';
+      // 同步隐藏的 input 值
+      var toolTypeDisplay = document.getElementById('toolTypeDisplay');
+      toolTypeDisplay.textContent = typeDisplayName;
+      toolTypeDisplay.classList.remove('placeholder');
+    }
+    document.getElementById('toolDesc').value = tool.desc;
+    document.getElementById('toolNameBreadcrumb').textContent = (tool.questionCount === 0 ? '新建评估工具：' : '编辑评估工具：') + tool.name;
+    // 加载头像
+    editAvatarBase64 = tool.avatar || '';
+    const editAvatarPreview = document.getElementById('editAvatarPreview');
+    if (editAvatarPreview) {
+      if (tool.avatar) {
+        editAvatarPreview.innerHTML = `<img src="${tool.avatar}" style="width:100%;height:100%;object-fit:cover">`;
+      } else {
+        editAvatarPreview.innerHTML = '<span style="font-size:28px">📋</span>';
+      }
+    }
+  } else {
+    location.href = 'admin-assessment-list.html';
+    return;
+  }
+  const configKey = CONFIG_KEY + currentToolId;
+  let existingConfig = localStorage.getItem(configKey);
+  // 对于预设工具（pep3/vbmapp/cpep），如果没有config则生成默认模拟数据
+  if (!existingConfig && (currentToolId === 'pep3' || currentToolId === 'vbmapp' || currentToolId === 'cpep')) {
+    initDefaultConfig(currentToolId);
+    existingConfig = localStorage.getItem(configKey);
+  }
+  if (existingConfig && Object.keys(JSON.parse(existingConfig)).length > 0) {
+    renderTree();
+    // 自动选中第一个子领域
+    setTimeout(() => {
+      const firstItem = document.querySelector('.tree-item');
+      if (firstItem) firstItem.click();
+    }, 50);
+  } else {
+    renderEmptyTree();
+    renderEmptyQuestions();
+  }
+  updateInfoDisplay();
+}
+
+function updateInfoDisplay() {
+  document.getElementById('infoDisplay_name').textContent = document.getElementById('toolName').value || '未命名';
+  const typeVal = document.getElementById('toolType').value;
+  document.getElementById('infoDisplay_type').textContent = getTypeDisplayName(typeVal);
+  document.getElementById('infoDisplay_desc').textContent = document.getElementById('toolDesc').value || '无描述';
+  // 同步顶部头像
+  const tools = loadTools();
+  const tool = tools.find(t => t.id === currentToolId);
+  const avatarEl = document.getElementById('topInfoAvatar');
+  if (avatarEl && tool) {
+    avatarEl.innerHTML = tool.avatar
+      ? `<img src="${tool.avatar}" style="width:100%;height:100%;object-fit:cover">`
+      : '📋';
+  }
+}
+
+function showInfoEditMode() {
+  document.getElementById('infoDrawerOverlay').style.display = 'block';
+  document.getElementById('infoDrawer').style.display = 'flex';
+}
+
+function hideInfoEditMode() {
+  const name = document.getElementById('toolName').value.trim();
+  const type = document.getElementById('toolType').value;
+  if (!name) { showToast('请填写名称'); document.getElementById('toolName').focus(); return; }
+  if (!type) { showToast('请选择类型'); return; }
+  if (editAvatarBase64) {
+    const tools = loadTools();
+    const tool = tools.find(t => t.id === currentToolId);
+    if (tool) { tool.avatar = editAvatarBase64; localStorage.setItem(TOOLS_KEY, JSON.stringify(tools)); }
+  }
+  saveTool();
+  updateInfoDisplay();
+  document.getElementById('infoDrawer').style.display = 'none';
+  document.getElementById('infoDrawerOverlay').style.display = 'none';
+  showToast('基本信息已保存');
+}
+
+function cancelInfoEdit() {
+  document.getElementById('infoDrawer').style.display = 'none';
+  document.getElementById('infoDrawerOverlay').style.display = 'none';
+}
+
+function cancelTreeEdit() {
+  treeEditMode = false;
+  const btns = document.getElementById('treeEditBtns');
+  btns.innerHTML = `<button id="treeEditBtn" onclick="toggleTreeEditMode()" style="background:none;border:none;color:#7C3AED;font-size:13px;cursor:pointer">编辑</button>`;
+  document.getElementById('editOverlay').style.display = 'none';
+  document.querySelector('.tree-panel').style.position = '';
+  document.querySelector('.tree-panel').style.zIndex = '';
+  renderTree();
+}
+
+function tryDeleteTool() {
+  const tools = loadTools();
+  const tool = tools.find(t => t.id === currentToolId);
+  if (!tool) return;
+  if (tool.status === 'active') {
+    showToast('请先停用该评估工具后再删除');
+    return;
+  }
+  document.getElementById('deleteQuestionModal').querySelector('p').textContent =
+    `确定要删除评估工具"${tool.name}"吗？该工具下的所有题目配置将被永久删除，历史评估记录不受影响。此操作无法恢复。`;
+  document.getElementById('deleteQuestionModal').querySelector('button:last-child').setAttribute('onclick', 'confirmDeleteTool()');
+  document.getElementById('deleteQuestionModal').style.display = 'flex';
+}
+
+function confirmDeleteTool() {
+  let tools = loadTools();
+  tools = tools.filter(t => t.id !== currentToolId);
+  localStorage.setItem(TOOLS_KEY, JSON.stringify(tools));
+  localStorage.removeItem(CONFIG_KEY + currentToolId);
+  localStorage.removeItem(CONFIG_KEY + currentToolId + '_groups');
+  closeDeleteModal();
+  restoreDeleteModal();
+  showToast('评估工具已删除');
+  setTimeout(() => location.href = 'admin-assessment-list.html', 500);
+}
+
+function renderEmptyTree() {
+  document.getElementById('treeContainer').innerHTML = '<div class="empty-state" style="padding:30px 10px">暂无领域结构，请添加分组</div>';
+}
+
+function renderEmptyQuestions() {
+  document.getElementById('questionList').innerHTML = '<div class="empty-state">👈 请先在左侧选择一个子测验或领域</div>';
+}
+
+let treeEditMode = false;
+
+function toggleTreeEditMode() {
+  treeEditMode = !treeEditMode;
+  const btns = document.getElementById('treeEditBtns');
+  if (treeEditMode) {
+    btns.innerHTML = `<button onclick="cancelTreeEdit()" style="background:none;border:none;color:#6B7280;font-size:13px;cursor:pointer">取消</button><button id="treeEditBtn" onclick="toggleTreeEditMode()" style="background:#7C3AED;border:none;color:#fff;font-size:12px;cursor:pointer;padding:4px 12px;border-radius:6px">保存</button>`;
+  } else {
+    btns.innerHTML = `<button id="treeEditBtn" onclick="toggleTreeEditMode()" style="background:none;border:none;color:#7C3AED;font-size:13px;cursor:pointer">编辑</button>`;
+  }
+  document.getElementById('editOverlay').style.display = treeEditMode ? 'block' : 'none';
+  document.querySelector('.tree-panel').style.position = treeEditMode ? 'relative' : '';
+  document.querySelector('.tree-panel').style.zIndex = treeEditMode ? '51' : '';
+  renderTree();
+}
+
+function getTreeStructure() {
+  let structure = currentToolId === 'pep3' ? PEP3_STRUCTURE : currentToolId === 'vbmapp' ? VBMAPP_STRUCTURE : currentToolId === 'cpep' ? CPEP_STRUCTURE : [];
+  if (structure.length === 0) {
+    const config = JSON.parse(localStorage.getItem(CONFIG_KEY + currentToolId) || '{}');
+    const keys = Object.keys(config);
+    const groupMap = {};
+    keys.forEach(k => {
+      const parts = k.split('__');
+      const group = parts[0] || '默认分组';
+      const item = parts[1] || '默认领域';
+      if (!groupMap[group]) groupMap[group] = [];
+      if (!groupMap[group].includes(item)) groupMap[group].push(item);
+    });
+    // 合并空分组（没有子组的分组）
+    const emptyGroups = JSON.parse(localStorage.getItem(CONFIG_KEY + currentToolId + '_groups') || '[]');
+    emptyGroups.forEach(g => {
+      if (!groupMap[g]) groupMap[g] = [];
+    });
+    structure = Object.entries(groupMap).map(([group, items]) => ({ group, items }));
+  }
+  return structure;
+}
+
+function renderTree() {
+  const structure = getTreeStructure();
+  const container = document.getElementById('treeContainer');
+  if (structure.length === 0 && !treeEditMode) { renderEmptyTree(); return; }
+
+  let html = structure.map(g => {
+    const editBtns = treeEditMode ? `<span class="tree-edit-actions">
+      <button class="edit-btn" onclick="event.stopPropagation();renameGroup('${g.group}')" title="改名"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg></button>
+      <button class="delete-btn" onclick="event.stopPropagation();deleteGroup('${g.group}')" title="删除"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg></button>
+    </span>` : '';
+
+    const items = g.items.map(item => {
+      const dk = `${g.group}__${item}`;
+      const itemEditBtns = treeEditMode ? `<span class="tree-edit-actions">
+        <button class="edit-btn" onclick="event.stopPropagation();renameSubItem('${g.group}','${item}')" title="改名"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg></button>
+        <button class="delete-btn" onclick="event.stopPropagation();deleteSubItem('${g.group}','${item}')" title="删除"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg></button>
+      </span>` : '';
+      const onclickAttr = treeEditMode ? '' : "selectDomain(this, &quot;" + dk + "&quot;, &quot;" + item + "&quot;)";
+      return `<div class="tree-item ${currentDomainKey===dk?'active':''}" data-domain="${dk}" onclick="${onclickAttr}" style="${treeEditMode?'cursor:default':''}">
+        <span class="dot"></span><span style="flex:1">${item}</span>${itemEditBtns}
+      </div>`;
+    }).join('');
+
+    const addSubBtn = treeEditMode ? `<div class="tree-item" style="color:#7C3AED;font-size:12px;cursor:pointer" onclick="addSubItem(null,'${g.group}')">
+      <span class="dot" style="background:#7C3AED"></span>+ 添加子组
+    </div>` : '';
+
+    return `<div class="tree-group">
+      <div class="tree-group-title" onclick="toggleGroup(this)" style="display:flex;align-items:center">
+        <span class="arrow">▼</span> <span style="flex:1">${g.group}</span>${editBtns}
+      </div>
+      <div class="tree-children">${items}${addSubBtn}</div>
+    </div>`;
+  }).join('');
+
+  if (treeEditMode) {
+    html += `<div style="padding:8px;text-align:center">
+      <a onclick="addGroup()" style="color:#7C3AED;font-size:13px;cursor:pointer;font-weight:500">+ 添加分组</a>
+    </div>`;
+  }
+
+  container.innerHTML = html || '<div class="empty-state" style="padding:30px 10px">暂无领域结构，请点击编辑添加</div>';
+}
+
+function toggleGroup(el) {
+  el.classList.toggle('collapsed');
+  el.nextElementSibling.classList.toggle('hidden');
+}
+
+function selectDomain(el, domainKey, domainName) {
+  document.querySelectorAll('.tree-item').forEach(i => i.classList.remove('active'));
+  el.classList.add('active');
+  currentDomainKey = domainKey;
+  document.getElementById('currentDomain').textContent = domainName + ' — 题目列表';
+  document.getElementById('questionActions').style.display = 'flex';
+  renderQuestions();
+}
+
+function renderQuestions() {
+  const config = JSON.parse(localStorage.getItem(CONFIG_KEY + currentToolId) || '{}');
+  let questions = config[currentDomainKey] || [];
+  const list = document.getElementById('questionList');
+  const domainName = currentDomainKey.split('__')[1] || '';
+
+  if (questions.length === 0) {
+    list.innerHTML = '<div class="empty-state">暂无题目，点击上方"添加题目"</div>';
+    return;
+  }
+
+  const sorted = [...questions].sort((a, b) => sortOrder === 'asc' ? a.number - b.number : b.number - a.number);
+  const sortIcon = sortOrder === 'asc' ? '↑' : '↓';
+  // 从第一道题的 scores 数据中读取评分等级，每个等级拆成3列
+  const scoreLetters = 'ABCDEFGH';
+  const scoreHeaders = (sorted[0].scores || []).map((s, i) => {
+    const letter = scoreLetters[i] || (i+1);
+    return `<th style="width:85px;min-width:85px">等级${letter}-分值</th><th style="width:85px;min-width:85px">等级${letter}-标签</th><th style="width:140px;min-width:100px">等级${letter}-说明</th>`;
+  }).join('');
+
+  list.innerHTML = `
+    <div class="question-table-wrap">
+    <table class="question-table">
+      <thead>
+        <tr>
+          <th class="sortable" style="width:48px;min-width:48px" onclick="toggleSort()">排序${sortIcon}</th>
+          <th style="width:120px;min-width:70px">评估项目</th>
+          <th style="width:220px;min-width:70px">操作描述</th>
+          <th style="width:100px;min-width:70px">所需材料</th>
+          <th style="width:65px;min-width:65px">适用年龄</th>
+          <th style="width:40px;min-width:40px">必答</th>
+          <th style="width:55px;min-width:55px">启用</th>
+          ${scoreHeaders}
+          <th style="width:90px;min-width:90px" class="sticky-right">操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${sorted.map(q => {
+          const enabled = q.enabled !== false;
+          const required = q.required !== false;
+          const scoreCells = (q.scores || []).map(s => {
+            return `<td style="font-size:12px;color:#6B7280;text-align:center">${s.value != null ? s.value : ''}</td><td style="font-size:12px;color:#6B7280" class="truncate" title="${(s.label || '').replace(/"/g,'&quot;')}">${s.label || ''}</td><td style="font-size:12px;color:#6B7280" class="truncate" title="${(s.desc || '').replace(/"/g,'&quot;')}">${s.desc || ''}</td>`;
+          }).join('');
+          return `<tr>
+            <td class="q-num">${q.number}</td>
+            <td class="truncate" title="${(q.itemName || '').replace(/"/g,'&quot;')}">${q.itemName || ''}</td>
+            <td class="truncate" title="${(q.desc || '').replace(/"/g,'&quot;')}">${q.desc || '<span style="color:#9CA3AF">点击编辑</span>'}</td>
+            <td class="truncate" title="${(q.materials || '').replace(/"/g,'&quot;')}" style="font-size:12px;color:#6B7280">${q.materials || ''}</td>
+            <td style="font-size:12px;color:#6B7280">${q.ageRange || ''}</td>
+            <td style="text-align:center">${required ? '<span style="color:#059669">是</span>' : '<span style="color:#9CA3AF">否</span>'}</td>
+            <td style="text-align:center">${enabled ? '<span style="color:#059669">已启用</span>' : '<span style="color:#9CA3AF">已停用</span>'}</td>
+            ${scoreCells}
+            <td class="q-actions">
+              <div style="display:flex;align-items:center;justify-content:center;height:100%;gap:8px">
+              <a class="edit-link" onclick="editQuestion('${q.id}')">编辑</a>
+              <a class="delete-link" onclick="deleteQuestion('${q.id}')">删除</a>
+              </div>
+            </td>
+          </tr>`;
+        }).join('')}
+      </tbody>
+    </table>
+    </div>`;
+}
+
+function toggleSort() {
+  sortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
+  renderQuestions();
+}
+
+function editQuestion(qId) {
+  const config = JSON.parse(localStorage.getItem(CONFIG_KEY + currentToolId) || '{}');
+  const questions = config[currentDomainKey] || [];
+  const q = questions.find(q => q.id === qId);
+  if (!q) return;
+  drawerEditQId = qId;
+  document.getElementById('drawerTitle').textContent = '编辑题目';
+  document.getElementById('drawer_number').value = q.number || '';
+  document.getElementById('drawer_itemName').value = q.itemName || '';
+  document.getElementById('drawer_desc').value = q.desc || '';
+  document.getElementById('drawer_materials').value = q.materials || '';
+  document.getElementById('drawer_ageRange').value = q.ageRange || '';
+  document.getElementById('drawer_required').value = q.required !== false ? '是' : '否';
+  document.getElementById('drawer_enabled').checked = q.enabled !== false;
+  // 渲染评分说明字段
+  renderDrawerScoreFields(q);
+  openDrawer();
+}
+
+function renderDrawerScoreFields(q) {
+  const container = document.getElementById('drawerScoreFields');
+  let scores = [];
+  if (q && q.scores && q.scores.length > 0) {
+    scores = q.scores;
+  } else {
+    // 新增题目时，从同领域其他题目复制评分结构（分值和标签），说明留空
+    const config = JSON.parse(localStorage.getItem(CONFIG_KEY + currentToolId) || '{}');
+    const questions = config[currentDomainKey] || [];
+    if (questions.length > 0 && questions[0].scores) {
+      scores = questions[0].scores.map(s => ({ value: s.value, label: s.label, desc: '' }));
+    } else {
+      // 最终 fallback
+      scores = SCORE_PRESETS[currentToolId]
+        ? SCORE_PRESETS[currentToolId].map(s => ({ value: s.value, label: s.label, desc: '' }))
+        : [{ value: 2, label: '通过', desc: '' }, { value: 1, label: '萌芽', desc: '' }, { value: 0, label: '不通过', desc: '' }];
+    }
+  }
+  container.innerHTML = scores.map((s, i) => {
+    return `<div style="margin-bottom:16px;padding:12px;background:#F9FAFB;border-radius:8px;border:1px solid #E5E7EB">
+      <div style="font-size:12px;color:#7C3AED;font-weight:600;margin-bottom:8px">评分等级 ${String.fromCharCode(97 + i).toUpperCase()}</div>
+      <div style="display:flex;gap:8px;margin-bottom:8px">
+        <div style="flex:0 0 80px">
+          <label style="font-size:11px;color:#9CA3AF;display:block;margin-bottom:4px">分值</label>
+          <input type="number" step="0.5" id="drawer_score_${i}_value" value="${s.value}" style="width:100%;height:32px;border:1px solid #D1D5DB;border-radius:6px;padding:0 8px;font-size:13px;outline:none">
+        </div>
+        <div style="flex:1">
+          <label style="font-size:11px;color:#9CA3AF;display:block;margin-bottom:4px">标签</label>
+          <input type="text" id="drawer_score_${i}_label" value="${s.label}" placeholder="如 通过/萌芽/不通过" style="width:100%;height:32px;border:1px solid #D1D5DB;border-radius:6px;padding:0 8px;font-size:13px;outline:none">
+        </div>
+      </div>
+      <div>
+        <label style="font-size:11px;color:#9CA3AF;display:block;margin-bottom:4px">说明</label>
+        <textarea id="drawer_score_${i}_desc" placeholder="该评分等级的详细说明" style="width:100%;height:48px;border:1px solid #D1D5DB;border-radius:6px;padding:6px 8px;font-size:13px;outline:none;resize:vertical;font-family:inherit">${s.desc || ''}</textarea>
+      </div>
+    </div>`;
+  }).join('');
+  // Store score count for save
+  container.dataset.scoreCount = scores.length;
+}
+
+function openDrawer() {
+  document.getElementById('questionDrawerOverlay').style.display = 'block';
+  const drawer = document.getElementById('questionDrawer');
+  drawer.style.display = 'flex';
+  // Auto-expand if any extended field has data
+  const materials = document.getElementById('drawer_materials').value.trim();
+  const ageRange = document.getElementById('drawer_ageRange').value.trim();
+  if (materials || ageRange) {
+    document.getElementById('drawerExpandSection').style.display = 'block';
+    document.getElementById('drawerExpandArrow').style.transform = 'rotate(0deg)';
+  } else {
+    document.getElementById('drawerExpandSection').style.display = 'none';
+    document.getElementById('drawerExpandArrow').style.transform = 'rotate(-90deg)';
+  }
+}
+
+function toggleDrawerExpand() {
+  const section = document.getElementById('drawerExpandSection');
+  const arrow = document.getElementById('drawerExpandArrow');
+  const isHidden = section.style.display === 'none';
+  section.style.display = isHidden ? 'block' : 'none';
+  arrow.style.transform = isHidden ? 'rotate(0deg)' : 'rotate(-90deg)';
+}
+
+function closeDrawer() {
+  document.getElementById('questionDrawerOverlay').style.display = 'none';
+  document.getElementById('questionDrawer').style.display = 'none';
+  drawerEditQId = null;
+}
+
+function saveDrawer() {
+  // 必填校验
+  const numVal = document.getElementById('drawer_number').value.trim();
+  const itemVal = document.getElementById('drawer_itemName').value.trim();
+  if (!numVal) { showToast('请填写排序'); document.getElementById('drawer_number').focus(); return; }
+  if (!itemVal) { showToast('请填写评估项目'); document.getElementById('drawer_itemName').focus(); return; }
+  // 收集评分数据
+  const scoreCount = parseInt(document.getElementById('drawerScoreFields').dataset.scoreCount) || 0;
+  const scores = [];
+  for (let i = 0; i < scoreCount; i++) {
+    const valInput = document.getElementById('drawer_score_' + i + '_value');
+    const labelInput = document.getElementById('drawer_score_' + i + '_label');
+    const descInput = document.getElementById('drawer_score_' + i + '_desc');
+    if (labelInput && !labelInput.value.trim()) {
+      showToast('请填写评分标签（等级 ' + String.fromCharCode(65 + i) + '）');
+      labelInput.focus();
+      return;
+    }
+    scores.push({
+      value: valInput ? parseFloat(valInput.value) || 0 : 0,
+      label: labelInput ? labelInput.value.trim() : '',
+      desc: descInput ? descInput.value.trim() : ''
+    });
+  }
+
+  const config = JSON.parse(localStorage.getItem(CONFIG_KEY + currentToolId) || '{}');
+  let questions = config[currentDomainKey] || [];
+  
+  const formData = {
+    number: parseInt(document.getElementById('drawer_number').value) || 1,
+    itemName: document.getElementById('drawer_itemName').value.trim(),
+    desc: document.getElementById('drawer_desc').value.trim(),
+    materials: document.getElementById('drawer_materials').value.trim(),
+    ageRange: document.getElementById('drawer_ageRange').value.trim(),
+    required: document.getElementById('drawer_required').value === '是',
+    enabled: document.getElementById('drawer_enabled').checked,
+    scores: scores
+  };
+
+  if (drawerEditQId) {
+    // 编辑模式
+    const q = questions.find(q => q.id === drawerEditQId);
+    if (q) {
+      Object.assign(q, formData);
+      delete q._editing;
+    }
+  } else {
+    // 新增模式
+    const newId = currentToolId + '_' + Date.now();
+    questions.push({
+      id: newId,
+      ...formData
+    });
+  }
+
+  config[currentDomainKey] = questions;
+  localStorage.setItem(CONFIG_KEY + currentToolId, JSON.stringify(config));
+  const isEdit = !!drawerEditQId;
+  closeDrawer();
+  renderQuestions();
+  showToast(isEdit ? '题目已更新' : '题目已添加');
+}
+
+function deleteQuestion(qId) {
+  pendingDeleteQId = qId;
+  document.getElementById('deleteQuestionModal').style.display = 'flex';
+}
+
+function closeDeleteModal() {
+  document.getElementById('deleteQuestionModal').style.display = 'none';
+  pendingDeleteQId = '';
+}
+
+function confirmDeleteQuestion() {
+  const qId = pendingDeleteQId;
+  if (!qId) return;
+  const config = JSON.parse(localStorage.getItem(CONFIG_KEY + currentToolId) || '{}');
+  let questions = config[currentDomainKey] || [];
+  questions = questions.filter(q => q.id !== qId);
+  questions.forEach((q, i) => q.number = i + 1);
+  config[currentDomainKey] = questions;
+  localStorage.setItem(CONFIG_KEY + currentToolId, JSON.stringify(config));
+  closeDeleteModal();
+  renderQuestions();
+  showToast('已删除题目');
+}
+
+function addQuestion() {
+  if (!currentDomainKey) {
+    showToast('请先在左侧选择一个领域');
+    return;
+  }
+  drawerEditQId = null; // null 表示新增
+  document.getElementById('drawerTitle').textContent = '添加题目';
+  const config = JSON.parse(localStorage.getItem(CONFIG_KEY + currentToolId) || '{}');
+  const questions = config[currentDomainKey] || [];
+  document.getElementById('drawer_number').value = questions.length + 1;
+  document.getElementById('drawer_itemName').value = '';
+  document.getElementById('drawer_desc').value = '';
+  document.getElementById('drawer_materials').value = '';
+  document.getElementById('drawer_ageRange').value = '';
+  document.getElementById('drawer_required').value = '是';
+  document.getElementById('drawer_enabled').checked = true;
+  renderDrawerScoreFields(null);
+  openDrawer();
+}
+
+function addGroup() {
+  document.getElementById('addGroupModal').style.display = 'flex';
+  document.getElementById('addGroupInput').value = '';
+  setTimeout(() => document.getElementById('addGroupInput').focus(), 50);
+}
+
+function closeAddGroupModal() {
+  document.getElementById('addGroupModal').style.display = 'none';
+}
+
+function confirmAddGroup() {
+  const name = document.getElementById('addGroupInput').value.trim();
+  if (!name) return;
+  closeAddGroupModal();
+  // 用独立的 key 存储空分组列表
+  const emptyGroups = JSON.parse(localStorage.getItem(CONFIG_KEY + currentToolId + '_groups') || '[]');
+  if (!emptyGroups.includes(name)) emptyGroups.push(name);
+  localStorage.setItem(CONFIG_KEY + currentToolId + '_groups', JSON.stringify(emptyGroups));
+  renderTree();
+  showToast('已添加分组：' + name);
+}
+
+function addSubItem(groupEl, groupName) {
+  pendingSubItemGroupName = groupName;
+  document.getElementById('addSubItemModal').style.display = 'flex';
+  document.getElementById('addSubItemInput').value = '';
+  setTimeout(() => document.getElementById('addSubItemInput').focus(), 50);
+}
+
+function closeAddSubItemModal() {
+  document.getElementById('addSubItemModal').style.display = 'none';
+  pendingSubItemGroupName = '';
+}
+
+function confirmAddSubItem() {
+  const itemName = document.getElementById('addSubItemInput').value.trim();
+  if (!itemName) return;
+  const groupName = pendingSubItemGroupName;
+  closeAddSubItemModal();
+  if (!groupName) return;
+  const dk = `${groupName}__${itemName}`;
+  const config = JSON.parse(localStorage.getItem(CONFIG_KEY + currentToolId) || '{}');
+  if (!config[dk]) config[dk] = [];
+  localStorage.setItem(CONFIG_KEY + currentToolId, JSON.stringify(config));
+  // 从空分组列表中移除（因为现在有子组了）
+  let emptyGroups = JSON.parse(localStorage.getItem(CONFIG_KEY + currentToolId + '_groups') || '[]');
+  emptyGroups = emptyGroups.filter(g => g !== groupName);
+  localStorage.setItem(CONFIG_KEY + currentToolId + '_groups', JSON.stringify(emptyGroups));
+  renderTree();
+  showToast('已添加子组：' + itemName);
+}
+
+// 改名分组
+function renameGroup(oldGroupName) {
+  document.getElementById('addGroupInput').value = oldGroupName;
+  document.getElementById('addGroupModal').querySelector('h3').textContent = '重命名分组';
+  document.getElementById('addGroupModal').style.display = 'flex';
+  setTimeout(() => document.getElementById('addGroupInput').focus(), 50);
+  // 临时替换确认按钮行为
+  window._renameGroupOld = oldGroupName;
+  document.getElementById('addGroupModal').querySelector('button:last-child').setAttribute('onclick', 'confirmRenameGroup()');
+}
+
+function confirmRenameGroup() {
+  const newName = document.getElementById('addGroupInput').value.trim();
+  const oldName = window._renameGroupOld;
+  if (!newName || !oldName || newName === oldName) { closeAddGroupModal(); restoreAddGroupModal(); return; }
+  const config = JSON.parse(localStorage.getItem(CONFIG_KEY + currentToolId) || '{}');
+  const newConfig = {};
+  Object.keys(config).forEach(k => {
+    const parts = k.split('__');
+    if (parts[0] === oldName) {
+      newConfig[newName + '__' + parts[1]] = config[k];
+    } else {
+      newConfig[k] = config[k];
+    }
+  });
+  localStorage.setItem(CONFIG_KEY + currentToolId, JSON.stringify(newConfig));
+  closeAddGroupModal();
+  restoreAddGroupModal();
+  renderTree();
+  showToast('已重命名为：' + newName);
+}
+
+function restoreAddGroupModal() {
+  document.getElementById('addGroupModal').querySelector('h3').textContent = '添加分组';
+  document.getElementById('addGroupModal').querySelector('button:last-child').setAttribute('onclick', 'confirmAddGroup()');
+  delete window._renameGroupOld;
+}
+
+// 删除分组（二次确认）
+let pendingDeleteGroup = '';
+function deleteGroup(groupName) {
+  pendingDeleteGroup = groupName;
+  const config = JSON.parse(localStorage.getItem(CONFIG_KEY + currentToolId) || '{}');
+  let count = 0;
+  Object.keys(config).forEach(k => { if (k.startsWith(groupName + '__')) count += config[k].length; });
+  document.getElementById('deleteQuestionModal').querySelector('p').textContent =
+    `确定要删除分组"${groupName}"吗？该分组下共有 ${count} 道题目将被一并删除，此操作无法恢复。`;
+  document.getElementById('deleteQuestionModal').querySelector('button:last-child').setAttribute('onclick', 'confirmDeleteGroup()');
+  document.getElementById('deleteQuestionModal').style.display = 'flex';
+}
+
+function confirmDeleteGroup() {
+  const groupName = pendingDeleteGroup;
+  if (!groupName) return;
+  const config = JSON.parse(localStorage.getItem(CONFIG_KEY + currentToolId) || '{}');
+  Object.keys(config).forEach(k => { if (k.startsWith(groupName + '__')) delete config[k]; });
+  localStorage.setItem(CONFIG_KEY + currentToolId, JSON.stringify(config));
+  pendingDeleteGroup = '';
+  closeDeleteModal();
+  restoreDeleteModal();
+  if (currentDomainKey && currentDomainKey.startsWith(groupName + '__')) {
+    currentDomainKey = '';
+    renderEmptyQuestions();
+    document.getElementById('currentDomain').textContent = '请选择左侧子测验/领域';
+    document.getElementById('questionActions').style.display = 'none';
+  }
+  renderTree();
+  showToast('已删除分组：' + groupName);
+}
+
+// 改名子组
+function renameSubItem(groupName, oldItemName) {
+  document.getElementById('addSubItemInput').value = oldItemName;
+  document.getElementById('addSubItemModal').querySelector('h3').textContent = '重命名子组';
+  pendingSubItemGroupName = groupName;
+  window._renameSubItemOld = oldItemName;
+  document.getElementById('addSubItemModal').querySelector('button:last-child').setAttribute('onclick', 'confirmRenameSubItem()');
+  document.getElementById('addSubItemModal').style.display = 'flex';
+  setTimeout(() => document.getElementById('addSubItemInput').focus(), 50);
+}
+
+function confirmRenameSubItem() {
+  const newName = document.getElementById('addSubItemInput').value.trim();
+  const oldName = window._renameSubItemOld;
+  const groupName = pendingSubItemGroupName;
+  if (!newName || !oldName || !groupName || newName === oldName) { closeAddSubItemModal(); restoreAddSubItemModal(); return; }
+  const oldKey = groupName + '__' + oldName;
+  const newKey = groupName + '__' + newName;
+  const config = JSON.parse(localStorage.getItem(CONFIG_KEY + currentToolId) || '{}');
+  if (config[oldKey]) {
+    config[newKey] = config[oldKey];
+    delete config[oldKey];
+    localStorage.setItem(CONFIG_KEY + currentToolId, JSON.stringify(config));
+  }
+  if (currentDomainKey === oldKey) currentDomainKey = newKey;
+  closeAddSubItemModal();
+  restoreAddSubItemModal();
+  renderTree();
+  showToast('已重命名为：' + newName);
+}
+
+function restoreAddSubItemModal() {
+  document.getElementById('addSubItemModal').querySelector('h3').textContent = '添加子项';
+  document.getElementById('addSubItemModal').querySelector('button:last-child').setAttribute('onclick', 'confirmAddSubItem()');
+  delete window._renameSubItemOld;
+}
+
+// 删除子组（二次确认）
+let pendingDeleteSubGroup = '';
+let pendingDeleteSubItem = '';
+function deleteSubItem(groupName, itemName) {
+  pendingDeleteSubGroup = groupName;
+  pendingDeleteSubItem = itemName;
+  const dk = groupName + '__' + itemName;
+  const config = JSON.parse(localStorage.getItem(CONFIG_KEY + currentToolId) || '{}');
+  const count = (config[dk] || []).length;
+  document.getElementById('deleteQuestionModal').querySelector('p').textContent =
+    `确定要删除子组"${itemName}"吗？该子组下共有 ${count} 道题目将被一并删除，此操作无法恢复。`;
+  document.getElementById('deleteQuestionModal').querySelector('button:last-child').setAttribute('onclick', 'confirmDeleteSubItem()');
+  document.getElementById('deleteQuestionModal').style.display = 'flex';
+}
+
+function confirmDeleteSubItem() {
+  const groupName = pendingDeleteSubGroup;
+  const itemName = pendingDeleteSubItem;
+  const dk = groupName + '__' + itemName;
+  const config = JSON.parse(localStorage.getItem(CONFIG_KEY + currentToolId) || '{}');
+  delete config[dk];
+  localStorage.setItem(CONFIG_KEY + currentToolId, JSON.stringify(config));
+  // 如果删除后该分组下没有子组了，把分组加入空分组列表保留
+  const hasOtherItems = Object.keys(config).some(k => k.startsWith(groupName + '__'));
+  if (!hasOtherItems) {
+    const emptyGroups = JSON.parse(localStorage.getItem(CONFIG_KEY + currentToolId + '_groups') || '[]');
+    if (!emptyGroups.includes(groupName)) emptyGroups.push(groupName);
+    localStorage.setItem(CONFIG_KEY + currentToolId + '_groups', JSON.stringify(emptyGroups));
+  }
+  if (currentDomainKey === dk) {
+    currentDomainKey = '';
+    renderEmptyQuestions();
+    document.getElementById('currentDomain').textContent = '请选择左侧领域';
+    document.getElementById('questionActions').style.display = 'none';
+  }
+  closeDeleteModal();
+  restoreDeleteModal();
+  renderTree();
+  showToast('已删除子组：' + itemName);
+  pendingDeleteSubGroup = '';
+  pendingDeleteSubItem = '';
+}
+
+function restoreDeleteModal() {
+  document.getElementById('deleteQuestionModal').querySelector('p').textContent = '确定要删除这道题目吗？删除后无法恢复。';
+  document.getElementById('deleteQuestionModal').querySelector('button:last-child').setAttribute('onclick', 'confirmDeleteQuestion()');
+}
+
+function saveTool() {
+  const tools = loadTools();
+  if (isNewMode && !currentToolId) {
+    // 新建保存
+    const name = document.getElementById('toolName').value.trim();
+    if (!name) { showToast('请输入评估工具名称'); return; }
+    // 重名检查
+    const existingToolsSave = loadTools();
+    if (existingToolsSave.some(t => t.name === name && t.id !== currentToolId)) {
+      showToast('评估工具名称"' + name + '"已存在，请使用其他名称');
+      return;
+    }
+    currentToolId = 'custom_' + Date.now();
+    const newTool = {
+      id: currentToolId,
+      name: name,
+      type: document.getElementById('toolType').value,
+      desc: document.getElementById('toolDesc').value,
+      questionCount: 0,
+      status: 'inactive',
+      updatedAt: new Date().toISOString().slice(0,10),
+      iconClass: 'pep3'
+    };
+    tools.push(newTool);
+    localStorage.setItem(TOOLS_KEY, JSON.stringify(tools));
+    isNewMode = false;
+  } else {
+    const tool = tools.find(t => t.id === currentToolId);
+    if (tool) {
+      const editName = document.getElementById('toolName').value.trim();
+      if (tools.some(t => t.name === editName && t.id !== currentToolId)) {
+        showToast('评估工具名称"' + editName + '"已存在，请使用其他名称');
+        return;
+      }
+      tool.name = editName;
+      tool.type = document.getElementById('toolType').value;
+      tool.desc = document.getElementById('toolDesc').value;
+      tool.updatedAt = new Date().toISOString().slice(0,10);
+      // 更新题目总数
+      const config = JSON.parse(localStorage.getItem(CONFIG_KEY + currentToolId) || '{}');
+      tool.questionCount = Object.values(config).reduce((sum, qs) => sum + qs.length, 0);
+      localStorage.setItem(TOOLS_KEY, JSON.stringify(tools));
+    }
+  }
+  showToast('保存成功');
+}
+
+// 新建面板操作
+function createByImport() {
+  const name = document.getElementById('createName').value.trim();
+  const type = document.getElementById('createType').value;
+  const desc = document.getElementById('createDesc').value.trim();
+  if (!name) { showToast('请输入评估工具名称'); return; }
+  if (!type) { showToast('请选择评估工具类型'); return; }
+  // 重名检查
+  const existingToolsImport = loadTools();
+  if (existingToolsImport.some(t => t.name === name)) {
+    showToast('评估工具名称"' + name + '"已存在，请使用其他名称');
+    return;
+  }
+  // 切换到表格录入步骤（显示模板下载 + 上传）
+  document.querySelector('.create-basic-info').style.display = 'none';
+  document.querySelector('.create-method-title').style.display = 'none';
+  document.querySelector('.create-methods').style.display = 'none';
+  document.querySelector('.create-panel .subtitle').textContent = '第1步：下载模板并填写评估题目';
+  // 显示模板下载区
+  let importStepEl = document.getElementById('importStep');
+  if (!importStepEl) {
+    const html = `<div id="importStep" style="margin-top:16px">
+      <div style="margin-bottom:20px">
+        <div style="font-size:14px;font-weight:600;margin-bottom:12px">下载导入模板</div>
+        <div style="display:flex;gap:12px">
+          <a onclick="downloadTemplate('pep3')" style="display:flex;align-items:center;gap:6px;padding:10px 16px;border:1px solid #D1D5DB;border-radius:8px;cursor:pointer;font-size:13px;color:#7C3AED;text-decoration:none">📄 下载 PEP-3 模板</a>
+          <a onclick="downloadTemplate('vbmapp')" style="display:flex;align-items:center;gap:6px;padding:10px 16px;border:1px solid #D1D5DB;border-radius:8px;cursor:pointer;font-size:13px;color:#7C3AED;text-decoration:none">📄 下载 VB-MAPP 模板</a>
+        </div>
+      </div>
+      <div style="margin-bottom:20px">
+        <div style="font-size:14px;font-weight:600;margin-bottom:12px">第2步：上传填写好的文件</div>
+        <div style="border:2px dashed #D1D5DB;border-radius:8px;padding:32px;text-align:center;cursor:pointer" onclick="simulateImportUpload()">
+          <div style="font-size:28px;margin-bottom:8px">📁</div>
+          <div style="font-size:14px;color:#6B7280">拖拽文件到此处，或 <span style="color:#7C3AED;font-weight:500">点击选择文件</span></div>
+          <div style="font-size:12px;color:#9CA3AF;margin-top:4px">支持 .xlsx, .csv 格式</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;justify-content:flex-end">
+        <button onclick="backToCreateMethods()" style="padding:8px 20px;border:1px solid #D1D5DB;border-radius:8px;background:#fff;cursor:pointer;font-size:14px;font-family:inherit">返回</button>
+      </div>
+    </div>`;
+    document.querySelector('.create-panel').insertAdjacentHTML('beforeend', html);
+  } else {
+    importStepEl.style.display = 'block';
+  }
+}
+
+function backToCreateMethods() {
+  document.querySelector('.create-basic-info').style.display = '';
+  document.querySelector('.create-method-title').style.display = '';
+  document.querySelector('.create-methods').style.display = '';
+  document.querySelector('.create-panel .subtitle').textContent = '请先填写基本信息，然后选择配置方式';
+  const importStepEl = document.getElementById('importStep');
+  if (importStepEl) importStepEl.style.display = 'none';
+}
+
+function simulateImportUpload() {
+  const name = document.getElementById('createName').value.trim();
+  const type = document.getElementById('createType').value;
+  const desc = document.getElementById('createDesc').value.trim();
+  currentToolId = 'custom_' + Date.now();
+  const tools = loadTools();
+  tools.push({
+    id: currentToolId, name, type, desc, questionCount: 0, status: 'inactive',
+    updatedAt: new Date().toISOString().slice(0,10), iconClass: 'pep3'
+  });
+  localStorage.setItem(TOOLS_KEY, JSON.stringify(tools));
+  localStorage.setItem(CONFIG_KEY + currentToolId, JSON.stringify({}));
+  document.getElementById('createOverlay').style.display = 'none';
+  location.href = `admin-assessment-import.html?id=${currentToolId}`;
+}
+
+function createManual() {
+  const name = document.getElementById('createName').value.trim();
+  const type = document.getElementById('createType').value;
+  const desc = document.getElementById('createDesc').value.trim();
+  if (!name) { showToast('请输入评估工具名称'); return; }
+  if (!type) { showToast('请选择评估工具类型'); return; }
+  // 重名检查
+  const existingToolsManual = loadTools();
+  if (existingToolsManual.some(t => t.name === name)) {
+    showToast('评估工具名称"' + name + '"已存在，请使用其他名称');
+    return;
+  }
+  // 创建工具并进入空白编辑
+  currentToolId = 'custom_' + Date.now();
+  const tools = loadTools();
+  tools.push({
+    id: currentToolId, name, type, desc, questionCount: 0, status: 'inactive',
+    updatedAt: new Date().toISOString().slice(0,10), iconClass: 'pep3'
+  });
+  localStorage.setItem(TOOLS_KEY, JSON.stringify(tools));
+  localStorage.setItem(CONFIG_KEY + currentToolId, JSON.stringify({}));
+  // 填充基本信息到编辑页
+  document.getElementById('toolName').value = name;
+  document.getElementById('toolType').value = type;
+  // 类型已选定，锁定为只读
+  if (type) {
+    var opt = TYPE_OPTIONS.find(o => o.value === type);
+    var typeDisplayName = opt ? opt.name : type;
+    document.getElementById('toolTypeReadonly').textContent = typeDisplayName;
+    document.getElementById('toolTypeReadonly').style.display = 'flex';
+    document.getElementById('toolTypeWrap').style.display = 'none';
+    document.getElementById('toolTypeDisplay').textContent = typeDisplayName;
+    document.getElementById('toolTypeDisplay').classList.remove('placeholder');
+  }
+  document.getElementById('toolDesc').value = desc;
+  document.getElementById('toolNameBreadcrumb').textContent = '新建评估工具：' + name;
+  isNewMode = false;
+  document.getElementById('createOverlay').style.display = 'none';
+  renderEmptyTree();
+  renderEmptyQuestions();
+}
+
+function closeCreatePanel() {
+  document.getElementById('createOverlay').style.display = 'none';
+  // 返回列表页
+  location.href = 'admin-assessment-list.html';
+}
+
+function downloadTemplate(type) {
+  const fileName = type === 'pep3' ? 'pep3-import-template.csv' : 'vbmapp-import-template.csv';
+  // 使用相对路径下载 data 目录下的模板文件
+  const link = document.createElement('a');
+  link.href = '../../../data/' + fileName;
+  link.download = fileName;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  showToast('正在下载 ' + (type === 'pep3' ? 'PEP-3' : 'VB-MAPP') + ' 模板');
+}
+
+function resetAll() {
+  document.getElementById('resetConfirmModal').style.display = 'flex';
+}
+function confirmResetAll() {
+  Object.keys(localStorage).forEach(k => { if (k.startsWith('rice_assessment_')) localStorage.removeItem(k); });
+  document.getElementById('resetConfirmModal').style.display = 'none';
+  location.reload();
+}
+function closeResetModal() {
+  document.getElementById('resetConfirmModal').style.display = 'none';
+}
+
+// 自定义下拉组件
+const TYPE_OPTIONS = [
+  { value: "pep3", name: "PEP-3 · 心理教育评估", desc: "Schopler修订版，适用于2-7.5岁儿童" },
+  { value: "cpep", name: "C-PEP · 孤独症儿童发展评估（残联版）", desc: "中国残联版，适用于0-7岁孤独症儿童" },
+  { value: "vbmapp", name: "VB-MAPP · 语言行为里程碑评估", desc: "基于ABA原理评估语言和社交技能" },
+  { value: "common", name: "通用评估 · 综合型评估", desc: "适用于自定义评估工具" }
+];
+
+function initTypeDropdown(wrapId, hiddenInputId, displayId) {
+  const wrap = document.getElementById(wrapId);
+  const dropdown = wrap.querySelector('.custom-select-dropdown');
+  dropdown.innerHTML = TYPE_OPTIONS.map(opt => `
+    <div class="custom-select-option" onclick="selectType('${wrapId}','${hiddenInputId}','${displayId}','${opt.value}')">
+      <div class="opt-name">${opt.name}</div>
+      <div class="opt-desc">${opt.desc}</div>
+    </div>
+  `).join('');
+}
+
+function toggleTypeDropdown(wrapId) {
+  const wrap = document.getElementById(wrapId);
+  const dropdown = wrap.querySelector('.custom-select-dropdown');
+  const isOpen = dropdown.style.display !== 'none';
+  document.querySelectorAll('.custom-select-dropdown').forEach(d => d.style.display = 'none');
+  dropdown.style.display = isOpen ? 'none' : 'block';
+}
+
+function selectType(wrapId, hiddenInputId, displayId, value) {
+  document.getElementById(hiddenInputId).value = value;
+  const display = document.getElementById(displayId);
+  const opt = TYPE_OPTIONS.find(o => o.value === value);
+  display.textContent = opt ? opt.name : value;
+  display.classList.remove('placeholder');
+  const wrap = document.getElementById(wrapId);
+  wrap.querySelectorAll('.custom-select-option').forEach(optEl => {
+    const nameEl = optEl.querySelector('.opt-name');
+    optEl.classList.toggle('selected', nameEl && opt && nameEl.textContent === opt.name);
+  });
+  wrap.querySelector('.custom-select-dropdown').style.display = 'none';
+}
+
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.custom-select')) {
+    document.querySelectorAll('.custom-select-dropdown').forEach(d => d.style.display = 'none');
+  }
+});
+
+// 初始化下拉组件
+initTypeDropdown('toolTypeWrap', 'toolType', 'toolTypeDisplay');
+initTypeDropdown('createTypeWrap2', 'createType', 'createTypeDisplay2');
+
+init();
+</script>
+</body>
+</html>

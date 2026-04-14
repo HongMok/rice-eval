@@ -1,0 +1,7062 @@
+[
+  {
+    "id": 11510,
+    "name": "多种基本姿势",
+    "stairAndDomain": "1-2岁-粗大动作-粗大动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "粗大动作",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13143,
+        "name": "可以做出各种基本姿势",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11511,
+    "name": "爬台阶",
+    "stairAndDomain": "1-2岁-粗大动作-粗大动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "粗大动作",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13144,
+        "name": "可以爬上或倒爬下台阶",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11512,
+    "name": "走台阶",
+    "stairAndDomain": "1-2岁-粗大动作-粗大动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "粗大动作",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13145,
+        "name": "扶着栏杆上台阶",
+        "stage": "1"
+      },
+      {
+        "id": 13146,
+        "name": "大人领着走下台阶",
+        "stage": "2"
+      },
+      {
+        "id": 13147,
+        "name": "独自走台阶",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11513,
+    "name": "滚球",
+    "stairAndDomain": "1-2岁-粗大动作-粗大动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "粗大动作",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13148,
+        "name": "把球滚出去",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11514,
+    "name": "踢静止的球",
+    "stairAndDomain": "1-2岁-粗大动作-粗大动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "粗大动作",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13149,
+        "name": "踢静止的球",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11515,
+    "name": "抛球",
+    "stairAndDomain": "1-2岁-粗大动作-粗大动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "粗大动作",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13150,
+        "name": "向前抛出球",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11516,
+    "name": "倒东西",
+    "stairAndDomain": "1-2岁-粗大动作-粗大动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "粗大动作",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13151,
+        "name": "拉、推容器或物品",
+        "stage": "1"
+      },
+      {
+        "id": 13152,
+        "name": "独立把物品从容器倒出来",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11517,
+    "name": "踮脚站",
+    "stairAndDomain": "1-2岁-粗大动作-粗大动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "粗大动作",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13153,
+        "name": "踮脚站立",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11518,
+    "name": "转弯",
+    "stairAndDomain": "1-2岁-粗大动作-粗大动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "粗大动作",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13154,
+        "name": "跑动时可以转弯",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11524,
+    "name": "沿着宽线走",
+    "stairAndDomain": "2-3岁-粗大动作-粗大动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "粗大动作",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13162,
+        "name": "沿宽线至少走2-3米",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11525,
+    "name": "向下跳台阶",
+    "stairAndDomain": "2-3岁-粗大动作-粗大动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "粗大动作",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13163,
+        "name": "向下跳台阶一级",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11526,
+    "name": "双手接球",
+    "stairAndDomain": "2-3岁-粗大动作-粗大动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "粗大动作",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13164,
+        "name": "双手接到大人半一米内的抛球",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11527,
+    "name": "单脚站立",
+    "stairAndDomain": "2-3岁-粗大动作-粗大动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "粗大动作",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13165,
+        "name": "尝试单脚站立1-3秒",
+        "stage": "1"
+      },
+      {
+        "id": 13166,
+        "name": "单脚站立5秒以上",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11532,
+    "name": "双脚向前跳",
+    "stairAndDomain": "3-4岁-粗大动作-粗大动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "粗大动作",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13172,
+        "name": "向前跳一步40-50厘米",
+        "stage": "1"
+      },
+      {
+        "id": 13173,
+        "name": "双脚连续向前跳",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11533,
+    "name": "交替上下楼梯",
+    "stairAndDomain": "3-4岁-粗大动作-粗大动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "粗大动作",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13174,
+        "name": "一步一个台阶交替上下楼梯，至少走4个台阶",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11534,
+    "name": "跑步时突然停下",
+    "stairAndDomain": "3-4岁-粗大动作-粗大动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "粗大动作",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13175,
+        "name": "可以快跑15米左右，即使突然停也能不摔倒",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11535,
+    "name": "举高球抛球",
+    "stairAndDomain": "3-4岁-粗大动作-粗大动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "粗大动作",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13176,
+        "name": "能把球举过头顶抛出去",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11536,
+    "name": "弹球接球",
+    "stairAndDomain": "3-4岁-粗大动作-粗大动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "粗大动作",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13177,
+        "name": "能接住弹起的球",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11540,
+    "name": "换脚向前跳",
+    "stairAndDomain": "4-5岁-粗大动作-粗大动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "粗大动作",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13182,
+        "name": "可以换着脚向前跳八步",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11541,
+    "name": "单脚向前跳",
+    "stairAndDomain": "4-5岁-粗大动作-粗大动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "粗大动作",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13183,
+        "name": "能单脚连续向前跳5米左右",
+        "stage": "1"
+      },
+      {
+        "id": 13184,
+        "name": "单脚连续向前跳8米",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11542,
+    "name": "跳高",
+    "stairAndDomain": "4-5岁-粗大动作-粗大动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "粗大动作",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13185,
+        "name": "能双脚向上跳过20厘米的高度",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11543,
+    "name": "抛接球",
+    "stairAndDomain": "4-5岁-粗大动作-粗大动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "粗大动作",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13186,
+        "name": "可以连续自抛自接球",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11547,
+    "name": "拍球",
+    "stairAndDomain": "5岁以上-粗大动作-粗大动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "粗大动作",
+    "ageBracket": "5岁以上",
+    "stages": [
+      {
+        "id": 13190,
+        "name": "可以连续拍球",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11548,
+    "name": "手脚攀爬",
+    "stairAndDomain": "5岁以上-粗大动作-粗大动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "粗大动作",
+    "ageBracket": "5岁以上",
+    "stages": [
+      {
+        "id": 13191,
+        "name": "能手脚并用的安全攀爬登架、网等",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11519,
+    "name": "简单的摆弄物品",
+    "stairAndDomain": "1-2岁-粗大动作-精细动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "精细动作",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13155,
+        "name": "做出简单摆弄物品的多种动作",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11520,
+    "name": "随意涂鸦",
+    "stairAndDomain": "1-2岁-粗大动作-精细动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "精细动作",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13156,
+        "name": "涂鸦并能有意识停下",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11521,
+    "name": "叠搭积木",
+    "stairAndDomain": "1-2岁-粗大动作-精细动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "精细动作",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13157,
+        "name": "搭高至少3块积木",
+        "stage": "1"
+      },
+      {
+        "id": 13158,
+        "name": "搭高至少6块积木",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11522,
+    "name": "嵌套拼板",
+    "stairAndDomain": "1-2岁-粗大动作-精细动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "精细动作",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13159,
+        "name": "完成一套拼板",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11523,
+    "name": "翻书",
+    "stairAndDomain": "1-2岁-粗大动作-精细动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "精细动作",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13160,
+        "name": "连续翻书3页",
+        "stage": "1"
+      },
+      {
+        "id": 13161,
+        "name": "连续翻完一本完整的书",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11528,
+    "name": "握笔",
+    "stairAndDomain": "2-3岁-粗大动作-精细动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "精细动作",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13167,
+        "name": "以合适的姿势握笔",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11529,
+    "name": "简单画线条",
+    "stairAndDomain": "2-3岁-粗大动作-精细动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "精细动作",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13168,
+        "name": "画出简单线条",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11530,
+    "name": "转动把手",
+    "stairAndDomain": "2-3岁-粗大动作-精细动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "精细动作",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13169,
+        "name": "旋转把手",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11531,
+    "name": "简单手部控制动作",
+    "stairAndDomain": "2-3岁-粗大动作-精细动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "精细动作",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13170,
+        "name": "拧开或转开矿泉水瓶盖",
+        "stage": "1"
+      },
+      {
+        "id": 13171,
+        "name": "剥皮动作",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11537,
+    "name": "学用剪刀",
+    "stairAndDomain": "3-4岁-粗大动作-精细动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "精细动作",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13178,
+        "name": "可以用剪刀，把纸减成两部分",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11538,
+    "name": "基础仿画",
+    "stairAndDomain": "3-4岁-粗大动作-精细动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "精细动作",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13179,
+        "name": "可以仿画线条（横线、竖线、波浪线等）",
+        "stage": "1"
+      },
+      {
+        "id": 13180,
+        "name": "可以仿画图形（十字、圆形、三角形等）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11539,
+    "name": "解纽扣",
+    "stairAndDomain": "3-4岁-粗大动作-精细动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "精细动作",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13181,
+        "name": "可以解开日常衣服上的纽扣（2-3个）",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11544,
+    "name": "沿线剪纸",
+    "stairAndDomain": "4-5岁-粗大动作-精细动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "精细动作",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13187,
+        "name": "可以沿着直线线条剪纸（例如沿着正方形）",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11545,
+    "name": "对折纸",
+    "stairAndDomain": "4-5岁-粗大动作-精细动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "精细动作",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13188,
+        "name": "能沿着中线对折纸",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11546,
+    "name": "涂色",
+    "stairAndDomain": "4-5岁-粗大动作-精细动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "精细动作",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13189,
+        "name": "能在指定区域涂色，可以较少涂出边线",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11549,
+    "name": "画简单图形",
+    "stairAndDomain": "5岁以上-粗大动作-精细动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "精细动作",
+    "ageBracket": "5岁以上",
+    "stages": [
+      {
+        "id": 13192,
+        "name": "能根据需要画出图形，线条基本平滑",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11550,
+    "name": "剪图形",
+    "stairAndDomain": "5岁以上-粗大动作-精细动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "精细动作",
+    "ageBracket": "5岁以上",
+    "stages": [
+      {
+        "id": 13193,
+        "name": "能沿着轮廓剪出曲线以及圆相关的简单图形",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11551,
+    "name": "使用筷子",
+    "stairAndDomain": "5岁以上-粗大动作-精细动作",
+    "territoryName": "粗大动作",
+    "subdivideName": "精细动作",
+    "ageBracket": "5岁以上",
+    "stages": [
+      {
+        "id": 13194,
+        "name": "可以夹起自己日常的饭菜",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11552,
+    "name": "感官游戏",
+    "stairAndDomain": "1-2岁-游戏-游戏技能",
+    "territoryName": "游戏",
+    "subdivideName": "游戏技能",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13195,
+        "name": "累积感官游戏10种",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11553,
+    "name": "功能性玩法",
+    "stairAndDomain": "1-2岁-游戏-游戏技能",
+    "territoryName": "游戏",
+    "subdivideName": "游戏技能",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13196,
+        "name": "单一操作",
+        "stage": "1"
+      },
+      {
+        "id": 13197,
+        "name": "两步操作",
+        "stage": "2"
+      },
+      {
+        "id": 13198,
+        "name": "三步及以上操作",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11554,
+    "name": "建构游戏",
+    "stairAndDomain": "2-3岁-游戏-游戏技能",
+    "territoryName": "游戏",
+    "subdivideName": "游戏技能",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13199,
+        "name": "参照图纸，老师引导下进行仿搭",
+        "stage": "1"
+      },
+      {
+        "id": 13200,
+        "name": "参照图纸，孩子独立进行搭建",
+        "stage": "2"
+      },
+      {
+        "id": 13201,
+        "name": "孩子独立进行搭建",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11555,
+    "name": "假想游戏",
+    "stairAndDomain": "2-3岁-游戏-游戏技能",
+    "territoryName": "游戏",
+    "subdivideName": "游戏技能",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13202,
+        "name": "使用玩具模型进行假想操作",
+        "stage": "1"
+      },
+      {
+        "id": 13203,
+        "name": "使用物品替代进行假想游戏",
+        "stage": "2"
+      },
+      {
+        "id": 13204,
+        "name": "凭空进行假想游戏",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11556,
+    "name": "理解游戏规则",
+    "stairAndDomain": "3-4岁-游戏-游戏技能",
+    "territoryName": "游戏",
+    "subdivideName": "游戏技能",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13205,
+        "name": "理解一种游戏规则",
+        "stage": "1"
+      },
+      {
+        "id": 13206,
+        "name": "理解两种游戏规则",
+        "stage": "2"
+      },
+      {
+        "id": 13207,
+        "name": "理解三种及以上游戏规则",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11557,
+    "name": "平行游戏",
+    "stairAndDomain": "2-3岁-游戏-社会性游戏",
+    "territoryName": "游戏",
+    "subdivideName": "社会性游戏",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13208,
+        "name": "各自玩各自喜欢的游戏活动（在同伴身旁、5分钟、不需要观察同伴）",
+        "stage": "1"
+      },
+      {
+        "id": 13209,
+        "name": "玩同样的游戏（不需要有互动、5分钟）",
+        "stage": "2"
+      },
+      {
+        "id": 13210,
+        "name": "玩同样的游戏（在5分钟里面在康复师引导下观察同伴一共两次）",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11558,
+    "name": "一来一往游戏（大人/同伴）",
+    "stairAndDomain": "2-3岁-游戏-社会性游戏",
+    "territoryName": "游戏",
+    "subdivideName": "社会性游戏",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13211,
+        "name": "一回合",
+        "stage": "1"
+      },
+      {
+        "id": 13212,
+        "name": "两回合",
+        "stage": "2"
+      },
+      {
+        "id": 13213,
+        "name": "三回合及以上",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11559,
+    "name": "参与社会性游戏",
+    "stairAndDomain": "3-4岁-游戏-社会性游戏",
+    "territoryName": "游戏",
+    "subdivideName": "社会性游戏",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13214,
+        "name": "持续参与3分钟",
+        "stage": "1"
+      },
+      {
+        "id": 13215,
+        "name": "持续参与5分钟及以上",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11560,
+    "name": "戏剧性游戏（角色扮演）",
+    "stairAndDomain": "3-4岁-游戏-社会性游戏",
+    "territoryName": "游戏",
+    "subdivideName": "社会性游戏",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13216,
+        "name": "累积到5种",
+        "stage": "1"
+      },
+      {
+        "id": 13217,
+        "name": "累积到10种",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11561,
+    "name": "合作游戏",
+    "stairAndDomain": "4-5岁-游戏-社会性游戏",
+    "territoryName": "游戏",
+    "subdivideName": "社会性游戏",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13218,
+        "name": "与同伴一起完成活动",
+        "stage": "1"
+      },
+      {
+        "id": 13219,
+        "name": "寻求帮助与帮助同伴",
+        "stage": "2"
+      },
+      {
+        "id": 13220,
+        "name": "解决问题",
+        "stage": "3"
+      },
+      {
+        "id": 13221,
+        "name": "与同伴讨论订立目标，并达成目标（2人）",
+        "stage": "4"
+      },
+      {
+        "id": 13222,
+        "name": "与同伴讨论订立目标，分配任务、并达成目标（3人或3人以上）",
+        "stage": "5"
+      }
+    ]
+  },
+  {
+    "id": 11562,
+    "name": "声母b",
+    "stairAndDomain": "1-2岁-发音-构音",
+    "territoryName": "发音",
+    "subdivideName": "构音",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13223,
+        "name": "能正确发出声母/b/",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11563,
+    "name": "声母p",
+    "stairAndDomain": "1-2岁-发音-构音",
+    "territoryName": "发音",
+    "subdivideName": "构音",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13224,
+        "name": "能正确发出声母/p/",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11564,
+    "name": "声母m",
+    "stairAndDomain": "1-2岁-发音-构音",
+    "territoryName": "发音",
+    "subdivideName": "构音",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13225,
+        "name": "能正确发出声母/m/",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11565,
+    "name": "声母f",
+    "stairAndDomain": "1-2岁-发音-构音",
+    "territoryName": "发音",
+    "subdivideName": "构音",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13226,
+        "name": "能正确发出声母/f/",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11566,
+    "name": "声母d",
+    "stairAndDomain": "1-2岁-发音-构音",
+    "territoryName": "发音",
+    "subdivideName": "构音",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13227,
+        "name": "能正确发出声母/d/",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11567,
+    "name": "声母t",
+    "stairAndDomain": "1-2岁-发音-构音",
+    "territoryName": "发音",
+    "subdivideName": "构音",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13228,
+        "name": "能正确发出声母/t/",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11568,
+    "name": "声母n",
+    "stairAndDomain": "1-2岁-发音-构音",
+    "territoryName": "发音",
+    "subdivideName": "构音",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13229,
+        "name": "能正确发出声母/n/",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11569,
+    "name": "声母l",
+    "stairAndDomain": "1-2岁-发音-构音",
+    "territoryName": "发音",
+    "subdivideName": "构音",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13230,
+        "name": "能正确发出声母/l/",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11570,
+    "name": "声母g",
+    "stairAndDomain": "1-2岁-发音-构音",
+    "territoryName": "发音",
+    "subdivideName": "构音",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13231,
+        "name": "能正确发出声母/g/",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11571,
+    "name": "声母k",
+    "stairAndDomain": "1-2岁-发音-构音",
+    "territoryName": "发音",
+    "subdivideName": "构音",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13232,
+        "name": "能正确发出声母/k/",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11572,
+    "name": "声母h",
+    "stairAndDomain": "1-2岁-发音-构音",
+    "territoryName": "发音",
+    "subdivideName": "构音",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13233,
+        "name": "能正确发出声母/h/",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11573,
+    "name": "声母j",
+    "stairAndDomain": "1-2岁-发音-构音",
+    "territoryName": "发音",
+    "subdivideName": "构音",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13234,
+        "name": "能正确发出声母/j/",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11574,
+    "name": "声母q",
+    "stairAndDomain": "1-2岁-发音-构音",
+    "territoryName": "发音",
+    "subdivideName": "构音",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13235,
+        "name": "能正确发出声母/q/",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11575,
+    "name": "声母x",
+    "stairAndDomain": "1-2岁-发音-构音",
+    "territoryName": "发音",
+    "subdivideName": "构音",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13236,
+        "name": "能正确发出声母/x/",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11576,
+    "name": "声母z",
+    "stairAndDomain": "1-2岁-发音-构音",
+    "territoryName": "发音",
+    "subdivideName": "构音",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13237,
+        "name": "能正确发出声母/z/",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11577,
+    "name": "声母c",
+    "stairAndDomain": "1-2岁-发音-构音",
+    "territoryName": "发音",
+    "subdivideName": "构音",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13238,
+        "name": "能正确发出声母/c/",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11578,
+    "name": "声母s",
+    "stairAndDomain": "1-2岁-发音-构音",
+    "territoryName": "发音",
+    "subdivideName": "构音",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13239,
+        "name": "能正确发出声母/s/",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11579,
+    "name": "声母r",
+    "stairAndDomain": "1-2岁-发音-构音",
+    "territoryName": "发音",
+    "subdivideName": "构音",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13240,
+        "name": "能正确发出声母/r/",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11580,
+    "name": "声母zh",
+    "stairAndDomain": "1-2岁-发音-构音",
+    "territoryName": "发音",
+    "subdivideName": "构音",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13241,
+        "name": "能正确发出声母/zh/",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11581,
+    "name": "声母ch",
+    "stairAndDomain": "1-2岁-发音-构音",
+    "territoryName": "发音",
+    "subdivideName": "构音",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13242,
+        "name": "能正确发出声母/ch/",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11582,
+    "name": "声母sh",
+    "stairAndDomain": "1-2岁-发音-构音",
+    "territoryName": "发音",
+    "subdivideName": "构音",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13243,
+        "name": "能正确发出声母/sh/",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11583,
+    "name": "韵母a",
+    "stairAndDomain": "1-2岁-发音-韵母",
+    "territoryName": "发音",
+    "subdivideName": "韵母",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13244,
+        "name": "增加儿童下颌运动范围，控制下颌保持在开（低）位",
+        "stage": "1"
+      },
+      {
+        "id": 13245,
+        "name": "诱导发/a/音",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11584,
+    "name": "韵母o",
+    "stairAndDomain": "1-2岁-发音-韵母",
+    "territoryName": "发音",
+    "subdivideName": "韵母",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13246,
+        "name": "增加下颌稳定性，控制下颌保持在半开位。",
+        "stage": "1"
+      },
+      {
+        "id": 13247,
+        "name": "诱导发/o/音",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11585,
+    "name": "韵母e",
+    "stairAndDomain": "1-2岁-发音-韵母",
+    "territoryName": "发音",
+    "subdivideName": "韵母",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13248,
+        "name": "增加下颌稳定性，增强下颌控制能力，保持半闭位。",
+        "stage": "1"
+      },
+      {
+        "id": 13249,
+        "name": "诱导发/e/音",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11586,
+    "name": "韵母i",
+    "stairAndDomain": "1-2岁-发音-韵母",
+    "territoryName": "发音",
+    "subdivideName": "韵母",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13250,
+        "name": "提高咬肌力量，增强下颌控制能力，保持闭合位。",
+        "stage": "1"
+      },
+      {
+        "id": 13251,
+        "name": "诱导发/i/音",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11587,
+    "name": "韵母u",
+    "stairAndDomain": "1-2岁-发音-韵母",
+    "territoryName": "发音",
+    "subdivideName": "韵母",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13252,
+        "name": "增强双唇力量，提高双唇控制能力，能完成圆唇动作。",
+        "stage": "1"
+      },
+      {
+        "id": 13253,
+        "name": "能正确发出/u/音。",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11588,
+    "name": "韵母ao",
+    "stairAndDomain": "1-2岁-发音-韵母",
+    "territoryName": "发音",
+    "subdivideName": "韵母",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13254,
+        "name": "学会拼读法。",
+        "stage": "1"
+      },
+      {
+        "id": 13255,
+        "name": "能正确发出/ao/音。",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11589,
+    "name": "韵母an",
+    "stairAndDomain": "1-2岁-发音-韵母",
+    "territoryName": "发音",
+    "subdivideName": "韵母",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13256,
+        "name": "能正确发出前鼻韵尾/-n/",
+        "stage": "1"
+      },
+      {
+        "id": 13257,
+        "name": "能正确发出前鼻韵母/an/",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11590,
+    "name": "韵母ang",
+    "stairAndDomain": "1-2岁-发音-韵母",
+    "territoryName": "发音",
+    "subdivideName": "韵母",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13258,
+        "name": "能正确发出后鼻韵尾/-ng/",
+        "stage": "1"
+      },
+      {
+        "id": 13259,
+        "name": "能正确发出后鼻韵母/ang/",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11591,
+    "name": "步骤指令理解",
+    "stairAndDomain": "1-2岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13260,
+        "name": "一步情景/动作指令",
+        "stage": "1"
+      },
+      {
+        "id": 13261,
+        "name": "两步情景/动作指令",
+        "stage": "2"
+      },
+      {
+        "id": 13262,
+        "name": "三步情景/动作指令",
+        "stage": "3"
+      },
+      {
+        "id": 13263,
+        "name": "跨空间多步骤指令",
+        "stage": "4"
+      }
+    ]
+  },
+  {
+    "id": 11592,
+    "name": "复杂指令理解（多元素）",
+    "stairAndDomain": "2-3岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13264,
+        "name": "包含两个元素的指令",
+        "stage": "1"
+      },
+      {
+        "id": 13265,
+        "name": "包含三个元素的指令",
+        "stage": "2"
+      },
+      {
+        "id": 13266,
+        "name": "包含四个元素的指令",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11593,
+    "name": "安全指令",
+    "stairAndDomain": "1-2岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13267,
+        "name": "执行安全指令",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11594,
+    "name": "名词理解：常见物",
+    "stairAndDomain": "1-2岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13268,
+        "name": "辨认常见物（20种）",
+        "stage": "1"
+      },
+      {
+        "id": 13269,
+        "name": "辨认常见物（40种）",
+        "stage": "2"
+      },
+      {
+        "id": 13270,
+        "name": "辨认常见物（60种）",
+        "stage": "3"
+      },
+      {
+        "id": 13271,
+        "name": "辨认常见物（80种）",
+        "stage": "4"
+      },
+      {
+        "id": 13272,
+        "name": "辨认常见物（100种）",
+        "stage": "5"
+      }
+    ]
+  },
+  {
+    "id": 11595,
+    "name": "名词理解：身体部位",
+    "stairAndDomain": "1-2岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13273,
+        "name": "辨识身体部位（10种）",
+        "stage": "1"
+      },
+      {
+        "id": 13274,
+        "name": "辨识身体部位（20种）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11596,
+    "name": "名词理解：人物（称谓）",
+    "stairAndDomain": "1-2岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13275,
+        "name": "辨识爷爷和奶奶",
+        "stage": "1"
+      },
+      {
+        "id": 13276,
+        "name": "辨识叔叔和阿姨",
+        "stage": "2"
+      },
+      {
+        "id": 13277,
+        "name": "辨识哥哥和姐姐",
+        "stage": "3"
+      },
+      {
+        "id": 13278,
+        "name": "辨识弟弟和妹妹",
+        "stage": "4"
+      }
+    ]
+  },
+  {
+    "id": 11597,
+    "name": "名词理解：场所",
+    "stairAndDomain": "2-3岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13279,
+        "name": "辨认场所（10种）",
+        "stage": "1"
+      },
+      {
+        "id": 13280,
+        "name": "辨认场所（20种）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11598,
+    "name": "名词理解：职业",
+    "stairAndDomain": "2-3岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13281,
+        "name": "辨识职业（10种）",
+        "stage": "1"
+      },
+      {
+        "id": 13282,
+        "name": "辨识职业（20种）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11599,
+    "name": "动词理解",
+    "stairAndDomain": "1-2岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13283,
+        "name": "辨认或执行动词（20个）",
+        "stage": "1"
+      },
+      {
+        "id": 13284,
+        "name": "辨认或执行动词（40个）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11600,
+    "name": "形容词理解：颜色",
+    "stairAndDomain": "3-4岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13285,
+        "name": "辨认5种颜色（红/黑/白/绿/黄）",
+        "stage": "1"
+      },
+      {
+        "id": 13286,
+        "name": "辨认10种颜色（蓝/橙/紫/灰/棕）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11601,
+    "name": "形容词理解：形状",
+    "stairAndDomain": "3-4岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13287,
+        "name": "辨认5种形状（圆形/三角形/正方形/五角星形/爱心形）",
+        "stage": "1"
+      },
+      {
+        "id": 13288,
+        "name": "辨认10种形状（长方形/半圆形/六边形/椭圆形/梯形）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11602,
+    "name": "形容词理解：对比形容词",
+    "stairAndDomain": "2-3岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13289,
+        "name": "理解4组对比形容词（大/小、干净/脏、冷/热、干/湿）",
+        "stage": "1"
+      },
+      {
+        "id": 13290,
+        "name": "理解8组对比形容词（长/短、高/矮、胖/瘦、快/慢）",
+        "stage": "2"
+      },
+      {
+        "id": 13291,
+        "name": "理解12组对比形容词（粗/细、软/硬、宽/窄、远/近）",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11603,
+    "name": "方位词理解",
+    "stairAndDomain": "3-4岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13292,
+        "name": "理解方位词（上/下、里/外、前/后）",
+        "stage": "1"
+      },
+      {
+        "id": 13293,
+        "name": "理解方位词（中间、旁边、左/右）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11604,
+    "name": "否定词理解",
+    "stairAndDomain": "1-2岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13294,
+        "name": "理解否定词（没有、不）",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11605,
+    "name": "量词理解",
+    "stairAndDomain": "3-4岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13295,
+        "name": "辨认量词（10种）",
+        "stage": "1"
+      },
+      {
+        "id": 13296,
+        "name": "辨认量词（20种）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11606,
+    "name": "人称代词理解",
+    "stairAndDomain": "2-3岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13297,
+        "name": "理解人称代词单数（我、你、他/她/它）",
+        "stage": "1"
+      },
+      {
+        "id": 13298,
+        "name": "理解人称代词复数（我们、你们、他们/她们/它们）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11607,
+    "name": "人称代词所有格理解",
+    "stairAndDomain": "2-3岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13299,
+        "name": "理解人称代词单数所有格（我的、你的、他的/她的/它的）",
+        "stage": "1"
+      },
+      {
+        "id": 13300,
+        "name": "理解人称代词复数所有格（我们的、你们的、他们的/她们的/它们的）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11608,
+    "name": "时间副词理解",
+    "stairAndDomain": "3-4岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13301,
+        "name": "理解基础时间副词（已经、现在、正在、刚刚/刚才）",
+        "stage": "1"
+      },
+      {
+        "id": 13302,
+        "name": "理解中级时间副词（将要、即将、马上、常常、一会、完了/了）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11609,
+    "name": "程度副词理解",
+    "stairAndDomain": "3-4岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13303,
+        "name": "理解基础程度副词（很、十分、最、好（+形容词）、有点、不太）",
+        "stage": "1"
+      },
+      {
+        "id": 13304,
+        "name": "理解中级程度副词（特别、非常、真（是）、稍微、略微）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11610,
+    "name": "范围副词理解",
+    "stairAndDomain": "3-4岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13305,
+        "name": "理解范围副词（都、全、只、统统、仅仅）",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11611,
+    "name": "简单句理解",
+    "stairAndDomain": "2-3岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13306,
+        "name": "人物+动作/地点",
+        "stage": "1"
+      },
+      {
+        "id": 13307,
+        "name": "物品+动作（状态）/地点",
+        "stage": "2"
+      },
+      {
+        "id": 13308,
+        "name": "动作+人物/物品/地点",
+        "stage": "3"
+      },
+      {
+        "id": 13309,
+        "name": "形容词+物品/人物",
+        "stage": "4"
+      },
+      {
+        "id": 13310,
+        "name": "人物+动作+物品/人物/地点",
+        "stage": "5"
+      },
+      {
+        "id": 13311,
+        "name": "人物+地点+动作/事件",
+        "stage": "6"
+      },
+      {
+        "id": 13312,
+        "name": "动词+形容词+物品/人物",
+        "stage": "7"
+      },
+      {
+        "id": 13313,
+        "name": "所有格+形容词+物品",
+        "stage": "8"
+      },
+      {
+        "id": 13314,
+        "name": "形容词+形容词+物品/人物",
+        "stage": "9"
+      },
+      {
+        "id": 13315,
+        "name": "名词+方位词+名词",
+        "stage": "10"
+      },
+      {
+        "id": 13316,
+        "name": "人物+动作+地点+动作/事件",
+        "stage": "11"
+      },
+      {
+        "id": 13317,
+        "name": "人物+动作+形容词/所有格+物品",
+        "stage": "12"
+      },
+      {
+        "id": 13318,
+        "name": "动词+形容词+形容词+物品",
+        "stage": "13"
+      }
+    ]
+  },
+  {
+    "id": 11612,
+    "name": "复句理解：并列关系",
+    "stairAndDomain": "3-4岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13319,
+        "name": "理解并列复句（平列）：也、又、一边…一边…、既…又（也）…、有时…有时…",
+        "stage": "1"
+      },
+      {
+        "id": 13320,
+        "name": "理解并列复句（对举）：不是…而是…、是…不是…、而是、而",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11613,
+    "name": "复句理解：顺承关系",
+    "stairAndDomain": "3-4岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13321,
+        "name": "理解顺承复句：首先（起先、先）…然后（后来、随后、再、又）…、刚…就…、一…就…、然后、接着、就",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11614,
+    "name": "复句理解：递进关系",
+    "stairAndDomain": "3-4岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13322,
+        "name": "能理解一般递进复句：不但（不仅、不只、不光、非但）…而且（还、也、又、更）…、不但不…反而…、而且、并且",
+        "stage": "1"
+      },
+      {
+        "id": 13323,
+        "name": "理解衬托递进复句：别说…连…也（都）、不要说…就是…也（都）、反而",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11615,
+    "name": "复句理解：选择关系",
+    "stairAndDomain": "3-4岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13324,
+        "name": "理解选择复句（未定选择）：或者（或、或是）…或者（或、或是）…、是…还是…、不是…就是…、要么…要么…、或者、或是、或、还是",
+        "stage": "1"
+      },
+      {
+        "id": 13325,
+        "name": "理解选择复句（已定选择）：与其…不如…、宁可…也不…、还不如、倒不如",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11616,
+    "name": "复句理解：因果关系",
+    "stairAndDomain": "3-4岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13326,
+        "name": "理解因果复句（说明）：因为（因、由于）…所以（才、就、便、于是、因此）…、之所以…是因为（是由于、就在于）…、因为、由于、所以、因此、从而、以至于",
+        "stage": "1"
+      },
+      {
+        "id": 13327,
+        "name": "理解因果复句（推论）：既然…那么（就、又、便、则、可见）、既然、既、就、可见",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11617,
+    "name": "复句理解：转折关系",
+    "stairAndDomain": "4-5岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13328,
+        "name": "理解转折复句：虽然（虽是、虽说、尽管）…但是(可是、然而、但、却、还、也、而)…、虽然、但是、但、然而、可是、可、却、只是、倒、不过",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11618,
+    "name": "复句理解：条件关系",
+    "stairAndDomain": "4-5岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13329,
+        "name": "理解充分条件复句：只要（只需、一旦）…就（都、便、总）…、便、就",
+        "stage": "1"
+      },
+      {
+        "id": 13330,
+        "name": "理解必要条件复句：只有（除非）…才（否则、不）…、才、要不然",
+        "stage": "2"
+      },
+      {
+        "id": 13331,
+        "name": "理解无条件复句：无论（不论、不管、任、任凭）…都（总、总是、也、还）…",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11619,
+    "name": "复句理解：假设关系",
+    "stairAndDomain": "5岁以上-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "5岁以上",
+    "stages": [
+      {
+        "id": 13332,
+        "name": "理解假设复句（一致）：如果（假如、万一）…就（那么）…、那、那么、便、则、的话",
+        "stage": "1"
+      },
+      {
+        "id": 13333,
+        "name": "理解假设复句（相背）：即使（就是、哪怕）…也（还）…、再…也…、也、还",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11620,
+    "name": "疑问句理解：是非问句",
+    "stairAndDomain": "2-3岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13334,
+        "name": "理解“动词+不+动词”问句",
+        "stage": "1"
+      },
+      {
+        "id": 13335,
+        "name": "理解“有没有”问句",
+        "stage": "2"
+      },
+      {
+        "id": 13336,
+        "name": "理解“是不是”问句",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11621,
+    "name": "疑问句理解：什么问句",
+    "stairAndDomain": "2-3岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13337,
+        "name": "回答“这是什么？”",
+        "stage": "1"
+      },
+      {
+        "id": 13338,
+        "name": "回答不同句型的“什么”问题",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11622,
+    "name": "疑问句理解：谁问句",
+    "stairAndDomain": "2-3岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13339,
+        "name": "回答“这/他/她/它是谁？”",
+        "stage": "1"
+      },
+      {
+        "id": 13340,
+        "name": "回答不同句型的“谁”问题",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11623,
+    "name": "疑问句理解：谁的问句",
+    "stairAndDomain": "2-3岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13341,
+        "name": "回答“谁的”问题",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11624,
+    "name": "疑问句理解：干什么问句",
+    "stairAndDomain": "2-3岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13342,
+        "name": "回答“干什么”问题",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11625,
+    "name": "疑问句理解：哪里问句",
+    "stairAndDomain": "2-3岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13343,
+        "name": "回答“这是哪里？”",
+        "stage": "1"
+      },
+      {
+        "id": 13344,
+        "name": "回答不同句型的“哪里”问题",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11626,
+    "name": "疑问句理解：什么时候问句",
+    "stairAndDomain": "4-5岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13345,
+        "name": "回答“什么时候”问题",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11627,
+    "name": "疑问句理解：为什么问句",
+    "stairAndDomain": "4-5岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13346,
+        "name": "回答“为什么”问题",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11628,
+    "name": "疑问句理解：怎么办问句",
+    "stairAndDomain": "4-5岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13347,
+        "name": "回答“怎么办”问题",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11629,
+    "name": "疑问句理解：怎么做问句",
+    "stairAndDomain": "4-5岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13348,
+        "name": "回答“怎么做”问题",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11630,
+    "name": "故事理解",
+    "stairAndDomain": "3-4岁-沟通-语言理解",
+    "territoryName": "沟通",
+    "subdivideName": "语言理解",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13349,
+        "name": "理解故事中的简单情节，能回答相应的直接理解题（发生时间、地点、人物、引发事件、经过、结果、感想）",
+        "stage": "1"
+      },
+      {
+        "id": 13350,
+        "name": "理解故事中的复杂情节，能回答相应的需要推理的间接理解题（发生时间、地点、人物、引发事件、推测经过、推测结果、推测感想）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11631,
+    "name": "仿说",
+    "stairAndDomain": "1-2岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13351,
+        "name": "仿说单韵母（a、u、i、o、e、ü）",
+        "stage": "1"
+      },
+      {
+        "id": 13352,
+        "name": "仿说单韵母轮替：随机组合2个、随机组合3个、随机组合4个",
+        "stage": "2"
+      },
+      {
+        "id": 13353,
+        "name": "仿说复韵母（ai、an、ao、ie…）",
+        "stage": "3"
+      },
+      {
+        "id": 13354,
+        "name": "仿说拟声词",
+        "stage": "4"
+      },
+      {
+        "id": 13355,
+        "name": "仿说字",
+        "stage": "5"
+      },
+      {
+        "id": 13356,
+        "name": "仿说词组",
+        "stage": "6"
+      },
+      {
+        "id": 13357,
+        "name": "仿说短句",
+        "stage": "7"
+      }
+    ]
+  },
+  {
+    "id": 11632,
+    "name": "提要求-手势",
+    "stairAndDomain": "1-2岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13358,
+        "name": "使用伸手来要求物品",
+        "stage": "1"
+      },
+      {
+        "id": 13359,
+        "name": "使用手指指向物品来要求物品",
+        "stage": "2"
+      },
+      {
+        "id": 13360,
+        "name": "使用肢体动作、手势来要求动作",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11633,
+    "name": "提要求-口语",
+    "stairAndDomain": "1-2岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13361,
+        "name": "使用单字/词要求物品/动作",
+        "stage": "1"
+      },
+      {
+        "id": 13362,
+        "name": "使用双词组要求物品/动作",
+        "stage": "2"
+      },
+      {
+        "id": 13363,
+        "name": "使用句子要求物品/动作",
+        "stage": "3"
+      },
+      {
+        "id": 13364,
+        "name": "对缺失物品提要求",
+        "stage": "4"
+      }
+    ]
+  },
+  {
+    "id": 11634,
+    "name": "提要求-图卡",
+    "stairAndDomain": "3-4岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13365,
+        "name": "单张图卡交换物品",
+        "stage": "1"
+      },
+      {
+        "id": 13366,
+        "name": "单张图卡远距离交换",
+        "stage": "2"
+      },
+      {
+        "id": 13367,
+        "name": "多张图卡区辨交换",
+        "stage": "3"
+      },
+      {
+        "id": 13368,
+        "name": "表达“我要….”句型结构",
+        "stage": "4"
+      },
+      {
+        "id": 13369,
+        "name": "回答“你想要什么”",
+        "stage": "5"
+      }
+    ]
+  },
+  {
+    "id": 11635,
+    "name": "寻求帮助",
+    "stairAndDomain": "1-2岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13370,
+        "name": "寻求帮助（手势/发音）",
+        "stage": "1"
+      },
+      {
+        "id": 13371,
+        "name": "寻求帮助（“帮忙”）",
+        "stage": "2"
+      },
+      {
+        "id": 13372,
+        "name": "寻求帮助（包含动词）",
+        "stage": "3"
+      },
+      {
+        "id": 13373,
+        "name": "识别目标人物并寻求帮助",
+        "stage": "4"
+      }
+    ]
+  },
+  {
+    "id": 11636,
+    "name": "提问",
+    "stairAndDomain": "2-3岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13374,
+        "name": "提问“什么”",
+        "stage": "1"
+      },
+      {
+        "id": 13375,
+        "name": "提问“谁”",
+        "stage": "2"
+      },
+      {
+        "id": 13376,
+        "name": "提问“哪里”",
+        "stage": "3"
+      },
+      {
+        "id": 13377,
+        "name": "提问“怎么了”/“发生了什么”",
+        "stage": "4"
+      },
+      {
+        "id": 13378,
+        "name": "提问“为什么”",
+        "stage": "5"
+      },
+      {
+        "id": 13379,
+        "name": "不同句型提问",
+        "stage": "6"
+      }
+    ]
+  },
+  {
+    "id": 11637,
+    "name": "表达拒绝",
+    "stairAndDomain": "1-2岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13380,
+        "name": "使用手势/动作表达拒绝",
+        "stage": "1"
+      },
+      {
+        "id": 13381,
+        "name": "使用单字/词表达拒绝",
+        "stage": "2"
+      },
+      {
+        "id": 13382,
+        "name": "使用句子表达拒绝",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11638,
+    "name": "表达反对/抗议",
+    "stairAndDomain": "2-3岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13383,
+        "name": "事情已经发生，能够使用口语表达自己的反对/抗议（拒绝+提出自己的想法，如“不要收积木，我还要搭房子”）",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11639,
+    "name": "表达意见/评语",
+    "stairAndDomain": "2-3岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13384,
+        "name": "评价自身",
+        "stage": "1"
+      },
+      {
+        "id": 13385,
+        "name": "评价他人",
+        "stage": "2"
+      },
+      {
+        "id": 13386,
+        "name": "评价事物",
+        "stage": "3"
+      },
+      {
+        "id": 13387,
+        "name": "评价自己做的事情",
+        "stage": "4"
+      },
+      {
+        "id": 13388,
+        "name": "评价他人做的事情",
+        "stage": "5"
+      }
+    ]
+  },
+  {
+    "id": 11640,
+    "name": "展示",
+    "stairAndDomain": "2-3岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13389,
+        "name": "能够向他人展示自己的物品",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11641,
+    "name": "名词表达：常见物",
+    "stairAndDomain": "1-2岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13390,
+        "name": "命名常见物（20种）",
+        "stage": "1"
+      },
+      {
+        "id": 13391,
+        "name": "命名常见物（40种）",
+        "stage": "2"
+      },
+      {
+        "id": 13392,
+        "name": "命名常见物（60种）",
+        "stage": "3"
+      },
+      {
+        "id": 13393,
+        "name": "命名常见物（80种）",
+        "stage": "4"
+      },
+      {
+        "id": 13394,
+        "name": "命名常见物（100种）",
+        "stage": "5"
+      }
+    ]
+  },
+  {
+    "id": 11642,
+    "name": "名词表达：身体部位",
+    "stairAndDomain": "1-2岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13395,
+        "name": "命名身体部位（10种）",
+        "stage": "1"
+      },
+      {
+        "id": 13396,
+        "name": "命名身体部位（20种）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11643,
+    "name": "名词表达：人物（称谓）",
+    "stairAndDomain": "1-2岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13397,
+        "name": "命名爷爷和奶奶",
+        "stage": "1"
+      },
+      {
+        "id": 13398,
+        "name": "命名叔叔和阿姨",
+        "stage": "2"
+      },
+      {
+        "id": 13399,
+        "name": "命名哥哥和姐姐",
+        "stage": "3"
+      },
+      {
+        "id": 13400,
+        "name": "命名弟弟和妹妹",
+        "stage": "4"
+      }
+    ]
+  },
+  {
+    "id": 11644,
+    "name": "名词表达：场所",
+    "stairAndDomain": "2-3岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13401,
+        "name": "命名场所（10种）",
+        "stage": "1"
+      },
+      {
+        "id": 13402,
+        "name": "命名场所（20种）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11645,
+    "name": "名词表达：职业",
+    "stairAndDomain": "2-3岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13403,
+        "name": "命名职业（10种）",
+        "stage": "1"
+      },
+      {
+        "id": 13404,
+        "name": "命名职业（20种）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11646,
+    "name": "动词表达",
+    "stairAndDomain": "1-2岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13405,
+        "name": "命名动词（20个）",
+        "stage": "1"
+      },
+      {
+        "id": 13406,
+        "name": "命名动词（40个）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11647,
+    "name": "形容词表达：颜色",
+    "stairAndDomain": "3-4岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13407,
+        "name": "命名5种颜色（红/黑/白/绿/黄）",
+        "stage": "1"
+      },
+      {
+        "id": 13408,
+        "name": "命名10种颜色（蓝/橙/紫/灰/棕）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11648,
+    "name": "形容词表达：形状",
+    "stairAndDomain": "3-4岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13409,
+        "name": "命名5种形状（圆形/三角形/正方形/五角星形/爱心形）",
+        "stage": "1"
+      },
+      {
+        "id": 13410,
+        "name": "命名10种形状（长方形/半圆形/六边形/椭圆形/梯形）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11649,
+    "name": "形容词表达：对比形容词",
+    "stairAndDomain": "2-3岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13411,
+        "name": "命名4组对比形容词（大/小、干净/脏、冷/热、干/湿）",
+        "stage": "1"
+      },
+      {
+        "id": 13412,
+        "name": "命名8组对比形容词（长/短、高/矮、胖/瘦、快/慢）",
+        "stage": "2"
+      },
+      {
+        "id": 13413,
+        "name": "命名12组对比形容词（粗/细、软/硬、宽/窄、远/近）",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11650,
+    "name": "方位词表达",
+    "stairAndDomain": "3-4岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13414,
+        "name": "说出方位词（上/下、里/外、前/后）",
+        "stage": "1"
+      },
+      {
+        "id": 13415,
+        "name": "说出方位词（中间、旁边、左/右）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11651,
+    "name": "否定词表达",
+    "stairAndDomain": "1-2岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13416,
+        "name": "表达否定词（没有、不）",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11652,
+    "name": "量词表达",
+    "stairAndDomain": "3-4岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13417,
+        "name": "命名量词（10种）",
+        "stage": "1"
+      },
+      {
+        "id": 13418,
+        "name": "命名量词（20种）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11653,
+    "name": "人称代词表达",
+    "stairAndDomain": "2-3岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13419,
+        "name": "使用人称代词单数（我、你、他/她/它）",
+        "stage": "1"
+      },
+      {
+        "id": 13420,
+        "name": "使用人称代词复数（我们、你们、他们/她们/它们）",
+        "stage": "2"
+      },
+      {
+        "id": 13421,
+        "name": "人称代词转换",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11654,
+    "name": "人称代词所有格表达",
+    "stairAndDomain": "2-3岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13422,
+        "name": "使用人称代词单数所有格（我的、你的、他的/她的/它的）",
+        "stage": "1"
+      },
+      {
+        "id": 13423,
+        "name": "使用人称代词复数所有格（我们的、你们的、他们的/她们的/它们的）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11655,
+    "name": "时间副词表达",
+    "stairAndDomain": "3-4岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13424,
+        "name": "表达基础时间副词（已经、现在、正在、刚刚/刚才）",
+        "stage": "1"
+      },
+      {
+        "id": 13425,
+        "name": "表达中级时间副词（将要、即将、马上、常常、一会、完了/了）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11656,
+    "name": "程度副词表达",
+    "stairAndDomain": "3-4岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13426,
+        "name": "表达基础程度副词（很、十分、最、好（+形容词）、有点、不太）",
+        "stage": "1"
+      },
+      {
+        "id": 13427,
+        "name": "表达中级程度副词（特别、非常、真（是）、稍微、略微）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11657,
+    "name": "范围副词表达",
+    "stairAndDomain": "3-4岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13428,
+        "name": "表达范围副词（都、全、只、统统、仅仅）",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11658,
+    "name": "简单句表达",
+    "stairAndDomain": "2-3岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13429,
+        "name": "人物+动作/地点",
+        "stage": "1"
+      },
+      {
+        "id": 13430,
+        "name": "物品+动作（状态）/地点",
+        "stage": "2"
+      },
+      {
+        "id": 13431,
+        "name": "动作+人物/物品/地点",
+        "stage": "3"
+      },
+      {
+        "id": 13432,
+        "name": "形容词+物品/人物",
+        "stage": "4"
+      },
+      {
+        "id": 13433,
+        "name": "人物+动作+物品/人物/地点",
+        "stage": "5"
+      },
+      {
+        "id": 13434,
+        "name": "人物+地点+动作/事件",
+        "stage": "6"
+      },
+      {
+        "id": 13435,
+        "name": "动词+形容词+物品/人物",
+        "stage": "7"
+      },
+      {
+        "id": 13436,
+        "name": "所有格+形容词+物品",
+        "stage": "8"
+      },
+      {
+        "id": 13437,
+        "name": "形容词+形容词+物品/人物",
+        "stage": "9"
+      },
+      {
+        "id": 13438,
+        "name": "名词+方位词+名词",
+        "stage": "10"
+      },
+      {
+        "id": 13439,
+        "name": "人物+动作+地点+动作/事件",
+        "stage": "11"
+      },
+      {
+        "id": 13440,
+        "name": "人物+动作+形容词/所有格+物品",
+        "stage": "12"
+      },
+      {
+        "id": 13441,
+        "name": "动词+形容词+形容词+物品",
+        "stage": "13"
+      }
+    ]
+  },
+  {
+    "id": 11659,
+    "name": "复句表达：并列关系",
+    "stairAndDomain": "3-4岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13442,
+        "name": "表达并列复句（平列）：也、又、一边…一边…、既…又（也）…、有时…有时…",
+        "stage": "1"
+      },
+      {
+        "id": 13443,
+        "name": "表达并列复句（对举）：不是…而是…、是…不是…、而是、而",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11660,
+    "name": "复句表达：顺承关系",
+    "stairAndDomain": "4-5岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13444,
+        "name": "表达顺承复句：首先（起先、先）…然后（后来、随后、再、又）…、刚…就…、一…就…、然后、接着、就",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11661,
+    "name": "复句表达：递进关系",
+    "stairAndDomain": "4-5岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13445,
+        "name": "表达一般递进复句：不但（不仅、不只、不光、非但）…而且（还、也、又、更）…、不但不…反而…、而且、并且",
+        "stage": "1"
+      },
+      {
+        "id": 13446,
+        "name": "表达衬托递进复句：别说…连…也（都）、不要说…就是…也（都）、反而",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11662,
+    "name": "复句表达：选择关系",
+    "stairAndDomain": "4-5岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13447,
+        "name": "表达选择复句（未定选择）：或者（或、或是）…或者（或、或是）…、是…还是…、不是…就是…、要么…要么…、或者、或是、或、还是",
+        "stage": "1"
+      },
+      {
+        "id": 13448,
+        "name": "表达选择复句（已定选择）：与其…不如…、宁可…也不…、还不如、倒不如",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11663,
+    "name": "复句表达：因果关系",
+    "stairAndDomain": "4-5岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13449,
+        "name": "表达因果复句（说明）：因为（因、由于）…所以（才、就、便、于是、因此）…、之所以…是因为（是由于、就在于）…、因为、由于、所以、因此、从而、以至于",
+        "stage": "1"
+      },
+      {
+        "id": 13450,
+        "name": "表达因果复句（推论）：既然…那么（就、又、便、则、可见）、既然、既、就、可见",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11664,
+    "name": "复句表达：转折关系",
+    "stairAndDomain": "5岁以上-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "5岁以上",
+    "stages": [
+      {
+        "id": 13451,
+        "name": "表达转折复句：虽然（虽是、虽说、尽管）…但是(可是、然而、但、却、还、也、而)…、虽然、但是、但、然而、可是、可、却、只是、倒、不过",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11665,
+    "name": "复句表达：条件关系",
+    "stairAndDomain": "5岁以上-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "5岁以上",
+    "stages": [
+      {
+        "id": 13452,
+        "name": "表达充分条件复句：只要（只需、一旦）…就（都、便、总）…、便、就",
+        "stage": "1"
+      },
+      {
+        "id": 13453,
+        "name": "表达必要条件复句：只有（除非）…才（否则、不）…、才、要不然",
+        "stage": "2"
+      },
+      {
+        "id": 13454,
+        "name": "表达无条件复句：无论（不论、不管、任、任凭）…都（总、总是、也、还）…",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11666,
+    "name": "复句表达：假设关系",
+    "stairAndDomain": "5岁以上-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "5岁以上",
+    "stages": [
+      {
+        "id": 13455,
+        "name": "表达假设复句（一致）：如果（假如、万一）…就（那么）…、那、那么、便、则、的话",
+        "stage": "1"
+      },
+      {
+        "id": 13456,
+        "name": "表达假设复句（相背）：即使（就是、哪怕）…也（还）…、再…也…、也、还",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11667,
+    "name": "描述物件",
+    "stairAndDomain": "2-3岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13457,
+        "name": "描述物品（这是XX）",
+        "stage": "1"
+      },
+      {
+        "id": 13458,
+        "name": "描述物品特征",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11668,
+    "name": "回忆事件",
+    "stairAndDomain": "2-3岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13459,
+        "name": "回忆刚刚发生的事件",
+        "stage": "1"
+      },
+      {
+        "id": 13460,
+        "name": "回忆1小时前发生的事件",
+        "stage": "2"
+      },
+      {
+        "id": 13461,
+        "name": "回忆半天前发生的事件",
+        "stage": "3"
+      },
+      {
+        "id": 13462,
+        "name": "回忆一天内发生的事件",
+        "stage": "4"
+      },
+      {
+        "id": 13463,
+        "name": "回忆几天前发生的事件",
+        "stage": "5"
+      }
+    ]
+  },
+  {
+    "id": 11669,
+    "name": "描述自己发生的事情",
+    "stairAndDomain": "3-4岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13464,
+        "name": "描述半天内发生的事情",
+        "stage": "1"
+      },
+      {
+        "id": 13465,
+        "name": "描述一天内发生的事情",
+        "stage": "2"
+      },
+      {
+        "id": 13466,
+        "name": "描述昨天发生的事情",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11670,
+    "name": "回答个人信息",
+    "stairAndDomain": "2-3岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13467,
+        "name": "回答个人信息",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11671,
+    "name": "序列卡片故事表达",
+    "stairAndDomain": "3-4岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13468,
+        "name": "对2张序列卡进行故事描述，并含有连接词",
+        "stage": "1"
+      },
+      {
+        "id": 13469,
+        "name": "对3张序列卡进行故事描述，并含有连接词",
+        "stage": "2"
+      },
+      {
+        "id": 13470,
+        "name": "对4张序列卡进行故事描述，并含有连接词",
+        "stage": "3"
+      },
+      {
+        "id": 13471,
+        "name": "对5张序列卡进行故事描述，并含有连接词",
+        "stage": "4"
+      }
+    ]
+  },
+  {
+    "id": 11672,
+    "name": "复述他人自编故事表达",
+    "stairAndDomain": "3-4岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13472,
+        "name": "复述他人自编故事，并包含连接词，含有三个元素（人物、行为、结果）",
+        "stage": "1"
+      },
+      {
+        "id": 13473,
+        "name": "复述他人自编故事，并包含连接词，含有五个元素（时间、地点、人物、行为、结果）",
+        "stage": "2"
+      },
+      {
+        "id": 13474,
+        "name": "复述他人自编故事，并包含连接词，含有六个元素（时间、地点、人物、引发事件、行为、结果）",
+        "stage": "3"
+      },
+      {
+        "id": 13475,
+        "name": "复述他人自编故事，并包含连接词，含有七个元素（时间、地点、人物、引发事件、行为、结果、参照体的运用）",
+        "stage": "4"
+      }
+    ]
+  },
+  {
+    "id": 11673,
+    "name": "一来一往对话",
+    "stairAndDomain": "2-3岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13476,
+        "name": "进行一回合对话",
+        "stage": "1"
+      },
+      {
+        "id": 13477,
+        "name": "进行二回合对话",
+        "stage": "2"
+      },
+      {
+        "id": 13478,
+        "name": "进行三回合对话",
+        "stage": "3"
+      },
+      {
+        "id": 13479,
+        "name": "进行四回合对话",
+        "stage": "4"
+      },
+      {
+        "id": 13480,
+        "name": "进行五回合对话",
+        "stage": "5"
+      }
+    ]
+  },
+  {
+    "id": 11674,
+    "name": "主题对话",
+    "stairAndDomain": "3-4岁-沟通-语言表达",
+    "territoryName": "沟通",
+    "subdivideName": "语言表达",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13481,
+        "name": "进行一回合主题对话",
+        "stage": "1"
+      },
+      {
+        "id": 13482,
+        "name": "进行二回合主题对话",
+        "stage": "2"
+      },
+      {
+        "id": 13483,
+        "name": "进行三回合主题对话",
+        "stage": "3"
+      },
+      {
+        "id": 13484,
+        "name": "进行四回合主题对话",
+        "stage": "4"
+      },
+      {
+        "id": 13485,
+        "name": "进行五回合主题对话",
+        "stage": "5"
+      }
+    ]
+  },
+  {
+    "id": 11675,
+    "name": "回应互联注意：互动时看向他人展示的物品",
+    "stairAndDomain": "1-2岁-社交情绪-社交基础",
+    "territoryName": "社交情绪",
+    "subdivideName": "社交基础",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13486,
+        "name": "互动时看向他人展示的物品",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11676,
+    "name": "回应互联注意：跟随手指方向",
+    "stairAndDomain": "1-2岁-社交情绪-社交基础",
+    "territoryName": "社交情绪",
+    "subdivideName": "社交基础",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13487,
+        "name": "近距离跟随手指方向",
+        "stage": "1"
+      },
+      {
+        "id": 13488,
+        "name": "远距离跟随手指方向",
+        "stage": "2"
+      },
+      {
+        "id": 13489,
+        "name": "跟随手指方向执行任务",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11677,
+    "name": "看向说话的人",
+    "stairAndDomain": "1-2岁-社交情绪-社交基础",
+    "territoryName": "社交情绪",
+    "subdivideName": "社交基础",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13490,
+        "name": "看向说话的人",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11678,
+    "name": "看向叫自己名字的人",
+    "stairAndDomain": "1-2岁-社交情绪-社交基础",
+    "territoryName": "社交情绪",
+    "subdivideName": "社交基础",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13491,
+        "name": "无干扰时，看向叫自己名字的人",
+        "stage": "1"
+      },
+      {
+        "id": 13492,
+        "name": "中性干扰时，看向叫自己名字的人",
+        "stage": "2"
+      },
+      {
+        "id": 13493,
+        "name": "强干扰时，看向叫自己名字的人",
+        "stage": "3"
+      },
+      {
+        "id": 13494,
+        "name": "自然环境中，看向叫自己名字的人",
+        "stage": "4"
+      }
+    ]
+  },
+  {
+    "id": 11679,
+    "name": "游戏反应",
+    "stairAndDomain": "1-2岁-社交情绪-社交基础",
+    "territoryName": "社交情绪",
+    "subdivideName": "社交基础",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13495,
+        "name": "与他人游戏互动时能够做出积极反应（如笑、示意要继续玩）",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11680,
+    "name": "从他人展示的两个物品中做出选择",
+    "stairAndDomain": "1-2岁-社交情绪-社交基础",
+    "territoryName": "社交情绪",
+    "subdivideName": "社交基础",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13496,
+        "name": "从他人展示的两个物品中做出选择",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11681,
+    "name": "将物品递给伸手的人",
+    "stairAndDomain": "1-2岁-社交情绪-社交基础",
+    "territoryName": "社交情绪",
+    "subdivideName": "社交基础",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13497,
+        "name": "将物品递给伸手的人",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11682,
+    "name": "听从简单指令",
+    "stairAndDomain": "1-2岁-社交情绪-社交基础",
+    "territoryName": "社交情绪",
+    "subdivideName": "社交基础",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13498,
+        "name": "能听从简单的一步情景指令",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11683,
+    "name": "听从禁止性指令",
+    "stairAndDomain": "1-2岁-社交情绪-社交基础",
+    "territoryName": "社交情绪",
+    "subdivideName": "社交基础",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13499,
+        "name": "能听从禁止性指令",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11684,
+    "name": "获取他人注意",
+    "stairAndDomain": "1-2岁-社交情绪-互联注意",
+    "territoryName": "社交情绪",
+    "subdivideName": "互联注意",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13500,
+        "name": "有个人需求时获取他人注意",
+        "stage": "1"
+      },
+      {
+        "id": 13501,
+        "name": "有社会性需求时获取他人注意",
+        "stage": "2"
+      },
+      {
+        "id": 13502,
+        "name": "获取他人注意后，呈现当下想要与他人一起进行的活动",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11685,
+    "name": "回应互联注意--跟随眼神方向",
+    "stairAndDomain": "1-2岁-社交情绪-互联注意",
+    "territoryName": "社交情绪",
+    "subdivideName": "互联注意",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13503,
+        "name": "跟随眼神看向桌面近距离物品",
+        "stage": "1"
+      },
+      {
+        "id": 13504,
+        "name": "跟随眼神看向随机位置物品",
+        "stage": "2"
+      },
+      {
+        "id": 13505,
+        "name": "自然情景中眼神跟随",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11686,
+    "name": "引发互联注意",
+    "stairAndDomain": "1-2岁-社交情绪-互联注意",
+    "territoryName": "社交情绪",
+    "subdivideName": "互联注意",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13506,
+        "name": "通过肢体语言/表情/语言引发互联注意",
+        "stage": "1"
+      },
+      {
+        "id": 13507,
+        "name": "通过肢体语言/表情/语言+注视他人脸部引发互联注意",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11687,
+    "name": "被动展示",
+    "stairAndDomain": "1-2岁-社交情绪-互联注意",
+    "territoryName": "社交情绪",
+    "subdivideName": "互联注意",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13508,
+        "name": "在他人要求下将手中物品向他人展示",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11688,
+    "name": "主动展示",
+    "stairAndDomain": "2-3岁-社交情绪-互联注意",
+    "territoryName": "社交情绪",
+    "subdivideName": "互联注意",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13509,
+        "name": "主动将手中的物品展示给他人看",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11689,
+    "name": "回应打招呼",
+    "stairAndDomain": "1-2岁-社交情绪-互联注意",
+    "territoryName": "社交情绪",
+    "subdivideName": "互联注意",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13510,
+        "name": "别人向他/她打招呼时，将头和身体转向对方，并挥手或说“你好、再见”，伴有2～3秒的眼神接触",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11690,
+    "name": "理解常见肢体语言",
+    "stairAndDomain": "1-2岁-社交情绪-互联注意",
+    "territoryName": "社交情绪",
+    "subdivideName": "互联注意",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13511,
+        "name": "理解常见肢体语言，并根据肢体语言作出反应",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11691,
+    "name": "社会参照",
+    "stairAndDomain": "1-2岁-社交情绪-互联注意",
+    "territoryName": "社交情绪",
+    "subdivideName": "互联注意",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13512,
+        "name": "对于含糊或不明确的事物，孩子能通过观察他人的“点头”和“摇头”来决定自己是否要进行",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11692,
+    "name": "轮流",
+    "stairAndDomain": "2-3岁-社交情绪-社交规则",
+    "territoryName": "社交情绪",
+    "subdivideName": "社交规则",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13513,
+        "name": "2人轮流（静态）",
+        "stage": "1"
+      },
+      {
+        "id": 13514,
+        "name": "2人轮流（动态）",
+        "stage": "2"
+      },
+      {
+        "id": 13515,
+        "name": "多人轮流（静态）",
+        "stage": "3"
+      },
+      {
+        "id": 13516,
+        "name": "多人轮流（动态）",
+        "stage": "4"
+      }
+    ]
+  },
+  {
+    "id": 11693,
+    "name": "排队",
+    "stairAndDomain": "3-4岁-社交情绪-社交规则",
+    "territoryName": "社交情绪",
+    "subdivideName": "社交规则",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13517,
+        "name": "日常生活中能进行排队活动",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11694,
+    "name": "物品的所属关系",
+    "stairAndDomain": "2-3岁-社交情绪-社交规则",
+    "territoryName": "社交情绪",
+    "subdivideName": "社交规则",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13518,
+        "name": "识别属于自己的私人物品",
+        "stage": "1"
+      },
+      {
+        "id": 13519,
+        "name": "识别属于家庭成员的私人物品",
+        "stage": "2"
+      },
+      {
+        "id": 13520,
+        "name": "识别属于同伴的私人物品及教室公共用品",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11695,
+    "name": "礼仪：主动打招呼",
+    "stairAndDomain": "2-3岁-社交情绪-社交规则",
+    "territoryName": "社交情绪",
+    "subdivideName": "社交规则",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13521,
+        "name": "主动打招呼",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11696,
+    "name": "礼仪：使用礼貌用语",
+    "stairAndDomain": "2-3岁-社交情绪-社交规则",
+    "territoryName": "社交情绪",
+    "subdivideName": "社交规则",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13522,
+        "name": "使用礼貌用语",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11697,
+    "name": "礼仪：交谈时保持眼神接触",
+    "stairAndDomain": "2-3岁-社交情绪-社交规则",
+    "territoryName": "社交情绪",
+    "subdivideName": "社交规则",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13523,
+        "name": "交谈时保持眼神接触",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11698,
+    "name": "礼仪：根据场合调整说话音量",
+    "stairAndDomain": "4-5岁-社交情绪-社交规则",
+    "territoryName": "社交情绪",
+    "subdivideName": "社交规则",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13524,
+        "name": "根据场合调整说话音量",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11699,
+    "name": "礼仪：保持恰当的社交距离",
+    "stairAndDomain": "3-4岁-社交情绪-社交规则",
+    "territoryName": "社交情绪",
+    "subdivideName": "社交规则",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13525,
+        "name": "保持恰当的社交距离",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11700,
+    "name": "跟随团体行动",
+    "stairAndDomain": "3-4岁-社交情绪-社交规则",
+    "territoryName": "社交情绪",
+    "subdivideName": "社交规则",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13526,
+        "name": "跟随团体行动（近距离）",
+        "stage": "1"
+      },
+      {
+        "id": 13527,
+        "name": "跟随团体行动（不同距离）",
+        "stage": "2"
+      },
+      {
+        "id": 13528,
+        "name": "干扰下跟随团体行动",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11701,
+    "name": "同侪配对",
+    "stairAndDomain": "1-2岁-社交情绪-同伴互动",
+    "territoryName": "社交情绪",
+    "subdivideName": "同伴互动",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13529,
+        "name": "孩子能够接受与同伴待在指定区域进行活动5分钟以上",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11702,
+    "name": "辨识同伴",
+    "stairAndDomain": "2-3岁-社交情绪-同伴互动",
+    "territoryName": "社交情绪",
+    "subdivideName": "同伴互动",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13530,
+        "name": "辨识同伴",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11703,
+    "name": "观察同伴",
+    "stairAndDomain": "2-3岁-社交情绪-同伴互动",
+    "territoryName": "社交情绪",
+    "subdivideName": "同伴互动",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13531,
+        "name": "观察同伴进行孩子的偏好活动5s",
+        "stage": "1"
+      },
+      {
+        "id": 13532,
+        "name": "观察同伴进行孩子的偏好活动10s",
+        "stage": "2"
+      },
+      {
+        "id": 13533,
+        "name": "观察同伴进行中性活动10s",
+        "stage": "3"
+      },
+      {
+        "id": 13534,
+        "name": "观察同伴进行中性活动30s",
+        "stage": "4"
+      },
+      {
+        "id": 13535,
+        "name": "观察同伴进行中性活动1min",
+        "stage": "5"
+      }
+    ]
+  },
+  {
+    "id": 11704,
+    "name": "模仿同伴",
+    "stairAndDomain": "2-3岁-社交情绪-同伴互动",
+    "territoryName": "社交情绪",
+    "subdivideName": "同伴互动",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13536,
+        "name": "模仿同伴进行一步物品操作",
+        "stage": "1"
+      },
+      {
+        "id": 13537,
+        "name": "模仿同伴进行一步动作",
+        "stage": "2"
+      },
+      {
+        "id": 13538,
+        "name": "模仿同伴同步进行2-3步物品操作或动作",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11705,
+    "name": "向同伴提要求",
+    "stairAndDomain": "2-3岁-社交情绪-同伴互动",
+    "territoryName": "社交情绪",
+    "subdivideName": "同伴互动",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13539,
+        "name": "向同伴要求-偏好物品",
+        "stage": "1"
+      },
+      {
+        "id": 13540,
+        "name": "向同伴要求-活动中需要的中性物品",
+        "stage": "2"
+      },
+      {
+        "id": 13541,
+        "name": "被拒绝后，继续找其他同伴要求情景所需要的物品",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11706,
+    "name": "回应同伴",
+    "stairAndDomain": "2-3岁-社交情绪-同伴互动",
+    "territoryName": "社交情绪",
+    "subdivideName": "同伴互动",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13542,
+        "name": "回应同伴的要求",
+        "stage": "1"
+      },
+      {
+        "id": 13543,
+        "name": "回应同伴的问题",
+        "stage": "2"
+      },
+      {
+        "id": 13544,
+        "name": "回应同伴的邀请",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11707,
+    "name": "寻求同伴同意",
+    "stairAndDomain": "3-4岁-社交情绪-同伴互动",
+    "territoryName": "社交情绪",
+    "subdivideName": "同伴互动",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13545,
+        "name": "征询使用同伴物品",
+        "stage": "1"
+      },
+      {
+        "id": 13546,
+        "name": "征询参与同伴活动",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11708,
+    "name": "邀请",
+    "stairAndDomain": "3-4岁-社交情绪-同伴互动",
+    "territoryName": "社交情绪",
+    "subdivideName": "同伴互动",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13547,
+        "name": "提示下邀请同伴玩游戏",
+        "stage": "1"
+      },
+      {
+        "id": 13548,
+        "name": "主动邀请同伴玩游戏",
+        "stage": "2"
+      },
+      {
+        "id": 13549,
+        "name": "被拒绝后，提示下继续邀请其他同伴玩游戏",
+        "stage": "3"
+      },
+      {
+        "id": 13550,
+        "name": "被拒绝后，主动邀请其他同伴玩游戏",
+        "stage": "4"
+      }
+    ]
+  },
+  {
+    "id": 11709,
+    "name": "分享",
+    "stairAndDomain": "3-4岁-社交情绪-同伴互动",
+    "territoryName": "社交情绪",
+    "subdivideName": "同伴互动",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13551,
+        "name": "分享中性物品",
+        "stage": "1"
+      },
+      {
+        "id": 13552,
+        "name": "交换偏好物",
+        "stage": "2"
+      },
+      {
+        "id": 13553,
+        "name": "分享部分偏好物",
+        "stage": "3"
+      },
+      {
+        "id": 13554,
+        "name": "分享全部偏好物",
+        "stage": "4"
+      },
+      {
+        "id": 13555,
+        "name": "分享偏好物之后要回",
+        "stage": "5"
+      }
+    ]
+  },
+  {
+    "id": 11710,
+    "name": "听从同伴指令",
+    "stairAndDomain": "3-4岁-社交情绪-同伴互动",
+    "territoryName": "社交情绪",
+    "subdivideName": "同伴互动",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13556,
+        "name": "听从同伴1步指令",
+        "stage": "1"
+      },
+      {
+        "id": 13557,
+        "name": "听从同伴2-3步指令",
+        "stage": "2"
+      },
+      {
+        "id": 13558,
+        "name": "听从同伴的活动规则",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11711,
+    "name": "给予同伴指令",
+    "stairAndDomain": "3-4岁-社交情绪-同伴互动",
+    "territoryName": "社交情绪",
+    "subdivideName": "同伴互动",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13559,
+        "name": "活动中，独立正确向同伴发出1步情境指令",
+        "stage": "1"
+      },
+      {
+        "id": 13560,
+        "name": "活动中，独立正确向同伴发出2-3步情境指令",
+        "stage": "2"
+      },
+      {
+        "id": 13561,
+        "name": "2-3个规则的游戏中，独立正确向同伴讲解游戏规则",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11712,
+    "name": "解读他人想法",
+    "stairAndDomain": "3-4岁-社交情绪-心智理论",
+    "territoryName": "社交情绪",
+    "subdivideName": "心智理论",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13562,
+        "name": "理解自己和他人从不同角度看到的事物是不一样的",
+        "stage": "1"
+      },
+      {
+        "id": 13563,
+        "name": "理解自己和他人存在不同的感受和喜好",
+        "stage": "2"
+      },
+      {
+        "id": 13564,
+        "name": "理解直接经历过的事情导致“知道”",
+        "stage": "3"
+      },
+      {
+        "id": 13565,
+        "name": "理解间接经历过的事情导致“知道”",
+        "stage": "4"
+      },
+      {
+        "id": 13566,
+        "name": "理解知道导致信念，根据个人的真实信念来预测他的行为",
+        "stage": "5"
+      },
+      {
+        "id": 13567,
+        "name": "理解他人存在错误的信念，根据他人错误信念来预测他的行为",
+        "stage": "6"
+      }
+    ]
+  },
+  {
+    "id": 11713,
+    "name": "换位思考",
+    "stairAndDomain": "3-4岁-社交情绪-心智理论",
+    "territoryName": "社交情绪",
+    "subdivideName": "心智理论",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13568,
+        "name": "通过视觉线索进行换位思考",
+        "stage": "1"
+      },
+      {
+        "id": 13569,
+        "name": "通过视觉线索进行换位思考后，对他人做出适当反应",
+        "stage": "2"
+      },
+      {
+        "id": 13570,
+        "name": "通过谈话中的讯息来进行换位思考",
+        "stage": "3"
+      },
+      {
+        "id": 13571,
+        "name": "通过谈话中的讯息来进行换位思考后，对他人做出适当的口语反应",
+        "stage": "4"
+      },
+      {
+        "id": 13572,
+        "name": "真实场景中通过视觉线索&谈话信息进行换位思考--捕捉教学机会",
+        "stage": "5"
+      }
+    ]
+  },
+  {
+    "id": 11714,
+    "name": "同理心",
+    "stairAndDomain": "4-5岁-社交情绪-心智理论",
+    "territoryName": "社交情绪",
+    "subdivideName": "心智理论",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13573,
+        "name": "理解他人的情绪反应，并依据当下情境中他人的情绪反应说出符合当下请境的话语或者做出行为反应",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11715,
+    "name": "识别基础情绪（自己/他人）",
+    "stairAndDomain": "2-3岁-社交情绪-情绪",
+    "territoryName": "社交情绪",
+    "subdivideName": "情绪",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13574,
+        "name": "识别单纯面部表情情绪图卡",
+        "stage": "1"
+      },
+      {
+        "id": 13575,
+        "name": "识别带有情景的情绪图卡",
+        "stage": "2"
+      },
+      {
+        "id": 13576,
+        "name": "识别影片/真实情景里的情绪",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11716,
+    "name": "识别高阶情绪（自己/他人）",
+    "stairAndDomain": "4-5岁-社交情绪-情绪",
+    "territoryName": "社交情绪",
+    "subdivideName": "情绪",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13577,
+        "name": "基础情绪的延伸表达，累计10种情绪",
+        "stage": "1"
+      },
+      {
+        "id": 13578,
+        "name": "在图卡/绘本中，识别高阶情绪，累计10种情绪",
+        "stage": "2"
+      },
+      {
+        "id": 13579,
+        "name": "在影片/真实情景中，识别高阶情绪，累计10种情绪",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11717,
+    "name": "识别情景中的情绪原因",
+    "stairAndDomain": "3-4岁-社交情绪-情绪",
+    "territoryName": "社交情绪",
+    "subdivideName": "情绪",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13580,
+        "name": "在情绪顺序图卡中识别情绪原因",
+        "stage": "1"
+      },
+      {
+        "id": 13581,
+        "name": "在单张情境图片中识别情绪原因",
+        "stage": "2"
+      },
+      {
+        "id": 13582,
+        "name": "在影片或真实情景中识别情绪原因",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11718,
+    "name": "识别个人想法导致的情绪原因",
+    "stairAndDomain": "3-4岁-社交情绪-情绪",
+    "territoryName": "社交情绪",
+    "subdivideName": "情绪",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13583,
+        "name": "理解愿望是否被满足的情绪",
+        "stage": "1"
+      },
+      {
+        "id": 13584,
+        "name": "理解愿望和想法一致，与实际结果相对应的情绪",
+        "stage": "2"
+      },
+      {
+        "id": 13585,
+        "name": "理解愿望和想法不一致，与实际结果相对应的情绪感受",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11719,
+    "name": "学习情绪调控的方法",
+    "stairAndDomain": "4-5岁-社交情绪-情绪",
+    "territoryName": "社交情绪",
+    "subdivideName": "情绪",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13586,
+        "name": "累计学习至少10种情绪调控策略",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11720,
+    "name": "处理情绪",
+    "stairAndDomain": "4-5岁-社交情绪-情绪",
+    "territoryName": "社交情绪",
+    "subdivideName": "情绪",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13587,
+        "name": "表达自己的情绪",
+        "stage": "1"
+      },
+      {
+        "id": 13588,
+        "name": "选择调适情绪方法并平复",
+        "stage": "2"
+      },
+      {
+        "id": 13589,
+        "name": "独立想出方法调适情绪",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11721,
+    "name": "寻找隐藏起来的物品",
+    "stairAndDomain": "1-2岁-认知-物体恒存",
+    "territoryName": "认知",
+    "subdivideName": "物体恒存",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13590,
+        "name": "寻找隐藏物（当面隐藏）",
+        "stage": "1"
+      },
+      {
+        "id": 13591,
+        "name": "寻找隐藏物（部分）",
+        "stage": "2"
+      },
+      {
+        "id": 13592,
+        "name": "寻找隐藏物（全部）",
+        "stage": "3"
+      },
+      {
+        "id": 13593,
+        "name": "干扰下寻找隐藏物",
+        "stage": "4"
+      },
+      {
+        "id": 13594,
+        "name": "寻找换位隐藏物",
+        "stage": "5"
+      },
+      {
+        "id": 13595,
+        "name": "自然环境中寻找隐藏物",
+        "stage": "6"
+      }
+    ]
+  },
+  {
+    "id": 11722,
+    "name": "声源反应",
+    "stairAndDomain": "1-2岁-认知-听觉",
+    "territoryName": "认知",
+    "subdivideName": "听觉",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13596,
+        "name": "近距离声源反应",
+        "stage": "1"
+      },
+      {
+        "id": 13597,
+        "name": "远距离声源反应",
+        "stage": "2"
+      },
+      {
+        "id": 13598,
+        "name": "自然环境声源反应",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11723,
+    "name": "声音配对",
+    "stairAndDomain": "1-2岁-认知-听觉",
+    "territoryName": "认知",
+    "subdivideName": "听觉",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13599,
+        "name": "声音和声音配对（呈现物品）",
+        "stage": "1"
+      },
+      {
+        "id": 13600,
+        "name": "声音和声音配对（不呈现物品）",
+        "stage": "2"
+      },
+      {
+        "id": 13601,
+        "name": "声音和物品配对",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11724,
+    "name": "听觉记忆",
+    "stairAndDomain": "2-3岁-认知-听觉",
+    "territoryName": "认知",
+    "subdivideName": "听觉",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13602,
+        "name": "听觉记忆（3取2）",
+        "stage": "1"
+      },
+      {
+        "id": 13603,
+        "name": "听觉记忆（5取3）",
+        "stage": "2"
+      },
+      {
+        "id": 13604,
+        "name": "听觉记忆（10取5）",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11725,
+    "name": "听觉专注力",
+    "stairAndDomain": "3-4岁-认知-听觉",
+    "territoryName": "认知",
+    "subdivideName": "听觉",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13605,
+        "name": "孩子能够一边听一边完成任务，持续进行听觉活动3-5分钟",
+        "stage": "1"
+      },
+      {
+        "id": 13606,
+        "name": "孩子能够持续听3-5分钟的内容讲解后，完成相应任务",
+        "stage": "2"
+      },
+      {
+        "id": 13607,
+        "name": "孩子能够一边听一边完成任务，持续进行听觉活动5-10分钟",
+        "stage": "3"
+      },
+      {
+        "id": 13608,
+        "name": "孩子能够持续听5-10分钟的内容讲解后，完成相应任务",
+        "stage": "4"
+      },
+      {
+        "id": 13609,
+        "name": "孩子能够一边听一边完成任务，持续进行听觉活动10-15分钟",
+        "stage": "5"
+      },
+      {
+        "id": 13610,
+        "name": "孩子能够持续听10-15分钟的内容讲解后，完成相应任务",
+        "stage": "6"
+      }
+    ]
+  },
+  {
+    "id": 11726,
+    "name": "视觉专注（注视教学材料）",
+    "stairAndDomain": "1-2岁-认知-视觉",
+    "territoryName": "认知",
+    "subdivideName": "视觉",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13611,
+        "name": "在描述下注视物品",
+        "stage": "1"
+      },
+      {
+        "id": 13612,
+        "name": "注视物品",
+        "stage": "2"
+      },
+      {
+        "id": 13613,
+        "name": "在描述下注视简单图片",
+        "stage": "3"
+      },
+      {
+        "id": 13614,
+        "name": "注视简单图片",
+        "stage": "4"
+      },
+      {
+        "id": 13615,
+        "name": "在描述下注视复杂图片",
+        "stage": "5"
+      },
+      {
+        "id": 13616,
+        "name": "注视复杂图片（绘本）",
+        "stage": "6"
+      }
+    ]
+  },
+  {
+    "id": 11727,
+    "name": "扫视",
+    "stairAndDomain": "1-2岁-认知-视觉",
+    "territoryName": "认知",
+    "subdivideName": "视觉",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13617,
+        "name": "跟随手指扫视物件",
+        "stage": "1"
+      },
+      {
+        "id": 13618,
+        "name": "扫视物件",
+        "stage": "2"
+      },
+      {
+        "id": 13619,
+        "name": "扫视物件并拿取",
+        "stage": "3"
+      },
+      {
+        "id": 13620,
+        "name": "扫视环境然后找到指定物件或人",
+        "stage": "4"
+      }
+    ]
+  },
+  {
+    "id": 11728,
+    "name": "视觉追视",
+    "stairAndDomain": "1-2岁-认知-视觉",
+    "territoryName": "认知",
+    "subdivideName": "视觉",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13621,
+        "name": "追视物品（近距离）",
+        "stage": "1"
+      },
+      {
+        "id": 13622,
+        "name": "追视物品（远距离）",
+        "stage": "2"
+      },
+      {
+        "id": 13623,
+        "name": "追视人（增强物全程呈现）",
+        "stage": "3"
+      },
+      {
+        "id": 13624,
+        "name": "追视人（中途藏增强物）",
+        "stage": "4"
+      },
+      {
+        "id": 13625,
+        "name": "追视人（突发情境中）",
+        "stage": "5"
+      }
+    ]
+  },
+  {
+    "id": 11729,
+    "name": "视觉记忆",
+    "stairAndDomain": "2-3岁-认知-视觉",
+    "territoryName": "认知",
+    "subdivideName": "视觉",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13626,
+        "name": "视觉记忆物品",
+        "stage": "1"
+      },
+      {
+        "id": 13627,
+        "name": "视觉记忆物品位置",
+        "stage": "2"
+      },
+      {
+        "id": 13628,
+        "name": "视觉记忆并且复制",
+        "stage": "3"
+      },
+      {
+        "id": 13629,
+        "name": "视觉记忆并执行图卡任务",
+        "stage": "4"
+      }
+    ]
+  },
+  {
+    "id": 11730,
+    "name": "视觉专注力",
+    "stairAndDomain": "2-3岁-认知-视觉",
+    "territoryName": "认知",
+    "subdivideName": "视觉",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13630,
+        "name": "孩子能够持续进行视觉活动1-2分钟",
+        "stage": "1"
+      },
+      {
+        "id": 13631,
+        "name": "孩子能够持续进行视觉活动2-5分钟",
+        "stage": "2"
+      },
+      {
+        "id": 13632,
+        "name": "孩子能够持续进行视觉活动5-10分钟",
+        "stage": "3"
+      },
+      {
+        "id": 13633,
+        "name": "孩子能够持续进行视觉活动10-15分钟",
+        "stage": "4"
+      },
+      {
+        "id": 13634,
+        "name": "孩子能够持续进行视觉活动15-20分钟",
+        "stage": "5"
+      }
+    ]
+  },
+  {
+    "id": 11731,
+    "name": "物品操作模仿",
+    "stairAndDomain": "1-2岁-认知-模仿",
+    "territoryName": "认知",
+    "subdivideName": "模仿",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13635,
+        "name": "一步物品操作模仿",
+        "stage": "1"
+      },
+      {
+        "id": 13636,
+        "name": "两步物品操作模仿",
+        "stage": "2"
+      },
+      {
+        "id": 13637,
+        "name": "三步物品操作模仿",
+        "stage": "3"
+      },
+      {
+        "id": 13638,
+        "name": "同步模仿",
+        "stage": "4"
+      }
+    ]
+  },
+  {
+    "id": 11732,
+    "name": "大动作模仿",
+    "stairAndDomain": "1-2岁-认知-模仿",
+    "territoryName": "认知",
+    "subdivideName": "模仿",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13639,
+        "name": "模仿一步肢体大动作",
+        "stage": "1"
+      },
+      {
+        "id": 13640,
+        "name": "类化肢体动作模仿",
+        "stage": "2"
+      },
+      {
+        "id": 13641,
+        "name": "模仿二步肢体大动作",
+        "stage": "3"
+      },
+      {
+        "id": 13642,
+        "name": "模仿三步肢体大动作",
+        "stage": "4"
+      },
+      {
+        "id": 13643,
+        "name": "跟随歌曲模仿",
+        "stage": "5"
+      }
+    ]
+  },
+  {
+    "id": 11733,
+    "name": "模仿卡片动作",
+    "stairAndDomain": "2-3岁-认知-模仿",
+    "territoryName": "认知",
+    "subdivideName": "模仿",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13644,
+        "name": "单张卡片",
+        "stage": "1"
+      },
+      {
+        "id": 13645,
+        "name": "两张卡片",
+        "stage": "2"
+      },
+      {
+        "id": 13646,
+        "name": "三张卡片",
+        "stage": "3"
+      },
+      {
+        "id": 13647,
+        "name": "四张卡片",
+        "stage": "4"
+      },
+      {
+        "id": 13648,
+        "name": "五张卡片",
+        "stage": "5"
+      }
+    ]
+  },
+  {
+    "id": 11734,
+    "name": "精细动作模仿",
+    "stairAndDomain": "2-3岁-认知-模仿",
+    "territoryName": "认知",
+    "subdivideName": "模仿",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13649,
+        "name": "精细动作模仿（10组）",
+        "stage": "1"
+      },
+      {
+        "id": 13650,
+        "name": "精细动作模仿（20组）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11735,
+    "name": "脸部动作模仿",
+    "stairAndDomain": "2-3岁-认知-模仿",
+    "territoryName": "认知",
+    "subdivideName": "模仿",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13651,
+        "name": "脸部动作模仿（5种）",
+        "stage": "1"
+      },
+      {
+        "id": 13652,
+        "name": "脸部动作模仿（10种）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11736,
+    "name": "积木仿搭",
+    "stairAndDomain": "3-4岁-认知-模仿",
+    "territoryName": "认知",
+    "subdivideName": "模仿",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13653,
+        "name": "仿搭（呈现过程）",
+        "stage": "1"
+      },
+      {
+        "id": 13654,
+        "name": "仿搭（不呈现过程）",
+        "stage": "2"
+      },
+      {
+        "id": 13655,
+        "name": "记忆仿搭",
+        "stage": "3"
+      },
+      {
+        "id": 13656,
+        "name": "按图纸仿搭",
+        "stage": "4"
+      }
+    ]
+  },
+  {
+    "id": 11737,
+    "name": "仿画",
+    "stairAndDomain": "4-5岁-认知-模仿",
+    "territoryName": "认知",
+    "subdivideName": "模仿",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13657,
+        "name": "描线条",
+        "stage": "1"
+      },
+      {
+        "id": 13658,
+        "name": "仿画线条",
+        "stage": "2"
+      },
+      {
+        "id": 13659,
+        "name": "描形状",
+        "stage": "3"
+      },
+      {
+        "id": 13660,
+        "name": "仿画形状",
+        "stage": "4"
+      },
+      {
+        "id": 13661,
+        "name": "仿画简单图形",
+        "stage": "5"
+      }
+    ]
+  },
+  {
+    "id": 11738,
+    "name": "相同配对",
+    "stairAndDomain": "1-2岁-认知-配对",
+    "territoryName": "认知",
+    "subdivideName": "配对",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13662,
+        "name": "相同配对（3D&3D、物品配物品）",
+        "stage": "1"
+      },
+      {
+        "id": 13663,
+        "name": "相同配对（2D&2D、卡片配卡片）",
+        "stage": "2"
+      },
+      {
+        "id": 13664,
+        "name": "相同配对（3D&2D、物品配卡片）",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11739,
+    "name": "不完全相同配对",
+    "stairAndDomain": "1-2岁-认知-配对",
+    "territoryName": "认知",
+    "subdivideName": "配对",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13665,
+        "name": "不完全相同配对（3D&3D、物品配物品）",
+        "stage": "1"
+      },
+      {
+        "id": 13666,
+        "name": "不完全相同配对（2D&2D、卡片配卡片）",
+        "stage": "2"
+      },
+      {
+        "id": 13667,
+        "name": "不完全相同配对（3D&2D、物品配卡片）",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11740,
+    "name": "配对颜色",
+    "stairAndDomain": "2-3岁-认知-配对",
+    "territoryName": "认知",
+    "subdivideName": "配对",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13668,
+        "name": "配对颜色",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11741,
+    "name": "配对形状",
+    "stairAndDomain": "2-3岁-认知-配对",
+    "territoryName": "认知",
+    "subdivideName": "配对",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13669,
+        "name": "配对形状",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11742,
+    "name": "配对关联物品",
+    "stairAndDomain": "2-3岁-认知-配对",
+    "territoryName": "认知",
+    "subdivideName": "配对",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13670,
+        "name": "配对自理相关联物品",
+        "stage": "1"
+      },
+      {
+        "id": 13671,
+        "name": "配对日常生活相关联物品",
+        "stage": "2"
+      },
+      {
+        "id": 13672,
+        "name": "配对户外相关联物品",
+        "stage": "3"
+      },
+      {
+        "id": 13673,
+        "name": "配对学校相关联物品",
+        "stage": "4"
+      },
+      {
+        "id": 13674,
+        "name": "配对节日相关联物品",
+        "stage": "5"
+      }
+    ]
+  },
+  {
+    "id": 11743,
+    "name": "分类",
+    "stairAndDomain": "3-4岁-认知-配对",
+    "territoryName": "认知",
+    "subdivideName": "配对",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13675,
+        "name": "累积2种类别",
+        "stage": "1"
+      },
+      {
+        "id": 13676,
+        "name": "累积4种类别",
+        "stage": "2"
+      },
+      {
+        "id": 13677,
+        "name": "累积6种类别",
+        "stage": "3"
+      },
+      {
+        "id": 13678,
+        "name": "累积8种类别",
+        "stage": "4"
+      },
+      {
+        "id": 13679,
+        "name": "累积10种类别",
+        "stage": "5"
+      }
+    ]
+  },
+  {
+    "id": 11744,
+    "name": "识别一样/不一样",
+    "stairAndDomain": "3-4岁-认知-配对",
+    "territoryName": "认知",
+    "subdivideName": "配对",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13680,
+        "name": "在物品中识别一样/不一样",
+        "stage": "1"
+      },
+      {
+        "id": 13681,
+        "name": "在环境中识别一样/不一样",
+        "stage": "2"
+      },
+      {
+        "id": 13682,
+        "name": "在作业纸上识别一样/不一样",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11745,
+    "name": "物品功能",
+    "stairAndDomain": "2-3岁-认知-概念",
+    "territoryName": "认知",
+    "subdivideName": "概念",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13683,
+        "name": "根据功能辨认物品",
+        "stage": "1"
+      },
+      {
+        "id": 13684,
+        "name": "根据功能说出物品",
+        "stage": "2"
+      },
+      {
+        "id": 13685,
+        "name": "根据物品说出功能",
+        "stage": "3"
+      },
+      {
+        "id": 13686,
+        "name": "按功能操作物品",
+        "stage": "4"
+      }
+    ]
+  },
+  {
+    "id": 11746,
+    "name": "辨认特征",
+    "stairAndDomain": "2-3岁-认知-概念",
+    "territoryName": "认知",
+    "subdivideName": "概念",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13687,
+        "name": "辨认特征（10组）",
+        "stage": "1"
+      },
+      {
+        "id": 13688,
+        "name": "辨认特征（20组）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11747,
+    "name": "相对概念",
+    "stairAndDomain": "3-4岁-认知-概念",
+    "territoryName": "认知",
+    "subdivideName": "概念",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13689,
+        "name": "辨识相对概念",
+        "stage": "1"
+      },
+      {
+        "id": 13690,
+        "name": "说出相对概念",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11748,
+    "name": "场所功能",
+    "stairAndDomain": "3-4岁-认知-概念",
+    "territoryName": "认知",
+    "subdivideName": "概念",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13691,
+        "name": "根据功能辨识场所",
+        "stage": "1"
+      },
+      {
+        "id": 13692,
+        "name": "根据功能说出场所",
+        "stage": "2"
+      },
+      {
+        "id": 13693,
+        "name": "回答场所功能",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11749,
+    "name": "职业功能",
+    "stairAndDomain": "3-4岁-认知-概念",
+    "territoryName": "认知",
+    "subdivideName": "概念",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13694,
+        "name": "根据功能辨别职业",
+        "stage": "1"
+      },
+      {
+        "id": 13695,
+        "name": "根据功能说出职业名称",
+        "stage": "2"
+      },
+      {
+        "id": 13696,
+        "name": "根据职业说出职业功能",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11750,
+    "name": "季节",
+    "stairAndDomain": "3-4岁-认知-时间",
+    "territoryName": "认知",
+    "subdivideName": "时间",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13697,
+        "name": "辨识季节",
+        "stage": "1"
+      },
+      {
+        "id": 13698,
+        "name": "季节服饰分类",
+        "stage": "2"
+      },
+      {
+        "id": 13699,
+        "name": "季节活动分类",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11751,
+    "name": "昨天今天明天",
+    "stairAndDomain": "3-4岁-认知-时间",
+    "territoryName": "认知",
+    "subdivideName": "时间",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13700,
+        "name": "呈现视觉提示，回应关于昨天、今天、明天内容的问题",
+        "stage": "1"
+      },
+      {
+        "id": 13701,
+        "name": "不呈现视觉提示，回应关于昨天、今天、明天内容的问题",
+        "stage": "2"
+      },
+      {
+        "id": 13702,
+        "name": "用包含昨天、今天、明天元素的句子命名事件",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11752,
+    "name": "日历",
+    "stairAndDomain": "4-5岁-认知-时间",
+    "territoryName": "认知",
+    "subdivideName": "时间",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13703,
+        "name": "星期",
+        "stage": "1"
+      },
+      {
+        "id": 13704,
+        "name": "月份",
+        "stage": "2"
+      },
+      {
+        "id": 13705,
+        "name": "学习当天日期",
+        "stage": "3"
+      },
+      {
+        "id": 13706,
+        "name": "回答昨天、今天和明天的星期",
+        "stage": "4"
+      },
+      {
+        "id": 13707,
+        "name": "回答昨天、今天和明天的日期",
+        "stage": "5"
+      }
+    ]
+  },
+  {
+    "id": 11753,
+    "name": "一日时间",
+    "stairAndDomain": "4-5岁-认知-时间",
+    "territoryName": "认知",
+    "subdivideName": "时间",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13708,
+        "name": "呈现视觉提示，回应关于早上/上午/中午/下午/晚上内容的问题",
+        "stage": "1"
+      },
+      {
+        "id": 13709,
+        "name": "不呈现视觉提示，回应关于早上/上午/中午/下午/晚上内容的问题",
+        "stage": "2"
+      },
+      {
+        "id": 13710,
+        "name": "用包含早上/上午/中午/下午/晚上元素的句子命名事件",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11754,
+    "name": "找规律",
+    "stairAndDomain": "4-5岁-认知-推理",
+    "territoryName": "认知",
+    "subdivideName": "推理",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13711,
+        "name": "ABAB",
+        "stage": "1"
+      },
+      {
+        "id": 13712,
+        "name": "AABAABAAB、AABBAABB",
+        "stage": "2"
+      },
+      {
+        "id": 13713,
+        "name": "ABCABC",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11755,
+    "name": "预测结果",
+    "stairAndDomain": "4-5岁-认知-推理",
+    "territoryName": "认知",
+    "subdivideName": "推理",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13714,
+        "name": "预测结果（10种情境）",
+        "stage": "1"
+      },
+      {
+        "id": 13715,
+        "name": "预测结果（20种情境）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11756,
+    "name": "事件排序",
+    "stairAndDomain": "3-4岁-认知-推理",
+    "territoryName": "认知",
+    "subdivideName": "推理",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13716,
+        "name": "3张卡片排序，累积10组",
+        "stage": "1"
+      },
+      {
+        "id": 13717,
+        "name": "4张卡片排序，累积10组",
+        "stage": "2"
+      },
+      {
+        "id": 13718,
+        "name": "5张卡片排序，累积10组",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11757,
+    "name": "因果关系",
+    "stairAndDomain": "3-4岁-认知-推理",
+    "territoryName": "认知",
+    "subdivideName": "推理",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13719,
+        "name": "因果关系（图片）",
+        "stage": "1"
+      },
+      {
+        "id": 13720,
+        "name": "因果关系（影片）",
+        "stage": "2"
+      },
+      {
+        "id": 13721,
+        "name": "因果关系（真实情景）",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11758,
+    "name": "问题解决",
+    "stairAndDomain": "4-5岁-认知-推理",
+    "territoryName": "认知",
+    "subdivideName": "推理",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13722,
+        "name": "2个认知层面的问题+2个常见的社交问题（累计4个）",
+        "stage": "1"
+      },
+      {
+        "id": 13723,
+        "name": "2个认知层面的问题+2个常见的社交问题（累计8个）",
+        "stage": "2"
+      },
+      {
+        "id": 13724,
+        "name": "2个认知层面的问题+2个常见的社交问题（累计12个）",
+        "stage": "3"
+      },
+      {
+        "id": 13725,
+        "name": "2个认知层面的问题+2个常见的社交问题（累计16个）",
+        "stage": "4"
+      },
+      {
+        "id": 13726,
+        "name": "2个认知层面的问题+2个常见的社交问题（累计20个）",
+        "stage": "5"
+      }
+    ]
+  },
+  {
+    "id": 11759,
+    "name": "辨识对与错",
+    "stairAndDomain": "3-4岁-认知-推理",
+    "territoryName": "认知",
+    "subdivideName": "推理",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13727,
+        "name": "辨识不寻常",
+        "stage": "1"
+      },
+      {
+        "id": 13728,
+        "name": "辨识常识对错",
+        "stage": "2"
+      },
+      {
+        "id": 13729,
+        "name": "辨识情境对错",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11760,
+    "name": "编辑故事",
+    "stairAndDomain": "3-4岁-认知-推理",
+    "territoryName": "认知",
+    "subdivideName": "推理",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13730,
+        "name": "看图说故事",
+        "stage": "1"
+      },
+      {
+        "id": 13731,
+        "name": "编辑故事（轮流）",
+        "stage": "2"
+      },
+      {
+        "id": 13732,
+        "name": "编辑故事（独立）",
+        "stage": "3"
+      },
+      {
+        "id": 13733,
+        "name": "编辑故事（延伸）",
+        "stage": "4"
+      }
+    ]
+  },
+  {
+    "id": 11761,
+    "name": "数学：报数",
+    "stairAndDomain": "2-3岁-认知-数学",
+    "territoryName": "认知",
+    "subdivideName": "数学",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13734,
+        "name": "报数（10以内）",
+        "stage": "1"
+      },
+      {
+        "id": 13735,
+        "name": "报数（20以内）",
+        "stage": "2"
+      },
+      {
+        "id": 13736,
+        "name": "任意起始报数",
+        "stage": "3"
+      },
+      {
+        "id": 13737,
+        "name": "任意倒数",
+        "stage": "4"
+      }
+    ]
+  },
+  {
+    "id": 11762,
+    "name": "数学：识别数字",
+    "stairAndDomain": "4-5岁-认知-数学",
+    "territoryName": "认知",
+    "subdivideName": "数学",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13738,
+        "name": "识别数字1-20",
+        "stage": "1"
+      },
+      {
+        "id": 13739,
+        "name": "识别数字21-40",
+        "stage": "2"
+      },
+      {
+        "id": 13740,
+        "name": "识别数字41-60",
+        "stage": "3"
+      },
+      {
+        "id": 13741,
+        "name": "识别数字61-80",
+        "stage": "4"
+      },
+      {
+        "id": 13742,
+        "name": "识别数字81-100",
+        "stage": "5"
+      }
+    ]
+  },
+  {
+    "id": 11763,
+    "name": "数学：点数",
+    "stairAndDomain": "3-4岁-认知-数学",
+    "territoryName": "认知",
+    "subdivideName": "数学",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13743,
+        "name": "点数",
+        "stage": "1"
+      },
+      {
+        "id": 13744,
+        "name": "点数后回答",
+        "stage": "2"
+      },
+      {
+        "id": 13745,
+        "name": "点数后报数",
+        "stage": "3"
+      },
+      {
+        "id": 13746,
+        "name": "目测总数",
+        "stage": "4"
+      }
+    ]
+  },
+  {
+    "id": 11764,
+    "name": "数学：按数取物",
+    "stairAndDomain": "3-4岁-认知-数学",
+    "territoryName": "认知",
+    "subdivideName": "数学",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13747,
+        "name": "按数取物（10以内）",
+        "stage": "1"
+      },
+      {
+        "id": 13748,
+        "name": "按数取物（20以内）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11765,
+    "name": "数学：数量配对",
+    "stairAndDomain": "4-5岁-认知-数学",
+    "territoryName": "认知",
+    "subdivideName": "数学",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13749,
+        "name": "1-5数量配对",
+        "stage": "1"
+      },
+      {
+        "id": 13750,
+        "name": "5-10数量配对",
+        "stage": "2"
+      },
+      {
+        "id": 13751,
+        "name": "10-15数量配对",
+        "stage": "3"
+      },
+      {
+        "id": 13752,
+        "name": "15-20数量配对",
+        "stage": "4"
+      }
+    ]
+  },
+  {
+    "id": 11766,
+    "name": "数学：数字填空",
+    "stairAndDomain": "4-5岁-认知-数学",
+    "territoryName": "认知",
+    "subdivideName": "数学",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13753,
+        "name": "5以内按序列数字填空",
+        "stage": "1"
+      },
+      {
+        "id": 13754,
+        "name": "10以内按序列数字填空",
+        "stage": "2"
+      },
+      {
+        "id": 13755,
+        "name": "20以内按序列数字填空",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11767,
+    "name": "数学：数量比多少",
+    "stairAndDomain": "4-5岁-认知-数学",
+    "territoryName": "认知",
+    "subdivideName": "数学",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13756,
+        "name": "通过直观的观察，能区分数量差异的物体集合",
+        "stage": "1"
+      },
+      {
+        "id": 13757,
+        "name": "用点数的方式确定物体数量并进行比较",
+        "stage": "2"
+      },
+      {
+        "id": 13758,
+        "name": "作业单页中比多少（孩子能通过数数，并通过数量比较，来确定多少）",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11768,
+    "name": "数学：加法",
+    "stairAndDomain": "4-5岁-认知-数学",
+    "territoryName": "认知",
+    "subdivideName": "数学",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13759,
+        "name": "加法（物品运算）",
+        "stage": "1"
+      },
+      {
+        "id": 13760,
+        "name": "加法（算术题+物品运算）",
+        "stage": "2"
+      },
+      {
+        "id": 13761,
+        "name": "加法算式运算（5以内）",
+        "stage": "3"
+      },
+      {
+        "id": 13762,
+        "name": "加法算式运算（10以内）",
+        "stage": "4"
+      },
+      {
+        "id": 13763,
+        "name": "加法运算（应用题）",
+        "stage": "5"
+      }
+    ]
+  },
+  {
+    "id": 11769,
+    "name": "数学：减法",
+    "stairAndDomain": "4-5岁-认知-数学",
+    "territoryName": "认知",
+    "subdivideName": "数学",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13764,
+        "name": "减法（物品运算）",
+        "stage": "1"
+      },
+      {
+        "id": 13765,
+        "name": "减法（算术题+物品运算）",
+        "stage": "2"
+      },
+      {
+        "id": 13766,
+        "name": "减法算式运算（5以内）",
+        "stage": "3"
+      },
+      {
+        "id": 13767,
+        "name": "减法算式运算（10以内）",
+        "stage": "4"
+      },
+      {
+        "id": 13768,
+        "name": "减法运算（应用题）",
+        "stage": "5"
+      }
+    ]
+  },
+  {
+    "id": 11770,
+    "name": "英语：字母",
+    "stairAndDomain": "4-5岁-认知-数学",
+    "territoryName": "认知",
+    "subdivideName": "数学",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13769,
+        "name": "辨别字母",
+        "stage": "1"
+      },
+      {
+        "id": 13770,
+        "name": "命名字母",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11771,
+    "name": "语文：拼音",
+    "stairAndDomain": "5岁以上-认知-数学",
+    "territoryName": "认知",
+    "subdivideName": "数学",
+    "ageBracket": "5岁以上",
+    "stages": [
+      {
+        "id": 13771,
+        "name": "能够独立辨认和命名单韵母及其四声调",
+        "stage": "1"
+      },
+      {
+        "id": 13772,
+        "name": "能够独立辨认和命名声母，进行声母与单韵母的拼读，并掌握部分整体认读音节",
+        "stage": "2"
+      },
+      {
+        "id": 13773,
+        "name": "能够独立辨认和命名复韵母，进行声母与复韵母的拼读，并掌握部分整体认读音节",
+        "stage": "3"
+      },
+      {
+        "id": 13774,
+        "name": "能够独立辨认和命名前鼻韵母以及后鼻韵母，进行声母与前鼻韵母、后鼻韵母的拼读，并掌握剩余整体认读音节",
+        "stage": "4"
+      }
+    ]
+  },
+  {
+    "id": 11772,
+    "name": "语文：跟读",
+    "stairAndDomain": "4-5岁-认知-数学",
+    "territoryName": "认知",
+    "subdivideName": "数学",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13775,
+        "name": "跟读字（累积10个）",
+        "stage": "1"
+      },
+      {
+        "id": 13776,
+        "name": "跟读词（累积10个）",
+        "stage": "2"
+      },
+      {
+        "id": 13777,
+        "name": "跟读短句（累积10个）",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11773,
+    "name": "语文：识别汉字",
+    "stairAndDomain": "4-5岁-认知-数学",
+    "territoryName": "认知",
+    "subdivideName": "数学",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13778,
+        "name": "辨识汉字（10个）",
+        "stage": "1"
+      },
+      {
+        "id": 13779,
+        "name": "命名汉字（10个）",
+        "stage": "2"
+      },
+      {
+        "id": 13780,
+        "name": "辨识汉字（20个）",
+        "stage": "3"
+      },
+      {
+        "id": 13781,
+        "name": "命名汉字（20个）",
+        "stage": "4"
+      },
+      {
+        "id": 13782,
+        "name": "辨识汉字（40个）",
+        "stage": "5"
+      },
+      {
+        "id": 13783,
+        "name": "命名汉字（40个）",
+        "stage": "6"
+      }
+    ]
+  },
+  {
+    "id": 11774,
+    "name": "语文：阅读理解",
+    "stairAndDomain": "5岁以上-认知-数学",
+    "territoryName": "认知",
+    "subdivideName": "数学",
+    "ageBracket": "5岁以上",
+    "stages": [
+      {
+        "id": 13784,
+        "name": "阅读理解（配对字与图）",
+        "stage": "1"
+      },
+      {
+        "id": 13785,
+        "name": "阅读后回答问题",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11775,
+    "name": "进食：使用叉子",
+    "stairAndDomain": "2-3岁-生活自理-进食穿衣",
+    "territoryName": "生活自理",
+    "subdivideName": "进食穿衣",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13786,
+        "name": "使用叉子叉2种材料/食物",
+        "stage": "1"
+      },
+      {
+        "id": 13787,
+        "name": "使用叉子叉4种材料/食物",
+        "stage": "2"
+      },
+      {
+        "id": 13788,
+        "name": "使用叉子叉6种材料/食物",
+        "stage": "3"
+      },
+      {
+        "id": 13789,
+        "name": "使用叉子叉8种材料/食物",
+        "stage": "4"
+      },
+      {
+        "id": 13790,
+        "name": "使用叉子进食（至少4种不同食物）",
+        "stage": "5"
+      }
+    ]
+  },
+  {
+    "id": 11776,
+    "name": "进食：使用勺子",
+    "stairAndDomain": "2-3岁-生活自理-进食穿衣",
+    "territoryName": "生活自理",
+    "subdivideName": "进食穿衣",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13791,
+        "name": "使用勺子舀粉状物品（如：面粉、太空沙）",
+        "stage": "1"
+      },
+      {
+        "id": 13792,
+        "name": "使用勺子舀硬质固状物品（如：绿豆、蚕豆、串珠）",
+        "stage": "2"
+      },
+      {
+        "id": 13793,
+        "name": "使用勺子舀黏稠状物品（如：湿面团、橡皮泥）",
+        "stage": "3"
+      },
+      {
+        "id": 13794,
+        "name": "使用勺子舀液状物品（如：水）",
+        "stage": "4"
+      },
+      {
+        "id": 13795,
+        "name": "使用勺子进食（至少4种不同种类的食物）",
+        "stage": "5"
+      }
+    ]
+  },
+  {
+    "id": 11777,
+    "name": "进食：使用筷子",
+    "stairAndDomain": "4-5岁-生活自理-进食穿衣",
+    "territoryName": "生活自理",
+    "subdivideName": "进食穿衣",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13796,
+        "name": "使用筷子夹2种材料/食物",
+        "stage": "1"
+      },
+      {
+        "id": 13797,
+        "name": "使用筷子夹4种材料/食物",
+        "stage": "2"
+      },
+      {
+        "id": 13798,
+        "name": "使用筷子夹6种材料/食物",
+        "stage": "3"
+      },
+      {
+        "id": 13799,
+        "name": "使用筷子夹8种材料/食物",
+        "stage": "4"
+      },
+      {
+        "id": 13800,
+        "name": "使用筷子进食（至少4种不同食物）",
+        "stage": "5"
+      }
+    ]
+  },
+  {
+    "id": 11778,
+    "name": "进食：使用吸管",
+    "stairAndDomain": "1-2岁-生活自理-进食穿衣",
+    "territoryName": "生活自理",
+    "subdivideName": "进食穿衣",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13801,
+        "name": "使用吸管喝水",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11779,
+    "name": "进食：使用敞口杯",
+    "stairAndDomain": "2-3岁-生活自理-进食穿衣",
+    "territoryName": "生活自理",
+    "subdivideName": "进食穿衣",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13802,
+        "name": "使用敞口杯喝水",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11780,
+    "name": "进食：控制进食速度",
+    "stairAndDomain": "2-3岁-生活自理-进食穿衣",
+    "territoryName": "生活自理",
+    "subdivideName": "进食穿衣",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13803,
+        "name": "孩子能够在提示下控制进食速度",
+        "stage": "1"
+      },
+      {
+        "id": 13804,
+        "name": "孩子能力自主控制进食速度",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11781,
+    "name": "进食：进食卫生",
+    "stairAndDomain": "2-3岁-生活自理-进食穿衣",
+    "territoryName": "生活自理",
+    "subdivideName": "进食穿衣",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13805,
+        "name": "未吃完的食物放在餐具里",
+        "stage": "1"
+      },
+      {
+        "id": 13806,
+        "name": "维持进餐桌面的卫生",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11782,
+    "name": "进食：尝试新食物",
+    "stairAndDomain": "2-3岁-生活自理-进食穿衣",
+    "territoryName": "生活自理",
+    "subdivideName": "进食穿衣",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13807,
+        "name": "累积尝试5种新食物",
+        "stage": "1"
+      },
+      {
+        "id": 13808,
+        "name": "累积尝试10种新食物",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11783,
+    "name": "如厕",
+    "stairAndDomain": "2-3岁-生活自理-进食穿衣",
+    "territoryName": "生活自理",
+    "subdivideName": "进食穿衣",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13809,
+        "name": "每XX分钟去如厕3-5分钟，底裤是干燥的",
+        "stage": "1"
+      },
+      {
+        "id": 13810,
+        "name": "每XX分钟（比上一阶段增加20-45分钟）去如厕3-5分钟，底裤是干燥的，并且能够独立穿脱裤子",
+        "stage": "2"
+      },
+      {
+        "id": 13811,
+        "name": "每XX分钟（比上一阶段增加20-45分钟）去如厕3-5分钟，底裤是干燥的，独立穿脱裤子和冲马桶",
+        "stage": "3"
+      },
+      {
+        "id": 13812,
+        "name": "每XX分钟（比上一阶段增加20-45分钟）去如厕3-5分钟，底裤是干燥的，独立穿脱裤子、冲马桶和洗手",
+        "stage": "4"
+      },
+      {
+        "id": 13813,
+        "name": "表达如厕意愿",
+        "stage": "5"
+      },
+      {
+        "id": 13814,
+        "name": "泛化至不同常规场景（累积3-5种），并且能够独立提要求进行如厕、穿脱裤子、冲马桶、和洗手。",
+        "stage": "6"
+      }
+    ]
+  },
+  {
+    "id": 11784,
+    "name": "穿脱衣物",
+    "stairAndDomain": "2-3岁-生活自理-进食穿衣",
+    "territoryName": "生活自理",
+    "subdivideName": "进食穿衣",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13815,
+        "name": "穿脱鞋子（无或带有魔术贴/鞋带/按钮/拉链）",
+        "stage": "1"
+      },
+      {
+        "id": 13816,
+        "name": "穿脱裤子（短裤/长裤）",
+        "stage": "2"
+      },
+      {
+        "id": 13817,
+        "name": "穿脱袜子（短袜/长袜）",
+        "stage": "3"
+      },
+      {
+        "id": 13818,
+        "name": "穿脱套头上衣（背心/T-恤/长袖）",
+        "stage": "4"
+      },
+      {
+        "id": 13819,
+        "name": "穿脱开衫/外套（无或带有拉链/纽扣）",
+        "stage": "5"
+      }
+    ]
+  },
+  {
+    "id": 11785,
+    "name": "自我清理",
+    "stairAndDomain": "2-3岁-生活自理-进食穿衣",
+    "territoryName": "生活自理",
+    "subdivideName": "进食穿衣",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13820,
+        "name": "指令下，做出自我清理行为",
+        "stage": "1"
+      },
+      {
+        "id": 13821,
+        "name": "提示下，察觉需要清理的部位并做出清理行为",
+        "stage": "2"
+      },
+      {
+        "id": 13822,
+        "name": "自主做出自我清理行为",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11786,
+    "name": "擦嘴",
+    "stairAndDomain": "1-2岁-生活自理-进食穿衣",
+    "territoryName": "生活自理",
+    "subdivideName": "进食穿衣",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13823,
+        "name": "能使用纸巾擦嘴",
+        "stage": "1"
+      },
+      {
+        "id": 13824,
+        "name": "跟随自然场景的活动流程，使用纸巾擦嘴",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11787,
+    "name": "梳头",
+    "stairAndDomain": "3-4岁-生活自理-进食穿衣",
+    "territoryName": "生活自理",
+    "subdivideName": "进食穿衣",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13825,
+        "name": "能使用梳子梳理头发",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11788,
+    "name": "洗手",
+    "stairAndDomain": "3-4岁-生活自理-进食穿衣",
+    "territoryName": "生活自理",
+    "subdivideName": "进食穿衣",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13826,
+        "name": "完成4个洗手步骤",
+        "stage": "1"
+      },
+      {
+        "id": 13827,
+        "name": "完成全部（8个）洗手步骤",
+        "stage": "2"
+      },
+      {
+        "id": 13828,
+        "name": "跟随自然场景的活动流程，进行洗手的全部步骤",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11789,
+    "name": "刷牙",
+    "stairAndDomain": "1-2岁-生活自理-进食穿衣",
+    "territoryName": "生活自理",
+    "subdivideName": "进食穿衣",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13829,
+        "name": "在洗手台边，孩子接受牙刷触碰唇周及牙齿",
+        "stage": "1"
+      },
+      {
+        "id": 13830,
+        "name": "在洗手台边，孩子在提示下完成刷牙步骤",
+        "stage": "2"
+      },
+      {
+        "id": 13831,
+        "name": "在洗手台边，孩子独立完成刷牙步骤",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11790,
+    "name": "洗脸",
+    "stairAndDomain": "3-4岁-生活自理-进食穿衣",
+    "territoryName": "生活自理",
+    "subdivideName": "进食穿衣",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13832,
+        "name": "完成4个洗脸步骤",
+        "stage": "1"
+      },
+      {
+        "id": 13833,
+        "name": "完成全部（8个）的洗脸步骤",
+        "stage": "2"
+      },
+      {
+        "id": 13834,
+        "name": "跟随自然场景的活动流程，进行洗脸的全部步骤",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11791,
+    "name": "洗澡",
+    "stairAndDomain": "3-4岁-生活自理-进食穿衣",
+    "territoryName": "生活自理",
+    "subdivideName": "进食穿衣",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13835,
+        "name": "在大人协助下完成洗澡的步骤",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11792,
+    "name": "用完物品后放回",
+    "stairAndDomain": "2-3岁-生活自理-家务整理",
+    "territoryName": "生活自理",
+    "subdivideName": "家务整理",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13836,
+        "name": "物品用完后，在提示下放回单一物品",
+        "stage": "1"
+      },
+      {
+        "id": 13837,
+        "name": "物品用完后，独立将单一物品放回到原处",
+        "stage": "2"
+      },
+      {
+        "id": 13838,
+        "name": "在活动结束/物品用完后独立将多个物品放回到原处",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11793,
+    "name": "收拾",
+    "stairAndDomain": "2-3岁-生活自理-家务整理",
+    "territoryName": "生活自理",
+    "subdivideName": "家务整理",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13839,
+        "name": "收拾单一玩具",
+        "stage": "1"
+      },
+      {
+        "id": 13840,
+        "name": "收拾多种玩具",
+        "stage": "2"
+      },
+      {
+        "id": 13841,
+        "name": "玩具归位",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11794,
+    "name": "清理桌面",
+    "stairAndDomain": "4-5岁-生活自理-家务整理",
+    "territoryName": "生活自理",
+    "subdivideName": "家务整理",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13842,
+        "name": "完成清理桌面的步骤",
+        "stage": "1"
+      },
+      {
+        "id": 13843,
+        "name": "跟随自然场景的活动流程，进行清理桌面的全部步骤",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11795,
+    "name": "扫地",
+    "stairAndDomain": "4-5岁-生活自理-家务整理",
+    "territoryName": "生活自理",
+    "subdivideName": "家务整理",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13844,
+        "name": "完成扫地的步骤",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11796,
+    "name": "拖地",
+    "stairAndDomain": "4-5岁-生活自理-家务整理",
+    "territoryName": "生活自理",
+    "subdivideName": "家务整理",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13845,
+        "name": "完成拖地的步骤",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11797,
+    "name": "叠衣服",
+    "stairAndDomain": "4-5岁-生活自理-家务整理",
+    "territoryName": "生活自理",
+    "subdivideName": "家务整理",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13846,
+        "name": "完成叠衣服的步骤",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11798,
+    "name": "洗碗",
+    "stairAndDomain": "4-5岁-生活自理-家务整理",
+    "territoryName": "生活自理",
+    "subdivideName": "家务整理",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13847,
+        "name": "完成洗碗的步骤",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11799,
+    "name": "洗衣服",
+    "stairAndDomain": "4-5岁-生活自理-家务整理",
+    "territoryName": "生活自理",
+    "subdivideName": "家务整理",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13848,
+        "name": "完成洗衣服的步骤",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11800,
+    "name": "整理床褥",
+    "stairAndDomain": "4-5岁-生活自理-家务整理",
+    "territoryName": "生活自理",
+    "subdivideName": "家务整理",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13849,
+        "name": "完成整理床褥的步骤",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11801,
+    "name": "安全意识：随行",
+    "stairAndDomain": "2-3岁-生活自理-安全意识",
+    "territoryName": "生活自理",
+    "subdivideName": "安全意识",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13850,
+        "name": "在无干扰/中断下，孩子能够持续锁定主康复师/主照料者，随行其从A点到B点",
+        "stage": "1"
+      },
+      {
+        "id": 13851,
+        "name": "在一次干扰/中断下，孩子能够持续锁定主康复师/主照料者，随行其从A点到B点",
+        "stage": "2"
+      },
+      {
+        "id": 13852,
+        "name": "在自然干扰/中断下，孩子能够持续锁定主康复师/主照料者，随行其从A点到B点",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11802,
+    "name": "安全意识：过马路",
+    "stairAndDomain": "3-4岁-生活自理-安全意识",
+    "territoryName": "生活自理",
+    "subdivideName": "安全意识",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13853,
+        "name": "在游戏中根据红绿路灯行走，累计完成五个场景。",
+        "stage": "1"
+      },
+      {
+        "id": 13854,
+        "name": "在真实环境中，提示下完成过马路。",
+        "stage": "2"
+      },
+      {
+        "id": 13855,
+        "name": "在真实环境中，独立过马路。",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11803,
+    "name": "安全意识：正确乘坐电梯",
+    "stairAndDomain": "3-4岁-生活自理-安全意识",
+    "territoryName": "生活自理",
+    "subdivideName": "安全意识",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13856,
+        "name": "识别电梯里的标识",
+        "stage": "1"
+      },
+      {
+        "id": 13857,
+        "name": "在真实环境中，提示下遵从电梯里的标识警告",
+        "stage": "2"
+      },
+      {
+        "id": 13858,
+        "name": "在真实环境中，独立正确乘坐电梯",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11804,
+    "name": "安全意识：安全标识",
+    "stairAndDomain": "3-4岁-生活自理-安全意识",
+    "territoryName": "生活自理",
+    "subdivideName": "安全意识",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13859,
+        "name": "累积到2个安全标识",
+        "stage": "1"
+      },
+      {
+        "id": 13860,
+        "name": "累积到4个安全标识",
+        "stage": "2"
+      },
+      {
+        "id": 13861,
+        "name": "累积到5个安全标识",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11805,
+    "name": "安全意识：正确乘坐公共交通工具",
+    "stairAndDomain": "4-5岁-生活自理-安全意识",
+    "territoryName": "生活自理",
+    "subdivideName": "安全意识",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13862,
+        "name": "在游戏演练中，能够完成乘坐公共交通工具的步骤",
+        "stage": "1"
+      },
+      {
+        "id": 13863,
+        "name": "在游戏演练中，能够遵从相应规则正常乘坐公共交通工具",
+        "stage": "2"
+      },
+      {
+        "id": 13864,
+        "name": "在真实环境中，正确公共交通工具",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11806,
+    "name": "隐私：身体自主与安全教育",
+    "stairAndDomain": "4-5岁-生活自理-安全意识",
+    "territoryName": "生活自理",
+    "subdivideName": "安全意识",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13865,
+        "name": "认识男生VS女生",
+        "stage": "1"
+      },
+      {
+        "id": 13866,
+        "name": "辨识自己和他人的隐私部位，得体的穿衣",
+        "stage": "2"
+      },
+      {
+        "id": 13867,
+        "name": "当他人触及隐私部位时能做出自我保护反应",
+        "stage": "3"
+      },
+      {
+        "id": 13868,
+        "name": "不同性别表达友好的恰当行为",
+        "stage": "4"
+      }
+    ]
+  },
+  {
+    "id": 11807,
+    "name": "超市购物",
+    "stairAndDomain": "4-5岁-生活自理-社区技能",
+    "territoryName": "生活自理",
+    "subdivideName": "社区技能",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13869,
+        "name": "在游戏演练中，能够完成超市购物的步骤",
+        "stage": "1"
+      },
+      {
+        "id": 13870,
+        "name": "在真实环境中，能够完成超市购物的步骤",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11808,
+    "name": "公共场所进餐",
+    "stairAndDomain": "3-4岁-生活自理-社区技能",
+    "territoryName": "生活自理",
+    "subdivideName": "社区技能",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13871,
+        "name": "安静坐在公共餐饮区等待至少5分钟，独立使用餐具进食（无洒漏）--小龄",
+        "stage": "1"
+      },
+      {
+        "id": 13872,
+        "name": "在指导下完成点餐（图文），安静坐在公共餐饮区等待至少5分钟，独立使用餐具进食（无洒漏）--大龄",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11809,
+    "name": "配合度",
+    "stairAndDomain": "3-4岁-学习行为-个训行为",
+    "territoryName": "学习行为",
+    "subdivideName": "个训行为",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13873,
+        "name": "40次练习机会",
+        "stage": "1"
+      },
+      {
+        "id": 13874,
+        "name": "20次练习机会",
+        "stage": "2"
+      },
+      {
+        "id": 13875,
+        "name": "随机",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11810,
+    "name": "等待",
+    "stairAndDomain": "2-3岁-学习行为-个训行为",
+    "territoryName": "学习行为",
+    "subdivideName": "个训行为",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13876,
+        "name": "等待（计时器下，1-3min）",
+        "stage": "1"
+      },
+      {
+        "id": 13877,
+        "name": "等待（无计时器，1-3min）",
+        "stage": "2"
+      },
+      {
+        "id": 13878,
+        "name": "等待（中性活动，3-5min）",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11811,
+    "name": "还回增强物",
+    "stairAndDomain": "3-4岁-学习行为-个训行为",
+    "territoryName": "学习行为",
+    "subdivideName": "个训行为",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13879,
+        "name": "倒计时提醒并给归还指令",
+        "stage": "1"
+      },
+      {
+        "id": 13880,
+        "name": "指令下归还增强物",
+        "stage": "2"
+      },
+      {
+        "id": 13881,
+        "name": "归还增强物后继续学习",
+        "stage": "3"
+      },
+      {
+        "id": 13882,
+        "name": "归还增强物后结合代币学习",
+        "stage": "4"
+      }
+    ]
+  },
+  {
+    "id": 11812,
+    "name": "活动转换",
+    "stairAndDomain": "2-3岁-学习行为-个训行为",
+    "territoryName": "学习行为",
+    "subdivideName": "个训行为",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13883,
+        "name": "从偏好活动转换到中性活动",
+        "stage": "1"
+      },
+      {
+        "id": 13884,
+        "name": "从中性活动转换到非偏好活动",
+        "stage": "2"
+      },
+      {
+        "id": 13885,
+        "name": "从偏好活动转换到非偏好活动",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11813,
+    "name": "待在指定区域",
+    "stairAndDomain": "1-2岁-学习行为-个训行为",
+    "territoryName": "学习行为",
+    "subdivideName": "个训行为",
+    "ageBracket": "1-2岁",
+    "stages": [
+      {
+        "id": 13886,
+        "name": "偏好活动下待在指定区域（1-10min）",
+        "stage": "1"
+      },
+      {
+        "id": 13887,
+        "name": "中性活动下待在指定区域（1-10min）",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11814,
+    "name": "接受拒绝",
+    "stairAndDomain": "2-3岁-学习行为-个训行为",
+    "territoryName": "学习行为",
+    "subdivideName": "个训行为",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13888,
+        "name": "接受拒绝（20%）",
+        "stage": "1"
+      },
+      {
+        "id": 13889,
+        "name": "接受拒绝（30%）",
+        "stage": "2"
+      },
+      {
+        "id": 13890,
+        "name": "接受拒绝（40%）",
+        "stage": "3"
+      },
+      {
+        "id": 13891,
+        "name": "接受拒绝（50%）",
+        "stage": "4"
+      },
+      {
+        "id": 13892,
+        "name": "接受拒绝（60%）",
+        "stage": "5"
+      }
+    ]
+  },
+  {
+    "id": 11815,
+    "name": "接受改变",
+    "stairAndDomain": "3-4岁-学习行为-个训行为",
+    "territoryName": "学习行为",
+    "subdivideName": "个训行为",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13893,
+        "name": "接受当前活动被中断，要求更换活动",
+        "stage": "1"
+      },
+      {
+        "id": 13894,
+        "name": "接受答应的计划被改变",
+        "stage": "2"
+      },
+      {
+        "id": 13895,
+        "name": "接受偏好活动的玩法改变",
+        "stage": "3"
+      },
+      {
+        "id": 13896,
+        "name": "接受日程流程的改变",
+        "stage": "4"
+      }
+    ]
+  },
+  {
+    "id": 11816,
+    "name": "接受输赢",
+    "stairAndDomain": "3-4岁-学习行为-个训行为",
+    "territoryName": "学习行为",
+    "subdivideName": "个训行为",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13897,
+        "name": "接受个人输赢",
+        "stage": "1"
+      },
+      {
+        "id": 13898,
+        "name": "在个人输赢情境中，说出符合情景的话",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11817,
+    "name": "自我察觉",
+    "stairAndDomain": "3-4岁-学习行为-个训行为",
+    "territoryName": "学习行为",
+    "subdivideName": "个训行为",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13899,
+        "name": "察觉他人行为（刚刚发生）",
+        "stage": "1"
+      },
+      {
+        "id": 13900,
+        "name": "察觉自己行为（刚刚发生）",
+        "stage": "2"
+      },
+      {
+        "id": 13901,
+        "name": "察觉自己行为（过去3min）",
+        "stage": "3"
+      },
+      {
+        "id": 13902,
+        "name": "察觉自己行为（过去5min）",
+        "stage": "4"
+      },
+      {
+        "id": 13903,
+        "name": "察觉自己行为（过去10min）",
+        "stage": "5"
+      }
+    ]
+  },
+  {
+    "id": 11818,
+    "name": "自我监控",
+    "stairAndDomain": "4-5岁-学习行为-个训行为",
+    "territoryName": "学习行为",
+    "subdivideName": "个训行为",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13904,
+        "name": "记录目标行为",
+        "stage": "1"
+      },
+      {
+        "id": 13905,
+        "name": "记录目标行为并减少至基线的80%",
+        "stage": "2"
+      },
+      {
+        "id": 13906,
+        "name": "记录目标行为并减少至基线的60%",
+        "stage": "3"
+      },
+      {
+        "id": 13907,
+        "name": "记录目标行为并减少至基线的40%",
+        "stage": "4"
+      },
+      {
+        "id": 13908,
+        "name": "记录目标行为并减少至0",
+        "stage": "5"
+      }
+    ]
+  },
+  {
+    "id": 11819,
+    "name": "控制自我刺激行为",
+    "stairAndDomain": "3-4岁-学习行为-个训行为",
+    "territoryName": "学习行为",
+    "subdivideName": "个训行为",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13909,
+        "name": "半小时内减少自我刺激",
+        "stage": "1"
+      },
+      {
+        "id": 13910,
+        "name": "一小时内减少自我刺激",
+        "stage": "2"
+      },
+      {
+        "id": 13911,
+        "name": "整堂课减少自我刺激",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11820,
+    "name": "遵循指示停止问题行为",
+    "stairAndDomain": "3-4岁-学习行为-个训行为",
+    "territoryName": "学习行为",
+    "subdivideName": "个训行为",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13912,
+        "name": "孩子能够在收到指示时停止不适当的行为",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11821,
+    "name": "待在指定区域",
+    "stairAndDomain": "2-3岁-学习行为-集体行为",
+    "territoryName": "学习行为",
+    "subdivideName": "集体行为",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13913,
+        "name": "集体环境下待在指定区域（1-10min）",
+        "stage": "1"
+      },
+      {
+        "id": 13914,
+        "name": "集体环境下待在指定区域（10-20min）",
+        "stage": "2"
+      },
+      {
+        "id": 13915,
+        "name": "集体环境下待在指定区域（20-30min）",
+        "stage": "3"
+      }
+    ]
+  },
+  {
+    "id": 11822,
+    "name": "等待",
+    "stairAndDomain": "2-3岁-学习行为-集体行为",
+    "territoryName": "学习行为",
+    "subdivideName": "集体行为",
+    "ageBracket": "2-3岁",
+    "stages": [
+      {
+        "id": 13916,
+        "name": "在集体中等待发放物品",
+        "stage": "1"
+      },
+      {
+        "id": 13917,
+        "name": "在集体游戏中等待",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11823,
+    "name": "活动转换",
+    "stairAndDomain": "3-4岁-学习行为-集体行为",
+    "territoryName": "学习行为",
+    "subdivideName": "集体行为",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13918,
+        "name": "集体环境中跟随相应的活动转换",
+        "stage": "1"
+      }
+    ]
+  },
+  {
+    "id": 11824,
+    "name": "接受输赢",
+    "stairAndDomain": "4-5岁-学习行为-集体行为",
+    "territoryName": "学习行为",
+    "subdivideName": "集体行为",
+    "ageBracket": "4-5岁",
+    "stages": [
+      {
+        "id": 13919,
+        "name": "接受所属集体的输赢",
+        "stage": "1"
+      },
+      {
+        "id": 13920,
+        "name": "在集体输赢情境中，说出符合情景的话",
+        "stage": "2"
+      }
+    ]
+  },
+  {
+    "id": 11825,
+    "name": "遵守教室规则",
+    "stairAndDomain": "3-4岁-学习行为-集体行为",
+    "territoryName": "学习行为",
+    "subdivideName": "集体行为",
+    "ageBracket": "3-4岁",
+    "stages": [
+      {
+        "id": 13921,
+        "name": "遵守教室规则，累积5种",
+        "stage": "1"
+      },
+      {
+        "id": 13922,
+        "name": "遵守教室规则，累积10种",
+        "stage": "2"
+      }
+    ]
+  }
+]

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>C-PEP 评估报告 - 手机端</title>
+<style>
+:root {
+  --app-primary: #3B9BF5;
+  --app-primary-hover: #2B8AE0;
+  --app-primary-light: #EBF5FF;
+  --app-bg: #F0F2F5;
+  --app-card: #FFFFFF;
+  --app-border: #E8ECF0;
+  --app-text: #1A2233;
+  --app-text-sec: #8C95A6;
+  --app-text-nav: #5A6478;
+  --app-success: #52C41A;
+  --app-warning: #F5A623;
+  --app-danger: #F56C6C;
+  --app-radius-md: 8px;
+  --app-radius-lg: 12px;
+  --app-radius-xl: 16px;
+  --app-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  --app-font: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", "Noto Sans SC", sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--app-font); background: var(--app-bg); color: var(--app-text); display: flex; flex-direction: column; height: 100vh; overflow: hidden; max-width: 420px; margin: 0 auto; }
+.topbar { height: 44px; background: var(--app-card); border-bottom: 1px solid var(--app-border); display: flex; align-items: center; padding: 0 12px; flex-shrink: 0; }
+.topbar .back { font-size: 16px; cursor: pointer; margin-right: 8px; color: var(--app-text); }
+.topbar .title { font-size: 15px; font-weight: 600; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tab-bar { background: var(--app-card); border-bottom: 1px solid var(--app-border); display: flex; flex-shrink: 0; }
+.tab-btn { flex: 1; padding: 10px 0; font-size: 13px; color: var(--app-text-nav); cursor: pointer; border: none; background: none; border-bottom: 2px solid transparent; font-family: var(--app-font); font-weight: 500; text-align: center; }
+.tab-btn.active { color: var(--app-primary); border-bottom-color: var(--app-primary); }
+.content { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+.tab-content { display: none; padding: 12px; }
+.tab-content.active { display: block; }
+.section-label { display: inline-block; background: var(--app-primary); color: #fff; font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: var(--app-radius-md); margin-bottom: 10px; }
+.card { background: var(--app-card); border-radius: var(--app-radius-lg); padding: 14px; box-shadow: var(--app-shadow); margin-bottom: 12px; }
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.info-item { font-size: 13px; }
+.info-item .label { color: var(--app-text-sec); }
+.info-item .value { font-weight: 500; }
+.report-title { font-size: 17px; font-weight: 600; margin-bottom: 6px; }
+.report-desc { font-size: 12px; color: var(--app-text-sec); line-height: 1.6; margin-bottom: 14px; }
+.tbl-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -14px; padding: 0 14px; }
+table.score-tbl { width: 100%; border-collapse: collapse; min-width: 480px; }
+table.score-tbl th { background: #F5F7FA; padding: 8px 8px; text-align: left; font-weight: 500; color: var(--app-text-sec); font-size: 12px; border-bottom: 1px solid var(--app-border); white-space: nowrap; }
+table.score-tbl td { padding: 8px 8px; border-bottom: 1px solid var(--app-border); font-size: 13px; white-space: nowrap; }
+table.score-tbl tr:last-child td { border-bottom: none; }
+.pct-bar { display: inline-block; height: 6px; border-radius: 3px; vertical-align: middle; margin-right: 4px; }
+.editable-area .edit-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.editable-area .edit-link { color: var(--app-primary); font-size: 12px; cursor: pointer; }
+.editable-area .area-text { font-size: 13px; line-height: 1.8; white-space: pre-wrap; }
+.editable-area .area-textarea { width: 100%; min-height: 100px; font-size: 13px; line-height: 1.8; font-family: var(--app-font); border: 1px solid var(--app-primary); border-radius: var(--app-radius-md); padding: 10px; resize: vertical; outline: none; display: none; }
+.editable-area .edit-actions { display: none; gap: 8px; margin-top: 8px; justify-content: flex-end; }
+.editable-area .edit-actions button { padding: 6px 14px; border-radius: var(--app-radius-md); font-size: 12px; cursor: pointer; font-family: var(--app-font); }
+.editable-area .edit-actions .btn-cancel { background: #fff; border: 1px solid var(--app-border); color: var(--app-text-sec); }
+.editable-area .edit-actions .btn-save { background: var(--app-primary); color: #fff; border: none; }
+.radar-svg { width: 100%; max-width: 280px; height: 280px; }
+.chart-center { text-align: center; }
+.bottom-actions { background: var(--app-card); border-top: 1px solid var(--app-border); padding: 10px 12px; display: flex; justify-content: center; gap: 12px; flex-shrink: 0; }
+.btn-export { padding: 8px 20px; background: #fff; border: 1px solid #D8DDE5; border-radius: var(--app-radius-md); font-size: 13px; cursor: pointer; color: var(--app-text-sec); font-family: var(--app-font); }
+.btn-send { padding: 8px 20px; background: var(--app-primary); color: #fff; border: none; border-radius: var(--app-radius-md); font-size: 13px; font-weight: 500; cursor: pointer; font-family: var(--app-font); }
+/* IEP */
+.iep-title { font-size: 16px; font-weight: 600; text-align: center; margin-bottom: 12px; }
+.iep-info { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 13px; margin-bottom: 12px; }
+.iep-info .label { color: var(--app-text-sec); }
+.iep-tbl-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.iep-table { width: 100%; border-collapse: collapse; min-width: 500px; }
+.iep-table th { background: var(--app-primary); color: #fff; padding: 8px 10px; text-align: left; font-size: 12px; font-weight: 500; white-space: nowrap; }
+.iep-table td { padding: 8px 10px; border-bottom: 1px solid var(--app-border); font-size: 12px; vertical-align: top; }
+.iep-table .domain-cell { font-weight: 500; border-right: 1px solid var(--app-border); }
+.iep-table .goal-cell { border-right: 1px solid var(--app-border); }
+.iep-table .del-link { color: var(--app-danger); font-size: 11px; cursor: pointer; }
+.iep-domain-del { color: var(--app-danger); font-size: 11px; cursor: pointer; margin-top: 6px; display: block; }
+.iep-actions { display: flex; justify-content: center; gap: 8px; padding: 10px 0; }
+.iep-actions button { padding: 7px 16px; border-radius: var(--app-radius-md); font-size: 13px; cursor: pointer; font-family: var(--app-font); font-weight: 500; }
+.iep-btn-export { background: #fff; border: 1px solid var(--app-border); color: var(--app-text-sec); }
+.iep-btn-edit { background: var(--app-primary); border: none; color: #fff; }
+.iep-btn-cancel { background: #fff; border: 1px solid var(--app-border); color: var(--app-text); }
+.iep-btn-add { background: #fff; border: 1px solid var(--app-primary); color: var(--app-primary); }
+.iep-btn-save { background: var(--app-primary); border: none; color: #fff; }
+.iep-modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 100; display: none; align-items: flex-end; justify-content: center; }
+.iep-modal-overlay.show { display: flex; }
+.iep-modal { background: #fff; border-radius: var(--app-radius-xl) var(--app-radius-xl) 0 0; padding: 20px 16px; width: 100%; max-width: 420px; max-height: 80vh; overflow-y: auto; }
+.iep-modal h3 { font-size: 15px; font-weight: 600; margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; }
+.iep-modal h3 .close { cursor: pointer; font-size: 18px; color: var(--app-text-sec); background: none; border: none; }
+.iep-modal .form-group { margin-bottom: 12px; }
+.iep-modal .form-group label { display: block; font-size: 12px; color: var(--app-text-sec); margin-bottom: 4px; }
+.iep-modal .form-group input, .iep-modal .form-group textarea { width: 100%; padding: 8px 10px; border: 1px solid var(--app-border); border-radius: var(--app-radius-md); font-size: 14px; font-family: var(--app-font); }
+.iep-modal .form-group textarea { min-height: 70px; resize: vertical; }
+.iep-modal .form-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 14px; }
+.iep-modal .form-actions button { padding: 8px 18px; border-radius: var(--app-radius-md); font-size: 13px; cursor: pointer; font-family: var(--app-font); }
+.iep-modal .form-actions .btn-cancel { background: #fff; border: 1px solid var(--app-border); color: var(--app-text); }
+.iep-modal .form-actions .btn-confirm { background: var(--app-primary); border: none; color: #fff; }
+/* 评估量表 */
+.scale-filter { padding: 10px 0; overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap; display: flex; gap: 8px; }
+.scale-filter .tag { display: inline-block; padding: 5px 14px; border-radius: 9999px; font-size: 12px; font-weight: 500; border: 1px solid var(--app-border); background: #fff; color: var(--app-text-sec); cursor: pointer; flex-shrink: 0; }
+.scale-filter .tag.active { background: var(--app-primary); color: #fff; border-color: var(--app-primary); }
+.scale-summary-bar { background: var(--app-card); border-radius: var(--app-radius-lg); padding: 10px 12px; margin-bottom: 10px; }
+.scale-summary-bar .title { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+.scale-stats { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; font-size: 12px; }
+.scale-stats .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 2px; }
+.sum-bar { flex: 1; min-width: 80px; height: 6px; background: #E8ECF0; border-radius: 3px; overflow: hidden; display: flex; }
+.sum-bar-seg { height: 100%; }
+.q-card { background: var(--app-card); border: 1px solid var(--app-border); border-radius: var(--app-radius-lg); padding: 12px; margin-bottom: 8px; }
+.q-card .q-header { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px; }
+.q-card .q-num { font-size: 13px; font-weight: 600; color: var(--app-primary); min-width: 24px; }
+.q-card .q-desc { font-size: 13px; line-height: 1.5; flex: 1; }
+.q-card .q-scores { display: flex; gap: 4px; flex-wrap: wrap; }
+.q-card .q-score-opt { padding: 3px 10px; border-radius: 9999px; font-size: 11px; font-weight: 500; border: 1px solid var(--app-border); background: #fff; color: var(--app-text-sec); flex: 1; text-align: center; }
+.q-card .q-score-opt.selected-pass { background: #F0FFF4; color: var(--app-success); border-color: var(--app-success); }
+.q-card .q-score-opt.selected-partial { background: #FFF8EB; color: var(--app-warning); border-color: var(--app-warning); }
+.q-card .q-score-opt.selected-fail { background: #FFF0F0; color: var(--app-danger); border-color: var(--app-danger); }
+.q-card .q-note { margin-top: 6px; font-size: 11px; color: var(--app-text-sec); background: #F9FAFB; border-radius: 6px; padding: 5px 8px; }
+.q-card .q-note::before { content: '📝 '; }
+.reset-btn { position: fixed; bottom: 16px; right: 16px; background: rgba(0,0,0,0.35); color: #fff; border: none; padding: 6px 12px; border-radius: var(--app-radius-md); font-size: 12px; cursor: pointer; z-index: 9999; opacity: 0.5; }
+.reset-btn:hover { opacity: 1; }
+.toast { position: fixed; top: 16px; left: 50%; transform: translateX(-50%); background: #1A2233; color: #fff; padding: 8px 16px; border-radius: var(--app-radius-md); font-size: 13px; z-index: 10000; display: none; white-space: nowrap; }
+.toast.show { display: block; animation: fadeInOut 2s ease; }
+@keyframes fadeInOut { 0%{opacity:0;transform:translateX(-50%) translateY(-10px)} 15%{opacity:1;transform:translateX(-50%) translateY(0)} 85%{opacity:1} 100%{opacity:0} }
+@media print { .topbar,.tab-bar,.bottom-actions,.reset-btn,.toast,.edit-link,.edit-actions,.iep-actions{display:none!important} .content{overflow:visible!important;height:auto!important} .tab-content{display:block!important} .tab-content#tabIEP,.tab-content#tabScale{display:none!important} body{height:auto;overflow:visible} }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span class="back" onclick="location.href='assessment-list.html'">←</span>
+  <span class="title">张小明评估报告</span>
+</div>
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab(0,this)">评估报告</button>
+  <button class="tab-btn" onclick="switchTab(1,this)">IEP</button>
+  <button class="tab-btn" onclick="switchTab(2,this)">评估量表</button>
+</div>
+<div class="content">
+  <div class="tab-content active" id="tabReport"></div>
+  <div class="tab-content" id="tabIEP">
+    <div class="iep-title">张小明IEP</div>
+    <div class="card"><div class="iep-info">
+      <div><span class="label">学生姓名：</span>张小明</div><div><span class="label">性别：</span>男</div>
+      <div><span class="label">出生日期：</span>2019-05-20</div><div><span class="label">制定人员：</span>李老师</div>
+    </div></div>
+    <div style="margin-bottom:10px;">
+      <label style="font-size:12px;color:var(--app-text-sec);">课程包：</label>
+      <select id="coursePacketSelect" onchange="onCoursePacketChange()" style="padding:6px 10px;border:1px solid var(--app-border);border-radius:var(--app-radius-md);font-size:13px;font-family:var(--app-font);width:100%;margin-top:4px;"></select>
+    </div>
+    <div id="iepContent"><div style="text-align:center;padding:30px 0;color:var(--app-text-sec);font-size:13px;">请先选择课程包</div></div>
+  </div>
+  <div class="tab-content" id="tabScale">
+    <div class="scale-filter" id="scaleFilter"></div>
+    <div id="scaleSummaryBar" class="scale-summary-bar"></div>
+    <div id="scaleCards"></div>
+  </div>
+</div>
+<div class="bottom-actions" id="bottomActions">
+  <button class="btn-export" onclick="exportPDF()">导出PDF</button>
+  <button class="btn-send" onclick="showToast('已生成家长版报告链接')">发送报告</button>
+</div>
+<div class="iep-modal-overlay" id="iepDeleteModal">
+  <div class="iep-modal"><h3>确认删除 <button class="close" onclick="closeDeleteModal()">✕</button></h3>
+  <p style="font-size:13px;color:var(--app-text-sec);margin-bottom:14px;" id="iepDeleteMsg">确定要删除吗？</p>
+  <div class="form-actions"><button class="btn-cancel" onclick="closeDeleteModal()">取消</button><button class="btn-confirm" style="background:var(--app-danger);" onclick="execDelete()">删除</button></div></div>
+</div>
+<div class="iep-modal-overlay" id="iepAddModal">
+  <div class="iep-modal"><h3>添加目标 <button class="close" onclick="closeIEPModal()">✕</button></h3>
+  <div class="form-group"><label>阶梯及领域</label><input type="text" id="iepAddDomain" placeholder="如：2-3岁-沟通-语言理解"></div>
+  <div class="form-group"><label>任务目标</label><input type="text" id="iepAddGoal" placeholder="如：简单句理解"></div>
+  <div class="form-group"><label>短期目标（每行一个）</label><textarea id="iepAddStages" placeholder="人物+动作/地点&#10;物品+动作/地点"></textarea></div>
+  <div class="form-actions"><button class="btn-cancel" onclick="closeIEPModal()">取消</button><button class="btn-confirm" onclick="confirmAddGoal()">确认添加</button></div></div>
+</div>
+<div class="toast" id="toast"></div>
+<button class="reset-btn" onclick="resetAll()">🔄 一键重置</button>
+
+<script>
+const params = new URLSearchParams(location.search);
+const recordId = params.get('record') || 'rec002';
+
+const CPEP_DOMAINS = [
+  { name: '感知觉', count: 55 }, { name: '精细动作', count: 36 }, { name: '粗大动作', count: 72 },
+  { name: '模仿', count: 14 }, { name: '认知', count: 48 }, { name: '语言理解', count: 30 }, { name: '语言表达', count: 30 }
+];
+const TOTAL_QUESTIONS = CPEP_DOMAINS.reduce((s, d) => s + d.count, 0);
+const DEV_AGE_MAP = [
+  { pct: 90, age: '5岁0月' }, { pct: 75, age: '4岁0月' }, { pct: 60, age: '3岁6月' },
+  { pct: 50, age: '3岁0月' }, { pct: 40, age: '2岁6月' }, { pct: 25, age: '2岁0月' }, { pct: 0, age: '1岁6月' }
+];
+function getDevAge(pct) { for (const m of DEV_AGE_MAP) { if (pct >= m.pct) return m.age; } return '1岁0月'; }
+
+function loadAnswers() {
+  const key = 'rice_assessment_answers_' + recordId;
+  const stored = localStorage.getItem(key);
+  const result = { scores: {}, notes: {}, rounds: {} };
+  if (stored) {
+    const data = JSON.parse(stored);
+    Object.keys(data).forEach(qId => {
+      if (qId === '_marks') return;
+      const v = data[qId];
+      if (v && typeof v === 'object' && v.value !== undefined) {
+        result.scores[qId] = v.value;
+        if (v.notes) result.notes[qId] = v.notes;
+        if (v.rounds && Array.isArray(v.rounds)) result.rounds[qId] = v.rounds;
+      } else if (typeof v === 'number') { result.scores[qId] = v; }
+    });
+    if (data.answers && typeof data.answers === 'object') {
+      Object.keys(data.answers).forEach(qId => { result.scores[qId] = data.answers[qId]; });
+      if (data.notes) Object.assign(result.notes, data.notes);
+    }
+    return result;
+  }
+  const sampleNotes = ['需要多次示范','对材料表现出兴趣','注意力约30秒','需手把手辅助','自发完成','有轻微抵触','提示下完成一半'];
+  for (let i = 1; i <= TOTAL_QUESTIONS; i++) {
+    const r = Math.random();
+    result.scores['cpep_q' + i] = r < 0.5 ? 1 : r < 0.8 ? 0.5 : 0;
+    if (Math.random() < 0.12) result.notes['cpep_q' + i] = sampleNotes[Math.floor(Math.random() * sampleNotes.length)];
+  }
+  return result;
+}
+const answerData = loadAnswers();
+const answers = answerData.scores;
+const answerNotes = answerData.notes;
+const answerRounds = answerData.rounds;
+
+function calcScores() {
+  let qIdx = 1;
+  return CPEP_DOMAINS.map(d => {
+    let pass = 0, partial = 0, fail = 0;
+    for (let i = 0; i < d.count; i++) {
+      const v = answers['cpep_q' + qIdx];
+      if (v === 1) pass++; else if (v === 0.5) partial++; else fail++;
+      qIdx++;
+    }
+    const pct = Math.round(pass / d.count * 100);
+    return { ...d, pass, partial, fail, score: pass, pct, devAge: getDevAge(pct) };
+  });
+}
+const domainScores = calcScores();
+const colors = ['#7EC8F0','#FFB88C','#FFD966','#7ED6A8','#B8A0E0','#FFB0C8','#A0D8EF'];
+
+function switchTab(idx, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.tab-content').forEach(c => { c.classList.remove('active'); c.style.display = 'none'; });
+  const tab = document.querySelectorAll('.tab-content')[idx];
+  tab.classList.add('active'); tab.style.display = 'block';
+  document.getElementById('bottomActions').style.display = idx === 0 ? 'flex' : 'none';
+}
+
+function renderReport() {
+  const strong = domainScores.filter(d => d.pct >= 65).map(d => d.name).join('、') || '无';
+  const weak = domainScores.filter(d => d.pct <= 45).map(d => d.name).join('、') || '无';
+  document.getElementById('tabReport').innerHTML = `
+    <div class="report-title">C-PEP 孤独症儿童发展评估报告</div>
+    <div class="report-desc">* 本评估报告基于与学生年龄及发展阶段相匹配的测评内容，依据评估人员的直接观察与记录数据，经综合分析后形成评估结果。</div>
+    <div class="card">
+      <div class="section-label">基本信息</div>
+      <div class="info-grid">
+        <div class="info-item"><span class="label">儿童姓名:</span> <span class="value">张小明</span></div>
+        <div class="info-item"><span class="label">出生日期:</span> <span class="value">2019-05-20</span></div>
+        <div class="info-item"><span class="label">实足年龄:</span> <span class="value">4岁10月</span></div>
+        <div class="info-item"><span class="label">评估时间:</span> <span class="value">2024-03-10</span></div>
+        <div class="info-item"><span class="label">评估师:</span> <span class="value">李老师</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="section-label">各领域得分</div>
+      <div class="tbl-scroll">
+        <table class="score-tbl">
+          <thead><tr><th>领域</th><th>通过</th><th>中间反应</th><th>不通过</th><th>得分</th><th>发展年龄</th><th>得分率</th></tr></thead>
+          <tbody>
+            ${domainScores.map((d, i) => `<tr>
+              <td style="font-weight:500">${d.name}</td><td>${d.pass}</td><td>${d.partial}</td><td>${d.fail}</td>
+              <td>${d.score}/${d.count}</td><td>${d.devAge}</td>
+              <td><span class="pct-bar" style="width:${d.pct * 0.6}px;background:${colors[i]}"></span>${d.pct}%</td>
+            </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card chart-center">
+      <div style="text-align:left;margin-bottom:12px;"><span class="section-label">发展概况</span></div>
+      <svg class="radar-svg" id="radarChart" viewBox="0 0 300 300"></svg>
+    </div>
+    <div class="card editable-area" id="analysisArea">
+      <div class="edit-header"><div class="section-label">综合分析</div><a class="edit-link" onclick="toggleEdit('analysis')">编辑</a></div>
+      <div class="area-text" id="analysisText"><strong>优势领域：</strong>${strong}。<br><br><strong>需关注领域：</strong>${weak}。<br><br><strong>建议：</strong>优先加强薄弱领域的训练，结合日常生活场景进行泛化练习。</div>
+      <textarea class="area-textarea" id="analysisInput"></textarea>
+      <div class="edit-actions" id="analysisActions"><button class="btn-cancel" onclick="cancelEdit('analysis')">取消</button><button class="btn-save" onclick="saveEdit('analysis')">保存</button></div>
+    </div>
+    <div class="card editable-area" id="recommendArea">
+      <div class="edit-header"><div class="section-label">训练建议</div><a class="edit-link" onclick="toggleEdit('recommend')">编辑</a></div>
+      <div class="area-text" id="recommendText">1. 感知觉训练：加强视觉追视、听觉辨别和触觉探索活动\n2. 精细动作：从抓握、捏取到穿珠、剪纸的阶梯式训练\n3. 粗大动作：平衡、跳跃、球类活动的系统训练\n4. 模仿能力：从动作模仿到语音模仿的过渡练习\n5. 认知训练：配对、分类、排序等基础认知技能\n6. 语言理解：从单步指令到多步指令的理解训练\n7. 语言表达：从发音模仿到功能性语言的表达训练</div>
+      <textarea class="area-textarea" id="recommendInput"></textarea>
+      <div class="edit-actions" id="recommendActions"><button class="btn-cancel" onclick="cancelEdit('recommend')">取消</button><button class="btn-save" onclick="saveEdit('recommend')">保存</button></div>
+    </div>`;
+  drawRadar();
+}
+
+function drawRadar() {
+  const svg = document.getElementById('radarChart');
+  if (!svg) return;
+  const cx = 150, cy = 150, r = 100, n = domainScores.length;
+  let grid = '', axes = '', pts = [], dots = '', labels = '';
+  for (let lv = 1; lv <= 4; lv++) {
+    const lr = r * lv / 4; let gpts = [];
+    for (let i = 0; i < n; i++) { const a = (Math.PI * 2 * i / n) - Math.PI / 2; gpts.push(`${cx + lr * Math.cos(a)},${cy + lr * Math.sin(a)}`); }
+    grid += `<polygon points="${gpts.join(' ')}" fill="none" stroke="#E8ECF0" stroke-width="1"/>`;
+  }
+  for (let i = 0; i < n; i++) {
+    const a = (Math.PI * 2 * i / n) - Math.PI / 2;
+    axes += `<line x1="${cx}" y1="${cy}" x2="${cx + r * Math.cos(a)}" y2="${cy + r * Math.sin(a)}" stroke="#E8ECF0"/>`;
+    const val = domainScores[i].pct / 100;
+    pts.push(`${cx + r * val * Math.cos(a)},${cy + r * val * Math.sin(a)}`);
+    dots += `<circle cx="${cx + r * val * Math.cos(a)}" cy="${cy + r * val * Math.sin(a)}" r="4" fill="${colors[i]}" stroke="#fff" stroke-width="2"/>`;
+    const lx = cx + (r + 22) * Math.cos(a), ly = cy + (r + 22) * Math.sin(a);
+    labels += `<text x="${lx}" y="${ly}" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="#5A6478">${domainScores[i].name}</text>`;
+  }
+  svg.innerHTML = `${grid}${axes}<polygon points="${pts.join(' ')}" fill="rgba(59,155,245,0.15)" stroke="#3B9BF5" stroke-width="2"/>${dots}${labels}`;
+}
+
+/* === 评估量表 === */
+const sampleDescs = ['注视光线刺激','注视颜色刺激','灵活追视','追视飘动物体','辨认熟悉人物','辨认自己的影像','辨认常见物品','辨认颜色','完成形状拼板','颜色配对','杯下寻物','对图画感兴趣','聆听及转向声源','分辨声音','触觉配对','凭触觉挑选物品','分辨味道','分辨气味','用掌心抓握','用拇指食指捡拾'];
+let allQ = [], qByDomain = {}, gNum = 1;
+CPEP_DOMAINS.forEach(d => {
+  qByDomain[d.name] = [];
+  for (let i = 0; i < d.count; i++) {
+    const q = { id: 'cpep_q' + gNum, number: gNum, domain: d.name, desc: sampleDescs[(gNum - 1) % sampleDescs.length] };
+    allQ.push(q); qByDomain[d.name].push(q); gNum++;
+  }
+});
+let currentDomain = '';
+function calcDomainStats(key) {
+  const qs = qByDomain[key] || [];
+  let pass = 0, partial = 0, fail = 0;
+  qs.forEach(q => { const v = answers[q.id]; if (v === 1) pass++; else if (v === 0.5) partial++; else fail++; });
+  return { total: qs.length, pass, partial, fail, pct: qs.length > 0 ? Math.round(pass / qs.length * 100) : 0 };
+}
+function initScale() {
+  const filter = document.getElementById('scaleFilter');
+  filter.innerHTML = CPEP_DOMAINS.map(d => {
+    const stats = calcDomainStats(d.name);
+    return `<span class="tag ${currentDomain === d.name ? 'active' : ''}" onclick="selectScaleDomain('${d.name}')">${d.name} ${stats.pct}%</span>`;
+  }).join('');
+  if (!currentDomain) selectScaleDomain(CPEP_DOMAINS[0].name);
+}
+function selectScaleDomain(name) {
+  currentDomain = name; initScale();
+  const qs = qByDomain[name] || [];
+  const stats = calcDomainStats(name);
+  const barWP = stats.total > 0 ? (stats.pass / stats.total * 100) : 0;
+  const barWM = stats.total > 0 ? (stats.partial / stats.total * 100) : 0;
+  const barWF = stats.total > 0 ? (stats.fail / stats.total * 100) : 0;
+  document.getElementById('scaleSummaryBar').innerHTML = `
+    <div class="title">${name} — 答题明细</div>
+    <div class="scale-stats">
+      <span><span class="dot" style="background:var(--app-success)"></span>通过 ${stats.pass}</span>
+      <span><span class="dot" style="background:var(--app-warning)"></span>中间反应 ${stats.partial}</span>
+      <span><span class="dot" style="background:var(--app-danger)"></span>不通过 ${stats.fail}</span>
+      <span style="font-weight:500">${stats.pct}%</span>
+      <div class="sum-bar">
+        <div class="sum-bar-seg" style="width:${barWP}%;background:var(--app-success)"></div>
+        <div class="sum-bar-seg" style="width:${barWM}%;background:var(--app-warning)"></div>
+        <div class="sum-bar-seg" style="width:${barWF}%;background:var(--app-danger)"></div>
+      </div>
+    </div>`;
+  const resultLabels = { independent: '独立(+)', error: '错误(-)', prompted: '辅助(P)' };
+  const resultColors = { independent: '#52C41A', error: '#F56C6C', prompted: '#F5A623' };
+  document.getElementById('scaleCards').innerHTML = qs.map(q => {
+    const ans = answers[q.id]; const note = answerNotes[q.id]; const rounds = answerRounds[q.id];
+    let roundsHtml = '';
+    if (rounds && rounds.length > 0 && rounds.some(r => r.result)) {
+      roundsHtml = '<div style="margin-top:5px;padding:5px 7px;background:#FAFBFC;border-radius:6px;border:1px solid #E8ECF0">'
+        + '<div style="font-size:10px;color:#8C95A6;margin-bottom:3px">回合统计</div><div style="display:flex;gap:4px;flex-wrap:wrap">'
+        + rounds.filter(r => r.result).map((r, i) => { const color = resultColors[r.result] || '#8C95A6'; const label = resultLabels[r.result] || r.result; return '<span style="font-size:10px;color:' + color + ';background:' + color + '14;padding:1px 5px;border-radius:3px">第' + (i+1) + '回合 ' + label + '</span>'; }).join('') + '</div></div>';
+    }
+    return `<div class="q-card"><div class="q-header"><span class="q-num">${q.number}</span><span class="q-desc">${q.desc}</span></div>
+      <div class="q-scores">
+        <span class="q-score-opt ${ans === 0 ? 'selected-fail' : ''}">不通过(0)</span>
+        <span class="q-score-opt ${ans === 0.5 ? 'selected-partial' : ''}">中间反应(0.5)</span>
+        <span class="q-score-opt ${ans === 1 ? 'selected-pass' : ''}">通过(1)</span>
+      </div>${roundsHtml}${note ? '<div class="q-note">' + note + '</div>' : ''}</div>`;
+  }).join('');
+}
+
+/* === IEP === */
+const COURSE_PACKETS = [
+  { id: 1, name: 'RICE1v1', desc: 'RICE AI体系1对1训练课包' },
+  { id: 26, name: '春暖综合ABA', desc: '南宁春暖综合ABA课程' },
+  { id: 27, name: '春暖言语', desc: '广西南宁春暖言语课包' }
+];
+function initIEP() {
+  const sel = document.getElementById('coursePacketSelect');
+  sel.innerHTML = '<option value="">请选择课程包</option>' + COURSE_PACKETS.map(p => `<option value="${p.id}">${p.name} — ${p.desc}</option>`).join('');
+}
+function onCoursePacketChange() {
+  const sel = document.getElementById('coursePacketSelect');
+  const pkt = COURSE_PACKETS.find(p => p.id == sel.value);
+  if (!pkt) { document.getElementById('iepContent').innerHTML = '<div style="text-align:center;padding:30px 0;color:var(--app-text-sec);font-size:13px;">请先选择课程包</div>'; return; }
+  generateIEP(pkt);
+}
+let iepEditing = false, iepData = [];
+function generateIEP(pkt) {
+  const weakDomains = domainScores.filter(d => d.pct <= 65).sort((a, b) => a.pct - b.pct);
+  const INTERVENTION_PROJECTS = [
+    {id:11591,name:"步骤指令理解",stairAndDomain:"1-2岁-沟通-语言理解",stages:[{name:"一步情景/动作指令"},{name:"两步情景/动作指令"},{name:"三步情景/动作指令"}]},
+    {id:11594,name:"名词理解：常见物",stairAndDomain:"1-2岁-沟通-语言理解",stages:[{name:"辨认常见物（20种）"},{name:"辨认常见物（40种）"},{name:"辨认常见物（60种）"}]},
+    {id:11631,name:"仿说",stairAndDomain:"1-2岁-沟通-语言表达",stages:[{name:"仿说单韵母"},{name:"仿说复韵母"},{name:"仿说词组"},{name:"仿说短句"}]},
+    {id:11641,name:"名词表达：常见物",stairAndDomain:"1-2岁-沟通-语言表达",stages:[{name:"命名常见物（20种）"},{name:"命名常见物（40种）"},{name:"命名常见物（60种）"}]},
+    {id:11731,name:"物品操作模仿",stairAndDomain:"1-2岁-认知-模仿",stages:[{name:"一步物品操作模仿"},{name:"两步物品操作模仿"},{name:"三步物品操作模仿"}]},
+    {id:11738,name:"相同配对",stairAndDomain:"1-2岁-认知-配对",stages:[{name:"相同配对（3D&3D）"},{name:"相同配对（2D&2D）"},{name:"相同配对（3D&2D）"}]},
+    {id:11510,name:"多种基本姿势",stairAndDomain:"1-2岁-粗大动作-粗大动作",stages:[{name:"可以做出各种基本姿势"}]},
+    {id:11521,name:"叠搭积木",stairAndDomain:"1-2岁-粗大动作-精细动作",stages:[{name:"搭高至少3块积木"},{name:"搭高至少6块积木"}]},
+    {id:11726,name:"视觉专注",stairAndDomain:"1-2岁-认知-视觉",stages:[{name:"在描述下注视物品"},{name:"注视物品"},{name:"注视简单图片"}]}
+  ];
+  const CPEP_DOMAIN_MAP = {
+    '语言表达': ['沟通-语言表达'], '语言理解': ['沟通-语言理解'],
+    '认知': ['认知-配对','认知-物体恒存','认知-视觉'], '感知觉': ['认知-视觉','认知-听觉'],
+    '精细动作': ['粗大动作-精细动作'], '粗大动作': ['粗大动作-粗大动作'], '模仿': ['认知-模仿']
+  };
+  iepData = [];
+  const usedDomains = new Set();
+  weakDomains.forEach(d => {
+    const mappedKeys = CPEP_DOMAIN_MAP[d.name] || [];
+    const matched = INTERVENTION_PROJECTS.filter(p => { const domainKey = p.stairAndDomain.split('-').slice(1).join('-'); return mappedKeys.some(k => domainKey.includes(k)); });
+    if (!matched.length) return;
+    const grouped = {};
+    matched.forEach(p => { if (!grouped[p.stairAndDomain]) grouped[p.stairAndDomain] = []; grouped[p.stairAndDomain].push(p); });
+    Object.entries(grouped).forEach(([sad, projects]) => {
+      if (usedDomains.has(sad)) return; usedDomains.add(sad);
+      iepData.push({ domain: d.name, domainLabel: sad, pct: d.pct, goals: projects.map(p => ({ name: p.name, stages: p.stages.map(s => s.name) })) });
+    });
+  });
+  if (!iepData.length) iepData = [{ domain: '综合', domainLabel: '综合训练', pct: 0, goals: [{ name: '综合训练', stages: ['辅助下完成基础任务','独立完成基础任务','泛化到新情境'] }] }];
+  renderIEPTable();
+}
+const delSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>';
+function renderIEPTable() {
+  let html = '<div class="iep-tbl-scroll"><table class="iep-table"><thead><tr><th style="width:120px">阶梯及领域</th><th style="width:120px">任务目标</th><th>短期目标</th>';
+  if (iepEditing) html += '<th style="width:50px">操作</th>';
+  html += '</tr></thead><tbody>';
+  iepData.forEach((domain, di) => {
+    let totalRows = domain.goals.reduce((s, g) => s + g.stages.length, 0); let firstRow = true;
+    domain.goals.forEach((goal, gi) => {
+      goal.stages.forEach((stage, si) => {
+        html += '<tr>';
+        if (firstRow) { html += `<td class="domain-cell" rowspan="${totalRows}"><div>${domain.domainLabel}</div>${iepEditing ? '<a class="iep-domain-del" onclick="confirmDeleteDomain('+di+')">'+delSvg+' 删除</a>' : ''}</td>`; firstRow = false; }
+        if (si === 0) html += `<td class="goal-cell" rowspan="${goal.stages.length}">${goal.name}</td>`;
+        html += `<td>${stage}</td>`;
+        if (iepEditing) html += `<td><a class="del-link" onclick="confirmDeleteStage(${di},${gi},${si})">${delSvg}</a></td>`;
+        html += '</tr>';
+      });
+    });
+  });
+  html += '</tbody></table></div><div class="iep-actions">';
+  if (iepEditing) { html += '<button class="iep-btn-cancel" onclick="cancelIEPEdit()">取消</button><button class="iep-btn-add" onclick="openIEPModal()">添加目标</button><button class="iep-btn-save" onclick="saveIEP()">保存</button>'; }
+  else { html += '<button class="iep-btn-export" onclick="exportIEP()">导出</button><button class="iep-btn-edit" onclick="startIEPEdit()">编辑</button>'; }
+  html += '</div>';
+  document.getElementById('iepContent').innerHTML = html;
+}
+function startIEPEdit() { iepEditing = true; renderIEPTable(); }
+function cancelIEPEdit() { iepEditing = false; renderIEPTable(); }
+function saveIEP() { iepEditing = false; localStorage.setItem('rice_assessment_iep_' + recordId, JSON.stringify(iepData)); renderIEPTable(); showToast('IEP 已保存'); }
+function exportIEP() { showToast('Word文档已导出（手机端请在PAD端操作导出）'); }
+function deleteIEPDomain(di) { iepData.splice(di, 1); renderIEPTable(); }
+function deleteIEPStage(di, gi, si) { iepData[di].goals[gi].stages.splice(si, 1); if (!iepData[di].goals[gi].stages.length) iepData[di].goals.splice(gi, 1); if (!iepData[di].goals.length) iepData.splice(di, 1); renderIEPTable(); }
+let pendingDelete = null;
+function confirmDeleteDomain(di) { pendingDelete = { type:'domain', di }; document.getElementById('iepDeleteMsg').textContent = '确定要删除「' + iepData[di].domainLabel + '」整个领域吗？'; document.getElementById('iepDeleteModal').classList.add('show'); }
+function confirmDeleteStage(di, gi, si) { pendingDelete = { type:'stage', di, gi, si }; document.getElementById('iepDeleteMsg').textContent = '确定要删除这条阶段目标吗？'; document.getElementById('iepDeleteModal').classList.add('show'); }
+function closeDeleteModal() { pendingDelete = null; document.getElementById('iepDeleteModal').classList.remove('show'); }
+function execDelete() { if (!pendingDelete) return; if (pendingDelete.type === 'domain') deleteIEPDomain(pendingDelete.di); else deleteIEPStage(pendingDelete.di, pendingDelete.gi, pendingDelete.si); closeDeleteModal(); showToast('已删除'); }
+function openIEPModal() { document.getElementById('iepAddDomain').value = ''; document.getElementById('iepAddGoal').value = ''; document.getElementById('iepAddStages').value = ''; document.getElementById('iepAddModal').classList.add('show'); }
+function closeIEPModal() { document.getElementById('iepAddModal').classList.remove('show'); }
+function confirmAddGoal() {
+  const domain = document.getElementById('iepAddDomain').value.trim(), goal = document.getElementById('iepAddGoal').value.trim(), stagesText = document.getElementById('iepAddStages').value.trim();
+  if (!domain || !goal) { showToast('请填写领域和干预目标'); return; }
+  const stages = stagesText ? stagesText.split('\n').filter(s => s.trim()) : ['阶段目标1'];
+  const existing = iepData.find(d => d.domain === domain);
+  if (existing) { existing.goals.push({ name: goal, stages }); } else { iepData.push({ domain, domainLabel: domain, pct: 0, goals: [{ name: goal, stages }] }); }
+  closeIEPModal(); renderIEPTable(); showToast('已添加');
+}
+
+function toggleEdit(id) {
+  const textEl = document.getElementById(id + 'Text'), inputEl = document.getElementById(id + 'Input'), actionsEl = document.getElementById(id + 'Actions'), linkEl = document.getElementById(id + 'Area').querySelector('.edit-link');
+  inputEl.value = textEl.innerText; textEl.style.display = 'none'; inputEl.style.display = 'block'; actionsEl.style.display = 'flex'; linkEl.style.display = 'none'; inputEl.focus();
+}
+function cancelEdit(id) { document.getElementById(id + 'Text').style.display = 'block'; document.getElementById(id + 'Input').style.display = 'none'; document.getElementById(id + 'Actions').style.display = 'none'; document.getElementById(id + 'Area').querySelector('.edit-link').style.display = 'inline-flex'; }
+function saveEdit(id) { const textEl = document.getElementById(id + 'Text'), inputEl = document.getElementById(id + 'Input'); textEl.innerText = inputEl.value; cancelEdit(id); localStorage.setItem('rice_assessment_report_edit_' + recordId + '_' + id, inputEl.value); showToast('已保存'); }
+function loadSavedEdits() { ['analysis', 'recommend'].forEach(id => { const saved = localStorage.getItem('rice_assessment_report_edit_' + recordId + '_' + id); if (saved) { const el = document.getElementById(id + 'Text'); if (el) el.innerText = saved; } }); }
+function exportPDF() { showToast('正在生成PDF...'); setTimeout(() => { window.print(); }, 300); }
+function showToast(msg) { const t = document.getElementById('toast'); t.textContent = msg; t.className = 'toast show'; setTimeout(() => t.className = 'toast', 2000); }
+function resetAll() { Object.keys(localStorage).forEach(k => { if (k.startsWith('rice_assessment_')) localStorage.removeItem(k); }); location.href = 'assessment-list.html'; }
+
+renderReport();
+initScale();
+initIEP();
+loadSavedEdits();
+</script>
+</body>
+</html>
