@@ -68,7 +68,72 @@ table.score-tbl tr.total-row td { font-weight: 600; background: #F5F7FA; }
 .editable-area .edit-actions button { padding: 6px 16px; border-radius: var(--app-radius-md); font-size: 13px; cursor: pointer; font-family: var(--app-font); }
 .editable-area .edit-actions .btn-cancel { background: #fff; border: 1px solid var(--app-border); color: var(--app-text-sec); }
 .editable-area .edit-actions .btn-save { background: var(--app-primary); color: #fff; border: none; }
-@media print { .topbar, .tab-bar, .bottom-actions, .reset-btn, .toast, .edit-link, .edit-actions, .iep-actions { display: none !important; } .content { overflow: visible !important; height: auto !important; } .tab-content { display: block !important; padding: 10px !important; } .tab-content#tabIEP, .tab-content#tabScale { display: none !important; } body { height: auto; overflow: visible; } }
+@media print {
+  /* Force print background colors and images */
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+
+  /* Hide interactive elements */
+  .topbar, .tab-bar, .bottom-actions, .reset-btn, .toast, .edit-link, .edit-actions, .iep-actions, .iep-btn-export, .iep-btn-import, .iep-btn-edit, .iep-btn-cancel, .iep-btn-add, .iep-btn-save { display: none !important; }
+
+  /* Layout fixes */
+  body { height: auto !important; overflow: visible !important; max-width: none !important; }
+  .main-body { display: block !important; overflow: visible !important; }
+  .content, .report-content { overflow: visible !important; height: auto !important; }
+
+  /* Only show report tab, hide IEP and scale tabs */
+  .tab-content { display: block !important; padding: 20px !important; }
+  .tab-content#tabIEP, .tab-content#tabScale { display: none !important; }
+
+  /* Preserve card styles — 打印态拆卡片，用标题栏+细线重建层级 */
+  .card, .section-card, .report-card { background: none !important; box-shadow: none !important; border: none !important; border-radius: 0 !important; padding: 0 !important; margin-bottom: 0 !important; }
+  .card + .card { margin-top: 8px !important; padding-top: 12px !important; border-top: 1px solid #E0E4E8 !important; }
+
+  /* section-label 升级为全宽标题栏 */
+  .section-label { display: block !important; background: #3B9BF5 !important; color: #fff !important; font-size: 14px !important; font-weight: 600 !important; padding: 8px 16px !important; border-radius: 0 !important; margin: 16px 0 12px 0 !important; break-after: avoid !important; page-break-after: avoid !important; }
+  .card:first-child .section-label { margin-top: 0 !important; }
+
+  /* 子元素禁止跨页 */
+  .domain-report, .behavior-row { break-inside: avoid !important; page-break-inside: avoid !important; }
+  .info-grid { break-inside: avoid !important; page-break-inside: avoid !important; }
+  .report-title { font-size: 22px !important; text-align: center !important; break-after: avoid !important; }
+  .report-desc { break-after: avoid !important; }
+  p, .dr-desc, .dr-advice, .area-text { orphans: 3; widows: 3; }
+
+  /* Preserve section labels (blue background pills) */
+  .section-label { background: #3B9BF5 !important; color: #fff !important; }
+
+  /* Preserve table styles */
+  table { border-collapse: collapse !important; }
+  th { background: #F5F7FA !important; }
+  td, th { border: 1px solid #E8ECF0 !important; padding: 6px 8px !important; }
+
+  /* Preserve behavior rating pills */
+  .rating-opt.selected { background: #3B9BF5 !important; color: #fff !important; }
+
+  /* Preserve score option pills in scale tab */
+  .q-score-opt.selected-2 { background: #F0FFF4 !important; color: #52C41A !important; border-color: #52C41A !important; }
+  .q-score-opt.selected-1 { background: #FFF8EB !important; color: #F5A623 !important; border-color: #F5A623 !important; }
+  .q-score-opt.selected-0 { background: #FFF0F0 !important; color: #F56C6C !important; border-color: #F56C6C !important; }
+
+  /* Preserve progress bars */
+  .pct-bar, .sum-bar-seg, .domain-fill { -webkit-print-color-adjust: exact !important; }
+
+  /* Preserve radar chart SVG */
+  svg { -webkit-print-color-adjust: exact !important; }
+
+  /* Preserve editable area text */
+  .editable-area .area-text { display: block !important; }
+  .editable-area .area-textarea { display: none !important; }
+
+  /* Page margins */
+  @page { margin: 15mm 10mm; size: A4; }
+
+  /* Avoid page breaks inside sections */
+  .domain-report, .behavior-row, .q-card { break-inside: avoid; page-break-inside: avoid; }
+
+  /* Print header */
+  .print-header { display: block !important; text-align: center; font-size: 18px; font-weight: 600; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid #3B9BF5; }
+}
 /* IEP 样式 */
 .iep-title { font-size: 18px; font-weight: 600; text-align: center; margin-bottom: 16px; }
 .iep-info { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px 24px; font-size: 14px; margin-bottom: 16px; }
@@ -312,6 +377,13 @@ const SUBTESTS = [
   ]}
 ];
 
+/* 确定性伪随机（基于种子字符串，同一 recordId 始终生成相同数据） */
+function seededRandom(seed) {
+  let h = 0;
+  for (let i = 0; i < seed.length; i++) { h = ((h << 5) - h + seed.charCodeAt(i)) | 0; }
+  return function() { h = (h * 1103515245 + 12345) & 0x7fffffff; return (h % 1000) / 1000; };
+}
+
 /* === 加载答题数据 === */
 function loadAnswers() {
   const key = 'rice_assessment_answers_' + recordId;
@@ -337,13 +409,14 @@ function loadAnswers() {
     }
     return result;
   }
-  // fallback: 生成随机中等分数据 + 部分备注
+  // fallback: 生成确定性中等分数据 + 部分备注（同一 recordId 始终相同）
   const sampleNotes = ['需要多次示范才能完成','对材料表现出明显兴趣','注意力持续约30秒','需要手把手辅助','自发完成，表现积极','有轻微抵触情绪','在提示下能完成一半'];
+  const rand = seededRandom(recordId + '_pep3_fallback');
   for (let i = 1; i <= 174; i++) {
-    const r = Math.random();
+    const r = rand();
     result.scores['pep3_q' + i] = r < 0.5 ? 2 : r < 0.8 ? 1 : 0;
-    if (Math.random() < 0.15) {
-      result.notes['pep3_q' + i] = sampleNotes[Math.floor(Math.random() * sampleNotes.length)];
+    if (rand() < 0.15) {
+      result.notes['pep3_q' + i] = sampleNotes[Math.floor(rand() * sampleNotes.length)];
     }
   }
   return result;
@@ -352,6 +425,42 @@ const answerData = loadAnswers();
 const answers = answerData.scores;
 const answerNotes = answerData.notes;
 const answerRounds = answerData.rounds;
+
+/* === 发展年龄推算（基于得分率和实足年龄） === */
+const ACTUAL_AGE_MONTHS = 56; // 4岁8月 = 56个月
+function calcDevAgeMonths(pct) {
+  if (pct >= 90) return ACTUAL_AGE_MONTHS;
+  if (pct >= 80) return ACTUAL_AGE_MONTHS - 6;
+  if (pct >= 70) return ACTUAL_AGE_MONTHS - 12;
+  if (pct >= 60) return ACTUAL_AGE_MONTHS - 18;
+  if (pct >= 50) return ACTUAL_AGE_MONTHS - 24;
+  if (pct >= 40) return ACTUAL_AGE_MONTHS - 30;
+  return ACTUAL_AGE_MONTHS - 36;
+}
+function monthsToAge(m) {
+  if (m <= 0) m = 6;
+  const y = Math.floor(m / 12);
+  const mo = m % 12;
+  return y + '岁' + mo + '月';
+}
+function calcPercentileRank(pct) {
+  if (pct >= 90) return 95;
+  if (pct >= 80) return 75;
+  if (pct >= 70) return 50;
+  if (pct >= 60) return 25;
+  if (pct >= 50) return 10;
+  return 5;
+}
+function calcDevLevel(percentile) {
+  if (percentile >= 75) return '适当';
+  if (percentile >= 50) return '轻度';
+  return '严重';
+}
+function devLevelColor(level) {
+  if (level === '适当') return 'var(--app-success)';
+  if (level === '轻度') return 'var(--app-warning)';
+  return 'var(--app-danger)';
+}
 
 /* === 计算各领域得分 === */
 function calcDomainScores() {
@@ -365,7 +474,11 @@ function calcDomainScores() {
       else if (v === 1) e++;
       else f++;
     }
-    return { ...d, p, e, f, pct: Math.round(p / d.total * 100) };
+    const pct = Math.round(p / d.total * 100);
+    const devMonths = calcDevAgeMonths(pct);
+    const percentile = calcPercentileRank(pct);
+    const devLevel = calcDevLevel(percentile);
+    return { ...d, p, e, f, pct, devMonths, devAge: monthsToAge(devMonths), percentile, devLevel };
   });
   const behaviorScores = BEHAVIOR_DOMAINS.map(d => {
     let total = 0, count = 0;
@@ -377,11 +490,45 @@ function calcDomainScores() {
     }
     const avg = count > 0 ? total / count : 0;
     const rating = avg >= 1.5 ? 'A' : avg >= 0.8 ? 'M' : 'S';
-    return { ...d, score: total, rating };
+    const percentile = rating === 'A' ? 75 : rating === 'M' ? 50 : 25;
+    const devLevel = calcDevLevel(percentile);
+    return { ...d, score: total, rating, percentile, devLevel };
   });
   return { funcScores, behaviorScores };
 }
+
+/* === 合成分数计算 === */
+function calcCompositeScores() {
+  // 沟通(C) = 认知表达(CV) + 认知理解(CP) + 模仿(I) 的标准分总和
+  const commDomains = funcScores.filter(d => ['CV','CP','I'].includes(d.code));
+  const commSum = commDomains.reduce((s, d) => s + d.percentile, 0);
+  const commMax = commDomains.length * 95;
+  const commPct = commMax > 0 ? Math.round(commSum / commMax * 100) : 0;
+
+  // 体能(M) = 小肌肉(FM) + 大肌肉(GM) + 手眼协调(EH) 的标准分总和
+  const motorDomains = funcScores.filter(d => ['FM','GM','EH'].includes(d.code));
+  const motorSum = motorDomains.reduce((s, d) => s + d.percentile, 0);
+  const motorMax = motorDomains.length * 95;
+  const motorPct = motorMax > 0 ? Math.round(motorSum / motorMax * 100) : 0;
+
+  // 行为(MB) = 4个行为领域的标准分总和
+  const behSum = behaviorScores.reduce((s, d) => s + d.percentile, 0);
+  const behMax = behaviorScores.length * 95;
+  const behPct = behMax > 0 ? Math.round(behSum / behMax * 100) : 0;
+
+  return [
+    { name: '沟通(C)', domains: commDomains.map(d => d.name).join('+'), sum: commSum, pct: commPct, percentile: calcPercentileRank(commPct), devLevel: calcDevLevel(calcPercentileRank(commPct)) },
+    { name: '体能(M)', domains: motorDomains.map(d => d.name).join('+'), sum: motorSum, pct: motorPct, percentile: calcPercentileRank(motorPct), devLevel: calcDevLevel(calcPercentileRank(motorPct)) },
+    { name: '行为(MB)', domains: behaviorScores.map(d => d.name).join('+'), sum: behSum, pct: behPct, percentile: calcPercentileRank(behPct), devLevel: calcDevLevel(calcPercentileRank(behPct)) }
+  ];
+}
 const { funcScores, behaviorScores } = calcDomainScores();
+const compositeScores = calcCompositeScores();
+
+// 计算整体发展年龄（7个领域发展年龄的中位数）
+const sortedDevMonths = funcScores.map(d => d.devMonths).sort((a, b) => a - b);
+const medianDevMonths = sortedDevMonths[Math.floor(sortedDevMonths.length / 2)];
+const overallDevAge = monthsToAge(medianDevMonths);
 
 /* === Tab 切换 === */
 function switchTab(idx, btn) {
@@ -398,11 +545,12 @@ function switchTab(idx, btn) {
 }
 
 /* === 渲染评估报告Tab === */
+const totalP = funcScores.reduce((s, d) => s + d.p, 0);
+const totalE = funcScores.reduce((s, d) => s + d.e, 0);
+const totalF = funcScores.reduce((s, d) => s + d.f, 0);
+const totalItems = FUNC_DOMAINS.reduce((s, d) => s + d.total, 0);
+
 function renderReport() {
-  const totalP = funcScores.reduce((s, d) => s + d.p, 0);
-  const totalE = funcScores.reduce((s, d) => s + d.e, 0);
-  const totalF = funcScores.reduce((s, d) => s + d.f, 0);
-  const totalItems = FUNC_DOMAINS.reduce((s, d) => s + d.total, 0);
 
   let html = `
     <div class="report-title">PEP-3 心理教育评估报告</div>
@@ -414,7 +562,7 @@ function renderReport() {
         <div class="info-item"><span class="label">儿童姓名:</span><span class="value">张小明</span></div>
         <div class="info-item"><span class="label">出生日期:</span><span class="value">2019-05-20</span></div>
         <div class="info-item"><span class="label">实足年龄:</span><span class="value">4岁8月</span></div>
-        <div class="info-item"><span class="label">发展年龄:</span><span class="value">3岁2月</span></div>
+        <div class="info-item"><span class="label">发展年龄:</span><span class="value">${overallDevAge}</span></div>
         <div class="info-item"><span class="label">评估时间:</span><span class="value">2024-01-15</span></div>
         <div class="info-item"><span class="label">评估师:</span><span class="value">李老师</span></div>
       </div>
@@ -432,6 +580,56 @@ function renderReport() {
           <tr class="total-row"><td>评分合计</td><td>${totalItems}</td><td>${totalP}</td><td>${totalE}</td><td></td></tr>
         </tbody>
       </table>
+    </div>
+
+    <div class="card">
+      <div class="section-label">副测验分数表</div>
+      <table class="score-tbl">
+        <thead><tr><th>副测验</th><th>代码</th><th>原始分</th><th>发展年龄</th><th>百分比级数</th><th>发展/适应程度</th></tr></thead>
+        <tbody>
+          <tr><td colspan="6" style="font-weight:600;background:#F0F7FF;color:var(--app-primary)">发展性子测验</td></tr>
+          ${funcScores.map(d => `<tr>
+            <td style="font-weight:500">${d.name}</td>
+            <td>${d.code}</td>
+            <td>${d.p}</td>
+            <td>${d.devAge}</td>
+            <td>${d.percentile}</td>
+            <td style="color:${devLevelColor(d.devLevel)};font-weight:500">${d.devLevel}</td>
+          </tr>`).join('')}
+          <tr><td colspan="6" style="font-weight:600;background:#FFF8F0;color:var(--app-warning)">行为特征子测验</td></tr>
+          ${behaviorScores.map(d => `<tr>
+            <td style="font-weight:500">${d.name}</td>
+            <td>${d.code}</td>
+            <td>${d.score}</td>
+            <td>—</td>
+            <td>${d.percentile}</td>
+            <td style="color:${devLevelColor(d.devLevel)};font-weight:500">${d.devLevel}</td>
+          </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="section-label">合成分数表</div>
+      <table class="score-tbl">
+        <thead><tr><th>合成分数</th><th>组成</th><th>标准分总和</th><th>百分比级数</th><th>发展/适应程度</th></tr></thead>
+        <tbody>
+          ${compositeScores.map(c => `<tr>
+            <td style="font-weight:500">${c.name}</td>
+            <td style="font-size:12px;color:var(--app-text-sec)">${c.domains}</td>
+            <td>${c.sum}</td>
+            <td>${c.percentile}</td>
+            <td style="color:${devLevelColor(c.devLevel)};font-weight:500">${c.devLevel}</td>
+          </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="section-label">发展表现图</div>
+      <div style="position:relative;padding:20px 0;">
+        <svg id="devProfileChart" viewBox="0 0 700 320" style="width:100%;max-width:700px;display:block;margin:0 auto;"></svg>
+      </div>
     </div>
 
     <div class="card">
@@ -491,6 +689,7 @@ function renderReport() {
 
   document.getElementById('tabReport').innerHTML = html;
   drawRadar();
+  drawDevProfile();
   renderAnalysis();
 }
 
@@ -525,16 +724,80 @@ function drawRadar() {
   svg.innerHTML = `${grid}${axes}<polygon points="${pts.join(' ')}" fill="rgba(59,155,245,0.15)" stroke="#3B9BF5" stroke-width="2"/>${dots}${labels}`;
 }
 
+/* === 发展表现图（折线图） === */
+function drawDevProfile() {
+  const svg = document.getElementById('devProfileChart');
+  if (!svg) return;
+  const W = 700, H = 320;
+  const padL = 80, padR = 30, padT = 30, padB = 60;
+  const chartW = W - padL - padR;
+  const chartH = H - padT - padB;
+  const n = funcScores.length;
+  const colors = ['#7EC8F0','#FFB88C','#FFD966','#7ED6A8','#B8A0E0','#FFB0C8','#A0D8EF'];
+
+  // Y轴：发展年龄（月），范围 0~60月
+  const yMin = 0, yMax = 60;
+  const yTicks = [0, 12, 24, 36, 48, 60];
+  const yLabels = ['0月', '1岁', '2岁', '3岁', '4岁', '5岁'];
+
+  function yPos(months) { return padT + chartH - (months - yMin) / (yMax - yMin) * chartH; }
+  function xPos(i) { return padL + (i + 0.5) / n * chartW; }
+
+  let svgContent = '';
+
+  // 背景网格
+  yTicks.forEach((tick, i) => {
+    const y = yPos(tick);
+    svgContent += `<line x1="${padL}" y1="${y}" x2="${W - padR}" y2="${y}" stroke="#E8ECF0" stroke-width="1" ${i === 0 ? '' : 'stroke-dasharray="4,4"'}/>`;
+    svgContent += `<text x="${padL - 10}" y="${y + 4}" text-anchor="end" font-size="11" fill="#8C95A6">${yLabels[i]}</text>`;
+  });
+
+  // 实足年龄参考线
+  const actualY = yPos(ACTUAL_AGE_MONTHS);
+  svgContent += `<line x1="${padL}" y1="${actualY}" x2="${W - padR}" y2="${actualY}" stroke="#F56C6C" stroke-width="1.5" stroke-dasharray="6,4"/>`;
+  svgContent += `<text x="${W - padR + 5}" y="${actualY + 4}" font-size="10" fill="#F56C6C">实足年龄</text>`;
+
+  // 折线 + 数据点
+  let linePts = [];
+  funcScores.forEach((d, i) => {
+    const x = xPos(i);
+    const y = yPos(d.devMonths);
+    linePts.push(`${x},${y}`);
+  });
+  svgContent += `<polyline points="${linePts.join(' ')}" fill="none" stroke="#3B9BF5" stroke-width="2.5"/>`;
+
+  funcScores.forEach((d, i) => {
+    const x = xPos(i);
+    const y = yPos(d.devMonths);
+    svgContent += `<circle cx="${x}" cy="${y}" r="6" fill="${colors[i]}" stroke="#fff" stroke-width="2"/>`;
+    svgContent += `<text x="${x}" y="${y - 12}" text-anchor="middle" font-size="11" font-weight="500" fill="#1A2233">${d.devAge}</text>`;
+    // X轴标签
+    svgContent += `<text x="${x}" y="${H - padB + 18}" text-anchor="middle" font-size="11" fill="#5A6478">${d.name}</text>`;
+  });
+
+  svg.innerHTML = svgContent;
+}
+
 /* === 综合分析 === */
 function renderAnalysis() {
-  const strong = funcScores.filter(d => d.pct >= 70).map(d => d.name).join('、') || '无';
-  const weak = funcScores.filter(d => d.pct <= 45).map(d => d.name).join('、') || '无';
+  const strong = funcScores.filter(d => d.pct >= 70).sort((a, b) => b.pct - a.pct);
+  const weak = funcScores.filter(d => d.pct <= 50).sort((a, b) => a.pct - b.pct);
+  const strongText = strong.length > 0
+    ? strong.map(d => `${d.name}(${d.pct}%)`).join('、') + '，得分率较高，发展水平接近或达到同龄儿童水平。'
+    : funcScores.slice().sort((a, b) => b.pct - a.pct).slice(0, 2).map(d => `${d.name}(${d.pct}%)`).join('、') + '，为相对较好的领域。';
+  const weakText = weak.length > 0
+    ? weak.map(d => `${d.name}(${d.pct}%)`).join('、') + '，得分率偏低，建议作为重点干预领域。'
+    : funcScores.slice().sort((a, b) => a.pct - b.pct).slice(0, 2).map(d => `${d.name}(${d.pct}%)`).join('、') + '，为相对较弱的领域。';
+  const sBehaviors = behaviorScores.filter(d => d.rating === 'S');
+  const mBehaviors = behaviorScores.filter(d => d.rating === 'M');
+  const behaviorText = behaviorScores.map(d => `${d.name}(${d.rating}${d.rating === 'A' ? '-适当' : d.rating === 'M' ? '-轻度' : '-严重'})`).join('、');
+
   document.getElementById('analysisText').innerHTML =
-    `<strong>各领域得分概述：</strong>本次评估涵盖功能发展7个领域（模仿、知觉、小肌肉、大肌肉、手眼协调、认知理解、认知表达）和行为表现4个领域。<br><br>` +
-    `<strong>优势领域：</strong>${strong}，得分率较高，发展水平接近或达到同龄儿童水平。<br><br>` +
-    `<strong>需关注领域：</strong>${weak}，得分率偏低，建议作为重点干预领域。<br><br>` +
-    `<strong>行为表现：</strong>${behaviorScores.map(d => `${d.name}(${d.rating})`).join('、')}。<br><br>` +
-    `<strong>建议：</strong>优先加强薄弱领域的训练，同时巩固优势领域。家庭中可增加亲子互动游戏，鼓励孩子主动表达需求。`;
+    `<strong>各领域得分概述：</strong>本次评估涵盖功能发展7个领域和行为表现4个领域。功能发展总分${totalItems}分中，已有能力(P)${totalP}分，部分能力(E)${totalE}分，未达到(F)${totalF}分。整体发展年龄${overallDevAge}。<br><br>` +
+    `<strong>优势领域：</strong>${strongText}<br><br>` +
+    `<strong>需关注领域：</strong>${weakText}${sBehaviors.length > 0 ? '行为表现中' + sBehaviors.map(d => d.name).join('、') + '为严重(S)级，需优先干预。' : ''}<br><br>` +
+    `<strong>行为表现：</strong>${behaviorText}。<br><br>` +
+    `<strong>建议：</strong>${sBehaviors.length > 0 ? '优先干预' + sBehaviors.map(d => d.name).join('、') + '等严重行为问题。' : ''}${weak.length > 0 ? '重点加强' + weak.map(d => d.name).join('、') + '等薄弱领域的训练。' : ''}${mBehaviors.length > 0 ? '关注' + mBehaviors.map(d => d.name).join('、') + '等轻度行为问题。' : ''}家庭中可增加亲子互动游戏，鼓励孩子主动表达需求。`;
 }
 
 /* === 评估量表Tab === */

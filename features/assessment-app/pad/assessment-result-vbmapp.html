@@ -52,6 +52,58 @@ body { font-family: var(--app-font); background: var(--app-bg); color: var(--app
 .grid-table .cell-empty { background: #F0F2F5; }
 .grid-table .cell-half { background: #93C5FD; }
 .grid-level-label { font-weight: 600; font-size: 13px; color: var(--app-text); padding: 8px 0 4px; }
+
+/* === 三色主题区块 === */
+.section-block { margin-bottom: 24px; }
+.section-header { padding: 14px 20px; border-radius: 8px 8px 0 0; color: #fff; font-size: 16px; font-weight: 600; letter-spacing: 2px; text-align: center; }
+.section-header .section-subtitle { font-size: 12px; font-weight: 400; opacity: 0.85; margin-top: 2px; }
+.section-header.milestone { background: linear-gradient(135deg, #43A047, #66BB6A); }
+.section-header.barrier { background: linear-gradient(135deg, #F9A825, #FFB74D); }
+.section-header.transition { background: linear-gradient(135deg, #1E88E5, #42A5F5); }
+.section-body { background: var(--app-card); border-radius: 0 0 8px 8px; padding: 20px; box-shadow: var(--app-shadow); }
+
+/* 里程碑网格 - 柱状图样式 */
+.milestone-grid { margin-bottom: 16px; }
+.milestone-grid .grid-title { font-size: 13px; font-weight: 600; color: #43A047; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.milestone-grid .grid-title .level-badge { background: #43A047; color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 4px; }
+.grid-table.milestone-theme th { background: #E8F5E9; color: #2E7D32; }
+.grid-table.milestone-theme .cell-filled { background: #43A047; }
+.grid-table.milestone-theme .cell-half { background: #A5D6A7; }
+
+/* 障碍网格 */
+.grid-table.barrier-theme th { background: #FFF8E1; color: #E65100; }
+.grid-table.barrier-theme .cell-filled { background: #F9A825; }
+.grid-table.barrier-theme .cell-half { background: #FFE082; }
+
+/* 转衔网格 */
+.grid-table.transition-theme th { background: #E3F2FD; color: #1565C0; }
+.grid-table.transition-theme .cell-filled { background: #1E88E5; }
+.grid-table.transition-theme .cell-half { background: #90CAF9; }
+
+/* 领域报告卡片 - 带左侧色条 */
+.domain-report.milestone-card { border-left: 3px solid #43A047; }
+.domain-report.milestone-card .dr-score { color: #43A047; }
+.domain-report.barrier-card { border-left: 3px solid #F9A825; }
+.domain-report.barrier-card .dr-score { color: #E65100; }
+.domain-report.transition-card { border-left: 3px solid #1E88E5; }
+.domain-report.transition-card .dr-score { color: #1565C0; }
+
+/* 得分概览条 */
+.score-overview { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: #F5F7FA; border-radius: 8px; margin-bottom: 16px; }
+.score-overview .score-big { font-size: 28px; font-weight: 700; }
+.score-overview .score-big.green { color: #43A047; }
+.score-overview .score-big.orange { color: #E65100; }
+.score-overview .score-big.blue { color: #1E88E5; }
+.score-overview .score-detail { font-size: 13px; color: var(--app-text-sec); }
+.score-overview .score-bar { flex: 1; height: 8px; background: #E8ECF0; border-radius: 4px; overflow: hidden; }
+.score-overview .score-bar-fill { height: 100%; border-radius: 4px; }
+.score-overview .score-bar-fill.green { background: linear-gradient(90deg, #43A047, #66BB6A); }
+.score-overview .score-bar-fill.orange { background: linear-gradient(90deg, #F9A825, #FFB74D); }
+.score-overview .score-bar-fill.blue { background: linear-gradient(90deg, #1E88E5, #42A5F5); }
+
+/* 转衔类别标题 */
+.transition-cat-title { font-size: 14px; font-weight: 600; color: #1565C0; padding: 10px 14px; background: #E3F2FD; border-radius: 6px; margin: 16px 0 10px; }
+
 /* 领域报告卡片 */
 .domain-report { border: 1px solid var(--app-border); border-radius: var(--app-radius-lg); padding: 16px; margin-bottom: 12px; }
 .domain-report .dr-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
@@ -71,7 +123,75 @@ body { font-family: var(--app-font); background: var(--app-bg); color: var(--app
 .editable-area .edit-actions button { padding: 6px 16px; border-radius: var(--app-radius-md); font-size: 13px; cursor: pointer; font-family: var(--app-font); }
 .editable-area .edit-actions .btn-cancel { background: #fff; border: 1px solid var(--app-border); color: var(--app-text-sec); }
 .editable-area .edit-actions .btn-save { background: var(--app-primary); color: #fff; border: none; }
-@media print { .topbar, .tab-bar, .bottom-actions, .reset-btn, .toast, .edit-link, .edit-actions, .iep-actions { display: none !important; } .content { overflow: visible !important; height: auto !important; } .tab-content { display: block !important; padding: 10px !important; } .tab-content#tabIEP, .tab-content#tabScale { display: none !important; } body { height: auto; overflow: visible; } }
+@media print {
+  /* Force print background colors and images */
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+
+  /* Hide interactive elements */
+  .topbar, .tab-bar, .bottom-actions, .reset-btn, .toast, .edit-link, .edit-actions, .iep-actions, .iep-btn-export, .iep-btn-import, .iep-btn-edit, .iep-btn-cancel, .iep-btn-add, .iep-btn-save { display: none !important; }
+
+  /* Layout fixes */
+  body { height: auto !important; overflow: visible !important; max-width: none !important; }
+  .main-body { display: block !important; overflow: visible !important; }
+  .content, .report-content { overflow: visible !important; height: auto !important; }
+
+  /* Only show report tab, hide IEP and scale tabs */
+  .tab-content { display: block !important; padding: 20px !important; }
+  .tab-content#tabIEP, .tab-content#tabScale { display: none !important; }
+
+  /* Preserve card styles — 打印态拆卡片，用标题栏+细线重建层级 */
+  .card, .section-card, .report-card { background: none !important; box-shadow: none !important; border: none !important; border-radius: 0 !important; padding: 0 !important; margin-bottom: 0 !important; }
+  .card + .card { margin-top: 8px !important; padding-top: 12px !important; border-top: 1px solid #E0E4E8 !important; }
+
+  /* section-label 升级为全宽标题栏 */
+  .section-label { display: block !important; background: #3B9BF5 !important; color: #fff !important; font-size: 14px !important; font-weight: 600 !important; padding: 8px 16px !important; border-radius: 0 !important; margin: 16px 0 12px 0 !important; break-after: avoid !important; page-break-after: avoid !important; }
+  .card:first-child .section-label { margin-top: 0 !important; }
+
+  /* 子卡片保留轻量边框 + 禁止跨页 */
+  .domain-report { border: 1px solid #E8ECF0 !important; border-radius: 6px !important; padding: 12px 14px !important; margin-bottom: 8px !important; break-inside: avoid !important; page-break-inside: avoid !important; }
+  .info-grid { break-inside: avoid !important; page-break-inside: avoid !important; }
+  .grid-level-label { break-after: avoid !important; page-break-after: avoid !important; }
+  .report-title { font-size: 22px !important; text-align: center !important; break-after: avoid !important; }
+  .report-desc { break-after: avoid !important; }
+  p, .dr-desc, .dr-advice, .area-text { orphans: 3; widows: 3; }
+
+  /* Preserve section labels (blue background pills) */
+  .section-label { background: #3B9BF5 !important; color: #fff !important; }
+
+  /* Preserve table styles */
+  table { border-collapse: collapse !important; }
+  th { background: #F5F7FA !important; }
+  td, th { border: 1px solid #E8ECF0 !important; padding: 6px 8px !important; }
+
+  /* Preserve grid cell colors (VB-MAPP milestone grid) */
+  .cell-filled { background: #3B9BF5 !important; }
+  .cell-half { background: #93C5FD !important; }
+  .cell-empty { background: #F0F2F5 !important; }
+
+  /* Preserve score option pills in scale tab */
+  .q-score-opt.selected-1 { background: #F0FFF4 !important; color: #52C41A !important; border-color: #52C41A !important; }
+  .q-score-opt.selected-05 { background: #FFF8EB !important; color: #F5A623 !important; border-color: #F5A623 !important; }
+  .q-score-opt.selected-0 { background: #FFF0F0 !important; color: #F56C6C !important; border-color: #F56C6C !important; }
+
+  /* Preserve progress bars */
+  .pct-bar, .sum-bar-seg, .domain-fill { -webkit-print-color-adjust: exact !important; }
+
+  /* Preserve radar chart SVG */
+  svg { -webkit-print-color-adjust: exact !important; }
+
+  /* Preserve editable area text */
+  .editable-area .area-text { display: block !important; }
+  .editable-area .area-textarea { display: none !important; }
+
+  /* Page margins */
+  @page { margin: 15mm 10mm; size: A4; }
+
+  /* Avoid page breaks inside sections */
+  .domain-report, .q-card { break-inside: avoid; page-break-inside: avoid; }
+
+  /* Print header */
+  .print-header { display: block !important; text-align: center; font-size: 18px; font-weight: 600; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid #3B9BF5; }
+}
 .iep-title { font-size: 18px; font-weight: 600; text-align: center; margin-bottom: 16px; }
 .iep-info { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px 24px; font-size: 14px; margin-bottom: 16px; }
 .iep-info .label { color: var(--app-text-sec); }
@@ -305,10 +425,11 @@ function loadAnswers() {
     return result;
   }
   const sampleNotes = ['需要多次示范','主动发起要求','在提示下完成','注意力短暂','表现出兴趣但未完成','需要实物辅助','能泛化到新环境'];
+  const rand = seededRandom(recordId + '_fallback');
   for (let i = 1; i <= 175; i++) {
-    const r = Math.random();
+    const r = rand();
     result.scores['vbmapp_q' + i] = r < 0.4 ? 1 : r < 0.7 ? 0.5 : 0;
-    if (Math.random() < 0.12) result.notes['vbmapp_q' + i] = sampleNotes[Math.floor(Math.random() * sampleNotes.length)];
+    if (rand() < 0.12) result.notes['vbmapp_q' + i] = sampleNotes[Math.floor(rand() * sampleNotes.length)];
   }
   return result;
 }
@@ -337,19 +458,48 @@ function calcMilestoneScores() {
 const milestoneScores = calcMilestoneScores();
 const totalMilestone = Object.values(milestoneScores).reduce((s, d) => s + d.score, 0);
 
-/* 模拟障碍和转衔得分 */
-function simBarrierScores() {
-  return BARRIERS.map(b => ({ name: b, score: Math.floor(Math.random() * 4) }));
+/* 确定性伪随机（基于种子字符串，同一 recordId 始终生成相同数据） */
+function seededRandom(seed) {
+  let h = 0;
+  for (let i = 0; i < seed.length; i++) { h = ((h << 5) - h + seed.charCodeAt(i)) | 0; }
+  return function() { h = (h * 1103515245 + 12345) & 0x7fffffff; return (h % 1000) / 1000; };
 }
-function simTransitionScores() {
+
+/* 障碍得分：基于里程碑薄弱领域确定性推导 */
+function calcBarrierScores() {
+  const rand = seededRandom(recordId + '_barrier');
+  // 里程碑总得分率越低，障碍越严重
+  const milestonePct = totalMilestone / 170;
+  const baseSeverity = 1 - milestonePct; // 0~1，越高障碍越重
+  return BARRIERS.map((b, i) => {
+    // 每个障碍的得分 = 基础严重度 * 4 + 微调（基于障碍索引的确定性偏移）
+    const offset = ((i * 7 + 3) % 11) / 11 - 0.5; // -0.5~0.5 确定性偏移
+    const raw = baseSeverity * 4 + offset * 1.5;
+    const score = Math.max(0, Math.min(4, Math.round(raw)));
+    return { name: b, score };
+  });
+}
+
+/* 转衔得分：基于里程碑和障碍确定性推导 */
+function calcTransitionScores() {
+  const milestonePct = totalMilestone / 170;
   const all = [];
+  let idx = 0;
   TRANSITION_CATS.forEach(cat => {
-    cat.areas.forEach(a => { all.push({ name: a, category: cat.title, score: Math.floor(Math.random() * 5) }); });
+    cat.areas.forEach(a => {
+      // 转衔得分与里程碑正相关：里程碑越高，转衔准备越好
+      const offset = ((idx * 13 + 5) % 9) / 9 - 0.5;
+      const raw = milestonePct * 5 + offset * 1.2;
+      const score = Math.max(0, Math.min(5, Math.round(raw)));
+      all.push({ name: a, category: cat.title, score });
+      idx++;
+    });
   });
   return all;
 }
-const barrierScores = simBarrierScores();
-const transitionScores = simTransitionScores();
+
+const barrierScores = calcBarrierScores();
+const transitionScores = calcTransitionScores();
 const totalBarrier = barrierScores.reduce((s, b) => s + b.score, 0);
 const totalTransition = transitionScores.reduce((s, t) => s + t.score, 0);
 
@@ -371,7 +521,7 @@ function switchTab(idx, btn) {
 function renderMilestoneGrid(level) {
   const lv = MILESTONE_LEVELS.find(l => l.level === level);
   const startM = (level - 1) * 5 + 1;
-  let html = '<table class="grid-table"><thead><tr><th></th>';
+  let html = '<table class="grid-table milestone-theme"><thead><tr><th></th>';
   lv.domains.forEach(d => { const n = d.name; html += `<th>${n.length > 4 ? n.slice(0, 3) : n}</th>`; });
   html += '</tr></thead><tbody>';
   for (let m = startM + 4; m >= startM; m--) {
@@ -389,24 +539,56 @@ function renderMilestoneGrid(level) {
   return html;
 }
 
-/* === 渲染障碍网格 === */
+/* === 渲染障碍网格（全部24项，4行×6列，共4个表格） === */
 function renderBarrierGrid() {
   const cols = 6;
-  let html = '<table class="grid-table"><thead><tr><th></th>';
-  for (let c = 0; c < cols && c < BARRIERS.length; c++) {
-    html += `<th style="font-size:11px;max-width:80px;word-break:break-all">${BARRIERS[c].slice(0, 6)}</th>`;
-  }
-  html += '</tr></thead><tbody>';
-  for (let row = 4; row >= 1; row--) {
-    html += `<tr><td style="font-weight:600">${row}</td>`;
-    for (let c = 0; c < cols && c < BARRIERS.length; c++) {
-      const bs = barrierScores[c];
-      const cls = bs.score >= row ? 'cell-filled' : 'cell-empty';
-      html += `<td><div style="width:20px;height:14px;margin:auto;border-radius:2px" class="${cls}"></div></td>`;
+  const rows = Math.ceil(BARRIERS.length / cols);
+  let html = '';
+  for (let r = 0; r < rows; r++) {
+    const startIdx = r * cols;
+    const endIdx = Math.min(startIdx + cols, BARRIERS.length);
+    const rowBarriers = BARRIERS.slice(startIdx, endIdx);
+    html += '<table class="grid-table barrier-theme" style="margin-bottom:12px"><thead><tr><th></th>';
+    rowBarriers.forEach(b => {
+      html += `<th style="font-size:11px;max-width:80px;word-break:break-all">${b.length > 6 ? b.slice(0, 6) : b}</th>`;
+    });
+    html += '</tr></thead><tbody>';
+    for (let score = 4; score >= 1; score--) {
+      html += `<tr><td style="font-weight:600">${score}</td>`;
+      rowBarriers.forEach((b, ci) => {
+        const bs = barrierScores[startIdx + ci];
+        const cls = bs && bs.score >= score ? 'cell-filled' : 'cell-empty';
+        html += `<td><div style="width:20px;height:14px;margin:auto;border-radius:2px" class="${cls}"></div></td>`;
+      });
+      html += '</tr>';
     }
-    html += '</tr>';
+    html += '</tbody></table>';
   }
-  html += '</tbody></table>';
+  return html;
+}
+
+/* === 渲染转衔网格（3组） === */
+function renderTransitionGrid() {
+  let html = '';
+  TRANSITION_CATS.forEach(cat => {
+    const catScores = transitionScores.filter(t => t.category === cat.title);
+    html += `<div style="font-size:13px;font-weight:600;color:#1565C0;margin:12px 0 6px">${cat.title}</div>`;
+    html += '<table class="grid-table transition-theme" style="margin-bottom:12px"><thead><tr><th></th>';
+    catScores.forEach(t => {
+      const shortName = t.name.length > 6 ? t.name.slice(0, 6) : t.name;
+      html += `<th style="font-size:11px;max-width:80px;word-break:break-all">${shortName}</th>`;
+    });
+    html += '</tr></thead><tbody>';
+    for (let score = 5; score >= 1; score--) {
+      html += `<tr><td style="font-weight:600">${score}</td>`;
+      catScores.forEach(t => {
+        const cls = t.score >= score ? 'cell-filled' : 'cell-empty';
+        html += `<td><div style="width:20px;height:14px;margin:auto;border-radius:2px" class="${cls}"></div></td>`;
+      });
+      html += '</tr>';
+    }
+    html += '</tbody></table>';
+  });
   return html;
 }
 
@@ -414,6 +596,10 @@ function renderBarrierGrid() {
 function renderReport() {
   const strong = ALL_MILESTONE_DOMAINS.filter(d => milestoneScores[d].total > 0 && milestoneScores[d].score / milestoneScores[d].total >= 0.7).map(d => d).join('、') || '无';
   const weak = ALL_MILESTONE_DOMAINS.filter(d => milestoneScores[d].total > 0 && milestoneScores[d].score / milestoneScores[d].total <= 0.35).map(d => d).join('、') || '无';
+
+  const milestonePct = Math.round(totalMilestone / 170 * 100);
+  const barrierPct = Math.round(totalBarrier / 96 * 100);
+  const transitionPct = Math.round(totalTransition / 90 * 100);
 
   let html = `
     <div class="report-title">VB-MAPP 语言行为里程碑评估报告</div>
@@ -429,84 +615,144 @@ function renderReport() {
       </div>
     </div>
 
-    <!-- 里程碑评估 -->
-    <div class="card">
-      <div class="section-label">里程碑评估</div>
-      <div style="font-size:14px;font-weight:500;margin-bottom:12px">里程碑评估得分：${totalMilestone.toFixed(1)} / 170</div>
-
-      <div class="grid-level-label">第三阶段（30-48月）</div>
-      ${renderMilestoneGrid(3)}
-
-      <div class="grid-level-label" style="margin-top:16px">第二阶段（18-30月）</div>
-      ${renderMilestoneGrid(2)}
-
-      <div class="grid-level-label" style="margin-top:16px">第一阶段（0-18月）</div>
-      ${renderMilestoneGrid(1)}
-    </div>
-
-    <div class="card">
-      <div class="section-label">里程碑各领域报告及建议</div>
-      ${ALL_MILESTONE_DOMAINS.filter(d => milestoneScores[d].total > 0).map(d => {
-        const ds = milestoneScores[d];
-        const pct = Math.round(ds.score / ds.total * 100);
-        const level = pct >= 70 ? '表现良好' : pct >= 40 ? '发展中' : '需重点关注';
-        return `<div class="domain-report">
-          <div class="dr-header">
-            <span class="dr-name">${d}</span>
-            <span class="dr-score">${ds.score.toFixed(1)}分 / ${ds.total}分</span>
+    <!-- ========== 第一部分：里程碑评估（绿色） ========== -->
+    <div class="section-block">
+      <div class="section-header milestone">
+        VB-MAPP 里程碑计分总表
+        <div class="section-subtitle">VB-MAPP Milestones Master Scoring Form</div>
+      </div>
+      <div class="section-body">
+        <div class="score-overview">
+          <div class="score-big green">${totalMilestone.toFixed(1)}</div>
+          <div>
+            <div class="score-detail">总分 / 满分170分</div>
+            <div class="score-detail">得分率 ${milestonePct}%</div>
           </div>
-          <div class="dr-desc">${level}，得分率${pct}%。该领域${pct >= 70 ? '已达到较好水平' : pct >= 40 ? '处于发展阶段，需持续训练' : '明显落后，需作为优先干预目标'}。</div>
-          <div class="dr-advice"><strong>建议：</strong>${pct >= 70 ? '巩固现有技能，逐步提升难度。' : pct >= 40 ? '增加该领域的训练频次，结合自然情境进行泛化。' : '制定密集训练计划，从基础技能开始逐步建立。'}</div>
-        </div>`;
-      }).join('')}
-    </div>
-
-    <!-- 障碍评估 -->
-    <div class="card">
-      <div class="section-label">障碍评估</div>
-      <div style="font-size:14px;font-weight:500;margin-bottom:12px">障碍评估得分：${totalBarrier}</div>
-      <div style="overflow-x:auto">${renderBarrierGrid()}</div>
-      <div style="font-size:12px;color:var(--app-text-sec);margin-top:8px">* 仅展示前6项障碍，完整24项请查看详细报告</div>
-    </div>
-
-    <div class="card">
-      <div class="section-label">障碍各项报告及建议</div>
-      ${barrierScores.slice(0, 8).map(b => `<div class="domain-report">
-        <div class="dr-header">
-          <span class="dr-name">${b.name}</span>
-          <span class="dr-score">${b.score}分 / 4分</span>
+          <div class="score-bar"><div class="score-bar-fill green" style="width:${milestonePct}%"></div></div>
         </div>
-        <div class="dr-desc">${b.score <= 1 ? '该障碍影响较小。' : b.score <= 2 ? '该障碍有一定影响，需关注。' : '该障碍影响显著，需优先干预。'}</div>
-        <div class="dr-advice"><strong>建议：</strong>${b.score <= 1 ? '继续观察，保持现有干预策略。' : '制定针对性干预方案，减少该障碍对学习的影响。'}</div>
-      </div>`).join('')}
-      <div style="font-size:12px;color:var(--app-text-sec)">* 仅展示前8项，共${BARRIERS.length}项障碍</div>
+
+        <div class="milestone-grid">
+          <div class="grid-title"><span class="level-badge">Level 3</span> 第三阶段（30-48月）</div>
+          ${renderMilestoneGrid(3)}
+        </div>
+        <div class="milestone-grid">
+          <div class="grid-title"><span class="level-badge">Level 2</span> 第二阶段（18-30月）</div>
+          ${renderMilestoneGrid(2)}
+        </div>
+        <div class="milestone-grid">
+          <div class="grid-title"><span class="level-badge">Level 1</span> 第一阶段（0-18月）</div>
+          ${renderMilestoneGrid(1)}
+        </div>
+      </div>
     </div>
 
-    <!-- 转衔评估 -->
-    <div class="card">
-      <div class="section-label">转衔评估</div>
-      <div style="font-size:14px;font-weight:500;margin-bottom:12px">转衔评估得分：${totalTransition}</div>
+    <div class="section-block">
+      <div class="section-header milestone">
+        VB-MAPP 里程碑评估报告
+        <div class="section-subtitle">VB-MAPP Milestones Assessment Report</div>
+      </div>
+      <div class="section-body">
+        <p style="font-size:13px;color:var(--app-text-sec);line-height:1.8;margin-bottom:16px">
+          里程碑评估涵盖了语言和相关技能的170个里程碑，分布在三个发展阶段中。以下是各领域的详细评估结果和IEP目标建议。
+        </p>
+        ${ALL_MILESTONE_DOMAINS.filter(d => milestoneScores[d].total > 0).map(d => {
+          const ds = milestoneScores[d];
+          const pct = Math.round(ds.score / ds.total * 100);
+          const levelText = pct >= 70 ? '表现良好' : pct >= 40 ? '发展中' : '需重点关注';
+          return `<div class="domain-report milestone-card">
+            <div class="dr-header">
+              <span class="dr-name">${d}</span>
+              <span class="dr-score">${ds.score.toFixed(1)}分 / 满分${ds.total}分</span>
+            </div>
+            <div class="dr-desc">${levelText}，得分率${pct}%。该领域${pct >= 70 ? '已达到较好水平' : pct >= 40 ? '处于发展阶段，需持续训练' : '明显落后，需作为优先干预目标'}。</div>
+            <div class="dr-advice"><strong>IEP建议：</strong>${pct >= 70 ? '巩固现有技能，逐步提升难度，向更高阶段目标推进。' : pct >= 40 ? '增加该领域的训练频次，结合自然情境进行泛化，设定阶段性目标。' : '制定密集训练计划，从基础技能开始逐步建立，作为IEP优先干预目标。'}</div>
+          </div>`;
+        }).join('')}
+      </div>
     </div>
 
-    <div class="card">
-      <div class="section-label">转衔各类报告及建议</div>
-      ${TRANSITION_CATS.map(cat => {
-        const catScores = transitionScores.filter(t => t.category === cat.title);
-        const catTotal = catScores.reduce((s, t) => s + t.score, 0);
-        return `<div style="margin-bottom:16px">
-          <div style="font-size:14px;font-weight:600;margin-bottom:8px">${cat.title}</div>
-          ${catScores.map(t => `<div class="domain-report">
+    <!-- ========== 第二部分：障碍评估（橙色） ========== -->
+    <div class="section-block">
+      <div class="section-header barrier">
+        VB-MAPP 障碍计分总表
+        <div class="section-subtitle">VB-MAPP Barriers Scoring Form</div>
+      </div>
+      <div class="section-body">
+        <div class="score-overview">
+          <div class="score-big orange">${totalBarrier}</div>
+          <div>
+            <div class="score-detail">总分 / 满分96分</div>
+            <div class="score-detail">得分率 ${barrierPct}%</div>
+          </div>
+          <div class="score-bar"><div class="score-bar-fill orange" style="width:${barrierPct}%"></div></div>
+        </div>
+        <div style="overflow-x:auto">${renderBarrierGrid()}</div>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-header barrier">
+        VB-MAPP 障碍评估报告
+        <div class="section-subtitle">VB-MAPP Barriers Assessment Report</div>
+      </div>
+      <div class="section-body">
+        <p style="font-size:13px;color:var(--app-text-sec);line-height:1.8;margin-bottom:16px">
+          障碍评估包含24项常见的学习和语言习得障碍。得分越高表示该障碍越严重，需要优先干预。以下是各项障碍的详细评估结果。
+        </p>
+        ${barrierScores.map(b => `<div class="domain-report barrier-card">
+          <div class="dr-header">
+            <span class="dr-name">${b.name}</span>
+            <span class="dr-score">${b.score}分 / 4分</span>
+          </div>
+          <div class="dr-desc">${b.score <= 1 ? '该障碍影响较小，目前不构成主要学习阻碍。' : b.score <= 2 ? '该障碍有一定影响，需在教学中关注并采取预防措施。' : '该障碍影响显著，已对学习产生明显阻碍，需优先干预。'}</div>
+          <div class="dr-advice"><strong>建议：</strong>${b.score <= 1 ? '继续观察，保持现有干预策略。' : b.score <= 2 ? '在教学计划中纳入针对性策略，定期监测变化。' : '制定专项干预方案，减少该障碍对语言习得和学习的影响。'}</div>
+        </div>`).join('')}
+      </div>
+    </div>
+
+    <!-- ========== 第三部分：转衔评估（蓝色） ========== -->
+    <div class="section-block">
+      <div class="section-header transition">
+        VB-MAPP 转衔计分总表
+        <div class="section-subtitle">VB-MAPP Transition Scoring Form</div>
+      </div>
+      <div class="section-body">
+        <div class="score-overview">
+          <div class="score-big blue">${totalTransition}</div>
+          <div>
+            <div class="score-detail">总分 / 满分90分</div>
+            <div class="score-detail">得分率 ${transitionPct}%</div>
+          </div>
+          <div class="score-bar"><div class="score-bar-fill blue" style="width:${transitionPct}%"></div></div>
+        </div>
+        ${renderTransitionGrid()}
+      </div>
+    </div>
+
+    <div class="section-block">
+      <div class="section-header transition">
+        VB-MAPP 转衔评估报告
+        <div class="section-subtitle">VB-MAPP Transition Assessment Report</div>
+      </div>
+      <div class="section-body">
+        <p style="font-size:13px;color:var(--app-text-sec);line-height:1.8;margin-bottom:16px">
+          转衔评估评估儿童从密集教学环境向限制较少的教育环境过渡的准备程度，包含18个评估领域，分为三大类别。
+        </p>
+        ${TRANSITION_CATS.map(cat => {
+          const catScores = transitionScores.filter(t => t.category === cat.title);
+          return `<div class="transition-cat-title">${cat.title}</div>
+          ${catScores.map(t => `<div class="domain-report transition-card">
             <div class="dr-header">
               <span class="dr-name">${t.name}</span>
               <span class="dr-score">${t.score}分 / 5分</span>
             </div>
-            <div class="dr-advice"><strong>建议：</strong>${t.score >= 4 ? '表现良好，继续保持。' : t.score >= 2 ? '需进一步提升，增加相关训练。' : '需重点关注，制定专项训练计划。'}</div>
-          </div>`).join('')}
-        </div>`;
-      }).join('')}
+            <div class="dr-advice"><strong>建议：</strong>${t.score >= 4 ? '表现良好，已具备该领域的转衔准备，继续保持。' : t.score >= 2 ? '需进一步提升，增加相关训练以达到转衔标准。' : '需重点关注，制定专项训练计划，该领域尚未达到转衔要求。'}</div>
+          </div>`).join('')}`;
+        }).join('')}
+      </div>
     </div>
 
-    <!-- 综合分析 -->
+    <!-- ========== 第四部分：综合分析 ========== -->
     <div class="card editable-area" id="analysisArea">
       <div class="edit-header">
         <div class="section-label">综合分析</div>

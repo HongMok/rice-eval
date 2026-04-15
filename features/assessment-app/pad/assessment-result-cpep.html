@@ -61,7 +61,69 @@ table.score-tbl tr:hover td { background: #FAFBFC; }
 .editable-area .edit-actions button { padding: 6px 16px; border-radius: var(--app-radius-md); font-size: 13px; cursor: pointer; font-family: var(--app-font); }
 .editable-area .edit-actions .btn-cancel { background: #fff; border: 1px solid var(--app-border); color: var(--app-text-sec); }
 .editable-area .edit-actions .btn-save { background: var(--app-primary); color: #fff; border: none; }
-@media print { .topbar, .tab-bar, .bottom-actions, .reset-btn, .toast, .edit-link, .edit-actions, .iep-actions { display: none !important; } .content { overflow: visible !important; height: auto !important; } .tab-content { display: block !important; padding: 10px !important; } .tab-content#tabIEP, .tab-content#tabScale { display: none !important; } body { height: auto; overflow: visible; } }
+@media print {
+  /* Force print background colors and images */
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+
+  /* Hide interactive elements */
+  .topbar, .tab-bar, .bottom-actions, .reset-btn, .toast, .edit-link, .edit-actions, .iep-actions, .iep-btn-export, .iep-btn-import, .iep-btn-edit, .iep-btn-cancel, .iep-btn-add, .iep-btn-save { display: none !important; }
+
+  /* Layout fixes */
+  body { height: auto !important; overflow: visible !important; max-width: none !important; }
+  .main-body { display: block !important; overflow: visible !important; }
+  .content, .report-content { overflow: visible !important; height: auto !important; }
+
+  /* Only show report tab, hide IEP and scale tabs */
+  .tab-content { display: block !important; padding: 20px !important; }
+  .tab-content#tabIEP, .tab-content#tabScale { display: none !important; }
+
+  /* Preserve card styles — 打印态拆卡片，用标题栏+细线重建层级 */
+  .card, .section-card, .report-card { background: none !important; box-shadow: none !important; border: none !important; border-radius: 0 !important; padding: 0 !important; margin-bottom: 0 !important; }
+  .card + .card { margin-top: 8px !important; padding-top: 12px !important; border-top: 1px solid #E0E4E8 !important; }
+
+  /* section-label 升级为全宽标题栏 */
+  .section-label { display: block !important; background: #3B9BF5 !important; color: #fff !important; font-size: 14px !important; font-weight: 600 !important; padding: 8px 16px !important; border-radius: 0 !important; margin: 16px 0 12px 0 !important; break-after: avoid !important; page-break-after: avoid !important; }
+  .card:first-child .section-label { margin-top: 0 !important; }
+
+  /* 子元素禁止跨页 */
+  .domain-report { break-inside: avoid !important; page-break-inside: avoid !important; }
+  .info-grid { break-inside: avoid !important; page-break-inside: avoid !important; }
+  .report-title { font-size: 22px !important; text-align: center !important; break-after: avoid !important; }
+  .report-desc { break-after: avoid !important; }
+  p, .dr-desc, .dr-advice, .area-text { orphans: 3; widows: 3; }
+
+  /* Preserve section labels (blue background pills) */
+  .section-label { background: #3B9BF5 !important; color: #fff !important; }
+
+  /* Preserve table styles */
+  table { border-collapse: collapse !important; }
+  th { background: #F5F7FA !important; }
+  td, th { border: 1px solid #E8ECF0 !important; padding: 6px 8px !important; }
+
+  /* Preserve score option pills (C-PEP pass/partial/fail) */
+  .q-score-opt.selected-pass { background: #F0FFF4 !important; color: #52C41A !important; border-color: #52C41A !important; }
+  .q-score-opt.selected-partial { background: #FFF8EB !important; color: #F5A623 !important; border-color: #F5A623 !important; }
+  .q-score-opt.selected-fail { background: #FFF0F0 !important; color: #F56C6C !important; border-color: #F56C6C !important; }
+
+  /* Preserve progress bars */
+  .pct-bar, .sum-bar-seg, .domain-fill { -webkit-print-color-adjust: exact !important; }
+
+  /* Preserve radar chart SVG */
+  svg { -webkit-print-color-adjust: exact !important; }
+
+  /* Preserve editable area text */
+  .editable-area .area-text { display: block !important; }
+  .editable-area .area-textarea { display: none !important; }
+
+  /* Page margins */
+  @page { margin: 15mm 10mm; size: A4; }
+
+  /* Avoid page breaks inside sections */
+  .domain-report, .q-card { break-inside: avoid; page-break-inside: avoid; }
+
+  /* Print header */
+  .print-header { display: block !important; text-align: center; font-size: 18px; font-weight: 600; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid #3B9BF5; }
+}
 .iep-title { font-size: 18px; font-weight: 600; text-align: center; margin-bottom: 16px; }
 .iep-info { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px 24px; font-size: 14px; margin-bottom: 16px; }
 .iep-info .label { color: var(--app-text-sec); }
@@ -260,15 +322,28 @@ const CPEP_DOMAINS = [
 ];
 const TOTAL_QUESTIONS = CPEP_DOMAINS.reduce((s, d) => s + d.count, 0);
 
-/* 发展年龄映射（简化） */
-const DEV_AGE_MAP = [
-  { pct: 90, age: '5岁0月' }, { pct: 75, age: '4岁0月' }, { pct: 60, age: '3岁6月' },
-  { pct: 50, age: '3岁0月' }, { pct: 40, age: '2岁6月' }, { pct: 25, age: '2岁0月' },
-  { pct: 0, age: '1岁6月' }
-];
+/* 发展年龄映射（基于得分率和实足年龄，确定性推算） */
+const CPEP_ACTUAL_AGE_MONTHS = 58; // 4岁10月 = 58个月
 function getDevAge(pct) {
-  for (const m of DEV_AGE_MAP) { if (pct >= m.pct) return m.age; }
-  return '1岁0月';
+  let months;
+  if (pct >= 90) months = CPEP_ACTUAL_AGE_MONTHS;
+  else if (pct >= 80) months = CPEP_ACTUAL_AGE_MONTHS - 6;
+  else if (pct >= 70) months = CPEP_ACTUAL_AGE_MONTHS - 12;
+  else if (pct >= 60) months = CPEP_ACTUAL_AGE_MONTHS - 18;
+  else if (pct >= 50) months = CPEP_ACTUAL_AGE_MONTHS - 24;
+  else if (pct >= 40) months = CPEP_ACTUAL_AGE_MONTHS - 30;
+  else months = CPEP_ACTUAL_AGE_MONTHS - 36;
+  if (months <= 0) months = 6;
+  const y = Math.floor(months / 12);
+  const m = months % 12;
+  return y + '岁' + m + '月';
+}
+
+/* 确定性伪随机（基于种子字符串，同一 recordId 始终生成相同数据） */
+function seededRandom(seed) {
+  let h = 0;
+  for (let i = 0; i < seed.length; i++) { h = ((h << 5) - h + seed.charCodeAt(i)) | 0; }
+  return function() { h = (h * 1103515245 + 12345) & 0x7fffffff; return (h % 1000) / 1000; };
 }
 
 /* === 加载答题数据 === */
@@ -296,10 +371,11 @@ function loadAnswers() {
     return result;
   }
   const sampleNotes = ['需要多次示范','对材料表现出兴趣','注意力约30秒','需手把手辅助','自发完成','有轻微抵触','提示下完成一半'];
+  const rand = seededRandom(recordId + '_cpep_fallback');
   for (let i = 1; i <= TOTAL_QUESTIONS; i++) {
-    const r = Math.random();
+    const r = rand();
     result.scores['cpep_q' + i] = r < 0.5 ? 1 : r < 0.8 ? 0.5 : 0;
-    if (Math.random() < 0.12) result.notes['cpep_q' + i] = sampleNotes[Math.floor(Math.random() * sampleNotes.length)];
+    if (rand() < 0.12) result.notes['cpep_q' + i] = sampleNotes[Math.floor(rand() * sampleNotes.length)];
   }
   return result;
 }
