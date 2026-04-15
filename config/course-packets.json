@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "RICE1v1",
+    "brief": "RICE AI体系1对1训练课包",
+    "type": 1,
+    "icon": "https://riceai-cloud-test1.oss-cn-shenzhen.aliyuncs.com/pc/BWSFYQgEBPNmtrlV4omwU-蓝底.png",
+    "status": 1
+  },
+  {
+    "id": 2,
+    "name": "RICE小组课",
+    "brief": "RICE小组课课程包",
+    "type": 2,
+    "icon": "https://rdts.oss-cn-shanghai.aliyuncs.com/document/cd6713b860fb42a39184459b170c1998_sumi.png",
+    "status": 1
+  },
+  {
+    "id": 26,
+    "name": "春暖综合ABA",
+    "brief": "南宁春暖综合ABA课程",
+    "type": 1,
+    "icon": "https://riceai-cloud-test1.oss-cn-shenzhen.aliyuncs.com/pc/_oT-0osq5AdOPzIxQ_81w-春暖.png",
+    "status": 1
+  },
+  {
+    "id": 27,
+    "name": "春暖言语",
+    "brief": "广西南宁春暖言语课包",
+    "type": 1,
+    "icon": "https://riceai-cloud-prod.oss-cn-shanghai.aliyuncs.com/pc/kpzdB4PyY8NTBPf8U6miw-_oT-0osq5AdOPzIxQ_81w-春暖.png",
+    "status": 1
+  }
+]
