@@ -192,6 +192,7 @@ data/                          # 评估配置数据（CSV）
 
 ## Git 提交规范（强制）
 
+- **不要主动提交 git**，等用户明确说"提交git"或"git commit"时再执行
 - 每次 git 提交必须跑完整个流程：`git add -A` → `git commit -m "..."` → `git push origin main`
 - push 失败时必须排查原因并解决，不能只 commit 不 push
 - 大文件（>100MB）不要提交到 git，应加入 .gitignore（如 .mp4、大型 PDF 等）

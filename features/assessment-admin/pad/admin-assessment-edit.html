@@ -220,7 +220,7 @@ body { font-family: var(--font-family); background: var(--color-bg-page); color:
 .pf-toggle input:checked + .pf-toggle-slider { background: var(--color-success); }
 .pf-toggle input:checked + .pf-toggle-slider::before { transform: translateX(20px); }
 
-.pf-body { flex: 1; overflow-y: auto; padding: 24px; }
+.pf-body { flex: 1; overflow-y: auto; padding: 24px; display: flex; flex-direction: column; }
 
 /* 关联模式选择 */
 .pf-mode-group { display: flex; gap: 16px; margin-bottom: 24px; }
@@ -233,25 +233,83 @@ body { font-family: var(--font-family); background: var(--color-bg-page); color:
 .pf-mode-title { font-size: 14px; font-weight: 600; display: inline; vertical-align: middle; }
 .pf-mode-desc { font-size: 13px; color: var(--color-text-secondary); margin-top: 6px; line-height: 1.5; }
 
-/* 模式1：预设匹配 */
-.pf-match-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-.pf-match-header h4 { font-size: 14px; font-weight: 600; }
+/* 模式1：预设匹配 — 子模式切换 */
+.pf-sub-mode { display: flex; gap: 8px; margin-bottom: 20px; }
+.pf-sub-mode-pill { padding: 6px 16px; border-radius: 20px; font-size: 13px; cursor: pointer; border: 1px solid var(--color-border-input); background: #fff; color: var(--color-text-secondary); transition: all .15s; font-family: var(--font-family); }
+.pf-sub-mode-pill:hover { border-color: var(--color-primary); color: var(--color-primary); }
+.pf-sub-mode-pill.active { background: var(--color-primary); color: #fff; border-color: var(--color-primary); }
+
+/* 左右分栏布局 */
+.pf-split-layout { display: flex; gap: 0; flex: 1; min-height: 0; }
+.pf-tree-panel { width: 260px; flex-shrink: 0; background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column; margin-right: 16px; }
+.pf-tree-panel-header { padding: 12px 16px; border-bottom: 1px solid var(--color-border); font-size: 13px; font-weight: 600; flex-shrink: 0; height: 44px; display: flex; align-items: center; }
+.pf-tree-panel-body { flex: 1; overflow-y: auto; padding: 8px 0; }
+.pf-tree-group { margin-bottom: 2px; }
+.pf-tree-group-title { display: flex; align-items: center; gap: 6px; padding: 8px 16px; cursor: pointer; font-size: 13px; font-weight: 600; color: var(--color-text-primary); user-select: none; }
+.pf-tree-group-title:hover { background: #F9FAFB; }
+.pf-tree-group-title .arrow { font-size: 10px; transition: transform .2s; color: var(--color-text-secondary); }
+.pf-tree-group-title.collapsed .arrow { transform: rotate(-90deg); }
+.pf-tree-children { padding-left: 0; }
+.pf-tree-children.hidden { display: none; }
+.pf-tree-item { display: flex; align-items: center; justify-content: space-between; padding: 7px 16px 7px 32px; cursor: pointer; font-size: 13px; color: var(--color-text-secondary); transition: all .1s; }
+.pf-tree-item:hover { background: #F9FAFB; }
+.pf-tree-item.active { background: var(--color-primary-light); color: var(--color-primary); font-weight: 500; }
+.pf-tree-item .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--color-border-input); flex-shrink: 0; margin-right: 8px; }
+.pf-tree-item.active .dot { background: var(--color-primary); }
+.pf-tree-item-label { display: flex; align-items: center; flex: 1; min-width: 0; }
+.pf-tree-item-label span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pf-tree-item-stats { font-size: 11px; color: var(--color-text-placeholder); flex-shrink: 0; margin-left: 6px; }
+.pf-tree-item.active .pf-tree-item-stats { color: var(--color-primary); }
+
+/* 右侧详情面板 */
+.pf-detail-panel { flex: 1; background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
+.pf-detail-header { padding: 0; border-bottom: 1px solid var(--color-border); display: flex; flex-direction: column; flex-shrink: 0; height: 44px; justify-content: center; background: #F9FAFB; }
+.pf-detail-header-left { display: flex; align-items: center; gap: 12px; }
+.pf-detail-header-left h4 { font-size: 15px; font-weight: 600; margin: 0; }
+.pf-detail-header-left .pf-detail-stats { font-size: 13px; color: var(--color-text-secondary); }
+.pf-detail-body { flex: 1; overflow-y: auto; }
+
+/* AI 按钮 */
 .pf-ai-btn { background: var(--color-primary); color: #fff; border: none; padding: 7px 16px; border-radius: var(--radius-md); font-size: 13px; cursor: pointer; font-family: var(--font-family); display: flex; align-items: center; gap: 6px; }
 .pf-ai-btn:hover { background: var(--color-primary-hover); }
 .pf-ai-btn:disabled { opacity: 0.6; cursor: not-allowed; }
-.pf-match-table { width: 100%; border-collapse: collapse; }
-.pf-match-table th { background: #F9FAFB; padding: 10px 14px; text-align: left; font-size: 13px; font-weight: 500; color: var(--color-text-secondary); border-bottom: 1px solid var(--color-border); }
-.pf-match-table td { padding: 10px 14px; border-bottom: 1px solid var(--color-border); font-size: 13px; vertical-align: top; }
-.pf-match-table tr:hover td { background: #FAFBFC; }
-.pf-match-domain { font-size: 12px; color: var(--color-primary); font-weight: 500; background: var(--color-primary-light); padding: 2px 8px; border-radius: 4px; display: inline-block; margin-right: 6px; }
-.pf-match-unmatched { color: var(--color-text-placeholder); font-style: italic; }
-.pf-match-target { color: var(--color-text-primary); font-weight: 500; }
-.pf-match-stages { font-size: 12px; color: var(--color-text-secondary); margin-top: 4px; }
-.pf-match-stages span { display: inline-block; background: #F3F4F6; padding: 2px 8px; border-radius: 4px; margin-right: 4px; margin-top: 2px; }
-.pf-match-actions { white-space: nowrap; }
-.pf-match-actions a { font-size: 12px; cursor: pointer; text-decoration: none; margin-right: 8px; }
-.pf-match-actions .edit-link { color: var(--color-primary); }
-.pf-match-actions .delete-link { color: var(--color-danger); }
+
+/* 评估项目行 */
+.pf-q-row { padding: 14px 20px; border-bottom: 1px solid #F3F4F6; display: flex; align-items: flex-start; gap: 14px; transition: background .1s; }
+.pf-q-row:hover { background: #FAFBFC; }
+.pf-q-number { font-size: 13px; font-weight: 600; color: var(--color-primary); min-width: 36px; flex-shrink: 0; padding-top: 2px; }
+.pf-q-info { flex: 2; min-width: 0; }
+.pf-q-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); line-height: 1.4; }
+.pf-q-desc { font-size: 12px; color: var(--color-text-secondary); margin-top: 3px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 400px; }
+.pf-q-target-wrap { flex: 2; min-width: 0; padding-top: 2px; }
+.pf-q-target-name { font-size: 13px; font-weight: 600; color: var(--color-text-primary); }
+.pf-q-target-stages { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+.pf-q-target-stages span { font-size: 11px; background: #F3F4F6; color: var(--color-text-secondary); padding: 2px 8px; border-radius: 4px; }
+.pf-q-unmatched { font-size: 13px; color: var(--color-text-placeholder); font-style: italic; padding-top: 2px; }
+.pf-q-actions { display: flex; gap: 6px; flex-shrink: 0; padding-top: 2px; min-width: 70px; justify-content: flex-end; }
+.pf-q-actions a { font-size: 12px; cursor: pointer; text-decoration: none; padding: 2px 6px; border-radius: 4px; }
+.pf-q-actions .edit-link { color: var(--color-primary); }
+.pf-q-actions .edit-link:hover { background: var(--color-primary-light); }
+.pf-q-actions .delete-link { color: var(--color-danger); }
+.pf-q-actions .delete-link:hover { background: #FEF2F2; }
+
+/* 多目标标签 */
+.pf-multi-targets { display: flex; flex-direction: column; gap: 4px; }
+.pf-target-tag { display: block; }
+.pf-target-tag .tag-name { font-size: 13px; font-weight: 600; color: var(--color-text-primary); display: block; }
+.pf-target-tag .tag-stages { display: flex; flex-wrap: wrap; gap: 3px; }
+.pf-target-tag .tag-stages span { font-size: 11px; background: #F3F4F6; color: var(--color-text-secondary); padding: 1px 6px; border-radius: 3px; }
+
+/* 评分匹配子行 — 和 pf-q-row 同结构对齐 */
+.pf-score-row { padding: 8px 20px; border-bottom: 1px solid #F9FAFB; display: flex; align-items: flex-start; gap: 14px; background: #FAFBFC; }
+.pf-score-row:hover { background: #F3F4F6; }
+.pf-score-label { font-size: 12px; font-weight: 600; min-width: 60px; flex-shrink: 0; padding: 2px 8px; border-radius: 4px; text-align: center; }
+.pf-score-label.score-high { background: #ECFDF5; color: #059669; }
+.pf-score-label.score-mid { background: #FFF7ED; color: #EA580C; }
+.pf-score-label.score-low { background: #FEF2F2; color: #DC2626; }
+
+/* 空状态 */
+.pf-empty-detail { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: var(--color-text-placeholder); font-size: 14px; gap: 8px; }
 
 /* 模式2：规则匹配 */
 .pf-rule-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
@@ -263,6 +321,14 @@ body { font-family: var(--font-family); background: var(--color-bg-page); color:
 .pf-loading { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: pf-spin .6s linear infinite; }
 @keyframes pf-spin { to { transform: rotate(360deg); } }
 .pf-loading-dark { border-color: rgba(124,58,237,0.2); border-top-color: var(--color-primary); }
+/* 干预目标选择列表 */
+.pf-project-item { padding: 10px 12px; border-bottom: 1px solid #F3F4F6; cursor: pointer; transition: background .1s; }
+.pf-project-item:last-child { border-bottom: none; }
+.pf-project-item:hover { background: #F9FAFB; }
+.pf-project-item.selected { background: var(--color-primary-light); border-left: 3px solid var(--color-primary); }
+.pf-project-item .pf-proj-name { font-size: 13px; font-weight: 500; }
+.pf-project-item .pf-proj-stages { font-size: 11px; color: var(--color-text-secondary); margin-top: 2px; }
+.pf-project-item .pf-proj-domain { font-size: 11px; color: var(--color-primary); background: var(--color-primary-light); padding: 1px 6px; border-radius: 3px; margin-right: 4px; }
 </style>
 </head>
 <body>
@@ -323,10 +389,11 @@ body { font-family: var(--font-family); background: var(--color-bg-page); color:
     <!-- 课包全屏关联界面 -->
     <div id="packetFullscreen" class="packet-fullscreen" style="display:none">
       <div class="pf-topbar">
-        <button class="pf-back-btn" onclick="closePacketFullscreen()">← </button>
+        <button class="pf-back-btn" onclick="closePacketFullscreen()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg></button>
         <span class="pf-title" id="pfTitle"></span>
-        <span class="pf-brief" id="pfBrief"></span>
-        <div class="pf-toggle-wrap">
+        <span id="pfAssocNote" style="font-size:12px;color:var(--color-text-secondary);background:#F9FAFB;padding:4px 12px;border-radius:6px;display:none"></span>
+        <div id="pfMatchProgress" style="margin-left:8px;font-size:13px;color:var(--color-text-secondary);display:none"><span id="pfMatchedCount" style="color:var(--color-primary);font-weight:600">0</span>/<span id="pfTotalCount">0</span> 已匹配</div>
+        <div class="pf-toggle-wrap" style="margin-left:auto">
           <span id="pfToggleLabel">已关闭</span>
           <label class="pf-toggle">
             <input type="checkbox" id="pfToggle" onchange="onPacketToggle(this.checked)">
@@ -335,6 +402,37 @@ body { font-family: var(--font-family); background: var(--color-bg-page); color:
         </div>
       </div>
       <div class="pf-body" id="pfBody"></div>
+      <!-- 匹配设置右侧抽屉 -->
+      <div id="pfMatchDrawerOverlay" onclick="closePfMatchDrawer()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.3);z-index:301"></div>
+      <div id="pfMatchDrawer" style="display:none;position:fixed;top:0;right:0;bottom:0;width:480px;background:#fff;box-shadow:-4px 0 24px rgba(0,0,0,0.12);z-index:302;flex-direction:column">
+        <div style="padding:16px 20px;border-bottom:1px solid #E5E7EB;display:flex;align-items:center;justify-content:space-between">
+          <h3 style="font-size:15px;font-weight:600;margin:0" id="pfDrawerTitle">设置匹配关系</h3>
+          <button onclick="closePfMatchDrawer()" style="background:none;border:none;font-size:18px;cursor:pointer;color:#6B7280">✕</button>
+        </div>
+        <div style="flex:1;overflow-y:auto;padding:20px">
+          <div style="margin-bottom:14px">
+            <div style="font-size:12px;color:#6B7280;margin-bottom:4px">评估项目</div>
+            <div id="pfDrawerItemName" style="font-size:14px;font-weight:600;padding:8px 12px;background:#F9FAFB;border-radius:8px"></div>
+            <div id="pfDrawerItemDesc" style="font-size:12px;color:#9CA3AF;padding:4px 12px 0;line-height:1.5;display:none"></div>
+          </div>
+          <div style="margin-bottom:6px">
+            <label style="font-size:13px;color:#6B7280;display:block;margin-bottom:6px">搜索干预目标</label>
+            <div style="position:relative">
+              <input type="text" id="pfDrawerSearch" maxlength="50" placeholder="输入关键词搜索..." oninput="onDrawerSearchInput()" style="width:100%;height:36px;border:1px solid #D1D5DB;border-radius:8px;padding:0 36px 0 12px;font-size:14px;outline:none;font-family:inherit">
+              <button id="pfDrawerClearBtn" onclick="clearDrawerSearch()" style="display:none;position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#9CA3AF;font-size:16px;padding:2px;line-height:1">✕</button>
+            </div>
+          </div>
+          <div id="pfDrawerProjectList" style="max-height:260px;overflow-y:auto;border:1px solid #E5E7EB;border-radius:8px;margin-bottom:14px"></div>
+          <div style="margin-bottom:14px">
+            <label style="font-size:13px;color:#6B7280;display:block;margin-bottom:6px">已选干预目标</label>
+            <div id="pfDrawerSelected" style="font-size:14px;font-weight:500;color:var(--color-primary);padding:8px 12px;background:var(--color-primary-light);border-radius:8px;min-height:36px;display:flex;flex-wrap:wrap;gap:6px">未选择</div>
+          </div>
+        </div>
+        <div style="padding:14px 20px;border-top:1px solid #E5E7EB;display:flex;gap:8px;justify-content:flex-end">
+          <button onclick="closePfMatchDrawer()" style="padding:8px 20px;border:1px solid #D1D5DB;border-radius:8px;background:#fff;cursor:pointer;font-size:14px;font-family:inherit">取消</button>
+          <button onclick="savePfMatchDrawer()" style="padding:8px 20px;border:none;border-radius:8px;background:#7C3AED;color:#fff;cursor:pointer;font-size:14px;font-family:inherit">保存</button>
+        </div>
+      </div>
     </div>
 
     <!-- 编辑遮罩层 -->
@@ -1900,9 +1998,16 @@ function openPacketFullscreen(packetId) {
   const b = bindings[packetId] || { enabled: false, mode: 1, matchRule: getDefaultMatchRule(), matches: {} };
 
   document.getElementById('pfTitle').textContent = packet.name;
-  document.getElementById('pfBrief').textContent = packet.brief;
   document.getElementById('pfToggle').checked = b.enabled;
   document.getElementById('pfToggleLabel').textContent = b.enabled ? '已启用' : '已关闭';
+  // 设置关联备注
+  const tools = loadTools();
+  const tool = tools.find(t => t.id === currentToolId);
+  const noteEl = document.getElementById('pfAssocNote');
+  if (noteEl && tool) {
+    noteEl.textContent = '评估工具「' + tool.name + '」↔ 课包「' + packet.name + '」';
+    noteEl.style.display = 'inline-block';
+  }
   document.getElementById('packetFullscreen').style.display = 'flex';
 
   renderPacketBody(b);
@@ -1915,23 +2020,38 @@ function closePacketFullscreen() {
 }
 
 function onPacketToggle(checked) {
-  document.getElementById('pfToggleLabel').textContent = checked ? '已启用' : '已关闭';
-  const bindings = getPacketBindings();
-  if (!bindings[currentPacketId]) bindings[currentPacketId] = { enabled: false, mode: 1, matchRule: getDefaultMatchRule(), matches: {} };
-  bindings[currentPacketId].enabled = checked;
-  savePacketBindings(bindings);
-  showToast(checked ? '已启用该课包关联' : '已关闭该课包关联');
+  // 先恢复原状态，等确认后再切换
+  const toggleEl = document.getElementById('pfToggle');
+  toggleEl.checked = !checked;
+  document.getElementById('pfToggleLabel').textContent = !checked ? '已启用' : '已关闭';
+
+  const action = checked ? '启用' : '关闭';
+  const packet = COURSE_PACKETS.find(p => p.id === currentPacketId);
+  const packetName = packet ? packet.name : '';
+
+  showModeConfirm(action + '课包关联', `确定要${action}「${packetName}」的干预目标关联吗？`, function() {
+    toggleEl.checked = checked;
+    document.getElementById('pfToggleLabel').textContent = checked ? '已启用' : '已关闭';
+    const bindings = getPacketBindings();
+    if (!bindings[currentPacketId]) bindings[currentPacketId] = { enabled: false, mode: 1, matchRule: getDefaultMatchRule(), matches: {} };
+    bindings[currentPacketId].enabled = checked;
+    savePacketBindings(bindings);
+    showToast(checked ? '已启用该课包关联' : '已关闭该课包关联');
+  });
 }
+
+let pfCurrentDomainKey = null; // 当前选中的左侧树领域
 
 function renderPacketBody(binding) {
   const body = document.getElementById('pfBody');
   const mode = binding.mode || 1;
+  document.getElementById('pfMatchProgress').style.display = mode === 1 ? 'inline' : 'none';
   body.innerHTML = `
     <div class="pf-mode-group">
       <div class="pf-mode-card ${mode === 1 ? 'active' : ''}" onclick="switchPacketMode(1)">
         <span class="mode-radio"></span>
         <span class="pf-mode-title">预设匹配</span>
-        <div class="pf-mode-desc">每个评估项目和课包内干预项目做一对一匹配，可手动编辑或AI自动匹配</div>
+        <div class="pf-mode-desc">每个评估项目和课包内干预项目做匹配，可手动编辑或AI自动匹配</div>
       </div>
       <div class="pf-mode-card ${mode === 2 ? 'active' : ''}" onclick="switchPacketMode(2)">
         <span class="mode-radio"></span>
@@ -1947,10 +2067,70 @@ function renderPacketBody(binding) {
 
 function switchPacketMode(mode) {
   const bindings = getPacketBindings();
-  if (!bindings[currentPacketId]) bindings[currentPacketId] = { enabled: false, mode: 1, matchRule: getDefaultMatchRule(), matches: {} };
+  const b = bindings[currentPacketId] || {};
+  if (b.mode === mode) return; // 已经是当前模式
+  const hasData = b.mode === 1
+    ? Object.keys(b.matches || {}).length > 0
+    : (b.matchRule || '').trim().length > 0;
+  if (hasData) {
+    showModeConfirm('切换匹配模式', '切换模式后，当前模式下的配置数据将保留但不会生效。确定切换？', function() {
+      doSwitchPacketMode(mode);
+    });
+  } else {
+    doSwitchPacketMode(mode);
+  }
+}
+function doSwitchPacketMode(mode) {
+  const bindings = getPacketBindings();
+  if (!bindings[currentPacketId]) bindings[currentPacketId] = { enabled: false, mode: 1, matchRule: getDefaultMatchRule(), matches: {}, presetSubMode: 'item' };
   bindings[currentPacketId].mode = mode;
   savePacketBindings(bindings);
   renderPacketBody(bindings[currentPacketId]);
+}
+
+function switchPresetSubMode(subMode) {
+  const bindings = getPacketBindings();
+  const b = bindings[currentPacketId] || {};
+  if ((b.presetSubMode || 'item') === subMode) return;
+  const questions = getAllAssessmentQuestions();
+  const currentSubMode = b.presetSubMode || 'item';
+  const hasData = countMatched(b.matches || {}, questions, currentSubMode) > 0;
+  if (hasData) {
+    showModeConfirm('切换子模式', '切换子模式后，当前的匹配数据将被清空。确定切换？', function() {
+      doSwitchPresetSubMode(subMode);
+    });
+  } else {
+    doSwitchPresetSubMode(subMode);
+  }
+}
+function doSwitchPresetSubMode(subMode) {
+  const bindings = getPacketBindings();
+  if (!bindings[currentPacketId]) bindings[currentPacketId] = { enabled: false, mode: 1, matchRule: getDefaultMatchRule(), matches: {}, presetSubMode: 'item' };
+  bindings[currentPacketId].presetSubMode = subMode;
+  bindings[currentPacketId].matches = {}; // 清空匹配数据
+  savePacketBindings(bindings);
+  renderPresetMatch(bindings[currentPacketId]);
+}
+
+function showModeConfirm(title, message, onConfirm) {
+  const existing = document.getElementById('pfModeConfirmModal');
+  if (existing) existing.remove();
+  const modal = document.createElement('div');
+  modal.id = 'pfModeConfirmModal';
+  modal.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:310;display:flex;align-items:center;justify-content:center';
+  modal.innerHTML = `<div style="background:#fff;border-radius:12px;padding:24px;width:400px">
+    <h3 style="font-size:16px;font-weight:600;margin-bottom:12px">${title}</h3>
+    <p style="font-size:14px;color:#6B7280;margin-bottom:20px;line-height:1.6">${message}</p>
+    <div style="display:flex;gap:8px;justify-content:flex-end">
+      <button onclick="document.getElementById('pfModeConfirmModal').remove()" style="padding:8px 20px;border:1px solid #D1D5DB;border-radius:8px;background:#fff;cursor:pointer;font-size:14px;font-family:inherit">取消</button>
+      <button id="pfModeConfirmBtn" style="padding:8px 20px;border:none;border-radius:8px;background:#7C3AED;color:#fff;cursor:pointer;font-size:14px;font-family:inherit">确定</button>
+    </div>
+  </div>`;
+  document.body.appendChild(modal);
+  document.getElementById('pfModeConfirmBtn').onclick = function() {
+    document.getElementById('pfModeConfirmModal').remove();
+    onConfirm();
+  };
 }
 
 function getAllAssessmentQuestions() {
@@ -1958,53 +2138,429 @@ function getAllAssessmentQuestions() {
   const result = [];
   Object.keys(config).forEach(dk => {
     const parts = dk.split('__');
+    const group = parts[0] || '默认';
     const domain = parts[1] || parts[0];
     const questions = config[dk] || [];
     questions.forEach(q => {
-      result.push({ id: q.id, number: q.number, itemName: q.itemName, domain: domain, domainKey: dk });
+      result.push({ id: q.id, number: q.number, itemName: q.itemName, desc: q.desc || '', domain: domain, group: group, domainKey: dk, scores: q.scores || [] });
     });
   });
   return result;
 }
 
-function renderPresetMatch(binding) {
-  const container = document.getElementById('pfModeContent');
+/* 获取按 group→domain 分组的结构 */
+function getGroupedQuestions() {
+  const questions = getAllAssessmentQuestions();
+  const grouped = {};
+  const groupOrder = [];
+  questions.forEach(q => {
+    const gk = q.group + '__' + q.domain;
+    if (!grouped[gk]) {
+      grouped[gk] = { group: q.group, domain: q.domain, domainKey: q.domainKey, questions: [] };
+      groupOrder.push(gk);
+    }
+    grouped[gk].questions.push(q);
+  });
+  return { grouped, groupOrder, questions };
+}
+
+/* 干预目标假数据库（供搜索选择） */
+const INTERVENTION_DB = [
+  { id:'iv_1', name:'多种基本姿势', territory:'动作发展', subdomain:'粗大动作', stages:['可以做出各种基本姿势'] },
+  { id:'iv_2', name:'爬台阶', territory:'动作发展', subdomain:'粗大动作', stages:['扶着栏杆上台阶','独自走台阶'] },
+  { id:'iv_3', name:'走台阶', territory:'动作发展', subdomain:'粗大动作', stages:['扶着栏杆上台阶','大人领着走下台阶','独自走台阶'] },
+  { id:'iv_4', name:'平衡训练', territory:'动作发展', subdomain:'粗大动作', stages:['扶持下站立','独立站立5秒','单脚站立'] },
+  { id:'iv_5', name:'简单的摆弄物品', territory:'动作发展', subdomain:'精细动作', stages:['做出简单摆弄物品的多种动作'] },
+  { id:'iv_6', name:'随意涂鸦', territory:'动作发展', subdomain:'精细动作', stages:['涂鸦并能有意识停下'] },
+  { id:'iv_7', name:'叠搭积木', territory:'动作发展', subdomain:'精细动作', stages:['搭高至少3块积木','搭高至少6块积木'] },
+  { id:'iv_8', name:'学用剪刀', territory:'动作发展', subdomain:'精细动作', stages:['可以用剪刀把纸减成两部分'] },
+  { id:'iv_9', name:'基础仿画', territory:'动作发展', subdomain:'精细动作', stages:['仿画线条','仿画图形'] },
+  { id:'iv_10', name:'穿珠训练', territory:'动作发展', subdomain:'精细动作', stages:['大珠穿绳','小珠穿绳','按颜色穿珠'] },
+  { id:'iv_11', name:'步骤指令理解', territory:'沟通', subdomain:'语言理解', stages:['一步指令','两步指令','三步指令'] },
+  { id:'iv_12', name:'名词理解：常见物', territory:'沟通', subdomain:'语言理解', stages:['辨认常见物20种','辨认常见物40种','辨认常见物60种'] },
+  { id:'iv_13', name:'仿说', territory:'沟通', subdomain:'语言表达', stages:['仿说单韵母','仿说复韵母','仿说词组','仿说短句'] },
+  { id:'iv_14', name:'提要求-手势', territory:'沟通', subdomain:'语言表达', stages:['伸手要求物品','手指指向物品','肢体动作要求'] },
+  { id:'iv_15', name:'提要求-口语', territory:'沟通', subdomain:'语言表达', stages:['单字词要求','双词组要求','句子要求'] },
+  { id:'iv_16', name:'名词表达：常见物', territory:'沟通', subdomain:'语言表达', stages:['命名20种','命名40种','命名60种'] },
+  { id:'iv_17', name:'声母b', territory:'发音', subdomain:'构音', stages:['能正确发出声母/b/'] },
+  { id:'iv_18', name:'韵母a', territory:'发音', subdomain:'韵母', stages:['控制下颌保持开位','诱导发/a/音'] },
+  { id:'iv_19', name:'感官游戏', territory:'游戏', subdomain:'游戏技能', stages:['累积感官游戏10种'] },
+  { id:'iv_20', name:'功能性玩法', territory:'游戏', subdomain:'游戏技能', stages:['单一操作','两步操作','三步及以上操作'] },
+  { id:'iv_21', name:'平行游戏', territory:'游戏', subdomain:'社会性游戏', stages:['各自玩各自喜欢的游戏','玩同样的游戏'] },
+  { id:'iv_22', name:'回应互联注意', territory:'社交情绪', subdomain:'社交基础', stages:['互动时看向他人展示的物品'] },
+  { id:'iv_23', name:'获取他人注意', territory:'社交情绪', subdomain:'互联注意', stages:['个人需求时获取注意','社会性需求时获取注意'] },
+  { id:'iv_24', name:'轮流', territory:'社交情绪', subdomain:'社交规则', stages:['2人轮流静态','2人轮流动态','多人轮流'] },
+  { id:'iv_25', name:'识别基础情绪', territory:'社交情绪', subdomain:'情绪', stages:['识别面部表情图卡','识别情景情绪图卡','识别真实情景情绪'] },
+  { id:'iv_26', name:'寻找隐藏物品', territory:'认知', subdomain:'物体恒存', stages:['当面隐藏','部分隐藏','全部隐藏'] },
+  { id:'iv_27', name:'视觉专注', territory:'认知', subdomain:'视觉', stages:['描述下注视物品','注视物品','注视简单图片','注视复杂图片'] },
+  { id:'iv_28', name:'物品操作模仿', territory:'认知', subdomain:'模仿', stages:['一步模仿','两步模仿','三步模仿','同步模仿'] },
+  { id:'iv_29', name:'相同配对', territory:'认知', subdomain:'配对', stages:['物品配物品','卡片配卡片','物品配卡片'] },
+  { id:'iv_30', name:'进食：使用叉子', territory:'生活自理', subdomain:'进食穿衣', stages:['叉2种食物','叉4种食物','独立使用叉子进食'] },
+  { id:'iv_31', name:'配合度', territory:'学习行为', subdomain:'个训行为', stages:['40次练习机会','20次练习机会','随机'] },
+  { id:'iv_32', name:'等待', territory:'学习行为', subdomain:'个训行为', stages:['计时器下1-3min','无计时器1-3min','中性活动3-5min'] },
+  { id:'iv_33', name:'口腔肌肉-吹气训练', territory:'发音', subdomain:'口腔肌肉', stages:['辅助下吹气','独立吹泡泡','持续吹气5秒'] },
+  { id:'iv_34', name:'颜色辨识', territory:'认知', subdomain:'配对', stages:['配对颜色','指认颜色','命名颜色'] },
+  { id:'iv_35', name:'眼神接触', territory:'社交情绪', subdomain:'社交基础', stages:['呼名应答','对视3秒','互动中保持眼神'] }
+];
+
+let pfDrawerQId = null;
+let pfDrawerSelectedProjects = []; // 多选
+
+/* 计算匹配数量（兼容新旧数据格式） */
+function countMatched(matches, questions, subMode) {
+  if (!matches) return 0;
+  return questions.filter(q => {
+    const m = matches[q.id];
+    if (!m) return false;
+    if (subMode === 'score') {
+      if (!m.scoreTargets) return false;
+      // 所有评分等级都配置了才算已匹配
+      const scores = q.scores && q.scores.length > 0 ? q.scores : [{ value: 2 }, { value: 1 }, { value: 0 }];
+      return scores.every(s => {
+        const arr = m.scoreTargets[String(s.value)];
+        return arr && arr.length > 0;
+      });
+    }
+    return m.targets && m.targets.length > 0;
+  }).length;
+}
+
+function updateMatchProgress(binding) {
   const questions = getAllAssessmentQuestions();
   const matches = binding.matches || {};
+  const subMode = binding.presetSubMode || 'item';
+  const matched = countMatched(matches, questions, subMode);
+  const total = questions.length;
+  const el = document.getElementById('pfMatchProgress');
+  if (el) {
+    el.style.display = 'inline';
+    document.getElementById('pfMatchedCount').textContent = matched;
+    document.getElementById('pfTotalCount').textContent = total;
+  }
+}
 
-  let tableRows = '';
-  let lastDomain = '';
-  questions.forEach(q => {
-    const m = matches[q.id];
-    const domainTag = q.domain !== lastDomain ? `<span class="pf-match-domain">${q.domain}</span>` : '';
-    lastDomain = q.domain;
-    const targetCell = m && m.projectName
-      ? `<span class="pf-match-target">${m.projectName}</span>
-         <div class="pf-match-stages">${(m.stages || []).map(s => `<span>${s}</span>`).join('')}</div>`
-      : `<span class="pf-match-unmatched">未匹配</span>`;
-    const actionsCell = m && m.projectName
-      ? `<span class="pf-match-actions"><a class="edit-link" onclick="editPacketMatch('${q.id}')">编辑</a><a class="delete-link" onclick="deletePacketMatch('${q.id}')">删除</a></span>`
-      : `<span class="pf-match-actions"><a class="edit-link" onclick="editPacketMatch('${q.id}')">设置</a></span>`;
-    tableRows += `<tr>
-      <td>${domainTag}${q.number}</td>
-      <td>${q.itemName || ''}</td>
-      <td>${targetCell}</td>
-      <td>${actionsCell}</td>
-    </tr>`;
+function renderPresetMatch(binding) {
+  const container = document.getElementById('pfModeContent');
+  const subMode = binding.presetSubMode || 'item';
+  const matches = binding.matches || {};
+  const { grouped, groupOrder, questions } = getGroupedQuestions();
+
+  updateMatchProgress(binding);
+
+  const aiSvg = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><circle cx="9.5" cy="14" r="1.5"/><circle cx="14.5" cy="14" r="1.5"/><path d="M9 18h6"/><path d="M12 2v4"/><circle cx="12" cy="2" r="1"/><path d="M2 14h2"/><path d="M20 14h2"/></svg>';
+
+  // 子模式切换
+  const subModeHtml = `<div class="pf-sub-mode">
+    <button class="pf-sub-mode-pill ${subMode === 'item' ? 'active' : ''}" onclick="switchPresetSubMode('item')">评估项目匹配</button>
+    <button class="pf-sub-mode-pill ${subMode === 'score' ? 'active' : ''}" onclick="switchPresetSubMode('score')">评估分数匹配</button>
+    <div style="margin-left:auto;display:flex;gap:8px"><button class="pf-ai-btn" style="background:#fff;color:var(--color-text-primary);border:1px solid var(--color-border-input)" onclick="exportPacketBindings()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> 导出关联表</button><button class="pf-ai-btn" id="aiMatchBtn" onclick="confirmAiAutoMatch()">${aiSvg} AI自动匹配</button></div>
+  </div>`;
+
+  // 构建左侧树
+  let treeHtml = '';
+  const groupMap = {};
+  groupOrder.forEach(gk => {
+    const g = grouped[gk];
+    if (!groupMap[g.group]) groupMap[g.group] = [];
+    groupMap[g.group].push(g);
   });
 
-  container.innerHTML = `
-    <div class="pf-match-header">
-      <h4>评估项目 → 干预目标匹配 (${questions.length}项)</h4>
-      <button class="pf-ai-btn" id="aiMatchBtn" onclick="aiAutoMatch()">🤖 AI自动匹配</button>
+  Object.entries(groupMap).forEach(([groupName, domains]) => {
+    treeHtml += `<div class="pf-tree-group">
+      <div class="pf-tree-group-title" onclick="togglePfTreeGroup(this)">
+        <span class="arrow">▼</span>${groupName}
+      </div>
+      <div class="pf-tree-children">`;
+    domains.forEach(d => {
+      const dQuestions = d.questions;
+      const dMatched = countMatched(matches, dQuestions, subMode);
+      const dTotal = dQuestions.length;
+      const dk = d.group + '__' + d.domain;
+      const isActive = pfCurrentDomainKey === dk;
+      const statsColor = dMatched === dTotal && dTotal > 0 ? 'color:var(--color-success)' : dMatched > 0 ? 'color:var(--color-primary)' : '';
+      treeHtml += `<div class="pf-tree-item${isActive ? ' active' : ''}" onclick="selectPfTreeDomain('${dk}')">
+        <div class="pf-tree-item-label"><span class="dot"></span><span>${d.domain}</span></div>
+        <span class="pf-tree-item-stats" style="${statsColor}">${dMatched}/${dTotal}</span>
+      </div>`;
+    });
+    treeHtml += `</div></div>`;
+  });
+
+  // 如果没有选中领域，默认选第一个
+  if (!pfCurrentDomainKey && groupOrder.length > 0) {
+    pfCurrentDomainKey = groupOrder[0];
+  }
+
+  container.innerHTML = `${subModeHtml}
+    <div class="pf-split-layout">
+      <div class="pf-tree-panel">
+        <div class="pf-tree-panel-header">评估领域</div>
+        <div class="pf-tree-panel-body">${treeHtml || '<div style="padding:20px;text-align:center;color:#9CA3AF;font-size:13px">暂无领域数据</div>'}</div>
+      </div>
+      <div class="pf-detail-panel">
+        <div class="pf-detail-header" id="pfDetailHeader"></div>
+        <div class="pf-detail-body" id="pfDetailBody"></div>
+      </div>
+    </div>`;
+
+  renderPfDetailPanel(binding);
+}
+
+function togglePfTreeGroup(el) {
+  el.classList.toggle('collapsed');
+  const children = el.nextElementSibling;
+  if (children) children.classList.toggle('hidden');
+}
+
+function selectPfTreeDomain(dk) {
+  pfCurrentDomainKey = dk;
+  const bindings = getPacketBindings();
+  const b = bindings[currentPacketId] || {};
+  // 只刷新树的 active 状态和右侧面板
+  document.querySelectorAll('.pf-tree-item').forEach(el => {
+    const elDk = el.getAttribute('onclick').match(/'([^']+)'/);
+    if (elDk && elDk[1] === dk) el.classList.add('active');
+    else el.classList.remove('active');
+  });
+  renderPfDetailPanel(b);
+}
+
+function renderPfDetailPanel(binding) {
+  const headerEl = document.getElementById('pfDetailHeader');
+  const bodyEl = document.getElementById('pfDetailBody');
+  if (!headerEl || !bodyEl) return;
+
+  const subMode = binding.presetSubMode || 'item';
+  const matches = binding.matches || {};
+  const { grouped } = getGroupedQuestions();
+
+  if (!pfCurrentDomainKey || !grouped[pfCurrentDomainKey]) {
+    headerEl.innerHTML = '';
+    bodyEl.innerHTML = '<div class="pf-empty-detail"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#D1D5DB" stroke-width="1.5"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg><span>请在左侧选择一个评估领域</span></div>';
+    return;
+  }
+
+  const domainData = grouped[pfCurrentDomainKey];
+  const dQuestions = domainData.questions;
+  const dMatched = countMatched(matches, dQuestions, subMode);
+  const dTotal = dQuestions.length;
+
+  headerEl.innerHTML = `<div class="pf-q-row" style="padding-top:0;padding-bottom:0;border-bottom:none;background:none;align-items:center;height:100%">
+    <div class="pf-q-number" style="color:var(--color-text-primary);font-weight:600;font-size:13px">题号</div>
+    <div class="pf-q-info" style="font-weight:600;font-size:13px;color:var(--color-text-primary)">评估项目</div>
+    <div class="pf-q-target-wrap" style="font-weight:600;font-size:13px;color:var(--color-text-primary)">匹配的干预目标</div>
+    <div class="pf-q-actions" style="font-weight:600;font-size:13px;color:var(--color-text-primary);min-width:70px;justify-content:center">操作</div>
+  </div>`;
+
+  if (dQuestions.length === 0) {
+    bodyEl.innerHTML = '<div class="pf-empty-detail"><span>该领域暂无评估项目</span></div>';
+    return;
+  }
+
+  let rowsHtml = '';
+  dQuestions.forEach(q => {
+    const m = matches[q.id];
+    if (subMode === 'item') {
+      rowsHtml += renderItemRow(q, m);
+    } else {
+      rowsHtml += renderScoreItemRow(q, m);
+    }
+  });
+
+  bodyEl.innerHTML = rowsHtml;
+}
+
+/* 评估项目匹配模式 — 单行 */
+function renderItemRow(q, m) {
+  const hasTargets = m && m.targets && m.targets.length > 0;
+  let targetHtml = '';
+  if (hasTargets) {
+    targetHtml = `<div class="pf-multi-targets">${m.targets.map(t => {
+      const iv = INTERVENTION_DB.find(x => x.name === t.projectName);
+      const terr = iv ? iv.territory : '';
+      const sub = iv ? iv.subdomain : '';
+      return `<div class="pf-target-tag">
+        <span class="tag-name">${t.projectName}</span>
+        ${terr ? `<div style="display:flex;gap:3px;margin-top:2px"><span style="font-size:10px;background:var(--color-primary-light);color:var(--color-primary);padding:1px 6px;border-radius:3px">${terr}</span><span style="font-size:10px;background:#FFF7ED;color:#EA580C;padding:1px 6px;border-radius:3px">${sub}</span></div>` : ''}
+      </div>`;
+    }).join('')}</div>`;
+  } else {
+    targetHtml = '<div class="pf-q-unmatched">未匹配</div>';
+  }
+
+  const actions = hasTargets
+    ? `<a class="edit-link" onclick="openPfMatchDrawer('${q.id}')">编辑</a><a class="delete-link" onclick="deletePacketMatch('${q.id}')">删除</a>`
+    : `<a class="edit-link" onclick="openPfMatchDrawer('${q.id}')">设置</a>`;
+
+  return `<div class="pf-q-row">
+    <div class="pf-q-number">${q.number}</div>
+    <div class="pf-q-info">
+      <div class="pf-q-title">${q.itemName || ''}</div>
+      ${q.desc ? `<div class="pf-q-desc" title="${q.desc}">${q.desc}</div>` : ''}
     </div>
-    <div style="overflow-x:auto;border:1px solid var(--color-border);border-radius:var(--radius-md)">
-      <table class="pf-match-table">
-        <thead><tr><th style="width:80px">题号</th><th style="width:180px">评估项目</th><th>匹配的干预目标</th><th style="width:90px">操作</th></tr></thead>
-        <tbody>${tableRows || '<tr><td colspan="4" style="text-align:center;color:#9CA3AF;padding:40px">暂无评估项目数据</td></tr>'}</tbody>
-      </table>
+    <div class="pf-q-target-wrap">${targetHtml}</div>
+    <div class="pf-q-actions">${actions}</div>
+  </div>`;
+}
+
+/* 评估分数匹配模式 — 项目行 + 评分子行 */
+function renderScoreItemRow(q, m) {
+  const scores = q.scores || [];
+  const scoreTargets = (m && m.scoreTargets) || {};
+  const scoreKeys = scores.length > 0 ? scores.map(s => String(s.value)) : ['2', '1', '0'];
+  const allConfigured = scoreKeys.every(sv => scoreTargets[sv] && scoreTargets[sv].length > 0);
+  const hasAny = Object.values(scoreTargets).some(arr => arr && arr.length > 0);
+
+  let mainRow = `<div class="pf-q-row" style="border-bottom:none;padding-bottom:4px">
+    <div class="pf-q-number">${q.number}</div>
+    <div class="pf-q-info">
+      <div class="pf-q-title">${q.itemName || ''}</div>
+      ${q.desc ? `<div class="pf-q-desc" title="${q.desc}">${q.desc}</div>` : ''}
     </div>
-  `;
+    <div class="pf-q-target-wrap">${allConfigured ? '<span style="font-size:12px;color:var(--color-success)">已配置</span>' : hasAny ? '<span style="font-size:12px;color:var(--color-warning)">部分配置</span>' : '<span class="pf-q-unmatched">未配置</span>'}</div>
+    <div class="pf-q-actions"></div>
+  </div>`;
+
+  let scoreRows = '';
+  if (scores.length > 0) {
+    scores.forEach(s => {
+      const sv = String(s.value);
+      const targets = scoreTargets[sv] || [];
+      const scoreClass = s.value >= 2 ? 'score-high' : s.value === 1 ? 'score-mid' : 'score-low';
+      let targetHtml = '';
+      if (targets.length > 0) {
+        targetHtml = `<div class="pf-multi-targets">${targets.map(t => {
+          const iv = INTERVENTION_DB.find(x => x.name === t.projectName);
+          const terr = iv ? iv.territory : '';
+          const sub = iv ? iv.subdomain : '';
+          return `<div class="pf-target-tag">
+            <span class="tag-name">${t.projectName}</span>
+            ${terr ? `<div style="display:flex;gap:3px;margin-top:2px"><span style="font-size:10px;background:var(--color-primary-light);color:var(--color-primary);padding:1px 6px;border-radius:3px">${terr}</span><span style="font-size:10px;background:#FFF7ED;color:#EA580C;padding:1px 6px;border-radius:3px">${sub}</span></div>` : ''}
+          </div>`;
+        }).join('')}</div>`;
+      } else {
+        targetHtml = '<div class="pf-q-unmatched">未匹配</div>';
+      }
+      const actions = targets.length > 0
+        ? `<a class="edit-link" onclick="openPfMatchDrawer('${q.id}','${sv}')">编辑</a><a class="delete-link" onclick="deletePacketMatch('${q.id}','${sv}')">删除</a>`
+        : `<a class="edit-link" onclick="openPfMatchDrawer('${q.id}','${sv}')">设置</a>`;
+      scoreRows += `<div class="pf-score-row">
+        <div class="pf-q-number" style="visibility:hidden">0</div>
+        <div class="pf-q-info"><span class="pf-score-label ${scoreClass}">${s.value}分 ${s.label || ''}</span></div>
+        <div class="pf-q-target-wrap">${targetHtml}</div>
+        <div class="pf-q-actions">${actions}</div>
+      </div>`;
+    });
+  } else {
+    // 没有评分结构，显示默认 2/1/0
+    [{ v: '2', l: '通过', c: 'score-high' }, { v: '1', l: '部分', c: 'score-mid' }, { v: '0', l: '未通过', c: 'score-low' }].forEach(s => {
+      const targets = scoreTargets[s.v] || [];
+      let targetHtml = targets.length > 0
+        ? `<div class="pf-multi-targets">${targets.map(t => { const iv = INTERVENTION_DB.find(x => x.name === t.projectName); const terr = iv ? iv.territory : ''; const sub = iv ? iv.subdomain : ''; return `<div class="pf-target-tag"><span class="tag-name">${t.projectName}</span>${terr ? '<div style="display:flex;gap:3px;margin-top:2px"><span style="font-size:10px;background:var(--color-primary-light);color:var(--color-primary);padding:1px 6px;border-radius:3px">' + terr + '</span><span style="font-size:10px;background:#FFF7ED;color:#EA580C;padding:1px 6px;border-radius:3px">' + sub + '</span></div>' : ''}</div>`; }).join('')}</div>`
+        : '<div class="pf-q-unmatched">未匹配</div>';
+      const actions = targets.length > 0
+        ? `<a class="edit-link" onclick="openPfMatchDrawer('${q.id}','${s.v}')">编辑</a><a class="delete-link" onclick="deletePacketMatch('${q.id}','${s.v}')">删除</a>`
+        : `<a class="edit-link" onclick="openPfMatchDrawer('${q.id}','${s.v}')">设置</a>`;
+      scoreRows += `<div class="pf-score-row">
+        <div class="pf-q-number" style="visibility:hidden">0</div>
+        <div class="pf-q-info"><span class="pf-score-label ${s.c}">${s.v}分 ${s.l}</span></div>
+        <div class="pf-q-target-wrap">${targetHtml}</div>
+        <div class="pf-q-actions">${actions}</div>
+      </div>`;
+    });
+  }
+
+  return mainRow + scoreRows;
+}
+
+/* 导出关联表为CSV */
+function exportPacketBindings() {
+  const bindings = getPacketBindings();
+  const b = bindings[currentPacketId] || {};
+  const subMode = b.presetSubMode || 'item';
+  const matches = b.matches || {};
+  const questions = getAllAssessmentQuestions();
+  const packet = COURSE_PACKETS.find(p => p.id === currentPacketId);
+  const packetName = packet ? packet.name : '';
+
+  const header = ['"评估项目题号"','"评估项目"','"评估项目描述"','"评估项目评分"','"评估项目评分标签"','"关联干预项目ID"','"关联干预项目"','"关联干预项目大领域"','"关联干预项目子领域"'];
+  const rows = [header.join(',')];
+
+  function escCsv(v) { return '"' + String(v || '').replace(/"/g, '""') + '"'; }
+
+  questions.forEach(q => {
+    const m = matches[q.id];
+    if (subMode === 'score') {
+      // 评估分数匹配：每个评分等级展开
+      const scores = q.scores && q.scores.length > 0 ? q.scores : [{ value: 2, label: '通过' }, { value: 1, label: '萌芽' }, { value: 0, label: '不通过' }];
+      scores.forEach(s => {
+        const sv = String(s.value);
+        const targets = (m && m.scoreTargets && m.scoreTargets[sv]) || [];
+        if (targets.length > 0) {
+          targets.forEach(t => {
+            const iv = INTERVENTION_DB.find(x => x.name === t.projectName);
+            rows.push([escCsv(q.number), escCsv(q.itemName), escCsv(q.desc), escCsv(s.value), escCsv(s.label || ''), escCsv(iv ? iv.id : ''), escCsv(t.projectName), escCsv(iv ? iv.territory : ''), escCsv(iv ? iv.subdomain : '')].join(','));
+          });
+        } else {
+          rows.push([escCsv(q.number), escCsv(q.itemName), escCsv(q.desc), escCsv(s.value), escCsv(s.label || ''), '""', '""', '""', '""'].join(','));
+        }
+      });
+    } else {
+      // 评估项目匹配：每个关联目标一行
+      const targets = (m && m.targets) || [];
+      if (targets.length > 0) {
+        targets.forEach(t => {
+          const iv = INTERVENTION_DB.find(x => x.name === t.projectName);
+          rows.push([escCsv(q.number), escCsv(q.itemName), escCsv(q.desc), '""', '""', escCsv(iv ? iv.id : ''), escCsv(t.projectName), escCsv(iv ? iv.territory : ''), escCsv(iv ? iv.subdomain : '')].join(','));
+        });
+      } else {
+        rows.push([escCsv(q.number), escCsv(q.itemName), escCsv(q.desc), '""', '""', '""', '""', '""', '""'].join(','));
+      }
+    }
+  });
+
+  const csv = '\ufeff' + rows.join('\n');
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  const tools = loadTools();
+  const tool = tools.find(t => t.id === currentToolId);
+  const toolName = tool ? tool.name : currentToolId;
+  a.download = toolName + '_' + packetName + '_关联表.csv';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showToast('关联表已导出');
+}
+
+/* AI自动匹配 — 先弹确认 */
+function confirmAiAutoMatch() {
+  const bindings = getPacketBindings();
+  const b = bindings[currentPacketId] || {};
+  const subMode = b.presetSubMode || 'item';
+  const questions = getAllAssessmentQuestions();
+  const existingCount = countMatched(b.matches || {}, questions, subMode);
+
+  if (existingCount > 0) {
+    const existing = document.getElementById('aiMatchConfirmModal');
+    if (existing) existing.remove();
+    const modal = document.createElement('div');
+    modal.id = 'aiMatchConfirmModal';
+    modal.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:310;display:flex;align-items:center;justify-content:center';
+    modal.innerHTML = `<div style="background:#fff;border-radius:12px;padding:24px;width:400px">
+      <h3 style="font-size:16px;font-weight:600;margin-bottom:12px">AI自动匹配</h3>
+      <p style="font-size:14px;color:#6B7280;margin-bottom:20px;line-height:1.6">当前已有 <strong>${existingCount}</strong> 条匹配关系，AI自动匹配将<strong>清空所有已有匹配</strong>并重新生成。确定继续？</p>
+      <div style="display:flex;gap:8px;justify-content:flex-end">
+        <button onclick="document.getElementById('aiMatchConfirmModal').remove()" style="padding:8px 20px;border:1px solid #D1D5DB;border-radius:8px;background:#fff;cursor:pointer;font-size:14px;font-family:inherit">取消</button>
+        <button onclick="document.getElementById('aiMatchConfirmModal').remove();aiAutoMatch()" style="padding:8px 20px;border:none;border-radius:8px;background:#7C3AED;color:#fff;cursor:pointer;font-size:14px;font-family:inherit">确定匹配</button>
+      </div>
+    </div>`;
+    document.body.appendChild(modal);
+  } else {
+    aiAutoMatch();
+  }
 }
 
 function aiAutoMatch() {
@@ -2014,104 +2570,299 @@ function aiAutoMatch() {
 
   setTimeout(() => {
     const bindings = getPacketBindings();
-    if (!bindings[currentPacketId]) bindings[currentPacketId] = { enabled: false, mode: 1, matchRule: getDefaultMatchRule(), matches: {} };
+    if (!bindings[currentPacketId]) bindings[currentPacketId] = { enabled: false, mode: 1, matchRule: getDefaultMatchRule(), matches: {}, presetSubMode: 'item' };
+    const subMode = bindings[currentPacketId].presetSubMode || 'item';
+    bindings[currentPacketId].matches = {};
     const questions = getAllAssessmentQuestions();
-    const fakeMatches = {
-      '打开泡泡瓶盖': { projectName: '精细动作-抓握训练', stages: ['辅助下旋转瓶盖', '独立旋转瓶盖'] },
-      '吹泡泡': { projectName: '口腔肌肉-吹气训练', stages: ['辅助下吹气', '独立吹泡泡'] }
+    const domainMatchMap = {
+      '精细动作': ['iv_5','iv_6','iv_7','iv_8','iv_9','iv_10'],
+      '粗大动作': ['iv_1','iv_2','iv_3','iv_4'],
+      '认知': ['iv_26','iv_27','iv_29','iv_34'],
+      '语言表达': ['iv_13','iv_14','iv_15','iv_16'],
+      '语言理解': ['iv_11','iv_12'],
+      '模仿': ['iv_28'],
+      '社交': ['iv_22','iv_23','iv_24','iv_35'],
+      '自理': ['iv_30'],
+      '口腔': ['iv_33','iv_17','iv_18'],
+      '游戏': ['iv_19','iv_20','iv_21'],
+      '情绪': ['iv_25'],
+      '行为': ['iv_31','iv_32']
     };
-    const genericMatches = [
-      { projectName: '认知训练-物品辨识', stages: ['辅助下指认', '独立指认'] },
-      { projectName: '语言表达-仿说训练', stages: ['单音节仿说', '双音节仿说'] },
-      { projectName: '社交互动-轮流训练', stages: ['辅助下轮流', '独立轮流'] },
-      { projectName: '粗大动作-平衡训练', stages: ['扶持下站立', '独立站立5秒'] },
-      { projectName: '生活自理-进食训练', stages: ['辅助使用勺子', '独立使用勺子'] }
-    ];
-    let genericIdx = 0;
-    questions.forEach(q => {
-      if (fakeMatches[q.itemName]) {
-        bindings[currentPacketId].matches[q.id] = fakeMatches[q.itemName];
-      } else if (genericIdx < genericMatches.length) {
-        bindings[currentPacketId].matches[q.id] = genericMatches[genericIdx % genericMatches.length];
-        genericIdx++;
+    let matchIdx = {};
+
+    function pickIv(q) {
+      const domainLower = (q.domain || '').toLowerCase();
+      let matched = null;
+      for (const [keyword, ivIds] of Object.entries(domainMatchMap)) {
+        if (domainLower.includes(keyword)) {
+          if (!matchIdx[keyword]) matchIdx[keyword] = 0;
+          const ivId = ivIds[matchIdx[keyword] % ivIds.length];
+          matchIdx[keyword]++;
+          matched = INTERVENTION_DB.find(iv => iv.id === ivId);
+          break;
+        }
       }
-      // 其余保持未匹配
+      if (!matched && INTERVENTION_DB.length > 0) {
+        if (!matchIdx['_fb']) matchIdx['_fb'] = 0;
+        matched = INTERVENTION_DB[matchIdx['_fb'] % INTERVENTION_DB.length];
+        matchIdx['_fb']++;
+      }
+      return matched;
+    }
+
+    questions.forEach(q => {
+      if (subMode === 'item') {
+        const iv = pickIv(q);
+        if (iv) {
+          bindings[currentPacketId].matches[q.id] = { targets: [{ projectName: iv.name, stages: [...iv.stages] }] };
+        }
+      } else {
+        // 评估分数匹配：每个分值分配不同目标
+        const scores = q.scores && q.scores.length > 0 ? q.scores : [{ value: 2 }, { value: 1 }, { value: 0 }];
+        const scoreTargets = {};
+        scores.forEach(s => {
+          const iv = pickIv(q);
+          if (iv) {
+            scoreTargets[String(s.value)] = [{ projectName: iv.name, stages: [...iv.stages] }];
+          }
+        });
+        bindings[currentPacketId].matches[q.id] = { scoreTargets };
+      }
     });
+
     savePacketBindings(bindings);
     btn.disabled = false;
-    btn.innerHTML = '🤖 AI自动匹配';
+    const aiSvg = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><circle cx="9.5" cy="14" r="1.5"/><circle cx="14.5" cy="14" r="1.5"/><path d="M9 18h6"/><path d="M12 2v4"/><circle cx="12" cy="2" r="1"/><path d="M2 14h2"/><path d="M20 14h2"/></svg>';
+    btn.innerHTML = aiSvg + ' AI自动匹配';
     renderPresetMatch(bindings[currentPacketId]);
     showToast('AI匹配完成，已自动填充匹配关系');
   }, 2000);
 }
 
-function editPacketMatch(qId) {
+function openPfMatchDrawer(qId, scoreValue) {
+  pfDrawerQId = qId;
+  window._pfDrawerScoreValue = scoreValue || null;
   const bindings = getPacketBindings();
   const b = bindings[currentPacketId] || {};
+  const subMode = b.presetSubMode || 'item';
   const m = (b.matches || {})[qId] || {};
   const questions = getAllAssessmentQuestions();
   const q = questions.find(x => x.id === qId);
 
-  // 用自定义弹窗编辑
-  const existing = document.getElementById('packetMatchEditModal');
-  if (existing) existing.remove();
+  const label = q ? q.itemName : qId;
+  document.getElementById('pfDrawerItemName').textContent = scoreValue ? `${label} (${scoreValue}分)` : label;
+  // 展示评估项目描述
+  const descEl = document.getElementById('pfDrawerItemDesc');
+  if (q && q.desc) {
+    descEl.textContent = q.desc;
+    descEl.style.display = 'block';
+  } else {
+    descEl.style.display = 'none';
+  }
+  document.getElementById('pfDrawerSearch').value = '';
+  document.getElementById('pfDrawerClearBtn').style.display = 'none';
 
-  const modal = document.createElement('div');
-  modal.id = 'packetMatchEditModal';
-  modal.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:300;display:flex;align-items:center;justify-content:center';
-  modal.innerHTML = `
-    <div style="background:#fff;border-radius:12px;padding:24px;width:440px;max-width:90vw">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
-        <h3 style="font-size:16px;font-weight:600;margin:0">编辑匹配关系</h3>
-        <button onclick="document.getElementById('packetMatchEditModal').remove()" style="background:none;border:none;font-size:18px;cursor:pointer;color:#6B7280">✕</button>
-      </div>
-      <div style="margin-bottom:12px">
-        <div style="font-size:13px;color:#6B7280;margin-bottom:4px">评估项目</div>
-        <div style="font-size:14px;font-weight:500;padding:8px 12px;background:#F9FAFB;border-radius:8px">${q ? q.itemName : qId}</div>
-      </div>
-      <div style="margin-bottom:12px">
-        <label style="font-size:13px;color:#6B7280;display:block;margin-bottom:6px">干预目标名称</label>
-        <input type="text" id="pmEditProject" value="${(m.projectName || '').replace(/"/g, '&quot;')}" placeholder="如：精细动作-抓握训练" style="width:100%;height:36px;border:1px solid #D1D5DB;border-radius:8px;padding:0 12px;font-size:14px;outline:none;font-family:inherit">
-      </div>
-      <div style="margin-bottom:16px">
-        <label style="font-size:13px;color:#6B7280;display:block;margin-bottom:6px">阶段目标（每行一个）</label>
-        <textarea id="pmEditStages" placeholder="辅助下完成\n独立完成" style="width:100%;height:80px;border:1px solid #D1D5DB;border-radius:8px;padding:8px 12px;font-size:14px;outline:none;resize:vertical;font-family:inherit">${(m.stages || []).join('\n')}</textarea>
-      </div>
-      <div style="display:flex;gap:8px;justify-content:flex-end">
-        <button onclick="document.getElementById('packetMatchEditModal').remove()" style="padding:8px 20px;border:1px solid #D1D5DB;border-radius:8px;background:#fff;cursor:pointer;font-size:14px;font-family:inherit">取消</button>
-        <button onclick="savePacketMatch('${qId}')" style="padding:8px 20px;border:none;border-radius:8px;background:#7C3AED;color:#fff;cursor:pointer;font-size:14px;font-family:inherit">保存</button>
-      </div>
-    </div>
-  `;
-  document.body.appendChild(modal);
-  setTimeout(() => document.getElementById('pmEditProject').focus(), 50);
+  // 预选已有匹配（多选）
+  pfDrawerSelectedProjects = [];
+  if (subMode === 'score' && scoreValue) {
+    const targets = (m.scoreTargets && m.scoreTargets[scoreValue]) || [];
+    targets.forEach(t => {
+      const iv = INTERVENTION_DB.find(x => x.name === t.projectName);
+      pfDrawerSelectedProjects.push(iv || { id: '_custom_' + t.projectName, name: t.projectName, territory: '', subdomain: '', stages: t.stages || [] });
+    });
+  } else {
+    const targets = m.targets || [];
+    targets.forEach(t => {
+      const iv = INTERVENTION_DB.find(x => x.name === t.projectName);
+      pfDrawerSelectedProjects.push(iv || { id: '_custom_' + t.projectName, name: t.projectName, territory: '', subdomain: '', stages: t.stages || [] });
+    });
+  }
+
+  // 默认展示AI推荐
+  renderAiRecommendList();
+  updateDrawerSelection();
+
+  document.getElementById('pfMatchDrawerOverlay').style.display = 'block';
+  document.getElementById('pfMatchDrawer').style.display = 'flex';
 }
 
-function savePacketMatch(qId) {
-  const projectName = document.getElementById('pmEditProject').value.trim();
-  const stagesText = document.getElementById('pmEditStages').value.trim();
-  const stages = stagesText ? stagesText.split('\n').map(s => s.trim()).filter(s => s) : [];
+/* AI推荐列表 — 基于评估项目领域智能推荐 */
+function renderAiRecommendList() {
+  const questions = getAllAssessmentQuestions();
+  const q = questions.find(x => x.id === pfDrawerQId);
+  const domainLower = q ? (q.domain || '').toLowerCase() : '';
+  // 按领域相关性排序推荐
+  let recommended = INTERVENTION_DB.filter(iv => {
+    const text = (iv.territory + ' ' + iv.subdomain + ' ' + iv.name).toLowerCase();
+    return domainLower && text.includes(domainLower.slice(0, 2));
+  });
+  if (recommended.length < 5) {
+    const rest = INTERVENTION_DB.filter(iv => !recommended.includes(iv));
+    recommended = recommended.concat(rest.slice(0, 8 - recommended.length));
+  }
+  renderInterventionListItems(recommended, true);
+}
 
+/* 搜索输入处理 */
+function onDrawerSearchInput() {
+  const val = document.getElementById('pfDrawerSearch').value;
+  const clearBtn = document.getElementById('pfDrawerClearBtn');
+  if (val.trim()) {
+    clearBtn.style.display = 'block';
+    filterInterventionList();
+  } else {
+    clearBtn.style.display = 'none';
+    renderAiRecommendList();
+  }
+}
+
+function clearDrawerSearch() {
+  document.getElementById('pfDrawerSearch').value = '';
+  document.getElementById('pfDrawerClearBtn').style.display = 'none';
+  renderAiRecommendList();
+}
+
+function resetDrawerToAiRecommend() {
+  document.getElementById('pfDrawerSearch').value = '';
+  document.getElementById('pfDrawerClearBtn').style.display = 'none';
+  renderAiRecommendList();
+}
+
+function closePfMatchDrawer() {
+  document.getElementById('pfMatchDrawerOverlay').style.display = 'none';
+  document.getElementById('pfMatchDrawer').style.display = 'none';
+  pfDrawerQId = null;
+  pfDrawerSelectedProjects = [];
+  window._pfDrawerScoreValue = null;
+}
+
+function filterInterventionList() {
+  const keyword = document.getElementById('pfDrawerSearch').value.trim();
+  renderInterventionList(keyword);
+}
+
+function renderInterventionList(keyword) {
+  const kw = (keyword || '').trim().toLowerCase();
+  let filtered = INTERVENTION_DB;
+  if (kw) {
+    const keywords = kw.split(/\s+/).filter(k => k);
+    filtered = INTERVENTION_DB.filter(iv => {
+      const searchText = (iv.name + ' ' + iv.territory + ' ' + iv.subdomain).toLowerCase();
+      return keywords.every(k => searchText.includes(k));
+    });
+  }
+  renderInterventionListItems(filtered, false);
+}
+
+function renderInterventionListItems(items, isAiRecommend) {
+  const list = document.getElementById('pfDrawerProjectList');
+  if (items.length === 0) {
+    list.innerHTML = '<div style="padding:20px;text-align:center;color:#9CA3AF;font-size:13px">无匹配结果</div>';
+    return;
+  }
+
+  const header = isAiRecommend
+    ? '<div style="padding:8px 12px;font-size:11px;color:var(--color-primary);background:var(--color-primary-light);border-bottom:1px solid #E5E7EB;display:flex;align-items:center;justify-content:space-between"><span style="display:flex;align-items:center;gap:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg> AI推荐</span><button onclick="resetDrawerToAiRecommend()" style="background:none;border:none;color:var(--color-primary);font-size:11px;cursor:pointer;display:flex;align-items:center;gap:3px;padding:2px 6px;border-radius:4px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></svg>刷新</button></div>'
+    : '';
+
+  list.innerHTML = header + items.map(iv => {
+    const selected = pfDrawerSelectedProjects.some(p => p.id === iv.id) ? ' selected' : '';
+    return `<div class="pf-project-item${selected}" onclick="selectInterventionProject('${iv.id}')">
+      <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap">
+        <span class="pf-proj-domain">${iv.territory}</span>
+        <span class="pf-proj-domain" style="background:#FFF7ED;color:#EA580C">${iv.subdomain}</span>
+        <span class="pf-proj-name">${iv.name}</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function selectInterventionProject(ivId) {
+  const iv = INTERVENTION_DB.find(x => x.id === ivId);
+  if (!iv) return;
+  const idx = pfDrawerSelectedProjects.findIndex(p => p.id === ivId);
+  if (idx >= 0) {
+    pfDrawerSelectedProjects.splice(idx, 1);
+  } else {
+    pfDrawerSelectedProjects.push(iv);
+  }
+  // 保持当前列表模式（搜索 or AI推荐）
+  const searchVal = document.getElementById('pfDrawerSearch').value.trim();
+  if (searchVal) {
+    filterInterventionList();
+  } else {
+    renderAiRecommendList();
+  }
+  updateDrawerSelection();
+}
+
+function updateDrawerSelection() {
+  const selEl = document.getElementById('pfDrawerSelected');
+  if (!selEl) return;
+  if (pfDrawerSelectedProjects.length > 0) {
+    selEl.innerHTML = pfDrawerSelectedProjects.map(p => `<span style="display:inline-flex;align-items:center;gap:4px;background:#fff;border:1px solid var(--color-primary);color:var(--color-primary);padding:3px 10px;border-radius:16px;font-size:12px;margin:2px 4px 2px 0">${p.name}<span onclick="event.stopPropagation();removeSelectedProject('${p.id}')" style="cursor:pointer;margin-left:2px;font-size:14px;line-height:1">&times;</span></span>`).join('');
+    selEl.style.color = 'var(--color-primary)';
+  } else {
+    selEl.textContent = '未选择';
+    selEl.style.color = 'var(--color-text-placeholder)';
+  }
+}
+
+function removeSelectedProject(ivId) {
+  pfDrawerSelectedProjects = pfDrawerSelectedProjects.filter(p => p.id !== ivId);
+  const searchVal = document.getElementById('pfDrawerSearch').value.trim();
+  if (searchVal) {
+    filterInterventionList();
+  } else {
+    renderAiRecommendList();
+  }
+  updateDrawerSelection();
+}
+
+function savePfMatchDrawer() {
   const bindings = getPacketBindings();
-  if (!bindings[currentPacketId]) bindings[currentPacketId] = { enabled: false, mode: 1, matchRule: getDefaultMatchRule(), matches: {} };
+  if (!bindings[currentPacketId]) bindings[currentPacketId] = { enabled: false, mode: 1, matchRule: getDefaultMatchRule(), matches: {}, presetSubMode: 'item' };
   if (!bindings[currentPacketId].matches) bindings[currentPacketId].matches = {};
 
-  if (projectName) {
-    bindings[currentPacketId].matches[qId] = { projectName, stages };
-  } else {
-    delete bindings[currentPacketId].matches[qId];
-  }
-  savePacketBindings(bindings);
+  const subMode = bindings[currentPacketId].presetSubMode || 'item';
+  const scoreValue = window._pfDrawerScoreValue;
 
-  document.getElementById('packetMatchEditModal').remove();
+  if (subMode === 'score' && scoreValue) {
+    if (!bindings[currentPacketId].matches[pfDrawerQId]) bindings[currentPacketId].matches[pfDrawerQId] = { scoreTargets: {} };
+    if (!bindings[currentPacketId].matches[pfDrawerQId].scoreTargets) bindings[currentPacketId].matches[pfDrawerQId].scoreTargets = {};
+    if (pfDrawerSelectedProjects.length > 0) {
+      bindings[currentPacketId].matches[pfDrawerQId].scoreTargets[scoreValue] = pfDrawerSelectedProjects.map(p => ({ projectName: p.name, stages: [...p.stages] }));
+    } else {
+      delete bindings[currentPacketId].matches[pfDrawerQId].scoreTargets[scoreValue];
+    }
+  } else {
+    if (pfDrawerSelectedProjects.length > 0) {
+      bindings[currentPacketId].matches[pfDrawerQId] = {
+        targets: pfDrawerSelectedProjects.map(p => ({ projectName: p.name, stages: [...p.stages] }))
+      };
+    } else {
+      delete bindings[currentPacketId].matches[pfDrawerQId];
+    }
+  }
+
+  savePacketBindings(bindings);
+  closePfMatchDrawer();
   renderPresetMatch(bindings[currentPacketId]);
   showToast('匹配关系已保存');
 }
 
-function deletePacketMatch(qId) {
+function deletePacketMatch(qId, scoreValue) {
   const bindings = getPacketBindings();
   if (bindings[currentPacketId] && bindings[currentPacketId].matches) {
-    delete bindings[currentPacketId].matches[qId];
+    if (scoreValue) {
+      const m = bindings[currentPacketId].matches[qId];
+      if (m && m.scoreTargets) {
+        delete m.scoreTargets[scoreValue];
+        if (Object.keys(m.scoreTargets).length === 0) delete bindings[currentPacketId].matches[qId];
+      }
+    } else {
+      delete bindings[currentPacketId].matches[qId];
+    }
     savePacketBindings(bindings);
     renderPresetMatch(bindings[currentPacketId]);
     showToast('已删除匹配关系');
@@ -2124,39 +2875,76 @@ function renderRuleMatch(binding) {
   container.innerHTML = `
     <div class="pf-rule-header">
       <h4>匹配规则文本</h4>
-      <button class="pf-ai-btn" id="aiPolishBtn" onclick="aiPolishRule()" style="background:#fff;color:var(--color-primary);border:1px solid var(--color-primary)">✨ AI润色</button>
+      <a onclick="openRuleEditor()" style="color:var(--color-primary);font-size:13px;cursor:pointer">编辑</a>
     </div>
-    <textarea class="pf-rule-textarea" id="pfRuleText" oninput="onRuleTextChange()">${rule}</textarea>
+    <div style="background:#F9FAFB;border:1px solid var(--color-border);border-radius:var(--radius-md);padding:16px;font-size:14px;line-height:1.8;white-space:pre-wrap;color:var(--color-text-primary);max-height:400px;overflow-y:auto">${rule || '<span style="color:#9CA3AF;font-style:italic">暂无匹配规则，点击编辑添加</span>'}</div>
     <div style="margin-top:8px;font-size:12px;color:var(--color-text-placeholder)">提示：AI在生成IEP时会参考此规则文本自动匹配干预目标</div>
   `;
 }
 
-function onRuleTextChange() {
+/* 规则编辑全屏弹窗 */
+function openRuleEditor() {
+  const bindings = getPacketBindings();
+  const b = bindings[currentPacketId] || {};
+  const rule = b.matchRule || getDefaultMatchRule();
+
+  const existing = document.getElementById('ruleEditorOverlay');
+  if (existing) existing.remove();
+
+  const overlay = document.createElement('div');
+  overlay.id = 'ruleEditorOverlay';
+  overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:400;display:flex;align-items:center;justify-content:center';
+  overlay.innerHTML = `<div style="background:#fff;border-radius:12px;width:860px;max-width:92vw;height:80vh;display:flex;flex-direction:column;box-shadow:0 8px 32px rgba(0,0,0,0.15)">
+    <div style="padding:16px 24px;border-bottom:1px solid #E5E7EB;display:flex;align-items:center;justify-content:space-between;flex-shrink:0">
+      <h3 style="font-size:16px;font-weight:600;margin:0">编辑匹配规则</h3>
+      <button onclick="aiPolishRuleInEditor()" class="pf-ai-btn" style="background:#fff;color:var(--color-primary);border:1px solid var(--color-primary);font-size:12px;padding:5px 12px" id="ruleEditorPolishBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><circle cx="9.5" cy="14" r="1.5"/><circle cx="14.5" cy="14" r="1.5"/><path d="M9 18h6"/><path d="M12 2v4"/><circle cx="12" cy="2" r="1"/><path d="M2 14h2"/><path d="M20 14h2"/></svg> AI润色</button>
+    </div>
+    <div style="flex:1;overflow:hidden;padding:20px 24px;display:flex;flex-direction:column">
+      <textarea id="ruleEditorText" style="flex:1;width:100%;border:1px solid #D1D5DB;border-radius:8px;padding:14px 16px;font-size:14px;font-family:inherit;line-height:1.8;outline:none;resize:none">${rule}</textarea>
+    </div>
+    <div style="padding:14px 24px;border-top:1px solid #E5E7EB;display:flex;gap:8px;justify-content:flex-end;flex-shrink:0">
+      <button onclick="closeRuleEditor()" style="padding:8px 20px;border:1px solid #D1D5DB;border-radius:8px;background:#fff;cursor:pointer;font-size:14px;font-family:inherit">取消</button>
+      <button onclick="saveRuleEditor()" style="padding:8px 20px;border:none;border-radius:8px;background:#7C3AED;color:#fff;cursor:pointer;font-size:14px;font-family:inherit">保存</button>
+    </div>
+  </div>`;
+  document.body.appendChild(overlay);
+  setTimeout(() => document.getElementById('ruleEditorText').focus(), 100);
+}
+
+function closeRuleEditor() {
+  const el = document.getElementById('ruleEditorOverlay');
+  if (el) el.remove();
+}
+
+function saveRuleEditor() {
+  const text = document.getElementById('ruleEditorText').value;
   const bindings = getPacketBindings();
   if (!bindings[currentPacketId]) bindings[currentPacketId] = { enabled: false, mode: 2, matchRule: '', matches: {} };
-  bindings[currentPacketId].matchRule = document.getElementById('pfRuleText').value;
+  bindings[currentPacketId].matchRule = text;
   savePacketBindings(bindings);
+  closeRuleEditor();
+  renderRuleMatch(bindings[currentPacketId]);
+  showToast('规则已保存');
 }
 
-function aiPolishRule() {
-  const btn = document.getElementById('aiPolishBtn');
+function aiPolishRuleInEditor() {
+  const btn = document.getElementById('ruleEditorPolishBtn');
   btn.disabled = true;
   btn.innerHTML = '<span class="pf-loading pf-loading-dark"></span> 润色中...';
-
   setTimeout(() => {
     const polished = '【AI优化后的匹配规则】\n\n一、领域对齐原则\n  将评估项目按所属领域（精细动作、粗大动作、语言表达、语言理解、认知、社交、自理等）与课包干预项目的领域标签进行自动对齐。\n\n二、名称相似度匹配\n  使用语义相似度算法，优先匹配评估项目名称与干预目标名称最接近的项目，相似度阈值≥0.7。\n\n三、多阶段关联\n  每个评估项目可关联1-3个阶段目标，阶段目标按难度递增排列（辅助→半辅助→独立）。\n\n四、特殊规则\n  • 精细动作类评估项目优先匹配手部操作、抓握、旋转等干预目标\n  • 口腔相关评估项目优先匹配吹气、咀嚼、口腔肌肉训练\n  • 社交类评估项目优先匹配轮流、分享、眼神接触等干预目标\n  • 认知类评估项目优先匹配配对、分类、排序等干预目标\n\n五、未匹配处理\n  对于无法自动匹配的评估项目，标记为"待人工审核"，由评估师手动指定干预目标。';
-
-    const bindings = getPacketBindings();
-    if (!bindings[currentPacketId]) bindings[currentPacketId] = { enabled: false, mode: 2, matchRule: '', matches: {} };
-    bindings[currentPacketId].matchRule = polished;
-    savePacketBindings(bindings);
-
-    document.getElementById('pfRuleText').value = polished;
+    document.getElementById('ruleEditorText').value = polished;
     btn.disabled = false;
-    btn.innerHTML = '✨ AI润色';
-    showToast('AI润色完成');
+    btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><circle cx="9.5" cy="14" r="1.5"/><circle cx="14.5" cy="14" r="1.5"/><path d="M9 18h6"/><path d="M12 2v4"/><circle cx="12" cy="2" r="1"/><path d="M2 14h2"/><path d="M20 14h2"/></svg> AI润色';
+    showToast('AI润色完成，请确认后点击保存');
   }, 1000);
 }
+
+function onRuleTextDirty() {}
+function saveRuleText() {}
+function onRuleTextChange() {}
+
+function aiPolishRule() { openRuleEditor(); }
 
 init();
 </script>

@@ -101,7 +101,6 @@ body { font-family: var(--font-family); background: var(--color-bg-page); color:
 .card-name { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
 .card-desc { font-size: 13px; color: var(--color-text-secondary); margin-bottom: 12px; line-height: 1.5; height: 39px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 .card-meta { font-size: 12px; color: var(--color-text-secondary); margin-bottom: 12px; }
-.card-meta span + span::before { content: " · "; }
 .card-actions { display: flex; gap: 16px; font-size: 13px; font-weight: 500; }
 .card-actions a { text-decoration: none; cursor: pointer; }
 .card-actions .edit { color: var(--color-primary); }
@@ -442,7 +441,7 @@ function renderCards(tools) {
       <div class="card-name">${t.name}</div>
       <div class="card-desc">${t.desc || '<span style="color:#C4C9D4;font-style:italic">暂无描述，点击编辑添加</span>'}</div>
       <div class="card-meta" style="display:flex;align-items:center;justify-content:space-between">
-        <span style="font-size:12px;color:#6B7280">${getTypeDisplayName(t.type)} · ${t.questionCount}题 · 修改: ${t.updatedAt}</span>
+        <span style="font-size:12px;color:#6B7280;display:flex;align-items:center;gap:12px"><span><span style="color:#9CA3AF">题数:</span> ${t.questionCount}题</span><span><span style="color:#9CA3AF">修改:</span> ${t.updatedAt}</span></span>
         <a class="edit" onclick="editTool('${t.id}')" style="color:#7C3AED;font-weight:500">编辑</a>
       </div>
     </div>
