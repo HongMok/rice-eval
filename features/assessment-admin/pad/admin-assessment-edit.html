@@ -171,6 +171,9 @@ body { font-family: var(--font-family); background: var(--color-bg-page); color:
 
 .reset-btn { position: fixed; bottom: 20px; right: 20px; background: rgba(0,0,0,0.35); color: #fff; border: none; padding: 8px 14px; border-radius: var(--radius-md); font-size: 13px; cursor: pointer; z-index: 9999; opacity: 0.6; }
 .reset-btn:hover { opacity: 1; }
+
+/* 富文本工具栏按钮 hover */
+#toolIntroToolbar button:hover { background: #E5E7EB; }
 .toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #1F2937; color: #fff; padding: 10px 24px; border-radius: var(--radius-md); font-size: 14px; z-index: 10000; display: none; }
 .toast.show { display: block; animation: fadeInOut 2s ease; }
 @keyframes fadeInOut { 0%{opacity:0;transform:translateX(-50%) translateY(-10px)} 15%{opacity:1;transform:translateX(-50%) translateY(0)} 85%{opacity:1} 100%{opacity:0} }
@@ -377,6 +380,9 @@ body { font-family: var(--font-family); background: var(--color-bg-page); color:
       </div>
       <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px">
         <span style="font-size:13px;color:#6B7280">描述:</span><span id="infoDisplay_desc" style="font-size:13px;color:#6B7280;line-height:1.5"></span>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px">
+        <span style="font-size:13px;color:#6B7280">评估工具介绍:</span><span id="infoDisplay_intro" style="font-size:13px;color:#9CA3AF;font-style:italic">未配置</span>
       </div>
     </div>
 
@@ -613,6 +619,21 @@ body { font-family: var(--font-family); background: var(--color-bg-page); color:
       <label style="font-size:13px;color:#6B7280">描述</label>
       <textarea id="toolDesc" placeholder="评估工具描述" style="height:80px;border:1px solid #D1D5DB;border-radius:8px;padding:8px 12px;font-size:14px;font-family:inherit;outline:none;resize:vertical;width:100%"></textarea>
     </div>
+    <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:20px">
+      <label style="font-size:13px;color:#6B7280">评估工具介绍</label>
+      <div style="border:1px solid #D1D5DB;border-radius:8px;overflow:hidden">
+        <div id="toolIntroToolbar" style="display:flex;align-items:center;gap:2px;padding:6px 8px;background:#F3F4F6;border-bottom:1px solid #D1D5DB">
+          <button type="button" onclick="execRichCmd('bold')" title="加粗" style="width:28px;height:28px;border:none;background:none;cursor:pointer;border-radius:4px;font-size:14px;font-weight:700;font-family:inherit;display:flex;align-items:center;justify-content:center;color:#374151">B</button>
+          <button type="button" onclick="execRichCmd('italic')" title="斜体" style="width:28px;height:28px;border:none;background:none;cursor:pointer;border-radius:4px;font-size:14px;font-style:italic;font-family:serif;display:flex;align-items:center;justify-content:center;color:#374151">I</button>
+          <button type="button" onclick="execRichCmd('underline')" title="下划线" style="width:28px;height:28px;border:none;background:none;cursor:pointer;border-radius:4px;font-size:14px;text-decoration:underline;font-family:inherit;display:flex;align-items:center;justify-content:center;color:#374151">U</button>
+          <div style="width:1px;height:18px;background:#D1D5DB;margin:0 4px"></div>
+          <button type="button" onclick="execRichCmd('formatBlock','H3')" title="标题" style="width:28px;height:28px;border:none;background:none;cursor:pointer;border-radius:4px;font-size:13px;font-weight:700;font-family:inherit;display:flex;align-items:center;justify-content:center;color:#374151">H</button>
+          <button type="button" onclick="execRichCmd('insertOrderedList')" title="有序列表" style="width:28px;height:28px;border:none;background:none;cursor:pointer;border-radius:4px;font-size:11px;font-family:inherit;display:flex;align-items:center;justify-content:center;color:#374151">OL</button>
+          <button type="button" onclick="execRichCmd('insertUnorderedList')" title="无序列表" style="width:28px;height:28px;border:none;background:none;cursor:pointer;border-radius:4px;font-size:11px;font-family:inherit;display:flex;align-items:center;justify-content:center;color:#374151">UL</button>
+        </div>
+        <div id="toolIntroEditor" contenteditable="true" style="min-height:200px;padding:12px;font-size:14px;font-family:inherit;outline:none;line-height:1.6;color:#1F2937"></div>
+      </div>
+    </div>
     <div style="border-top:1px solid #E5E7EB;padding-top:16px">
       <a onclick="tryDeleteTool()" style="color:#DC2626;font-size:13px;cursor:pointer">删除此评估工具</a>
     </div>
@@ -789,19 +810,35 @@ const SCORE_PRESETS = {
 
 function generateQuestions(toolId, domain, count) {
   const questions = [];
-  const sampleMaterials = ['图片卡', '积木', '小铃铛', '拼图', '彩色小球', '杯子', '勺子', '形状板', '无'];
-  const sampleAges = ['6-12月', '12-18月', '18-24月', '24-36月', '36-48月', '48-60月'];
+  const sampleMaterials = ['图片卡(4张)', '彩色积木(6块)', '小铃铛', '拼图(6片)', '彩色小球(3个)', '杯子和勺子', '蜡笔和纸', '形状板', '布偶玩具', '泡泡液和吹杆', '串珠和绳子', '镜子', '无'];
+  const sampleAges = ['6-12月', '12-18月', '18-24月', '24-36月', '36-48月', '48-60月', '60-72月'];
+  const sampleDescs = [
+    '将材料放在桌上，观察儿童是否主动探索',
+    '示范动作后，观察儿童是否能模仿完成',
+    '给出口头指令，观察儿童是否能正确执行',
+    '展示材料，要求儿童指认或命名',
+    '引导儿童完成相关的操作任务',
+    '观察儿童在自由活动中的自发行为表现',
+    '通过游戏互动评估儿童的社交反应',
+    '要求儿童按照示范完成精细动作任务',
+    '评估儿童对声音/视觉刺激的反应',
+    '观察儿童的语言表达和沟通意图'
+  ];
+  const sampleItems = ['转头寻找声源','追视移动物体','从杯中找物','放入形状板','完成拼图','按颜色分类','指认颜色','配对图片','按大小排列','模仿画圆','数数','说出名字','用短句表达','描述图片','回答问题','复述故事','按指令取物','模仿拍手','搓胶泥','操作万花筒'];
   const defaultScores = toolId === 'vbmapp'
-    ? [{value:1,label:'达标',desc:'完全达到'},{value:0.5,label:'部分达标',desc:'部分达到'},{value:0,label:'未达标',desc:'未达到'}]
-    : [{value:2,label:'通过',desc:'独立完成'},{value:1,label:'萌芽',desc:'部分完成或需要提示'},{value:0,label:'不通过',desc:'无反应或无法完成'}];
+    ? [{value:1,label:'达标',desc:'完全达到该里程碑要求'},{value:0.5,label:'部分达标',desc:'部分达到或需要辅助'},{value:0,label:'未达标',desc:'未达到该里程碑要求'}]
+    : toolId === 'cpep'
+    ? [{value:1,label:'通过',desc:'独立完成任务'},{value:0.5,label:'中间反应',desc:'部分完成或需要提示'},{value:0,label:'不通过',desc:'无反应或无法完成'}]
+    : [{value:2,label:'通过',desc:'独立完成任务'},{value:1,label:'萌芽',desc:'部分完成或需要提示'},{value:0,label:'不通过',desc:'无反应或无法完成'}];
   for (let i = 1; i <= count; i++) {
+    const mat = sampleMaterials[(i - 1) % sampleMaterials.length];
     questions.push({
       id: `${toolId}_${domain}_${i}`,
       number: i,
-      itemName: `${domain}第${i}项`,
-      desc: `${domain}领域第${i}题 — 模拟题目描述内容`,
-      materials: sampleMaterials[i % sampleMaterials.length],
-      ageRange: sampleAges[i % sampleAges.length],
+      itemName: sampleItems[(i - 1) % sampleItems.length],
+      desc: sampleDescs[(i - 1) % sampleDescs.length],
+      materials: mat === '无' ? '' : mat,
+      ageRange: sampleAges[(i - 1) % sampleAges.length],
       required: true,
       enabled: true,
       scores: defaultScores.map(s => ({...s}))
@@ -943,9 +980,9 @@ function getTypeDisplayName(typeId) {
 
 function getDefaultTools() {
   return [
-    { id:'pep3', name:'PEP-3', desc:'心理教育评估第三版', type:'pep3', questionCount:138, status:'active', updatedAt:'2024-01-15', iconClass:'pep3' },
-    { id:'cpep', name:'C-PEP', desc:'孤独症儿童发展评估表（中国残联版）', type:'cpep', questionCount:493, status:'active', updatedAt:'2024-01-18', iconClass:'cpep' },
-    { id:'vbmapp', name:'VB-MAPP', desc:'语言行为里程碑评估', type:'vbmapp', questionCount:170, status:'active', updatedAt:'2024-01-20', iconClass:'vbmapp' }
+    { id:'pep3', name:'PEP-3', desc:'心理教育评估第三版', type:'pep3', questionCount:138, status:'active', updatedAt:'2024-01-15', iconClass:'pep3', intro:'<h3>PEP-3 心理教育评估第三版</h3><p>适用于2-7.5岁儿童的发展评估，涵盖认知、语言、动作等10个发展性子测验和3个养育者报告子测验。</p><p><strong>评估方式：</strong>直接观察与结构化测试相结合</p><p><strong>评估时长：</strong>约45-90分钟</p>' },
+    { id:'cpep', name:'C-PEP', desc:'孤独症儿童发展评估表（中国残联版）', type:'cpep', questionCount:493, status:'active', updatedAt:'2024-01-18', iconClass:'cpep', intro:'<h3>C-PEP 孤独症儿童发展评估</h3><p>中国残联版，适用于0-6岁孤独症儿童，涵盖感知觉、精细动作、粗大动作等7大功能领域。</p>' },
+    { id:'vbmapp', name:'VB-MAPP', desc:'语言行为里程碑评估', type:'vbmapp', questionCount:170, status:'active', updatedAt:'2024-01-20', iconClass:'vbmapp', intro:'<h3>VB-MAPP 语言行为里程碑评估</h3><p>基于ABA原理评估儿童语言和社交技能，包含里程碑评估、障碍评估和转衔评估三部分。</p>' }
   ];
 }
 
@@ -960,6 +997,15 @@ function showToast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg; t.className = 'toast show';
   setTimeout(() => t.className = 'toast', 2000);
+}
+
+function execRichCmd(cmd, value) {
+  if (cmd === 'formatBlock') {
+    document.execCommand('formatBlock', false, '<' + value + '>');
+  } else {
+    document.execCommand(cmd, false, value || null);
+  }
+  document.getElementById('toolIntroEditor').focus();
 }
 
 // Get score headers from first question in current domain
@@ -1004,6 +1050,7 @@ function init() {
       toolTypeDisplay.classList.remove('placeholder');
     }
     document.getElementById('toolDesc').value = tool.desc;
+    document.getElementById('toolIntroEditor').innerHTML = tool.intro || '';
     document.getElementById('toolNameBreadcrumb').textContent = (tool.questionCount === 0 ? '新建评估工具：' : '编辑评估工具：') + tool.name;
     // 加载头像
     editAvatarBase64 = tool.avatar || '';
@@ -1046,6 +1093,18 @@ function updateInfoDisplay() {
   const typeVal = document.getElementById('toolType').value;
   document.getElementById('infoDisplay_type').textContent = getTypeDisplayName(typeVal);
   document.getElementById('infoDisplay_desc').textContent = document.getElementById('toolDesc').value || '无描述';
+  // 更新评估工具介绍状态
+  var introEl = document.getElementById('infoDisplay_intro');
+  var introContent = document.getElementById('toolIntroEditor').innerHTML.trim();
+  if (introContent && introContent !== '' && introContent !== '<br>') {
+    introEl.textContent = '已配置';
+    introEl.style.color = '#1F2937';
+    introEl.style.fontStyle = 'normal';
+  } else {
+    introEl.textContent = '未配置';
+    introEl.style.color = '#9CA3AF';
+    introEl.style.fontStyle = 'italic';
+  }
   // 同步顶部头像
   const tools = loadTools();
   const tool = tools.find(t => t.id === currentToolId);
@@ -1717,6 +1776,7 @@ function saveTool() {
       name: name,
       type: document.getElementById('toolType').value,
       desc: document.getElementById('toolDesc').value,
+      intro: document.getElementById('toolIntroEditor').innerHTML,
       questionCount: 0,
       status: 'inactive',
       updatedAt: new Date().toISOString().slice(0,10),
@@ -1736,6 +1796,7 @@ function saveTool() {
       tool.name = editName;
       tool.type = document.getElementById('toolType').value;
       tool.desc = document.getElementById('toolDesc').value;
+      tool.intro = document.getElementById('toolIntroEditor').innerHTML;
       tool.updatedAt = new Date().toISOString().slice(0,10);
       // 更新题目总数
       const config = JSON.parse(localStorage.getItem(CONFIG_KEY + currentToolId) || '{}');
@@ -1853,6 +1914,7 @@ function createManual() {
     document.getElementById('toolTypeDisplay').classList.remove('placeholder');
   }
   document.getElementById('toolDesc').value = desc;
+  document.getElementById('toolIntroEditor').innerHTML = '';
   document.getElementById('toolNameBreadcrumb').textContent = '新建评估工具：' + name;
   isNewMode = false;
   document.getElementById('createOverlay').style.display = 'none';

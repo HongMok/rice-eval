@@ -49,81 +49,32 @@ table.score-tbl th { background: #F5F7FA; padding: 10px 14px; text-align: left; 
 table.score-tbl td { padding: 10px 14px; border-bottom: 1px solid var(--app-border); font-size: 14px; }
 table.score-tbl tr:last-child td { border-bottom: none; }
 table.score-tbl tr:hover td { background: #FAFBFC; }
-.pct-bar { display: inline-block; height: 6px; border-radius: 3px; vertical-align: middle; margin-right: 6px; }
+.group-header td { background: #F0F4FF; font-weight: 600; font-size: 13px; color: var(--app-primary); }
+.level-badge { display: inline-block; padding: 2px 10px; border-radius: 9999px; font-size: 12px; font-weight: 500; }
+.level-badge.ok { background: #F0FFF4; color: var(--app-success); }
+.level-badge.mild { background: #FFF8EB; color: var(--app-warning); }
+.level-badge.severe { background: #FFF0F0; color: var(--app-danger); }
+</style>
+<style>
 .editable-area { position: relative; }
 .editable-area .edit-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
 .editable-area .edit-link { color: var(--app-primary); font-size: 13px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; }
-.editable-area .edit-link:hover { color: var(--app-primary-hover); }
 .editable-area .area-text { font-size: 14px; line-height: 1.8; white-space: pre-wrap; }
 .editable-area .area-textarea { width: 100%; min-height: 120px; font-size: 14px; line-height: 1.8; font-family: var(--app-font); border: 1px solid var(--app-primary); border-radius: var(--app-radius-md); padding: 12px; resize: vertical; outline: none; display: none; }
-.editable-area .area-textarea:focus { box-shadow: 0 0 0 2px rgba(59,155,245,0.2); }
 .editable-area .edit-actions { display: none; gap: 8px; margin-top: 8px; justify-content: flex-end; }
 .editable-area .edit-actions button { padding: 6px 16px; border-radius: var(--app-radius-md); font-size: 13px; cursor: pointer; font-family: var(--app-font); }
 .editable-area .edit-actions .btn-cancel { background: #fff; border: 1px solid var(--app-border); color: var(--app-text-sec); }
 .editable-area .edit-actions .btn-save { background: var(--app-primary); color: #fff; border: none; }
-@media print {
-  /* Force print background colors and images */
-  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
-
-  /* Hide interactive elements */
-  .topbar, .tab-bar, .bottom-actions, .reset-btn, .toast, .edit-link, .edit-actions, .iep-actions, .iep-btn-export, .iep-btn-import, .iep-btn-edit, .iep-btn-cancel, .iep-btn-add, .iep-btn-save { display: none !important; }
-
-  /* Layout fixes */
-  body { height: auto !important; overflow: visible !important; max-width: none !important; }
-  .main-body { display: block !important; overflow: visible !important; }
-  .content, .report-content { overflow: visible !important; height: auto !important; }
-
-  /* Only show report tab, hide IEP and scale tabs */
-  .tab-content { display: block !important; padding: 20px !important; }
-  .tab-content#tabIEP, .tab-content#tabScale { display: none !important; }
-
-  /* Preserve card styles — 打印态拆卡片，用标题栏+细线重建层级 */
-  .card, .section-card, .report-card { background: none !important; box-shadow: none !important; border: none !important; border-radius: 0 !important; padding: 0 !important; margin-bottom: 0 !important; }
-  .card + .card { margin-top: 8px !important; padding-top: 12px !important; border-top: 1px solid #E0E4E8 !important; }
-
-  /* section-label 升级为全宽标题栏 */
-  .section-label { display: block !important; background: #3B9BF5 !important; color: #fff !important; font-size: 14px !important; font-weight: 600 !important; padding: 8px 16px !important; border-radius: 0 !important; margin: 16px 0 12px 0 !important; break-after: avoid !important; page-break-after: avoid !important; }
-  .card:first-child .section-label { margin-top: 0 !important; }
-
-  /* 子元素禁止跨页 */
-  .domain-report { break-inside: avoid !important; page-break-inside: avoid !important; }
-  .info-grid { break-inside: avoid !important; page-break-inside: avoid !important; }
-  .report-title { font-size: 22px !important; text-align: center !important; break-after: avoid !important; }
-  .report-desc { break-after: avoid !important; }
-  p, .dr-desc, .dr-advice, .area-text { orphans: 3; widows: 3; }
-
-  /* Preserve section labels (blue background pills) */
-  .section-label { background: #3B9BF5 !important; color: #fff !important; }
-
-  /* Preserve table styles */
-  table { border-collapse: collapse !important; }
-  th { background: #F5F7FA !important; }
-  td, th { border: 1px solid #E8ECF0 !important; padding: 6px 8px !important; }
-
-  /* Preserve score option pills (C-PEP pass/partial/fail) */
-  .q-score-opt.selected-pass { background: #F0FFF4 !important; color: #52C41A !important; border-color: #52C41A !important; }
-  .q-score-opt.selected-partial { background: #FFF8EB !important; color: #F5A623 !important; border-color: #F5A623 !important; }
-  .q-score-opt.selected-fail { background: #FFF0F0 !important; color: #F56C6C !important; border-color: #F56C6C !important; }
-
-  /* Preserve progress bars */
-  .pct-bar, .sum-bar-seg, .domain-fill { -webkit-print-color-adjust: exact !important; }
-
-  /* Preserve radar chart SVG */
-  svg { -webkit-print-color-adjust: exact !important; }
-
-  /* Preserve editable area text */
-  .editable-area .area-text { display: block !important; }
-  .editable-area .area-textarea { display: none !important; }
-
-  /* Page margins */
-  @page { margin: 15mm 10mm; size: A4; }
-
-  /* Avoid page breaks inside sections */
-  .domain-report, .q-card { break-inside: avoid; page-break-inside: avoid; }
-
-  /* Print header */
-  .print-header { display: block !important; text-align: center; font-size: 18px; font-weight: 600; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid #3B9BF5; }
-}
+.radar-svg { width: 100%; max-width: 420px; height: 420px; }
+.chart-center { text-align: center; }
+.bottom-actions { background: var(--app-card); border-top: 1px solid var(--app-border); padding: 12px 20px; display: flex; justify-content: center; gap: 16px; flex-shrink: 0; }
+.btn-export { padding: 10px 32px; background: #fff; border: 1px solid #D8DDE5; border-radius: var(--app-radius-md); font-size: 14px; cursor: pointer; color: var(--app-text-sec); font-family: var(--app-font); }
+.btn-export:hover { background: #F5F7FA; }
+.btn-send { padding: 10px 32px; background: var(--app-primary); color: #fff; border: none; border-radius: var(--app-radius-md); font-size: 14px; font-weight: 500; cursor: pointer; font-family: var(--app-font); }
+.btn-send:hover { background: var(--app-primary-hover); }
+</style>
+<style>
+/* IEP styles */
 .iep-title { font-size: 18px; font-weight: 600; text-align: center; margin-bottom: 16px; }
 .iep-info { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px 24px; font-size: 14px; margin-bottom: 16px; }
 .iep-info .label { color: var(--app-text-sec); }
@@ -133,9 +84,8 @@ table.score-tbl tr:hover td { background: #FAFBFC; }
 .iep-table td { padding: 10px 14px; border-bottom: 1px solid var(--app-border); font-size: 13px; vertical-align: top; }
 .iep-table .domain-cell { font-weight: 500; border-right: 1px solid var(--app-border); }
 .iep-table .goal-cell { border-right: 1px solid var(--app-border); }
-.iep-table .del-link { color: var(--app-danger); font-size: 12px; cursor: pointer; display: inline-flex; align-items: center; gap: 2px; white-space: nowrap; }
-.iep-table .del-link:hover { opacity: 0.7; }
-.iep-domain-del { color: var(--app-danger); font-size: 12px; cursor: pointer; display: flex; align-items: center; gap: 4px; margin-top: 8px; white-space: nowrap; }
+.iep-table .del-link { color: var(--app-danger); font-size: 12px; cursor: pointer; }
+.iep-domain-del { color: var(--app-danger); font-size: 12px; cursor: pointer; display: flex; align-items: center; gap: 4px; margin-top: 8px; }
 .iep-actions { display: flex; justify-content: center; gap: 12px; padding: 12px 20px; position: sticky; bottom: 0; background: var(--app-card); border-top: 1px solid var(--app-border); z-index: 10; }
 .iep-actions button { padding: 8px 24px; border-radius: var(--app-radius-md); font-size: 14px; cursor: pointer; font-family: var(--app-font); font-weight: 500; }
 .iep-btn-export { background: #fff; border: 1px solid var(--app-border); color: var(--app-text-sec); }
@@ -164,22 +114,14 @@ table.score-tbl tr:hover td { background: #FAFBFC; }
 .iep-modal .form-actions button { padding: 8px 20px; border-radius: var(--app-radius-md); font-size: 14px; cursor: pointer; font-family: var(--app-font); }
 .iep-modal .form-actions .btn-cancel { background: #fff; border: 1px solid var(--app-border); color: var(--app-text); }
 .iep-modal .form-actions .btn-confirm { background: var(--app-primary); border: none; color: #fff; }
-.radar-svg { width: 100%; max-width: 400px; height: 400px; }
-.chart-center { text-align: center; }
-.bottom-actions { background: var(--app-card); border-top: 1px solid var(--app-border); padding: 12px 20px; display: flex; justify-content: center; gap: 16px; flex-shrink: 0; }
-.btn-export { padding: 10px 32px; background: #fff; border: 1px solid #D8DDE5; border-radius: var(--app-radius-md); font-size: 14px; cursor: pointer; color: var(--app-text-sec); font-family: var(--app-font); }
-.btn-send { padding: 10px 32px; background: var(--app-primary); color: #fff; border: none; border-radius: var(--app-radius-md); font-size: 14px; font-weight: 500; cursor: pointer; font-family: var(--app-font); }
-.coming-soon { text-align: center; padding: 80px 0; }
-.coming-soon .icon { font-size: 48px; margin-bottom: 16px; }
-.coming-soon .text { font-size: 16px; color: var(--app-text-sec); }
 </style>
 <style>
-/* 评估量表Tab */
+/* Scale tab */
 .scale-info-bar { padding: 12px 20px; background: var(--app-card); border-bottom: 1px solid var(--app-border); flex-shrink: 0; }
 .scale-info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px 20px; font-size: 13px; }
 .scale-info-grid .label { color: var(--app-text-sec); }
 .scale-layout { display: flex; gap: 0; flex: 1; overflow: hidden; min-height: 0; }
-.scale-nav { width: 220px; background: var(--app-card); border-right: 1px solid var(--app-border); overflow-y: auto; flex-shrink: 0; padding: 12px 0; }
+.scale-nav { width: 240px; background: var(--app-card); border-right: 1px solid var(--app-border); overflow-y: auto; flex-shrink: 0; padding: 12px 0; }
 .scale-nav .tree-group-title { display: flex; align-items: center; gap: 6px; padding: 8px 16px; font-size: 13px; font-weight: 600; color: var(--app-text); cursor: pointer; user-select: none; }
 .scale-nav .tree-group-title:hover { background: #F5F7FA; }
 .scale-nav .tree-group-title .arrow { display: inline-block; transition: transform .2s; font-size: 10px; }
@@ -207,20 +149,27 @@ table.score-tbl tr:hover td { background: #FAFBFC; }
 .q-card .q-score-opt.selected-pass { background: #F0FFF4; color: var(--app-success); border-color: var(--app-success); }
 .q-card .q-score-opt.selected-partial { background: #FFF8EB; color: var(--app-warning); border-color: var(--app-warning); }
 .q-card .q-score-opt.selected-fail { background: #FFF0F0; color: var(--app-danger); border-color: var(--app-danger); }
-.q-card .q-note { margin-top: 6px; padding-left: 38px; font-size: 12px; color: var(--app-text-sec); background: #F9FAFB; border-radius: 6px; padding: 6px 10px 6px 38px; }
+.q-card .q-note { margin-top: 6px; padding: 6px 10px 6px 38px; font-size: 12px; color: var(--app-text-sec); background: #F9FAFB; border-radius: 6px; }
 .q-card .q-note::before { content: '📝 '; }
-.score-badge { display: inline-block; padding: 2px 10px; border-radius: 9999px; font-size: 12px; font-weight: 500; }
-.score-badge.pass { background: #F0FFF4; color: var(--app-success); }
-.score-badge.partial { background: #FFF8EB; color: var(--app-warning); }
-.score-badge.fail { background: #FFF0F0; color: var(--app-danger); }
-.note-row td { padding: 2px 14px 10px; border-top: none !important; }
-.note-text { font-size: 12px; color: var(--app-text-sec); background: #F9FAFB; border-radius: 6px; padding: 6px 10px; display: inline-block; max-width: 100%; }
-.note-text::before { content: '📝 '; }
 .reset-btn { position: fixed; bottom: 20px; right: 20px; background: rgba(0,0,0,0.35); color: #fff; border: none; padding: 8px 14px; border-radius: var(--app-radius-md); font-size: 13px; cursor: pointer; z-index: 9999; opacity: 0.5; }
 .reset-btn:hover { opacity: 1; }
 .toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #1A2233; color: #fff; padding: 10px 20px; border-radius: var(--app-radius-md); font-size: 13px; z-index: 10000; display: none; }
 .toast.show { display: block; animation: fadeInOut 2s ease; }
 @keyframes fadeInOut { 0%{opacity:0;transform:translateX(-50%) translateY(-10px)} 15%{opacity:1;transform:translateX(-50%) translateY(0)} 85%{opacity:1} 100%{opacity:0} }
+@media print {
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  .topbar, .tab-bar, .bottom-actions, .reset-btn, .toast, .edit-link, .edit-actions, .iep-actions { display: none !important; }
+  body { height: auto !important; overflow: visible !important; }
+  .content { overflow: visible !important; height: auto !important; }
+  .tab-content { display: block !important; padding: 20px !important; }
+  .tab-content#tabIEP, .tab-content#tabScale { display: none !important; }
+  .card { box-shadow: none !important; }
+  .section-label { background: #3B9BF5 !important; color: #fff !important; }
+  table { border-collapse: collapse !important; }
+  th { background: #F5F7FA !important; }
+  td, th { border: 1px solid #E8ECF0 !important; padding: 6px 8px !important; }
+  @page { margin: 15mm 10mm; size: A4; }
+}
 </style>
 </head>
 <body>
@@ -229,13 +178,11 @@ table.score-tbl tr:hover td { background: #FAFBFC; }
   <span class="back" onclick="location.href='assessment-list.html'">←</span>
   <span class="title">张小明评估报告</span>
 </div>
-
 <div class="tab-bar">
   <button class="tab-btn active" onclick="switchTab(0,this)">评估报告</button>
   <button class="tab-btn" onclick="switchTab(1,this)">IEP</button>
   <button class="tab-btn" onclick="switchTab(2,this)">评估量表</button>
 </div>
-
 <div class="content">
   <div class="tab-content active" id="tabReport"></div>
   <div class="tab-content" id="tabIEP">
@@ -254,21 +201,17 @@ table.score-tbl tr:hover td { background: #FAFBFC; }
       <label style="font-size:13px;color:var(--app-text-sec);">课程包：</label>
       <select id="coursePacketSelect" onchange="onCoursePacketChange()" style="padding:6px 12px;border:1px solid var(--app-border);border-radius:var(--app-radius-md);font-size:14px;font-family:var(--app-font);min-width:220px;"></select>
     </div>
-    <div id="iepContent">
-      <div style="text-align:center;padding:40px 0;color:var(--app-text-sec);">请先选择课程包</div>
-    </div>
+    <div id="iepContent"><div style="text-align:center;padding:40px 0;color:var(--app-text-sec);">请先选择课程包</div></div>
   </div>
   <div class="tab-content" id="tabScale" style="padding:0;display:none;flex-direction:column;height:calc(100vh - 96px);">
-    <div class="scale-info-bar" id="scaleInfoStatic">
-      <div class="scale-info-grid">
-        <div><span class="label">学生姓名：</span>张小明</div>
-        <div><span class="label">评估工具：</span>C-PEP</div>
-        <div><span class="label">评估时间：</span>2024-03-10</div>
-        <div><span class="label">评估师：</span>李老师</div>
-        <div><span class="label">评估次数：</span>第1次</div>
-        <div><span class="label">实足年龄：</span>4岁10月</div>
-      </div>
-    </div>
+    <div class="scale-info-bar"><div class="scale-info-grid">
+      <div><span class="label">学生姓名：</span>张小明</div>
+      <div><span class="label">评估工具：</span>C-PEP</div>
+      <div><span class="label">评估时间：</span>2024-03-10</div>
+      <div><span class="label">评估师：</span>李老师</div>
+      <div><span class="label">评估次数：</span>第1次</div>
+      <div><span class="label">实足年龄：</span>4岁10月</div>
+    </div></div>
     <div class="scale-layout">
       <div class="scale-nav" id="scaleNav"></div>
       <div class="scale-detail">
@@ -278,31 +221,12 @@ table.score-tbl tr:hover td { background: #FAFBFC; }
     </div>
   </div>
 </div>
-
 <div class="bottom-actions" id="bottomActions">
   <button class="btn-export" onclick="exportPDF()">导出PDF</button>
-  <button class="btn-send" onclick="showToast('已生成家长版报告链接')">发送报告</button>
+  <button class="btn-send" onclick="showToast('已生成报告链接')">发送报告</button>
 </div>
-
-<div class="iep-modal-overlay" id="iepDeleteModal">
-  <div class="iep-modal" style="width:380px;">
-    <h3>确认删除 <button class="close" onclick="closeDeleteModal()">✕</button></h3>
-    <p style="font-size:14px;color:var(--app-text-sec);line-height:1.6;margin-bottom:16px;" id="iepDeleteMsg">确定要删除吗？</p>
-    <div class="form-actions">
-      <button class="btn-cancel" onclick="closeDeleteModal()">取消</button>
-      <button class="btn-confirm" style="background:var(--app-danger);" onclick="execDelete()">删除</button>
-    </div>
-  </div>
-</div>
-<div class="iep-modal-overlay" id="iepAddModal">
-  <div class="iep-modal">
-    <h3>添加目标 <button class="close" onclick="closeIEPModal()">✕</button></h3>
-    <div class="form-group"><label>阶梯及领域</label><input type="text" id="iepAddDomain" placeholder="如：2-3岁-沟通-语言理解"></div>
-    <div class="form-group"><label>任务目标</label><input type="text" id="iepAddGoal" placeholder="如：简单句理解"></div>
-    <div class="form-group"><label>短期目标（每行一个）</label><textarea id="iepAddStages" placeholder="人物+动作/地点&#10;物品+动作/地点"></textarea></div>
-    <div class="form-actions"><button class="btn-cancel" onclick="closeIEPModal()">取消</button><button class="btn-confirm" onclick="confirmAddGoal()">确认添加</button></div>
-  </div>
-</div>
+<div class="iep-modal-overlay" id="iepDeleteModal"><div class="iep-modal" style="width:380px;"><h3>确认删除 <button class="close" onclick="closeDeleteModal()">✕</button></h3><p style="font-size:14px;color:var(--app-text-sec);line-height:1.6;margin-bottom:16px;" id="iepDeleteMsg">确定要删除吗？</p><div class="form-actions"><button class="btn-cancel" onclick="closeDeleteModal()">取消</button><button class="btn-confirm" style="background:var(--app-danger);" onclick="execDelete()">删除</button></div></div></div>
+<div class="iep-modal-overlay" id="iepAddModal"><div class="iep-modal"><h3>添加目标 <button class="close" onclick="closeIEPModal()">✕</button></h3><div class="form-group"><label>阶梯及领域</label><input type="text" id="iepAddDomain" placeholder="如：2-3岁-沟通-语言理解"></div><div class="form-group"><label>任务目标</label><input type="text" id="iepAddGoal" placeholder="如：简单句理解"></div><div class="form-group"><label>短期目标（每行一个）</label><textarea id="iepAddStages" placeholder="人物+动作/地点&#10;物品+动作/地点"></textarea></div><div class="form-actions"><button class="btn-cancel" onclick="closeIEPModal()">取消</button><button class="btn-confirm" onclick="confirmAddGoal()">确认添加</button></div></div></div>
 <div class="toast" id="toast"></div>
 <button class="reset-btn" onclick="resetAll()">🔄 一键重置</button>
 
@@ -310,72 +234,101 @@ table.score-tbl tr:hover td { background: #FAFBFC; }
 const params = new URLSearchParams(location.search);
 const recordId = params.get('record') || 'rec002';
 
-/* === C-PEP 领域结构 === */
-const CPEP_DOMAINS = [
-  { name: '感知觉', count: 55 },
-  { name: '精细动作', count: 36 },
-  { name: '粗大动作', count: 72 },
-  { name: '模仿', count: 14 },
-  { name: '认知', count: 48 },
-  { name: '语言理解', count: 30 },
-  { name: '语言表达', count: 30 }
+/* ===== CPEP-3 副测验结构（PEP-3 标准） ===== */
+const DEV_SUBTESTS = [
+  { name: '认知-语言', code: 'CVP', count: 34 },
+  { name: '语言表达', code: 'EL', count: 25 },
+  { name: '语言理解', code: 'RL', count: 26 },
+  { name: '小肌肉', code: 'FM', count: 20 },
+  { name: '大肌肉', code: 'GM', count: 18 },
+  { name: '模仿', code: 'VMI', count: 10 }
 ];
-const TOTAL_QUESTIONS = CPEP_DOMAINS.reduce((s, d) => s + d.count, 0);
+const BEHAV_SUBTESTS = [
+  { name: '情感表达', code: 'AE', count: 8 },
+  { name: '社会互动', code: 'SR', count: 12 },
+  { name: '行为特征-非语言', code: 'CMB', count: 15 },
+  { name: '行为特征-语言', code: 'CVB', count: 11 }
+];
+const CAREGIVER_SUBTESTS = [
+  { name: '个人自理', code: 'PSC', count: 13, hasDev: true },
+  { name: '问题行为', code: 'PB', count: 10, hasDev: false },
+  { name: '适应行为', code: 'AB', count: 15, hasDev: false }
+];
+const ALL_DEV_BEHAV = DEV_SUBTESTS.concat(BEHAV_SUBTESTS);
+const ALL_SUBTESTS = ALL_DEV_BEHAV.concat(CAREGIVER_SUBTESTS);
+const TOTAL_Q = ALL_SUBTESTS.reduce((s, d) => s + d.count, 0);
 
-/* 发展年龄映射（基于得分率和实足年龄，确定性推算） */
-const CPEP_ACTUAL_AGE_MONTHS = 58; // 4岁10月 = 58个月
-function getDevAge(pct) {
-  let months;
-  if (pct >= 90) months = CPEP_ACTUAL_AGE_MONTHS;
-  else if (pct >= 80) months = CPEP_ACTUAL_AGE_MONTHS - 6;
-  else if (pct >= 70) months = CPEP_ACTUAL_AGE_MONTHS - 12;
-  else if (pct >= 60) months = CPEP_ACTUAL_AGE_MONTHS - 18;
-  else if (pct >= 50) months = CPEP_ACTUAL_AGE_MONTHS - 24;
-  else if (pct >= 40) months = CPEP_ACTUAL_AGE_MONTHS - 30;
-  else months = CPEP_ACTUAL_AGE_MONTHS - 36;
-  if (months <= 0) months = 6;
-  const y = Math.floor(months / 12);
-  const m = months % 12;
-  return y + '岁' + m + '月';
-}
+/* 合成分数定义 */
+const COMPOSITES = [
+  { name: '沟通', code: 'C', components: ['CVP','EL','RL'] },
+  { name: '体能', code: 'M', components: ['FM','GM','VMI'] },
+  { name: '行为', code: 'MB', components: ['AE','SR','CMB','CVB'] }
+];
 
-/* 确定性伪随机（基于种子字符串，同一 recordId 始终生成相同数据） */
+const ACTUAL_AGE_MONTHS = 58; // 4岁10月
+
+/* ===== 确定性伪随机 ===== */
 function seededRandom(seed) {
   let h = 0;
   for (let i = 0; i < seed.length; i++) { h = ((h << 5) - h + seed.charCodeAt(i)) | 0; }
   return function() { h = (h * 1103515245 + 12345) & 0x7fffffff; return (h % 1000) / 1000; };
 }
 
-/* === 加载答题数据 === */
+/* ===== 计算函数 ===== */
+function getDevAge(pct) {
+  let m;
+  if (pct >= 90) m = ACTUAL_AGE_MONTHS;
+  else if (pct >= 80) m = ACTUAL_AGE_MONTHS - 6;
+  else if (pct >= 70) m = ACTUAL_AGE_MONTHS - 12;
+  else if (pct >= 60) m = ACTUAL_AGE_MONTHS - 18;
+  else if (pct >= 50) m = ACTUAL_AGE_MONTHS - 24;
+  else if (pct >= 40) m = ACTUAL_AGE_MONTHS - 30;
+  else m = ACTUAL_AGE_MONTHS - 36;
+  if (m < 12) return '<12';
+  return Math.floor(m / 12) + '岁' + (m % 12) + '月';
+}
+function getPercentile(pct) {
+  if (pct >= 90) return 95;
+  if (pct >= 80) return 75;
+  if (pct >= 70) return 50;
+  if (pct >= 60) return 25;
+  if (pct >= 50) return 10;
+  return Math.max(1, Math.round(pct / 10));
+}
+function getLevel(ptile) {
+  if (ptile >= 75) return { text: '适当', cls: 'ok' };
+  if (ptile >= 50) return { text: '轻度', cls: 'mild' };
+  return { text: '严重', cls: 'severe' };
+}
+
+/* ===== 加载答题数据 ===== */
 function loadAnswers() {
   const key = 'rice_assessment_answers_' + recordId;
   const stored = localStorage.getItem(key);
   const result = { scores: {}, notes: {}, rounds: {} };
   if (stored) {
-    const data = JSON.parse(stored);
-    Object.keys(data).forEach(qId => {
-      if (qId === '_marks') return;
-      const v = data[qId];
-      if (v && typeof v === 'object' && v.value !== undefined) {
-        result.scores[qId] = v.value;
-        if (v.notes) result.notes[qId] = v.notes;
-        if (v.rounds && Array.isArray(v.rounds)) result.rounds[qId] = v.rounds;
-      } else if (typeof v === 'number') {
-        result.scores[qId] = v;
-      }
-    });
-    if (data.answers && typeof data.answers === 'object') {
-      Object.keys(data.answers).forEach(qId => { result.scores[qId] = data.answers[qId]; });
-      if (data.notes) Object.assign(result.notes, data.notes);
-    }
-    return result;
+    try {
+      const data = JSON.parse(stored);
+      Object.keys(data).forEach(qId => {
+        if (qId === '_marks') return;
+        const v = data[qId];
+        if (v && typeof v === 'object' && v.value !== undefined) {
+          result.scores[qId] = v.value;
+          if (v.notes) result.notes[qId] = v.notes;
+          if (v.rounds) result.rounds[qId] = v.rounds;
+        } else if (typeof v === 'number') { result.scores[qId] = v; }
+      });
+      if (data.answers) { Object.keys(data.answers).forEach(qId => { result.scores[qId] = data.answers[qId]; }); if (data.notes) Object.assign(result.notes, data.notes); }
+      return result;
+    } catch(e) {}
   }
-  const sampleNotes = ['需要多次示范','对材料表现出兴趣','注意力约30秒','需手把手辅助','自发完成','有轻微抵触','提示下完成一半'];
-  const rand = seededRandom(recordId + '_cpep_fallback');
-  for (let i = 1; i <= TOTAL_QUESTIONS; i++) {
+  /* fallback: 确定性中等分数据 */
+  const rand = seededRandom(recordId + '_cpep3_fallback');
+  const notes = ['需要多次示范','对材料表现出兴趣','注意力约30秒','需手把手辅助','自发完成','有轻微抵触','提示下完成一半'];
+  for (let i = 1; i <= TOTAL_Q; i++) {
     const r = rand();
-    result.scores['cpep_q' + i] = r < 0.5 ? 1 : r < 0.8 ? 0.5 : 0;
-    if (rand() < 0.12) result.notes['cpep_q' + i] = sampleNotes[Math.floor(rand() * sampleNotes.length)];
+    result.scores['cpep_q' + i] = r < 0.45 ? 2 : r < 0.75 ? 1 : 0;
+    if (rand() < 0.1) result.notes['cpep_q' + i] = notes[Math.floor(rand() * notes.length)];
   }
   return result;
 }
@@ -384,252 +337,394 @@ const answers = answerData.scores;
 const answerNotes = answerData.notes;
 const answerRounds = answerData.rounds;
 
-/* === 计算各领域得分 === */
-function calcScores() {
+/* ===== 计算各副测验得分 ===== */
+function calcSubtestScores() {
   let qIdx = 1;
-  return CPEP_DOMAINS.map(d => {
-    let pass = 0, partial = 0, fail = 0;
-    for (let i = 0; i < d.count; i++) {
+  return ALL_SUBTESTS.map(st => {
+    let P = 0, E = 0, F = 0;
+    for (let i = 0; i < st.count; i++) {
       const v = answers['cpep_q' + qIdx];
-      if (v === 1) pass++;
-      else if (v === 0.5) partial++;
-      else fail++;
+      if (v === 2) P++; else if (v === 1) E++; else F++;
       qIdx++;
     }
-    const pct = Math.round(pass / d.count * 100);
-    return { ...d, pass, partial, fail, score: pass, pct, devAge: getDevAge(pct) };
+    const pct = st.count > 0 ? Math.round(P / st.count * 100) : 0;
+    const ptile = getPercentile(pct);
+    const level = getLevel(ptile);
+    const isDev = DEV_SUBTESTS.some(d => d.code === st.code) || (st.hasDev === true);
+    const devAge = isDev ? getDevAge(pct) : '';
+    return { ...st, P, E, F, pct, ptile, level, devAge };
   });
 }
-const domainScores = calcScores();
-const colors = ['#7EC8F0','#FFB88C','#FFD966','#7ED6A8','#B8A0E0','#FFB0C8','#A0D8EF'];
+const subtestScores = calcSubtestScores();
+const devBehavScores = subtestScores.slice(0, 10);
+const caregiverScores = subtestScores.slice(10);
 
-/* === Tab 切换 === */
+/* 合成分数计算 */
+function calcComposites() {
+  return COMPOSITES.map(comp => {
+    const subs = comp.components.map(code => subtestScores.find(s => s.code === code));
+    const stdSum = subs.reduce((s, sub) => s + (sub ? sub.ptile : 0), 0);
+    const maxStd = subs.length * 95;
+    const compPct = maxStd > 0 ? Math.round(stdSum / maxStd * 100) : 0;
+    const ptile = getPercentile(compPct);
+    const level = getLevel(ptile);
+    const devAge = getDevAge(compPct);
+    return { ...comp, subs, stdSum, ptile, level, devAge };
+  });
+}
+const composites = calcComposites();
+
+/* ===== Tab 切换 ===== */
 function switchTab(idx, btn) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  document.querySelectorAll('.tab-content').forEach((c, i) => {
-    c.classList.remove('active');
-    c.style.display = 'none';
-  });
+  document.querySelectorAll('.tab-content').forEach((c, i) => { c.classList.remove('active'); c.style.display = 'none'; });
   const tab = document.querySelectorAll('.tab-content')[idx];
   tab.classList.add('active');
   tab.style.display = idx === 2 ? 'flex' : 'block';
   document.getElementById('bottomActions').style.display = idx === 0 ? 'flex' : 'none';
 }
 
-/* === 渲染评估报告 === */
+/* ===== 渲染评估报告 ===== */
 function renderReport() {
-  const strong = domainScores.filter(d => d.pct >= 65).map(d => d.name).join('、') || '无';
-  const weak = domainScores.filter(d => d.pct <= 45).map(d => d.name).join('、') || '无';
+  const strong = devBehavScores.filter(d => d.pct >= 70).map(d => d.name).join('、') || '无';
+  const weak = devBehavScores.filter(d => d.pct <= 40).map(d => d.name).join('、') || '无';
+
+  /* 副测验分数表 HTML */
+  let subtestHtml = '<table class="score-tbl"><thead><tr><th></th><th>副测验</th><th>代码</th><th>原始分</th><th>发展年龄</th><th>百分比级数</th><th>发展/适应程度</th></tr></thead><tbody>';
+  subtestHtml += '<tr class="group-header"><td colspan="7">发展及行为副测验</td></tr>';
+  devBehavScores.forEach((d, i) => {
+    subtestHtml += '<tr><td style="color:var(--app-text-sec)">' + (i + 1) + '</td><td style="font-weight:500">' + d.name + '</td><td>' + d.code + '</td><td>' + d.P + '</td><td>' + (d.devAge || '-') + '</td><td>' + d.ptile + '</td><td><span class="level-badge ' + d.level.cls + '">' + d.level.text + '</span></td></tr>';
+  });
+  subtestHtml += '<tr class="group-header"><td colspan="7">儿童照顾者报告副测验</td></tr>';
+  caregiverScores.forEach((d, i) => {
+    subtestHtml += '<tr><td style="color:var(--app-text-sec)">' + (i + 1) + '</td><td style="font-weight:500">' + d.name + '</td><td>' + d.code + '</td><td>' + d.P + '</td><td>' + (d.devAge || '-') + '</td><td>' + d.ptile + '</td><td><span class="level-badge ' + d.level.cls + '">' + d.level.text + '</span></td></tr>';
+  });
+  subtestHtml += '</tbody></table>';
+
+  /* 合成分数表 HTML */
+  let compHtml = '<table class="score-tbl"><thead><tr><th>合成分数</th>';
+  const allCodes = ['CVP','EL','RL','FM','GM','VMI','AE','SR','CMB','CVB'];
+  allCodes.forEach(c => { compHtml += '<th style="font-size:11px;padding:6px 4px">' + c + '</th>'; });
+  compHtml += '<th>标准分总和</th><th>百分比级数</th><th>发展适应程度</th><th>发展年龄</th></tr></thead><tbody>';
+  composites.forEach(comp => {
+    compHtml += '<tr><td style="font-weight:500">' + comp.name + '(' + comp.code + ')</td>';
+    allCodes.forEach(code => {
+      const sub = comp.subs.find(s => s && s.code === code);
+      compHtml += '<td style="text-align:center;font-size:12px">' + (sub ? sub.ptile : '') + '</td>';
+    });
+    compHtml += '<td style="font-weight:600">' + comp.stdSum + '</td><td>' + comp.ptile + '</td><td><span class="level-badge ' + comp.level.cls + '">' + comp.level.text + '</span></td><td>' + comp.devAge + '</td></tr>';
+  });
+  compHtml += '</tbody></table>';
 
   document.getElementById('tabReport').innerHTML = `
-    <div class="report-title">C-PEP 孤独症儿童发展评估报告</div>
-    <div class="report-desc">* 本评估报告基于与学生年龄及发展阶段相匹配的测评内容，依据评估人员的直接观察与记录数据，同时结合家长反馈信息，经综合分析后形成评估结果。</div>
+    <div class="report-title">CPEP-3 自闭症儿童心理教育评核</div>
+    <div class="report-desc">* 本评估报告基于 CPEP-3 量表，依据评估人员的直接观察与记录数据，同时结合照顾者报告信息，经综合分析后形成评估结果。</div>
 
     <div class="card">
-      <div class="section-label">基本信息</div>
+      <div class="section-label">儿童资料</div>
       <div class="info-grid">
         <div class="info-item"><span class="label">儿童姓名:</span><span class="value">张小明</span></div>
+        <div class="info-item"><span class="label">性别:</span><span class="value">男</span></div>
         <div class="info-item"><span class="label">出生日期:</span><span class="value">2019-05-20</span></div>
         <div class="info-item"><span class="label">实足年龄:</span><span class="value">4岁10月</span></div>
-        <div class="info-item"><span class="label">评估时间:</span><span class="value">2024-03-10</span></div>
-        <div class="info-item"><span class="label">评估师:</span><span class="value">李老师</span></div>
+        <div class="info-item"><span class="label">评估日期:</span><span class="value">2024-03-10</span></div>
+        <div class="info-item"><span class="label">测试员:</span><span class="value">李老师</span></div>
       </div>
     </div>
 
     <div class="card">
-      <div class="section-label">各领域得分</div>
-      <table class="score-tbl">
-        <thead><tr><th>领域</th><th>通过数</th><th>中间反应</th><th>不通过</th><th>得分</th><th>发展年龄</th><th>得分率</th></tr></thead>
-        <tbody>
-          ${domainScores.map((d, i) => `<tr>
-            <td style="font-weight:500">${d.name}</td>
-            <td>${d.pass}</td><td>${d.partial}</td><td>${d.fail}</td>
-            <td>${d.score}/${d.count}</td><td>${d.devAge}</td>
-            <td><span class="pct-bar" style="width:${d.pct * 0.8}px;background:${colors[i]}"></span>${d.pct}%</td>
-          </tr>`).join('')}
-        </tbody>
-      </table>
+      <div class="section-label">副测验分数</div>
+      ${subtestHtml}
     </div>
 
-    <div class="card chart-center">
-      <div style="text-align:left;margin-bottom:16px;"><span class="section-label">发展概况</span></div>
-      <svg class="radar-svg" id="radarChart" viewBox="0 0 420 420"></svg>
+    <div class="card">
+      <div class="section-label">合成分数</div>
+      ${compHtml}
+    </div>
+
+    <div class="card">
+      <div class="section-label">发展功能量表侧面图</div>
+      <svg id="devProfileChart" viewBox="0 0 900 520" style="width:100%;height:auto;"></svg>
+    </div>
+
+    <div class="card">
+      <div class="section-label">行为病理行为靶心图</div>
+      <p style="font-size:12px;color:var(--app-text-sec);margin-bottom:12px;line-height:1.6">[说明] 根据每个病理行为领域中评为严重（S）的项目数，从圆心开始涂黑相应的环数。再根据各病理行为领域中评为轻度（M）的项目数，继续将相应的环数涂上阴影。其余的留作空白。每个扇形的环数 = 该领域的总题数。</p>
+      <div class="chart-center"><svg id="behaviorTargetChart" viewBox="0 0 560 560" style="width:100%;max-width:560px;height:auto;"></svg></div>
     </div>
 
     <div class="card editable-area" id="analysisArea">
-      <div class="edit-header">
-        <div class="section-label">综合分析</div>
-        <a class="edit-link" onclick="toggleEdit('analysis')">编辑</a>
-      </div>
-      <div class="area-text" id="analysisText">
-<strong>各领域得分概述：</strong>本次评估涵盖感知觉、精细动作、粗大动作、模仿、认知、语言理解、语言表达7个发展领域。
+      <div class="edit-header"><div class="section-label">综合分析</div><a class="edit-link" onclick="toggleEdit('analysis')">编辑</a></div>
+      <div class="area-text" id="analysisText"><strong>副测验分数概述：</strong>本次评估涵盖10个发展及行为副测验和3个照顾者报告副测验。
 
-<strong>优势领域：</strong>${strong}，得分率较高，发展水平接近同龄儿童。
+<strong>优势领域：</strong>${strong}，百分比级数较高，发展水平接近同龄儿童。
 
-<strong>需关注领域：</strong>${weak}，得分率偏低，建议作为重点干预领域。
+<strong>需关注领域：</strong>${weak}，百分比级数偏低，发展/适应程度为严重，建议作为重点干预领域。
 
-<strong>建议：</strong>优先加强薄弱领域的训练，结合日常生活场景进行泛化练习。</div>
+<strong>合成分数：</strong>沟通(C)标准分总和${composites[0].stdSum}，体能(M)标准分总和${composites[1].stdSum}，行为(MB)标准分总和${composites[2].stdSum}。
+
+<strong>建议：</strong>优先加强薄弱副测验领域的训练，结合日常生活场景进行泛化练习。</div>
       <textarea class="area-textarea" id="analysisInput"></textarea>
-      <div class="edit-actions" id="analysisActions">
-        <button class="btn-cancel" onclick="cancelEdit('analysis')">取消</button>
-        <button class="btn-save" onclick="saveEdit('analysis')">保存</button>
-      </div>
-    </div>
-
-    <div class="card editable-area" id="recommendArea">
-      <div class="edit-header">
-        <div class="section-label">训练建议</div>
-        <a class="edit-link" onclick="toggleEdit('recommend')">编辑</a>
-      </div>
-      <div class="area-text" id="recommendText">1. 感知觉训练：加强视觉追视、听觉辨别和触觉探索活动
-2. 精细动作：从抓握、捏取到穿珠、剪纸的阶梯式训练
-3. 粗大动作：平衡、跳跃、球类活动的系统训练
-4. 模仿能力：从动作模仿到语音模仿的过渡练习
-5. 认知训练：配对、分类、排序等基础认知技能
-6. 语言理解：从单步指令到多步指令的理解训练
-7. 语言表达：从发音模仿到功能性语言的表达训练</div>
-      <textarea class="area-textarea" id="recommendInput"></textarea>
-      <div class="edit-actions" id="recommendActions">
-        <button class="btn-cancel" onclick="cancelEdit('recommend')">取消</button>
-        <button class="btn-save" onclick="saveEdit('recommend')">保存</button>
-      </div>
+      <div class="edit-actions" id="analysisActions"><button class="btn-cancel" onclick="cancelEdit('analysis')">取消</button><button class="btn-save" onclick="saveEdit('analysis')">保存</button></div>
     </div>`;
 
-  drawRadar();
+  drawDevProfile();
+  drawBehaviorTarget();
 }
 
-/* === 雷达图 === */
-function drawRadar() {
-  const svg = document.getElementById('radarChart');
+
+/* ===== 发展功能量表侧面图（C-PEP-3 标准格式，每分一个刻度） ===== */
+function drawDevProfile() {
+  var svg = document.getElementById('devProfileChart');
   if (!svg) return;
-  const cx = 210, cy = 210, r = 140, n = domainScores.length;
-  let grid = '', axes = '', pts = [], dots = '', labels = '';
-  for (let lv = 1; lv <= 4; lv++) {
-    const lr = r * lv / 4;
-    let gpts = [];
-    for (let i = 0; i < n; i++) {
-      const a = (Math.PI * 2 * i / n) - Math.PI / 2;
-      gpts.push(`${cx + lr * Math.cos(a)},${cy + lr * Math.sin(a)}`);
+  var COLS = [
+    { name: '模仿', code: 'VMI', max: 10 },
+    { name: '知觉', code: 'CVP', max: 34 },
+    { name: '精细动作', code: 'FM', max: 20 },
+    { name: '粗大动作', code: 'GM', max: 18 },
+    { name: '手眼协调', code: 'EL', max: 25 },
+    { name: '认知表现', code: 'RL', max: 26 },
+    { name: '口语认知', code: 'CVB', max: 11 }
+  ];
+  var globalMax = Math.max.apply(null, COLS.map(function(c){return c.max;}));
+  var W = 960, padL = 65, padR = 65, padT = 50, padB = 40;
+  var rowH = 18;
+  var chartH = globalMax * rowH;
+  var H = padT + chartH + padB;
+  var maxAge = 6, nCols = COLS.length, colW = 80;
+  var totalColX = padL + nCols * colW;
+  var ageColX = totalColX + colW;
+  var totalMax = COLS.reduce(function(s,c){return s+c.max;}, 0);
+  svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+  var html = '';
+  html += '<text x="' + (W / 2) + '" y="18" text-anchor="middle" font-size="13" font-weight="600" fill="#1A2233">C-PEP-3 发展功能量表侧面图</text>';
+  html += '<text x="' + (padL - 5) + '" y="' + (padT - 12) + '" text-anchor="end" font-size="10" fill="#5A6478">年龄(岁)</text>';
+  for (var age = 1; age <= maxAge; age++) {
+    var yA = padT + chartH - (age / maxAge) * chartH;
+    html += '<line x1="' + padL + '" y1="' + yA + '" x2="' + ageColX + '" y2="' + yA + '" stroke="#D0D5DD" stroke-width="0.5"/>';
+    html += '<text x="' + (padL - 8) + '" y="' + (yA + 3) + '" text-anchor="end" font-size="10" fill="#5A6478">' + age + '</text>';
+  }
+  var totalP = 0, totalPE = 0;
+  COLS.forEach(function(col, i) {
+    var x = padL + i * colW + colW / 2;
+    var st = subtestScores.find(function(d){return d.code === col.code;});
+    var pS = st ? st.P : 0, peS = st ? st.P + st.E : 0;
+    totalP += pS; totalPE += peS;
+    html += '<line x1="' + x + '" y1="' + padT + '" x2="' + x + '" y2="' + (padT + chartH) + '" stroke="#D0D5DD" stroke-width="0.5"/>';
+    html += '<text x="' + x + '" y="' + (padT - 5) + '" text-anchor="middle" font-size="9" fill="#5A6478">' + col.name + '</text>';
+    for (var v = 0; v <= col.max; v++) {
+      var y = padT + chartH - (v / globalMax) * chartH;
+      html += '<line x1="' + (x - 4) + '" y1="' + y + '" x2="' + (x + 4) + '" y2="' + y + '" stroke="#C0C8D0" stroke-width="0.3"/>';
+      html += '<text x="' + (x + 7) + '" y="' + (y + 3) + '" text-anchor="start" font-size="7" fill="#B0B8C4">' + v + '</text>';
     }
-    grid += `<polygon points="${gpts.join(' ')}" fill="none" stroke="#E8ECF0" stroke-width="1"/>`;
+    col._pY = padT + chartH - (pS / globalMax) * chartH;
+    col._peY = padT + chartH - (Math.min(peS, col.max) / globalMax) * chartH;
+    col._x = x;
+  });
+  var tx = totalColX + colW / 2;
+  html += '<line x1="' + tx + '" y1="' + padT + '" x2="' + tx + '" y2="' + (padT + chartH) + '" stroke="#D0D5DD" stroke-width="0.5"/>';
+  html += '<text x="' + tx + '" y="' + (padT - 5) + '" text-anchor="middle" font-size="9" fill="#5A6478">总评分</text>';
+  for (var v = 0; v <= totalMax; v++) {
+    var y = padT + chartH - (v / totalMax) * chartH;
+    html += '<line x1="' + (tx - 3) + '" y1="' + y + '" x2="' + (tx + 3) + '" y2="' + y + '" stroke="#C0C8D0" stroke-width="0.2"/>';
+    if (v % 5 === 0) html += '<text x="' + (tx + 7) + '" y="' + (y + 3) + '" text-anchor="start" font-size="7" fill="#B0B8C4">' + v + '</text>';
   }
-  for (let i = 0; i < n; i++) {
-    const a = (Math.PI * 2 * i / n) - Math.PI / 2;
-    axes += `<line x1="${cx}" y1="${cy}" x2="${cx + r * Math.cos(a)}" y2="${cy + r * Math.sin(a)}" stroke="#E8ECF0"/>`;
-    const val = domainScores[i].pct / 100;
-    pts.push(`${cx + r * val * Math.cos(a)},${cy + r * val * Math.sin(a)}`);
-    dots += `<circle cx="${cx + r * val * Math.cos(a)}" cy="${cy + r * val * Math.sin(a)}" r="5" fill="${colors[i]}" stroke="#fff" stroke-width="2"/>`;
-    const lx = cx + (r + 28) * Math.cos(a);
-    const ly = cy + (r + 28) * Math.sin(a);
-    labels += `<text x="${lx}" y="${ly}" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="#5A6478">${domainScores[i].name}</text>`;
+  var ax = ageColX + colW / 2;
+  html += '<text x="' + ax + '" y="' + (padT - 5) + '" text-anchor="middle" font-size="9" fill="#5A6478">年龄(岁)</text>';
+  for (var age = 1; age <= maxAge; age++) {
+    var yA = padT + chartH - (age / maxAge) * chartH;
+    html += '<text x="' + ax + '" y="' + (yA + 3) + '" text-anchor="middle" font-size="10" fill="#5A6478">' + age + '</text>';
   }
-  svg.innerHTML = `${grid}${axes}<polygon points="${pts.join(' ')}" fill="rgba(59,155,245,0.15)" stroke="#3B9BF5" stroke-width="2"/>${dots}${labels}`;
+  var peLine = '';
+  COLS.forEach(function(col, i) { peLine += (i === 0 ? 'M' : 'L') + col._x + ',' + col._peY; });
+  html += '<path d="' + peLine + '" fill="none" stroke="#F5A623" stroke-width="1.5" stroke-dasharray="5,3"/>';
+  COLS.forEach(function(col) { html += '<polygon points="' + (col._x-4) + ',' + (col._peY+3) + ' ' + col._x + ',' + (col._peY-5) + ' ' + (col._x+4) + ',' + (col._peY+3) + '" fill="#F5A623" stroke="#fff" stroke-width="1"/>'; });
+  var pLine = '';
+  COLS.forEach(function(col, i) { pLine += (i === 0 ? 'M' : 'L') + col._x + ',' + col._pY; });
+  html += '<path d="' + pLine + '" fill="none" stroke="#3B9BF5" stroke-width="2"/>';
+  COLS.forEach(function(col) { html += '<circle cx="' + col._x + '" cy="' + col._pY + '" r="4" fill="#3B9BF5" stroke="#fff" stroke-width="1.5"/>'; });
+  var tpY = padT + chartH - (totalP / totalMax) * chartH;
+  var tpeY = padT + chartH - (totalPE / totalMax) * chartH;
+  html += '<circle cx="' + tx + '" cy="' + tpY + '" r="4" fill="#3B9BF5" stroke="#fff" stroke-width="1.5"/>';
+  html += '<polygon points="' + (tx-4) + ',' + (tpeY+3) + ' ' + tx + ',' + (tpeY-5) + ' ' + (tx+4) + ',' + (tpeY+3) + '" fill="#F5A623" stroke="#fff" stroke-width="1"/>';
+  html += '<circle cx="' + (padL + 5) + '" cy="' + (H - 10) + '" r="3.5" fill="#3B9BF5"/><text x="' + (padL + 12) + '" y="' + (H - 7) + '" font-size="10" fill="#5A6478">● P分（通过）实线连接</text>';
+  html += '<polygon points="' + (padL + 170) + ',' + (H - 7) + ' ' + (padL + 174) + ',' + (H - 14) + ' ' + (padL + 178) + ',' + (H - 7) + '" fill="#F5A623"/><text x="' + (padL + 183) + '" y="' + (H - 7) + '" font-size="10" fill="#5A6478">△ P+E分 虚线连接</text>';
+  html += '<line x1="' + padL + '" y1="' + padT + '" x2="' + padL + '" y2="' + (padT + chartH) + '" stroke="#5A6478" stroke-width="1"/>';
+  html += '<line x1="' + padL + '" y1="' + (padT + chartH) + '" x2="' + (ageColX + colW) + '" y2="' + (padT + chartH) + '" stroke="#5A6478" stroke-width="1"/>';
+  svg.innerHTML = html;
+}
+/* ===== 行为病理行为靶心图 ===== */
+
+
+/* ===== 行为病理行为靶心图（等分角度，每扇形独立环数） ===== */
+function drawBehaviorTarget() {
+  var svg = document.getElementById('behaviorTargetChart');
+  if (!svg) return;
+
+  /* 5个行为领域（按截图顺序：情感在正上方，顺时针） */
+  /* 每个扇形等分72°，但每个扇形内部的环数 = 该领域题目数 */
+  var SECTORS = [
+    { name: '情感', total: 6 },
+    { name: '人际关系、合作行为\n及对人的兴趣', total: 7 },
+    { name: '游戏及物品喜好', total: 6 },
+    { name: '感觉模式', total: 14 },
+    { name: '语言', total: 11 }
+  ];
+
+  /* 确定性模拟 S/M/A 数据 */
+  var rand = seededRandom(recordId + '_behav_target');
+  SECTORS.forEach(function(sec) {
+    var S = 0, M = 0, A = 0;
+    for (var i = 0; i < sec.total; i++) {
+      var r = rand();
+      if (r < 0.15) S++;
+      else if (r < 0.35) M++;
+      else A++;
+    }
+    sec.S = S; sec.M = M; sec.A = A;
+  });
+
+  var cx = 280, cy = 280, maxR = 210;
+  var n = SECTORS.length;
+  var sectorAngle = (2 * Math.PI) / n; /* 72° each */
+  var html = '';
+
+  /* 绘制每个扇形（等分角度，独立环数） */
+  SECTORS.forEach(function(sec, i) {
+    var startA = -Math.PI / 2 + i * sectorAngle;
+    var endA = startA + sectorAngle;
+    var rings = sec.total;
+    var ringW = maxR / rings;
+
+    /* 画该扇形内的所有环（背景线） */
+    for (var r = 1; r <= rings; r++) {
+      var outerR = r * ringW;
+      var innerR = (r - 1) * ringW;
+      html += arcSec(cx, cy, innerR, outerR, startA, endA, 'none', '#D0D5DD', 0.5);
+    }
+
+    /* S 从圆心涂黑 */
+    for (var r = 0; r < sec.S && r < rings; r++) {
+      html += arcSec(cx, cy, r * ringW, (r + 1) * ringW, startA, endA, '#333333', 'none', 0);
+    }
+    /* M 接着涂灰 */
+    for (var r = sec.S; r < sec.S + sec.M && r < rings; r++) {
+      html += arcSec(cx, cy, r * ringW, (r + 1) * ringW, startA, endA, '#B0B8C4', 'none', 0);
+    }
+
+    sec._startA = startA;
+    sec._endA = endA;
+  });
+
+  /* 分隔线 */
+  for (var i = 0; i < n; i++) {
+    var a = -Math.PI / 2 + i * sectorAngle;
+    html += '<line x1="' + cx + '" y1="' + cy + '" x2="' + (cx + maxR * Math.cos(a)) + '" y2="' + (cy + maxR * Math.sin(a)) + '" stroke="#999" stroke-width="1"/>';
+  }
+
+  /* 标签（每个扇形中间角度方向） */
+  SECTORS.forEach(function(sec) {
+    var midA = (sec._startA + sec._endA) / 2;
+    var labelR = maxR + 35;
+    var lx = cx + labelR * Math.cos(midA);
+    var ly = cy + labelR * Math.sin(midA);
+    var anchor = 'middle';
+    if (midA > -0.2 && midA < Math.PI * 0.7) anchor = 'start';
+    else if (midA > Math.PI * 0.7 || midA < -Math.PI * 0.7) anchor = 'end';
+    var lines = sec.name.split('\n');
+    var yOff = -(lines.length - 1) * 7;
+    lines.forEach(function(line, li) {
+      html += '<text x="' + lx + '" y="' + (ly + yOff + li * 14) + '" text-anchor="' + anchor + '" dominant-baseline="middle" font-size="12" font-weight="500" fill="#1A2233">' + line + '</text>';
+    });
+    html += '<text x="' + lx + '" y="' + (ly + yOff + lines.length * 14) + '" text-anchor="' + anchor + '" font-size="10" fill="#8C95A6">S:' + sec.S + '  M:' + sec.M + '  A:' + sec.A + '</text>';
+  });
+
+  /* 图例 */
+  html += '<rect x="80" y="10" width="14" height="14" fill="#333333" rx="2"/><text x="98" y="21" font-size="11" fill="#5A6478">S（严重）</text>';
+  html += '<rect x="190" y="10" width="14" height="14" fill="#B0B8C4" rx="2"/><text x="208" y="21" font-size="11" fill="#5A6478">M（轻度）</text>';
+  html += '<rect x="300" y="10" width="14" height="14" fill="none" stroke="#D0D5DD" rx="2"/><text x="318" y="21" font-size="11" fill="#5A6478">A（适当/留白）</text>';
+
+  svg.innerHTML = html;
 }
 
-/* === 评估量表Tab === */
-const CPEP_SUBTESTS = CPEP_DOMAINS.map(d => ({ group: d.name, items: [{ name: d.name, count: d.count }] }));
+/* 辅助：绘制扇形环 */
+function arcSec(cx, cy, innerR, outerR, startAngle, endAngle, fill, stroke, strokeW) {
+  var strokeAttr = (stroke && stroke !== 'none') ? ' stroke="' + stroke + '" stroke-width="' + strokeW + '"' : '';
+  if (innerR < 0.5) {
+    var x1 = cx + outerR * Math.cos(startAngle), y1 = cy + outerR * Math.sin(startAngle);
+    var x2 = cx + outerR * Math.cos(endAngle), y2 = cy + outerR * Math.sin(endAngle);
+    var la = (endAngle - startAngle) > Math.PI ? 1 : 0;
+    return '<path d="M' + cx + ',' + cy + ' L' + x1 + ',' + y1 + ' A' + outerR + ',' + outerR + ' 0 ' + la + ',1 ' + x2 + ',' + y2 + ' Z" fill="' + fill + '"' + strokeAttr + '/>';
+  }
+  var ox1 = cx + outerR * Math.cos(startAngle), oy1 = cy + outerR * Math.sin(startAngle);
+  var ox2 = cx + outerR * Math.cos(endAngle), oy2 = cy + outerR * Math.sin(endAngle);
+  var ix1 = cx + innerR * Math.cos(endAngle), iy1 = cy + innerR * Math.sin(endAngle);
+  var ix2 = cx + innerR * Math.cos(startAngle), iy2 = cy + innerR * Math.sin(startAngle);
+  var la = (endAngle - startAngle) > Math.PI ? 1 : 0;
+  return '<path d="M' + ox1 + ',' + oy1 + ' A' + outerR + ',' + outerR + ' 0 ' + la + ',1 ' + ox2 + ',' + oy2 + ' L' + ix1 + ',' + iy1 + ' A' + innerR + ',' + innerR + ' 0 ' + la + ',0 ' + ix2 + ',' + iy2 + ' Z" fill="' + fill + '"' + strokeAttr + '/>';
+}
+</script>
+
+<script>
+/* ===== 评估量表 Tab ===== */
+const SCALE_GROUPS = [
+  { group: '发展及行为副测验', items: DEV_SUBTESTS.concat(BEHAV_SUBTESTS) },
+  { group: '儿童照顾者报告', items: CAREGIVER_SUBTESTS }
+];
 const sampleDescs = ['注视光线刺激','注视颜色刺激','灵活追视','追视飘动物体','辨认熟悉人物','辨认自己的影像','辨认常见物品','辨认颜色','完成形状拼板','颜色配对','杯下寻物','对图画感兴趣','聆听及转向声源','分辨声音','触觉配对','凭触觉挑选物品','分辨味道','分辨气味','用掌心抓握','用拇指食指捡拾'];
 let allQ = [], qByDomain = {}, gNum = 1;
-CPEP_SUBTESTS.forEach(g => {
+SCALE_GROUPS.forEach(g => {
   g.items.forEach(item => {
-    const key = item.name;
+    const key = item.code;
     qByDomain[key] = [];
     for (let i = 0; i < item.count; i++) {
-      const q = { id: 'cpep_q' + gNum, number: gNum, domain: key, desc: sampleDescs[(gNum - 1) % sampleDescs.length] };
+      const q = { id: 'cpep_q' + gNum, number: gNum, domain: key, domainName: item.name, desc: sampleDescs[(gNum - 1) % sampleDescs.length] };
       allQ.push(q);
       qByDomain[key].push(q);
       gNum++;
     }
   });
 });
-
 let currentDomain = '';
 function calcDomainStats(key) {
   const qs = qByDomain[key] || [];
-  let pass = 0, partial = 0, fail = 0;
-  qs.forEach(q => { const v = answers[q.id]; if (v === 1) pass++; else if (v === 0.5) partial++; else fail++; });
-  return { total: qs.length, pass, partial, fail, pct: qs.length > 0 ? Math.round(pass / qs.length * 100) : 0 };
+  let P = 0, E = 0, F = 0;
+  qs.forEach(q => { const v = answers[q.id]; if (v === 2) P++; else if (v === 1) E++; else F++; });
+  return { total: qs.length, P, E, F, pct: qs.length > 0 ? Math.round(P / qs.length * 100) : 0 };
 }
-
 function initScale() {
   const nav = document.getElementById('scaleNav');
-  nav.innerHTML = CPEP_DOMAINS.map(d => {
-    const key = d.name;
-    const stats = calcDomainStats(key);
-    return `<div class="tree-item ${currentDomain === key ? 'active' : ''}" onclick="selectScaleDomain('${key}')"><span>${d.name} (${d.count}题)</span><span class="nav-pct">${stats.pct}%</span></div>`;
+  nav.innerHTML = SCALE_GROUPS.map(g => {
+    const items = g.items.map(item => {
+      const stats = calcDomainStats(item.code);
+      return '<div class="tree-item ' + (currentDomain === item.code ? 'active' : '') + '" onclick="selectScaleDomain(\'' + item.code + '\')"><span>' + item.name + ' (' + item.count + '题)</span><span class="nav-pct">' + stats.pct + '%</span></div>';
+    }).join('');
+    return '<div><div class="tree-group-title" onclick="toggleGroup(this)"><span class="arrow">▼</span> ' + g.group + '</div><div class="tree-children">' + items + '</div></div>';
   }).join('');
-  if (!currentDomain) selectScaleDomain(CPEP_DOMAINS[0].name);
+  if (!currentDomain) selectScaleDomain(ALL_SUBTESTS[0].code);
 }
-function toggleGroup(el) {
-  const children = el.nextElementSibling;
-  const arrow = el.querySelector('.arrow');
-  children.classList.toggle('hidden');
-  arrow.classList.toggle('collapsed');
-}
-
-function selectScaleDomain(name) {
-  currentDomain = name;
+function toggleGroup(el) { const c = el.nextElementSibling; const a = el.querySelector('.arrow'); c.classList.toggle('hidden'); a.classList.toggle('collapsed'); }
+function selectScaleDomain(code) {
+  currentDomain = code;
   initScale();
-  const qs = qByDomain[name] || [];
-  const stats = calcDomainStats(name);
-
-  const barWPass = stats.total > 0 ? (stats.pass / stats.total * 100) : 0;
-  const barWPartial = stats.total > 0 ? (stats.partial / stats.total * 100) : 0;
-  const barWFail = stats.total > 0 ? (stats.fail / stats.total * 100) : 0;
-
-  document.getElementById('scaleDomainBar').innerHTML = `
-    <div style="font-size:15px;font-weight:600;margin-bottom:8px;">${name} — 答题明细</div>
-    <div class="scale-summary">
-      <div class="sum-item"><span class="sum-dot" style="background:var(--app-success)"></span>通过 ${stats.pass}题</div>
-      <div class="sum-item"><span class="sum-dot" style="background:var(--app-warning)"></span>中间反应 ${stats.partial}题</div>
-      <div class="sum-item"><span class="sum-dot" style="background:var(--app-danger)"></span>不通过 ${stats.fail}题</div>
-      <div class="sum-item" style="margin-left:8px;font-weight:500;">得分率 ${stats.pct}%</div>
-      <div class="sum-bar">
-        <div class="sum-bar-seg" style="width:${barWPass}%;background:var(--app-success)"></div>
-        <div class="sum-bar-seg" style="width:${barWPartial}%;background:var(--app-warning)"></div>
-        <div class="sum-bar-seg" style="width:${barWFail}%;background:var(--app-danger)"></div>
-      </div>
-    </div>`;
-
+  const qs = qByDomain[code] || [];
+  const stats = calcDomainStats(code);
+  const st = ALL_SUBTESTS.find(s => s.code === code);
+  const name = st ? st.name : code;
+  const bP = stats.total > 0 ? (stats.P / stats.total * 100) : 0;
+  const bE = stats.total > 0 ? (stats.E / stats.total * 100) : 0;
+  const bF = stats.total > 0 ? (stats.F / stats.total * 100) : 0;
+  document.getElementById('scaleDomainBar').innerHTML = '<div style="font-size:15px;font-weight:600;margin-bottom:8px;">' + name + ' — 答题明细</div><div class="scale-summary"><div class="sum-item"><span class="sum-dot" style="background:var(--app-success)"></span>通过 ' + stats.P + '题</div><div class="sum-item"><span class="sum-dot" style="background:var(--app-warning)"></span>萌芽 ' + stats.E + '题</div><div class="sum-item"><span class="sum-dot" style="background:var(--app-danger)"></span>不通过 ' + stats.F + '题</div><div class="sum-item" style="margin-left:8px;font-weight:500;">得分率 ' + stats.pct + '%</div><div class="sum-bar"><div class="sum-bar-seg" style="width:' + bP + '%;background:var(--app-success)"></div><div class="sum-bar-seg" style="width:' + bE + '%;background:var(--app-warning)"></div><div class="sum-bar-seg" style="width:' + bF + '%;background:var(--app-danger)"></div></div></div>';
+  const scoreOpts = [{value:0,label:'不通过(0)',cls:'fail'},{value:1,label:'萌芽(1)',cls:'partial'},{value:2,label:'通过(2)',cls:'pass'}];
   document.getElementById('scaleCards').innerHTML = qs.map(q => {
     const ans = answers[q.id];
     const note = answerNotes[q.id];
-    const rounds = answerRounds[q.id];
-    const scoreOpts = [
-      { value: 0, label: '不通过(0)', cls: 'fail' },
-      { value: 0.5, label: '中间反应(0.5)', cls: 'partial' },
-      { value: 1, label: '通过(1)', cls: 'pass' }
-    ];
-    const resultLabels = { independent: '独立(+)', error: '错误(-)', prompted: '辅助(P)' };
-    const resultColors = { independent: '#52C41A', error: '#F56C6C', prompted: '#F5A623' };
-    let roundsHtml = '';
-    if (rounds && rounds.length > 0 && rounds.some(r => r.result)) {
-      roundsHtml = '<div style="margin-top:6px;padding:6px 8px;background:#FAFBFC;border-radius:6px;border:1px solid #E8ECF0">'
-        + '<div style="font-size:11px;color:#8C95A6;margin-bottom:4px">回合统计</div>'
-        + '<div style="display:flex;gap:6px;flex-wrap:wrap">'
-        + rounds.filter(r => r.result).map((r, i) => {
-          const color = resultColors[r.result] || '#8C95A6';
-          const label = resultLabels[r.result] || r.result;
-          return '<span style="font-size:11px;color:' + color + ';background:' + color + '14;padding:1px 6px;border-radius:3px">第' + (i+1) + '回合 ' + label + '</span>';
-        }).join('')
-        + '</div></div>';
-    }
-    return `<div class="q-card">
-      <div class="q-header">
-        <span class="q-num">${q.number}</span>
-        <span class="q-desc">${q.desc}</span>
-      </div>
-      <div class="q-scores">
-        ${scoreOpts.map(o => `<span class="q-score-opt ${ans === o.value ? 'selected-' + o.cls : ''}">${o.label}</span>`).join('')}
-      </div>
-      ${roundsHtml}
-      ${note ? '<div class="q-note">' + note + '</div>' : ''}
-    </div>`;
+    return '<div class="q-card"><div class="q-header"><span class="q-num">' + q.number + '</span><span class="q-desc">' + q.desc + '</span></div><div class="q-scores">' + scoreOpts.map(o => '<span class="q-score-opt ' + (ans === o.value ? 'selected-' + o.cls : '') + '">' + o.label + '</span>').join('') + '</div>' + (note ? '<div class="q-note">' + note + '</div>' : '') + '</div>';
   }).join('');
 }
 
-/* === IEP 课包与生成 === */
+/* ===== IEP ===== */
 const COURSE_PACKETS = [
   { id: 1, name: 'RICE1v1', desc: 'RICE AI体系1对1训练课包' },
   { id: 26, name: '春暖综合ABA', desc: '南宁春暖综合ABA课程' },
@@ -637,106 +732,58 @@ const COURSE_PACKETS = [
 ];
 function initIEP() {
   const sel = document.getElementById('coursePacketSelect');
-  sel.innerHTML = '<option value="">请选择课程包</option>' + COURSE_PACKETS.map(p => `<option value="${p.id}">${p.name} — ${p.desc}</option>`).join('');
+  sel.innerHTML = '<option value="">请选择课程包</option>' + COURSE_PACKETS.map(p => '<option value="' + p.id + '">' + p.name + ' — ' + p.desc + '</option>').join('');
 }
 function onCoursePacketChange() {
-  const sel = document.getElementById('coursePacketSelect');
-  const pkt = COURSE_PACKETS.find(p => p.id == sel.value);
+  const pkt = COURSE_PACKETS.find(p => p.id == document.getElementById('coursePacketSelect').value);
   if (!pkt) { document.getElementById('iepContent').innerHTML = '<div style="text-align:center;padding:40px 0;color:var(--app-text-sec);">请先选择课程包</div>'; return; }
   generateIEP(pkt);
 }
-let iepEditing = false;
-let iepData = [];
+let iepEditing = false, iepData = [];
+const INTERVENTION_PROJECTS = [
+  {id:11510,name:"多种基本姿势",stairAndDomain:"1-2岁-粗大动作-粗大动作",stages:[{name:"可以做出各种基本姿势"}]},
+  {id:11519,name:"简单的摆弄物品",stairAndDomain:"1-2岁-粗大动作-精细动作",stages:[{name:"做出简单摆弄物品的多种动作"}]},
+  {id:11591,name:"步骤指令理解",stairAndDomain:"1-2岁-沟通-语言理解",stages:[{name:"一步情景/动作指令"},{name:"两步情景/动作指令"},{name:"三步情景/动作指令"}]},
+  {id:11594,name:"名词理解：常见物",stairAndDomain:"1-2岁-沟通-语言理解",stages:[{name:"辨认常见物（20种）"},{name:"辨认常见物（40种）"},{name:"辨认常见物（60种）"}]},
+  {id:11631,name:"仿说",stairAndDomain:"1-2岁-沟通-语言表达",stages:[{name:"仿说单韵母"},{name:"仿说复韵母"},{name:"仿说词组"},{name:"仿说短句"}]},
+  {id:11633,name:"提要求-口语",stairAndDomain:"1-2岁-沟通-语言表达",stages:[{name:"使用单字/词要求物品/动作"},{name:"使用双词组要求物品/动作"},{name:"使用句子要求物品/动作"}]},
+  {id:11641,name:"名词表达：常见物",stairAndDomain:"1-2岁-沟通-语言表达",stages:[{name:"命名常见物（20种）"},{name:"命名常见物（40种）"},{name:"命名常见物（60种）"}]},
+  {id:11721,name:"寻找隐藏起来的物品",stairAndDomain:"1-2岁-认知-物体恒存",stages:[{name:"寻找隐藏物（当面隐藏）"},{name:"寻找隐藏物（部分）"},{name:"寻找隐藏物（全部）"}]},
+  {id:11726,name:"视觉专注",stairAndDomain:"1-2岁-认知-视觉",stages:[{name:"在描述下注视物品"},{name:"注视物品"},{name:"注视简单图片"},{name:"注视复杂图片"}]},
+  {id:11731,name:"物品操作模仿",stairAndDomain:"1-2岁-认知-模仿",stages:[{name:"一步物品操作模仿"},{name:"两步物品操作模仿"},{name:"三步物品操作模仿"}]},
+  {id:11732,name:"大动作模仿",stairAndDomain:"1-2岁-认知-模仿",stages:[{name:"模仿一步肢体大动作"},{name:"类化肢体动作模仿"},{name:"模仿二步肢体大动作"}]},
+  {id:11738,name:"相同配对",stairAndDomain:"1-2岁-认知-配对",stages:[{name:"相同配对（物品配物品）"},{name:"相同配对（卡片配卡片）"},{name:"相同配对（物品配卡片）"}]},
+  {id:11675,name:"回应互联注意",stairAndDomain:"1-2岁-社交情绪-社交基础",stages:[{name:"互动时看向他人展示的物品"}]},
+  {id:11692,name:"轮流",stairAndDomain:"2-3岁-社交情绪-社交规则",stages:[{name:"2人轮流（静态）"},{name:"2人轮流（动态）"},{name:"多人轮流"}]},
+  {id:11583,name:"韵母a",stairAndDomain:"1-2岁-发音-韵母",stages:[{name:"控制下颌保持在开位"},{name:"诱导发/a/音"}]},
+  {id:11584,name:"韵母o",stairAndDomain:"1-2岁-发音-韵母",stages:[{name:"控制下颌保持在半开位"},{name:"诱导发/o/音"}]}
+];
+const CPEP_DOMAIN_MAP = {
+  '认知-语言': ['认知-物体恒存','认知-视觉','认知-配对','沟通-语言理解'],
+  '语言表达': ['沟通-语言表达','发音-韵母'],
+  '语言理解': ['沟通-语言理解'],
+  '小肌肉': ['粗大动作-精细动作'],
+  '大肌肉': ['粗大动作-粗大动作'],
+  '模仿': ['认知-模仿'],
+  '情感表达': ['社交情绪-社交基础'],
+  '社会互动': ['社交情绪-社交规则','社交情绪-社交基础']
+};
 function generateIEP(pkt) {
-  const weakDomains = domainScores.filter(d => d.pct <= 65).sort((a, b) => a.pct - b.pct);
-
-  // 真实干预项目数据（来自 rice1v1-intervention-projects.json 的代表性子集）
-  const INTERVENTION_PROJECTS = [
-    {id:11510,name:"多种基本姿势",stairAndDomain:"1-2岁-粗大动作-粗大动作",territoryName:"粗大动作",subdivideName:"粗大动作",stages:[{name:"可以做出各种基本姿势",stage:"1"}]},
-    {id:11519,name:"简单的摆弄物品",stairAndDomain:"1-2岁-粗大动作-精细动作",territoryName:"粗大动作",subdivideName:"精细动作",stages:[{name:"做出简单摆弄物品的多种动作",stage:"1"}]},
-    {id:11512,name:"走台阶",stairAndDomain:"1-2岁-粗大动作-粗大动作",territoryName:"粗大动作",subdivideName:"粗大动作",stages:[{name:"扶着栏杆上台阶",stage:"1"},{name:"大人领着走下台阶",stage:"2"},{name:"独自走台阶",stage:"3"}]},
-    {id:11520,name:"随意涂鸦",stairAndDomain:"1-2岁-粗大动作-精细动作",territoryName:"粗大动作",subdivideName:"精细动作",stages:[{name:"涂鸦并能有意识停下",stage:"1"}]},
-    {id:11521,name:"叠搭积木",stairAndDomain:"1-2岁-粗大动作-精细动作",territoryName:"粗大动作",subdivideName:"精细动作",stages:[{name:"搭高至少3块积木",stage:"1"},{name:"搭高至少6块积木",stage:"2"}]},
-    {id:11537,name:"学用剪刀",stairAndDomain:"3-4岁-粗大动作-精细动作",territoryName:"粗大动作",subdivideName:"精细动作",stages:[{name:"可以用剪刀，把纸减成两部分",stage:"1"}]},
-    {id:11538,name:"基础仿画",stairAndDomain:"3-4岁-粗大动作-精细动作",territoryName:"粗大动作",subdivideName:"精细动作",stages:[{name:"可以仿画线条（横线、竖线、波浪线等）",stage:"1"},{name:"可以仿画图形（十字、圆形、三角形等）",stage:"2"}]},
-    {id:11552,name:"感官游戏",stairAndDomain:"1-2岁-游戏-游戏技能",territoryName:"游戏",subdivideName:"游戏技能",stages:[{name:"累积感官游戏10种",stage:"1"}]},
-    {id:11557,name:"平行游戏",stairAndDomain:"2-3岁-游戏-社会性游戏",territoryName:"游戏",subdivideName:"社会性游戏",stages:[{name:"各自玩各自喜欢的游戏活动",stage:"1"},{name:"玩同样的游戏（不需要有互动）",stage:"2"}]},
-    {id:11553,name:"功能性玩法",stairAndDomain:"1-2岁-游戏-游戏技能",territoryName:"游戏",subdivideName:"游戏技能",stages:[{name:"单一操作",stage:"1"},{name:"两步操作",stage:"2"},{name:"三步及以上操作",stage:"3"}]},
-    {id:11562,name:"声母b",stairAndDomain:"1-2岁-发音-构音",territoryName:"发音",subdivideName:"构音",stages:[{name:"能正确发出声母/b/",stage:"1"}]},
-    {id:11583,name:"韵母a",stairAndDomain:"1-2岁-发音-韵母",territoryName:"发音",subdivideName:"韵母",stages:[{name:"增加儿童下颌运动范围，控制下颌保持在开（低）位",stage:"1"},{name:"诱导发/a/音",stage:"2"}]},
-    {id:11584,name:"韵母o",stairAndDomain:"1-2岁-发音-韵母",territoryName:"发音",subdivideName:"韵母",stages:[{name:"增加下颌稳定性，控制下颌保持在半开位",stage:"1"},{name:"诱导发/o/音",stage:"2"}]},
-    {id:11591,name:"步骤指令理解",stairAndDomain:"1-2岁-沟通-语言理解",territoryName:"沟通",subdivideName:"语言理解",stages:[{name:"一步情景/动作指令",stage:"1"},{name:"两步情景/动作指令",stage:"2"},{name:"三步情景/动作指令",stage:"3"}]},
-    {id:11594,name:"名词理解：常见物",stairAndDomain:"1-2岁-沟通-语言理解",territoryName:"沟通",subdivideName:"语言理解",stages:[{name:"辨认常见物（20种）",stage:"1"},{name:"辨认常见物（40种）",stage:"2"},{name:"辨认常见物（60种）",stage:"3"}]},
-    {id:11631,name:"仿说",stairAndDomain:"1-2岁-沟通-语言表达",territoryName:"沟通",subdivideName:"语言表达",stages:[{name:"仿说单韵母（a、u、i、o、e、ü）",stage:"1"},{name:"仿说复韵母（ai、an、ao、ie…）",stage:"2"},{name:"仿说词组",stage:"3"},{name:"仿说短句",stage:"4"}]},
-    {id:11632,name:"提要求-手势",stairAndDomain:"1-2岁-沟通-语言表达",territoryName:"沟通",subdivideName:"语言表达",stages:[{name:"使用伸手来要求物品",stage:"1"},{name:"使用手指指向物品来要求物品",stage:"2"},{name:"使用肢体动作、手势来要求动作",stage:"3"}]},
-    {id:11633,name:"提要求-口语",stairAndDomain:"1-2岁-沟通-语言表达",territoryName:"沟通",subdivideName:"语言表达",stages:[{name:"使用单字/词要求物品/动作",stage:"1"},{name:"使用双词组要求物品/动作",stage:"2"},{name:"使用句子要求物品/动作",stage:"3"}]},
-    {id:11641,name:"名词表达：常见物",stairAndDomain:"1-2岁-沟通-语言表达",territoryName:"沟通",subdivideName:"语言表达",stages:[{name:"命名常见物（20种）",stage:"1"},{name:"命名常见物（40种）",stage:"2"},{name:"命名常见物（60种）",stage:"3"}]},
-    {id:11675,name:"回应互联注意",stairAndDomain:"1-2岁-社交情绪-社交基础",territoryName:"社交情绪",subdivideName:"社交基础",stages:[{name:"互动时看向他人展示的物品",stage:"1"}]},
-    {id:11684,name:"获取他人注意",stairAndDomain:"1-2岁-社交情绪-互联注意",territoryName:"社交情绪",subdivideName:"互联注意",stages:[{name:"有个人需求时获取他人注意",stage:"1"},{name:"有社会性需求时获取他人注意",stage:"2"}]},
-    {id:11692,name:"轮流",stairAndDomain:"2-3岁-社交情绪-社交规则",territoryName:"社交情绪",subdivideName:"社交规则",stages:[{name:"2人轮流（静态）",stage:"1"},{name:"2人轮流（动态）",stage:"2"},{name:"多人轮流（静态）",stage:"3"}]},
-    {id:11715,name:"识别基础情绪（自己/他人）",stairAndDomain:"2-3岁-社交情绪-情绪",territoryName:"社交情绪",subdivideName:"情绪",stages:[{name:"识别单纯面部表情情绪图卡",stage:"1"},{name:"识别带有情景的情绪图卡",stage:"2"},{name:"识别影片/真实情景里的情绪",stage:"3"}]},
-    {id:11721,name:"寻找隐藏起来的物品",stairAndDomain:"1-2岁-认知-物体恒存",territoryName:"认知",subdivideName:"物体恒存",stages:[{name:"寻找隐藏物（当面隐藏）",stage:"1"},{name:"寻找隐藏物（部分）",stage:"2"},{name:"寻找隐藏物（全部）",stage:"3"}]},
-    {id:11722,name:"声源反应",stairAndDomain:"1-2岁-认知-听觉",territoryName:"认知",subdivideName:"听觉",stages:[{name:"近距离声源反应",stage:"1"},{name:"远距离声源反应",stage:"2"},{name:"自然环境声源反应",stage:"3"}]},
-    {id:11726,name:"视觉专注（注视教学材料）",stairAndDomain:"1-2岁-认知-视觉",territoryName:"认知",subdivideName:"视觉",stages:[{name:"在描述下注视物品",stage:"1"},{name:"注视物品",stage:"2"},{name:"在描述下注视简单图片",stage:"3"},{name:"注视复杂图片（绘本）",stage:"4"}]},
-    {id:11731,name:"物品操作模仿",stairAndDomain:"1-2岁-认知-模仿",territoryName:"认知",subdivideName:"模仿",stages:[{name:"一步物品操作模仿",stage:"1"},{name:"两步物品操作模仿",stage:"2"},{name:"三步物品操作模仿",stage:"3"},{name:"同步模仿",stage:"4"}]},
-    {id:11732,name:"大动作模仿",stairAndDomain:"1-2岁-认知-模仿",territoryName:"认知",subdivideName:"模仿",stages:[{name:"模仿一步肢体大动作",stage:"1"},{name:"类化肢体动作模仿",stage:"2"},{name:"模仿二步肢体大动作",stage:"3"}]},
-    {id:11738,name:"相同配对",stairAndDomain:"1-2岁-认知-配对",territoryName:"认知",subdivideName:"配对",stages:[{name:"相同配对（3D&3D、物品配物品）",stage:"1"},{name:"相同配对（2D&2D、卡片配卡片）",stage:"2"},{name:"相同配对（3D&2D、物品配卡片）",stage:"3"}]},
-    {id:11775,name:"进食：使用叉子",stairAndDomain:"2-3岁-生活自理-进食穿衣",territoryName:"生活自理",subdivideName:"进食穿衣",stages:[{name:"使用叉子叉2种材料/食物",stage:"1"},{name:"使用叉子叉4种材料/食物",stage:"2"},{name:"使用叉子进食（至少4种不同食物）",stage:"3"}]},
-    {id:11809,name:"配合度",stairAndDomain:"3-4岁-学习行为-个训行为",territoryName:"学习行为",subdivideName:"个训行为",stages:[{name:"40次练习机会",stage:"1"},{name:"20次练习机会",stage:"2"},{name:"随机",stage:"3"}]},
-    {id:11810,name:"等待",stairAndDomain:"2-3岁-学习行为-个训行为",territoryName:"学习行为",subdivideName:"个训行为",stages:[{name:"等待（计时器下，1-3min）",stage:"1"},{name:"等待（无计时器，1-3min）",stage:"2"},{name:"等待（中性活动，3-5min）",stage:"3"}]}
-  ];
-
-  // C-PEP 评估领域 → 干预项目领域映射
-  const CPEP_DOMAIN_MAP = {
-    '语言表达': ['沟通-语言表达'],
-    '语言理解': ['沟通-语言理解'],
-    '认知': ['认知-配对','认知-物体恒存','认知-视觉'],
-    '感知觉': ['认知-视觉','认知-听觉'],
-    '精细动作': ['粗大动作-精细动作'],
-    '粗大动作': ['粗大动作-粗大动作'],
-    '模仿': ['认知-模仿'],
-    '社交': ['社交情绪-社交基础','社交情绪-互联注意','社交情绪-社交规则'],
-    '情绪': ['社交情绪-情绪'],
-    '行为': ['学习行为-个训行为']
-  };
-
-  // 根据薄弱领域匹配干预项目
+  const weakSubs = devBehavScores.filter(d => d.pct <= 70).sort((a, b) => a.pct - b.pct);
   iepData = [];
-  const usedDomains = new Set();
-  weakDomains.forEach(d => {
-    const mappedKeys = CPEP_DOMAIN_MAP[d.name] || [];
-    const matched = INTERVENTION_PROJECTS.filter(p => {
-      const parts = p.stairAndDomain.split('-');
-      const domainKey = parts.slice(1).join('-');
-      return mappedKeys.some(k => domainKey.includes(k));
-    });
+  const used = new Set();
+  weakSubs.forEach(d => {
+    const keys = CPEP_DOMAIN_MAP[d.name] || [];
+    const matched = INTERVENTION_PROJECTS.filter(p => { const dk = p.stairAndDomain.split('-').slice(1).join('-'); return keys.some(k => dk.includes(k)); });
     if (!matched.length) return;
     const grouped = {};
-    matched.forEach(p => {
-      if (!grouped[p.stairAndDomain]) grouped[p.stairAndDomain] = [];
-      grouped[p.stairAndDomain].push(p);
-    });
+    matched.forEach(p => { if (!grouped[p.stairAndDomain]) grouped[p.stairAndDomain] = []; grouped[p.stairAndDomain].push(p); });
     Object.entries(grouped).forEach(([sad, projects]) => {
-      if (usedDomains.has(sad)) return;
-      usedDomains.add(sad);
-      const goals = projects.map(p => ({
-        name: p.name,
-        stages: p.stages.map(s => s.name)
-      }));
-      const partialNote = d.partial > 3 ? ' (萌芽' + d.partial + '项)' : '';
-      iepData.push({
-        domain: d.name,
-        domainLabel: sad + partialNote,
-        pct: d.pct,
-        goals: goals
-      });
+      if (used.has(sad)) return; used.add(sad);
+      iepData.push({ domain: d.name, domainLabel: sad, pct: d.pct, goals: projects.map(p => ({ name: p.name, stages: p.stages.map(s => s.name) })) });
     });
   });
-
-  if (!iepData.length) {
-    iepData = [{ domain: '综合', domainLabel: '综合训练', pct: 0, goals: [{ name: '综合训练', stages: ['辅助下完成基础任务','独立完成基础任务','泛化到新情境'] }] }];
-  }
-
+  if (!iepData.length) iepData = [{ domain: '综合', domainLabel: '综合训练', pct: 0, goals: [{ name: '综合训练', stages: ['辅助下完成基础任务','独立完成基础任务'] }] }];
   renderIEPTable();
 }
 const delSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>';
@@ -750,131 +797,70 @@ function renderIEPTable() {
     domain.goals.forEach((goal, gi) => {
       goal.stages.forEach((stage, si) => {
         html += '<tr>';
-        if (firstRow) { html += `<td class="domain-cell" rowspan="${totalRows}"><div>${domain.domainLabel}</div>${iepEditing ? '<a class="iep-domain-del" onclick="confirmDeleteDomain('+di+')">'+delSvg+' 删除</a>' : ''}</td>`; firstRow = false; }
-        if (si === 0) html += `<td class="goal-cell" rowspan="${goal.stages.length}">${goal.name}</td>`;
-        html += `<td>${stage}</td>`;
-        if (iepEditing) html += `<td><a class="del-link" onclick="confirmDeleteStage(${di},${gi},${si})">${delSvg} 删除</a></td>`;
+        if (firstRow) { html += '<td class="domain-cell" rowspan="' + totalRows + '"><div>' + domain.domainLabel + '</div>' + (iepEditing ? '<a class="iep-domain-del" onclick="confirmDeleteDomain(' + di + ')">' + delSvg + ' 删除</a>' : '') + '</td>'; firstRow = false; }
+        if (si === 0) html += '<td class="goal-cell" rowspan="' + goal.stages.length + '">' + goal.name + '</td>';
+        html += '<td>' + stage + '</td>';
+        if (iepEditing) html += '<td><a class="del-link" onclick="confirmDeleteStage(' + di + ',' + gi + ',' + si + ')">' + delSvg + '</a></td>';
         html += '</tr>';
       });
     });
   });
   html += '</tbody></table><div class="iep-actions">';
-  if (iepEditing) { html += '<button class="iep-btn-cancel" onclick="cancelIEPEdit()">取消</button><div class="iep-add-wrap"><button class="iep-btn-add" onclick="toggleAddPopover()">添加目标</button><div class="iep-add-popover" id="addPopover"><div class="pop-item" onclick="showToast(\'从目标库添加功能开发中\');hideAddPopover()">从目标库添加</div><div class="pop-divider"></div><div class="pop-item" onclick="openIEPModal();hideAddPopover()">+ 自定义</div></div></div><button class="iep-btn-save" onclick="saveIEP()">保存</button>'; }
-  else { html += '<button class="iep-btn-export" onclick="exportIEP()">导出</button><button class="iep-btn-import" onclick="showToast(\'导入干预目标功能开发中\')">导入干预目标</button><button class="iep-btn-edit" onclick="startIEPEdit()">编辑</button>'; }
+  if (iepEditing) html += '<button class="iep-btn-cancel" onclick="cancelIEPEdit()">取消</button><div class="iep-add-wrap"><button class="iep-btn-add" onclick="toggleAddPopover()">添加目标</button><div class="iep-add-popover" id="addPopover"><div class="pop-item" onclick="showToast(\'从目标库添加功能开发中\');hideAddPopover()">从目标库添加</div><div class="pop-divider"></div><div class="pop-item" onclick="openIEPModal();hideAddPopover()">+ 自定义</div></div></div><button class="iep-btn-save" onclick="saveIEP()">保存</button>';
+  else html += '<button class="iep-btn-export" onclick="exportIEP()">导出</button><button class="iep-btn-edit" onclick="startIEPEdit()">编辑</button>';
   html += '</div>';
   document.getElementById('iepContent').innerHTML = html;
 }
 function startIEPEdit() { iepEditing = true; renderIEPTable(); }
 function cancelIEPEdit() { iepEditing = false; renderIEPTable(); }
-function saveIEP() { iepEditing = false; localStorage.setItem('rice_assessment_iep_' + recordId, JSON.stringify(iepData)); renderIEPTable(); showToast('IEP 已保存'); }
+function saveIEP() { iepEditing = false; renderIEPTable(); showToast('IEP 已保存'); }
 function exportIEP() {
   showToast('正在生成Word文档...');
   setTimeout(() => {
-    let tableHtml = '<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;width:100%;font-family:SimSun,serif;font-size:12pt;">';
-    tableHtml += '<tr style="background:#3B9BF5;color:#fff;"><th style="width:150px">阶梯及领域</th><th style="width:180px">任务目标</th><th>短期目标</th></tr>';
-    iepData.forEach(domain => {
-      let totalRows = domain.goals.reduce((s, g) => s + g.stages.length, 0);
-      let firstRow = true;
-      domain.goals.forEach(goal => {
-        goal.stages.forEach((stage, si) => {
-          tableHtml += '<tr>';
-          if (firstRow) { tableHtml += '<td rowspan="' + totalRows + '" style="font-weight:bold;vertical-align:top;">' + domain.domainLabel + '</td>'; firstRow = false; }
-          if (si === 0) tableHtml += '<td rowspan="' + goal.stages.length + '" style="vertical-align:top;">' + goal.name + '</td>';
-          tableHtml += '<td>' + stage + '</td></tr>';
-        });
-      });
-    });
-    tableHtml += '</table>';
-    const html = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><style>body{font-family:SimSun,serif;font-size:12pt;}h1{font-size:16pt;text-align:center;}table{margin-top:12pt;}.info{margin:6pt 0;font-size:11pt;}</style></head><body>' +
-      '<h1>张小明 个别化教育计划（IEP）</h1>' +
-      '<p class="info">学生姓名：张小明 &nbsp;&nbsp; 性别：男 &nbsp;&nbsp; 出生日期：2019-05-20</p>' +
-      '<p class="info">制定人员：李老师 &nbsp;&nbsp; 制定日期：' + new Date().toISOString().slice(0, 10) + '</p>' +
-      tableHtml + '</body></html>';
+    let t = '<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;width:100%;font-family:SimSun,serif;font-size:12pt;"><tr style="background:#3B9BF5;color:#fff;"><th>阶梯及领域</th><th>任务目标</th><th>短期目标</th></tr>';
+    iepData.forEach(d => { let tr = d.goals.reduce((s,g) => s + g.stages.length, 0); let f = true; d.goals.forEach(g => { g.stages.forEach((s, si) => { t += '<tr>'; if (f) { t += '<td rowspan="' + tr + '" style="font-weight:bold;vertical-align:top;">' + d.domainLabel + '</td>'; f = false; } if (si === 0) t += '<td rowspan="' + g.stages.length + '" style="vertical-align:top;">' + g.name + '</td>'; t += '<td>' + s + '</td></tr>'; }); }); });
+    t += '</table>';
+    const html = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word"><head><meta charset="utf-8"><style>body{font-family:SimSun,serif;font-size:12pt;}h1{font-size:16pt;text-align:center;}</style></head><body><h1>张小明 个别化教育计划（IEP）</h1><p>学生姓名：张小明 &nbsp; 性别：男 &nbsp; 出生日期：2019-05-20</p><p>制定人员：李老师 &nbsp; 制定日期：' + new Date().toISOString().slice(0,10) + '</p>' + t + '</body></html>';
     const blob = new Blob(['\ufeff' + html], { type: 'application/msword' });
     const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url; a.download = '张小明个别化教育计划.doc';
-    document.body.appendChild(a); a.click(); document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    const a = document.createElement('a'); a.href = url; a.download = '张小明个别化教育计划.doc';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
     showToast('Word文档已导出');
   }, 300);
 }
 function deleteIEPDomain(di) { iepData.splice(di, 1); renderIEPTable(); }
 function deleteIEPStage(di, gi, si) { iepData[di].goals[gi].stages.splice(si, 1); if (!iepData[di].goals[gi].stages.length) iepData[di].goals.splice(gi, 1); if (!iepData[di].goals.length) iepData.splice(di, 1); renderIEPTable(); }
 let pendingDelete = null;
-function confirmDeleteDomain(di) { pendingDelete = { type:'domain', di }; document.getElementById('iepDeleteMsg').textContent = '确定要删除「' + iepData[di].domainLabel + '」整个领域及其所有目标吗？'; document.getElementById('iepDeleteModal').classList.add('show'); }
-function confirmDeleteStage(di, gi, si) { pendingDelete = { type:'stage', di, gi, si }; document.getElementById('iepDeleteMsg').textContent = '确定要删除这条阶段目标吗？'; document.getElementById('iepDeleteModal').classList.add('show'); }
+function confirmDeleteDomain(di) { pendingDelete = {type:'domain',di}; document.getElementById('iepDeleteMsg').textContent = '确定要删除「' + iepData[di].domainLabel + '」整个领域吗？'; document.getElementById('iepDeleteModal').classList.add('show'); }
+function confirmDeleteStage(di, gi, si) { pendingDelete = {type:'stage',di,gi,si}; document.getElementById('iepDeleteMsg').textContent = '确定要删除这条阶段目标吗？'; document.getElementById('iepDeleteModal').classList.add('show'); }
 function closeDeleteModal() { pendingDelete = null; document.getElementById('iepDeleteModal').classList.remove('show'); }
 function execDelete() { if (!pendingDelete) return; if (pendingDelete.type === 'domain') deleteIEPDomain(pendingDelete.di); else deleteIEPStage(pendingDelete.di, pendingDelete.gi, pendingDelete.si); closeDeleteModal(); showToast('已删除'); }
-function addIEPGoal() { openIEPModal(); }
 function toggleAddPopover() { document.getElementById('addPopover').classList.toggle('show'); }
-function hideAddPopover() { const p = document.getElementById('addPopover'); if (p) p.classList.remove('show'); }
+function hideAddPopover() { var p = document.getElementById('addPopover'); if (p) p.classList.remove('show'); }
 function openIEPModal() { document.getElementById('iepAddDomain').value = ''; document.getElementById('iepAddGoal').value = ''; document.getElementById('iepAddStages').value = ''; document.getElementById('iepAddModal').classList.add('show'); }
 function closeIEPModal() { document.getElementById('iepAddModal').classList.remove('show'); }
 function confirmAddGoal() {
-  const domain = document.getElementById('iepAddDomain').value.trim();
-  const goal = document.getElementById('iepAddGoal').value.trim();
-  const stagesText = document.getElementById('iepAddStages').value.trim();
-  if (!domain || !goal) { showToast('请填写领域和干预目标'); return; }
-  const stages = stagesText ? stagesText.split('\n').filter(s => s.trim()) : ['阶段目标1'];
-  const existing = iepData.find(d => d.domain === domain);
-  if (existing) { existing.goals.push({ name: goal, stages }); } else { iepData.push({ domain, domainLabel: domain, pct: 0, goals: [{ name: goal, stages }] }); }
+  var d = document.getElementById('iepAddDomain').value.trim(), g = document.getElementById('iepAddGoal').value.trim(), st = document.getElementById('iepAddStages').value.trim();
+  if (!d || !g) { showToast('请填写领域和干预目标'); return; }
+  var stages = st ? st.split('\n').filter(function(s){return s.trim();}) : ['阶段目标1'];
+  var ex = iepData.find(function(x){return x.domain === d;});
+  if (ex) ex.goals.push({name:g,stages:stages}); else iepData.push({domain:d,domainLabel:d,pct:0,goals:[{name:g,stages:stages}]});
   closeIEPModal(); renderIEPTable(); showToast('已添加');
 }
 document.addEventListener('click', function(e) { if (!e.target.closest('.iep-add-wrap')) hideAddPopover(); });
 
-/* === 编辑功能 === */
-function toggleEdit(id) {
-  const textEl = document.getElementById(id + 'Text');
-  const inputEl = document.getElementById(id + 'Input');
-  const actionsEl = document.getElementById(id + 'Actions');
-  const linkEl = document.getElementById(id + 'Area').querySelector('.edit-link');
-  inputEl.value = textEl.innerText;
-  textEl.style.display = 'none';
-  inputEl.style.display = 'block';
-  actionsEl.style.display = 'flex';
-  linkEl.style.display = 'none';
-  inputEl.focus();
-}
-function cancelEdit(id) {
-  document.getElementById(id + 'Text').style.display = 'block';
-  document.getElementById(id + 'Input').style.display = 'none';
-  document.getElementById(id + 'Actions').style.display = 'none';
-  document.getElementById(id + 'Area').querySelector('.edit-link').style.display = 'inline-flex';
-}
-function saveEdit(id) {
-  const textEl = document.getElementById(id + 'Text');
-  const inputEl = document.getElementById(id + 'Input');
-  textEl.innerText = inputEl.value;
-  cancelEdit(id);
-  localStorage.setItem('rice_assessment_report_edit_' + recordId + '_' + id, inputEl.value);
-  showToast('已保存');
-}
-function loadSavedEdits() {
-  ['analysis', 'recommend'].forEach(id => {
-    const saved = localStorage.getItem('rice_assessment_report_edit_' + recordId + '_' + id);
-    if (saved) { const el = document.getElementById(id + 'Text'); if (el) el.innerText = saved; }
-  });
-}
-function exportPDF() {
-  showToast('正在生成PDF...');
-  setTimeout(() => { window.print(); }, 300);
-}
+/* ===== 编辑功能 ===== */
+function toggleEdit(id) { var t = document.getElementById(id+'Text'), i = document.getElementById(id+'Input'), a = document.getElementById(id+'Actions'), l = document.getElementById(id+'Area').querySelector('.edit-link'); i.value = t.innerText; t.style.display = 'none'; i.style.display = 'block'; a.style.display = 'flex'; l.style.display = 'none'; i.focus(); }
+function cancelEdit(id) { document.getElementById(id+'Text').style.display = 'block'; document.getElementById(id+'Input').style.display = 'none'; document.getElementById(id+'Actions').style.display = 'none'; document.getElementById(id+'Area').querySelector('.edit-link').style.display = 'inline-flex'; }
+function saveEdit(id) { var t = document.getElementById(id+'Text'), i = document.getElementById(id+'Input'); t.innerText = i.value; cancelEdit(id); showToast('已保存'); }
+function exportPDF() { showToast('正在生成PDF...'); setTimeout(function(){ window.print(); }, 300); }
+function showToast(msg) { var t = document.getElementById('toast'); t.textContent = msg; t.className = 'toast show'; setTimeout(function(){ t.className = 'toast'; }, 2000); }
+function resetAll() { Object.keys(localStorage).forEach(function(k){ if(k.startsWith('rice_assessment_')) localStorage.removeItem(k); }); location.href = 'assessment-list.html'; }
 
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg; t.className = 'toast show';
-  setTimeout(() => t.className = 'toast', 2000);
-}
-function resetAll() {
-  Object.keys(localStorage).forEach(k => { if (k.startsWith('rice_assessment_')) localStorage.removeItem(k); });
-  location.href = 'assessment-list.html';
-}
-
+/* ===== 初始化 ===== */
 renderReport();
 initScale();
 initIEP();
-loadSavedEdits();
 </script>
 </body>
 </html>

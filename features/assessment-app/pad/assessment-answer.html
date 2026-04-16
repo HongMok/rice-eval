@@ -443,14 +443,128 @@ function getScoreClass(index, total) {
   return 'score-emerging';
 }
 
+/* ===== 默认评估配置（fallback） ===== */
+const FALLBACK_STRUCTURES = {
+  pep3: [
+    { group: '发展性子测验', items: ['认知/语前语言','语言表达','语言理解','精细动作','粗大动作','视觉动作模仿'] },
+    { group: '行为特征子测验', items: ['情感表达','社会互动','非语言行为特征','语言行为特征'] },
+    { group: '养育者报告', items: ['问题行为','个人自理','适应行为'] }
+  ],
+  cpep: [
+    { group: '感知觉', items: ['视觉注视','视觉追踪','听觉','触觉'] },
+    { group: '精细动作', items: ['手指精细动作','手眼协调','双手协调','工具使用'] },
+    { group: '大运动', items: ['坐','站','走','跑跳','平衡','球类'] },
+    { group: '言语/语言', items: ['语前技能','语言理解','语言表达','对话'] },
+    { group: '认知', items: ['注意力','记忆','概念','推理'] },
+    { group: '社会交往', items: ['社会认知','社会互动','游戏','情绪'] },
+    { group: '自理', items: ['进食','穿衣','如厕','个人卫生'] }
+  ],
+  vbmapp: [
+    { group: 'Level 1 (0-18月)', items: ['Mand(要求)','Tact(命名)','Listener(听者反应)','VP/MTS(视觉配对)','Play(游戏)','Social(社交)','Imitation(模仿)','Echoic(仿说)','LRFFC(听者功能)'] },
+    { group: 'Level 2 (18-30月)', items: ['Mand(要求)','Tact(命名)','Listener(听者反应)','VP/MTS(视觉配对)','Play(游戏)','Social(社交)','Reading(阅读)','Writing(书写)','LRFFC(听者功能)','Intraverbal(对话)'] },
+    { group: 'Level 3 (30-48月)', items: ['Mand(要求)','Tact(命名)','Listener(听者反应)','VP/MTS(视觉配对)','Play(游戏)','Social(社交)','Reading(阅读)','Writing(书写)','LRFFC(听者功能)','Intraverbal(对话)','Group(团体)','Linguistics(语言结构)'] }
+  ]
+};
+
+const PEP3_QCOUNTS = { '认知/语前语言':20,'语言表达':18,'语言理解':16,'精细动作':22,'粗大动作':14,'视觉动作模仿':12,'情感表达':10,'社会互动':10,'非语言行为特征':8,'语言行为特征':8,'问题行为':12,'个人自理':10,'适应行为':12 };
+
+function generateFallbackConfig(tid) {
+  const structure = FALLBACK_STRUCTURES[tid] || FALLBACK_STRUCTURES.pep3;
+  const isVbmapp = tid === 'vbmapp';
+  const isCpep = tid === 'cpep';
+  const defaultScores = isVbmapp
+    ? [{value:1,label:'达标',desc:'完全达到该里程碑要求'},{value:0.5,label:'部分达标',desc:'部分达到或需要辅助'},{value:0,label:'未达标',desc:'未达到该里程碑要求'}]
+    : isCpep
+    ? [{value:1,label:'通过',desc:'独立完成任务'},{value:0.5,label:'中间反应',desc:'部分完成或需要提示'},{value:0,label:'不通过',desc:'无反应或无法完成'}]
+    : [{value:2,label:'通过',desc:'独立完成任务'},{value:1,label:'萌芽',desc:'部分完成或需要提示'},{value:0,label:'不通过',desc:'无反应或无法完成'}];
+  const materials = ['图片卡(4张)','彩色积木(6块)','小铃铛','拼图(6片)','彩色小球(3个)','杯子和勺子','蜡笔和纸','形状板','布偶玩具','泡泡液和吹杆','串珠和绳子','镜子','无'];
+  const ages = ['6-12月','12-18月','18-24月','24-36月','36-48月','48-60月','60-72月'];
+  const descTemplates = {
+    pep3: [
+      '将{材料}放在桌上，观察儿童是否主动探索',
+      '示范动作后，观察儿童是否能模仿完成',
+      '给出口头指令，观察儿童是否能正确执行',
+      '展示{材料}，要求儿童指认或命名',
+      '引导儿童完成{材料}相关的操作任务',
+      '观察儿童在自由活动中的自发行为表现',
+      '通过游戏互动评估儿童的社交反应',
+      '要求儿童按照示范完成精细动作任务',
+      '评估儿童对声音/视觉刺激的反应',
+      '观察儿童的语言表达和沟通意图'
+    ],
+    cpep: [
+      '呈现{材料}，观察儿童的感知觉反应',
+      '示范操作{材料}，评估儿童的模仿能力',
+      '给出指令，评估儿童的语言理解水平',
+      '引导儿童用{材料}完成精细动作任务',
+      '评估儿童在结构化情境中的认知表现',
+      '通过互动游戏评估儿童的社交能力',
+      '观察儿童的粗大动作发展水平',
+      '评估儿童的自理能力和日常技能'
+    ],
+    vbmapp: [
+      '在自然情境中观察儿童是否能主动提出要求',
+      '呈现{材料}，评估儿童的命名能力',
+      '给出指令，评估儿童的听者反应',
+      '呈现配对材料，评估视觉配对能力',
+      '在游戏情境中评估儿童的游戏技能',
+      '评估儿童与同伴/成人的社交互动',
+      '示范动作，评估儿童的模仿能力',
+      '评估儿童的仿说和发音能力'
+    ]
+  };
+  const itemTemplates = {
+    pep3: ['转头寻找声源','追视移动物体','从杯中找物','放入形状板','完成拼图','按颜色分类','指认颜色','配对图片','按大小排列','模仿画圆','数数','说出名字','用短句表达','描述图片','回答问题','复述故事','按指令取物','模仿拍手','搓胶泥','操作万花筒'],
+    cpep: ['视觉注视','视觉追踪','听觉辨别','触觉探索','手指捏取','手眼协调','双手配合','工具使用','独立坐稳','站立平衡','行走能力','跑跳能力','动作模仿','口型模仿','听指令','理解问句','命名物品','表达需求','注意力','记忆力'],
+    vbmapp: ['要求物品','要求动作','要求帮助','命名物品','命名动作','命名属性','听指令取物','听指令做动作','配对实物','配对图片','独立游戏','假装游戏','回应问候','轮流互动','模仿动作','模仿声音','仿说单词','仿说短句','发音清晰','语调模仿']
+  };
+  const descs = descTemplates[tid] || descTemplates.pep3;
+  const items = itemTemplates[tid] || itemTemplates.pep3;
+  const config = {};
+  structure.forEach(g => {
+    g.items.forEach(item => {
+      const dk = g.group + '__' + item;
+      const count = PEP3_QCOUNTS[item] || (isCpep ? 10 : isVbmapp ? 5 : 10);
+      const qs = [];
+      for (let i = 1; i <= count; i++) {
+        const mat = materials[(i - 1) % materials.length];
+        const descTpl = descs[(i - 1) % descs.length];
+        const itemSuffix = items[(i - 1) % items.length];
+        qs.push({
+          id: tid + '_' + item + '_' + i,
+          number: i,
+          itemName: itemSuffix,
+          desc: descTpl.replace('{材料}', mat),
+          materials: mat === '无' ? '' : mat,
+          ageRange: ages[(i - 1) % ages.length],
+          required: true,
+          enabled: true,
+          scores: defaultScores.map(s => ({...s}))
+        });
+      }
+      config[dk] = qs;
+    });
+  });
+  return config;
+}
+
 /* ===== 数据加载 ===== */
 function loadData() {
   const configKey = 'rice_assessment_config_' + toolId;
-  const raw = localStorage.getItem(configKey);
+  let raw = localStorage.getItem(configKey);
   if (!raw) {
-    console.warn('[loadData] No config in localStorage for:', configKey);
-    document.getElementById('domainTitle').textContent = '未找到评估配置数据';
-    return;
+    // 尝试生成 fallback 默认配置
+    const fallbackTid = ['pep3','cpep','vbmapp'].includes(toolId) ? toolId : null;
+    if (fallbackTid) {
+      console.log('[loadData] No config found, generating fallback for:', fallbackTid);
+      const fallbackConfig = generateFallbackConfig(fallbackTid);
+      localStorage.setItem(configKey, JSON.stringify(fallbackConfig));
+      raw = localStorage.getItem(configKey);
+    } else {
+      console.warn('[loadData] No config in localStorage for:', configKey);
+      document.getElementById('domainTitle').textContent = '未找到评估配置数据';
+      return;
+    }
   }
   let configData;
   try { configData = JSON.parse(raw); } catch(e) {

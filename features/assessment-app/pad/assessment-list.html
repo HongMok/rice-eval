@@ -194,9 +194,9 @@ const TOOLS_KEY = 'rice_assessment_tools';
 // 默认评估工具
 function getDefaultTools() {
   return [
-    { id: 'pep3', name: 'PEP-3', desc: '心理教育评估第三版，适用于2-7.5岁儿童', type: '发展评估', questionCount: 174, estimatedTime: '约60分钟', status: 'active' },
-    { id: 'cpep', name: 'C-PEP', desc: '孤独症儿童发展评估（中国残联版），适用于0-6岁儿童', type: '发展评估', questionCount: 130, estimatedTime: '约50分钟', status: 'active' },
-    { id: 'vbmapp', name: 'VB-MAPP', desc: '语言行为里程碑评估，基于ABA原理评估语言和社交技能', type: '语言行为', questionCount: 170, estimatedTime: '约45分钟', status: 'active' }
+    { id: 'pep3', name: 'PEP-3', desc: '心理教育评估第三版，适用于2-7.5岁儿童', type: 'pep3', questionCount: 174, estimatedTime: '约60分钟', status: 'active' },
+    { id: 'cpep', name: 'C-PEP', desc: '孤独症儿童发展评估（中国残联版），适用于0-6岁儿童', type: 'cpep', questionCount: 130, estimatedTime: '约50分钟', status: 'active' },
+    { id: 'vbmapp', name: 'VB-MAPP', desc: '语言行为里程碑评估，基于ABA原理评估语言和社交技能', type: 'vbmapp', questionCount: 170, estimatedTime: '约45分钟', status: 'active' }
   ];
 }
 
@@ -335,7 +335,7 @@ function createAssessment(toolId) {
   localStorage.setItem(RECORDS_KEY, JSON.stringify(records));
   localStorage.setItem('rice_assessment_current_record', newRec.id);
   localStorage.setItem('rice_assessment_current_tool', toolId);
-  location.href = `assessment-answer.html?record=${newRec.id}&tool=${toolId}`;
+  location.href = `assessment-intro.html?record=${newRec.id}&tool=${toolId}`;
 }
 
 /* === 继续评估 === */

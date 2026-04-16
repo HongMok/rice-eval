@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>评估工具介绍 - 康复师App PAD端</title>
+<style>
+/* === 全局变量（蓝色主题 Part B） === */
+:root {
+  --app-primary: #3B9BF5;
+  --app-primary-hover: #2B8AE0;
+  --app-primary-light: #EBF5FF;
+  --app-bg: #F0F2F5;
+  --app-card: #FFFFFF;
+  --app-border: #E8ECF0;
+  --app-text: #1A2233;
+  --app-text-sec: #8C95A6;
+  --app-text-nav: #5A6478;
+  --app-success: #52C41A;
+  --app-warning: #F5A623;
+  --app-danger: #F56C6C;
+  --app-radius-md: 8px;
+  --app-radius-lg: 12px;
+  --app-radius-xl: 16px;
+  --app-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  --app-font: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", "Noto Sans SC", sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: var(--app-font);
+  background: var(--app-bg);
+  color: var(--app-text);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* === 顶部栏 === */
+.topbar {
+  height: 56px;
+  background: var(--app-card);
+  border-bottom: 1px solid var(--app-border);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  flex-shrink: 0;
+}
+.topbar .back {
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 12px;
+  color: var(--app-text);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.topbar .back:hover { color: var(--app-primary); }
+.topbar .title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* === 内容区（可滚动） === */
+.content-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  padding-bottom: 100px; /* 为底部固定栏留空间 */
+}
+
+/* === 工具基本信息卡片 === */
+.tool-info-card {
+  background: var(--app-card);
+  border-radius: var(--app-radius-xl);
+  box-shadow: var(--app-shadow);
+  padding: 24px;
+  margin-bottom: 16px;
+}
+.tool-info-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.tool-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--app-primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+  color: var(--app-primary);
+  font-weight: 700;
+}
+.tool-text { flex: 1; min-width: 0; }
+.tool-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--app-text);
+  margin-bottom: 6px;
+}
+.tool-desc {
+  font-size: 13px;
+  color: var(--app-text-sec);
+  line-height: 1.6;
+}
+.tool-meta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.meta-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #F5F7FA;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 13px;
+  color: var(--app-text-nav);
+}
+.meta-tag .meta-icon { font-size: 14px; }
+.meta-tag .meta-value { font-weight: 500; color: var(--app-text); }
+
+/* === 评估工具介绍内容区 === */
+.intro-section {
+  background: var(--app-card);
+  border-radius: var(--app-radius-xl);
+  box-shadow: var(--app-shadow);
+  padding: 24px;
+}
+.intro-section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--app-text);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--app-border);
+}
+
+/* 富文本内容样式 */
+.intro-content h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--app-text);
+  margin: 20px 0 10px;
+}
+.intro-content h3:first-child { margin-top: 0; }
+.intro-content p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--app-text);
+  margin-bottom: 12px;
+}
+.intro-content strong {
+  font-weight: 600;
+  color: var(--app-text);
+}
+.intro-content ul,
+.intro-content ol {
+  padding-left: 24px;
+  margin-bottom: 12px;
+}
+.intro-content li {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--app-text);
+  margin-bottom: 4px;
+}
+.intro-content ul li { list-style-type: disc; }
+.intro-content ol li { list-style-type: decimal; }
+.intro-content em {
+  font-style: italic;
+  color: var(--app-text-sec);
+}
+
+/* === 底部固定操作栏 === */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--app-card);
+  border-top: 1px solid var(--app-border);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+.btn-start {
+  width: 320px;
+  height: 48px;
+  background: var(--app-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--app-radius-md);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--app-font);
+  transition: background .2s;
+}
+.btn-start:hover { background: var(--app-primary-hover); }
+.btn-start:active { transform: scale(0.98); }
+
+/* === 重置按钮（可拖拽） === */
+.reset-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0,0,0,0.35);
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: var(--app-radius-md);
+  font-size: 13px;
+  cursor: pointer;
+  z-index: 9999;
+  opacity: 0.5;
+  user-select: none;
+}
+.reset-btn:hover { opacity: 1; }
+
+/* === Toast === */
+.toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1A2233;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: var(--app-radius-md);
+  font-size: 13px;
+  z-index: 10000;
+  display: none;
+}
+.toast.show { display: block; animation: fadeInOut 2s ease; }
+@keyframes fadeInOut {
+  0%   { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+  15%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+  85%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* === 弹窗 === */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.modal-overlay.show { display: flex; }
+.modal {
+  background: #fff;
+  border-radius: var(--app-radius-xl);
+  padding: 24px;
+  width: 360px;
+}
+.modal h3 { font-size: 16px; margin-bottom: 12px; }
+.modal p { font-size: 14px; color: var(--app-text-sec); line-height: 1.6; margin-bottom: 16px; }
+.modal-btns { display: flex; gap: 8px; justify-content: flex-end; }
+.modal-btns button {
+  padding: 8px 20px;
+  border-radius: var(--app-radius-md);
+  font-size: 14px;
+  cursor: pointer;
+  font-family: var(--app-font);
+}
+.modal-btns .cancel { background: #fff; border: 1px solid var(--app-border); }
+.modal-btns .confirm { background: var(--app-primary); color: #fff; border: none; }
+</style>
+</head>
+<body>
+
+<!-- 顶部栏 -->
+<div class="topbar">
+  <a class="back" onclick="goBack()">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    返回
+  </a>
+  <span class="title" id="headerTitle">评估工具介绍</span>
+</div>
+
+<!-- 可滚动内容区 -->
+<div class="content-scroll">
+  <!-- 工具基本信息卡片 -->
+  <div class="tool-info-card">
+    <div class="tool-info-header">
+      <div class="tool-icon" id="toolIcon">P</div>
+      <div class="tool-text">
+        <div class="tool-name" id="toolName">加载中...</div>
+        <div class="tool-desc" id="toolDesc"></div>
+      </div>
+    </div>
+    <div class="tool-meta" id="toolMeta"></div>
+  </div>
+
+  <!-- 评估工具介绍内容 -->
+  <div class="intro-section">
+    <div class="intro-section-title">📖 评估工具介绍</div>
+    <div class="intro-content" id="introContent">
+      <p style="color:var(--app-text-sec);">加载中...</p>
+    </div>
+  </div>
+</div>
+
+<!-- 底部固定操作栏 -->
+<div class="bottom-bar">
+  <button class="btn-start" onclick="startAssessment()">开始评估</button>
+</div>
+
+<!-- 重置确认弹窗 -->
+<div class="modal-overlay" id="resetModal">
+  <div class="modal">
+    <h3>确认重置</h3>
+    <p>确定要重置所有评估数据吗？此操作不可撤销。</p>
+    <div class="modal-btns">
+      <button class="cancel" onclick="closeModal('resetModal')">取消</button>
+      <button class="confirm" onclick="doReset()">确认重置</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<button class="reset-btn" id="resetBtn" onmousedown="startDragReset(event)" onclick="resetAll()">🔄 一键重置</button>
+
+<script>
+/* ===== 拖拽重置按钮 ===== */
+let resetDragging = false, resetOffsetX = 0, resetOffsetY = 0, resetMoved = false;
+(function() {
+  var p = JSON.parse(localStorage.getItem('rice_reset_btn_pos') || 'null');
+  if (p) {
+    var b = document.getElementById('resetBtn');
+    b.style.left = p.left + 'px';
+    b.style.top = p.top + 'px';
+    b.style.right = 'auto';
+    b.style.bottom = 'auto';
+  }
+})();
+function startDragReset(e) {
+  var b = document.getElementById('resetBtn');
+  resetDragging = true; resetMoved = false;
+  resetOffsetX = e.clientX - b.getBoundingClientRect().left;
+  resetOffsetY = e.clientY - b.getBoundingClientRect().top;
+  e.preventDefault();
+}
+document.addEventListener('mousemove', function(e) {
+  if (!resetDragging) return;
+  resetMoved = true;
+  var b = document.getElementById('resetBtn');
+  b.style.left = (e.clientX - resetOffsetX) + 'px';
+  b.style.top = (e.clientY - resetOffsetY) + 'px';
+  b.style.right = 'auto';
+  b.style.bottom = 'auto';
+});
+document.addEventListener('mouseup', function() {
+  if (resetDragging && resetMoved) {
+    var b = document.getElementById('resetBtn');
+    localStorage.setItem('rice_reset_btn_pos', JSON.stringify({
+      left: parseInt(b.style.left), top: parseInt(b.style.top)
+    }));
+  }
+  resetDragging = false;
+});
+document.getElementById('resetBtn').addEventListener('click', function(e) {
+  if (resetMoved) { e.stopImmediatePropagation(); resetMoved = false; }
+}, true);
+
+/* ===== URL 参数 ===== */
+const params = new URLSearchParams(location.search);
+const toolId = params.get('tool') || 'pep3';
+const recordId = params.get('record') || '';
+
+/* ===== localStorage Keys ===== */
+const TOOLS_KEY = 'rice_assessment_tools';
+
+/* ===== 默认工具列表（兜底） ===== */
+function getDefaultTools() {
+  return [
+    { id: 'pep3', name: 'PEP-3', desc: '心理教育评估第三版，适用于2-7.5岁儿童', type: '发展评估', questionCount: 174, estimatedTime: '约60分钟', status: 'active' },
+    { id: 'cpep', name: 'C-PEP', desc: '孤独症儿童发展评估（中国残联版），适用于0-6岁儿童', type: '发展评估', questionCount: 130, estimatedTime: '约50分钟', status: 'active' },
+    { id: 'vbmapp', name: 'VB-MAPP', desc: '语言行为里程碑评估，基于ABA原理评估语言和社交技能', type: '语言行为', questionCount: 170, estimatedTime: '约45分钟', status: 'active' }
+  ];
+}
+
+/* ===== 默认介绍内容（intro 为空时的兜底） ===== */
+const DEFAULT_INTROS = {
+  pep3: `
+    <h3>PEP-3 心理教育评估（第三版）</h3>
+    <p><strong>PEP-3（Psychoeducational Profile-Third Edition）</strong>是由 Eric Schopler 等人开发的标准化评估工具，专门用于评估孤独症谱系障碍（ASD）及相关发育障碍儿童的发展水平和行为特征。</p>
+    <h3>适用对象</h3>
+    <ul>
+      <li>适用年龄：<strong>2岁 ~ 7岁6个月</strong></li>
+      <li>适用人群：疑似或已确诊孤独症谱系障碍的儿童</li>
+      <li>也可用于其他发育迟缓儿童的功能评估</li>
+    </ul>
+    <h3>评估内容</h3>
+    <p>PEP-3 包含 <strong>10个发展领域</strong> 和 <strong>4个适应行为领域</strong> 的评估：</p>
+    <ul>
+      <li><strong>发展领域（操作测试）：</strong>认知/语言前期、语言表达、语言理解、精细动作、大肌肉运动、视觉-动作模仿</li>
+      <li><strong>适应行为领域（照顾者报告）：</strong>情感表达、社交互动、非语言行为特征、语言行为特征</li>
+    </ul>
+    <h3>评估特点</h3>
+    <ul>
+      <li>采用 <strong>"通过-部分通过-不通过"</strong> 三级评分体系</li>
+      <li>评估结果可转化为发展年龄和百分等级</li>
+      <li>可用于制定个别化教育计划（IEP）的依据</li>
+      <li>施测时间约 <strong>45-90分钟</strong>，需专业评估师操作</li>
+    </ul>
+  `,
+  cpep: `
+    <h3>C-PEP 孤独症儿童发展评估</h3>
+    <p><strong>C-PEP（Chinese Psychoeducational Profile）</strong>是中国残疾人联合会组织编制的孤独症儿童发展评估工具，是在 PEP 系列量表基础上，结合中国儿童发展特点进行本土化改编的标准化评估工具。</p>
+    <h3>适用对象</h3>
+    <ul>
+      <li>适用年龄：<strong>0岁 ~ 6岁</strong></li>
+      <li>适用人群：孤独症谱系障碍儿童及其他发育迟缓儿童</li>
+      <li>广泛应用于残联定点康复机构的入学评估和阶段性评估</li>
+    </ul>
+    <h3>评估内容</h3>
+    <p>C-PEP 涵盖 <strong>7大发展领域</strong>，共130个评估项目：</p>
+    <ul>
+      <li><strong>模仿</strong>：视觉-动作模仿、口型模仿等</li>
+      <li><strong>感知觉</strong>：视觉、听觉、触觉等感知能力</li>
+      <li><strong>精细动作</strong>：手眼协调、书写前技能等</li>
+      <li><strong>大肌肉运动</strong>：平衡、协调、体能等</li>
+      <li><strong>认知表现</strong>：概念理解、问题解决等</li>
+      <li><strong>语言表达</strong>：口语表达、沟通意图等</li>
+      <li><strong>语言理解</strong>：指令理解、语义理解等</li>
+    </ul>
+    <h3>评估特点</h3>
+    <ul>
+      <li>采用 <strong>"通过-部分通过-不通过"</strong> 三级评分体系</li>
+      <li>本土化设计，更贴合中国儿童发展特点</li>
+      <li>评估结果可直接对接残联康复服务体系</li>
+      <li>施测时间约 <strong>40-60分钟</strong></li>
+    </ul>
+  `,
+  vbmapp: `
+    <h3>VB-MAPP 语言行为里程碑评估</h3>
+    <p><strong>VB-MAPP（Verbal Behavior Milestones Assessment and Placement Program）</strong>是由 Mark Sundberg 博士开发的评估工具，基于 Skinner 的语言行为理论和应用行为分析（ABA）原理，用于评估孤独症及其他语言发育迟缓儿童的语言和社交技能。</p>
+    <h3>适用对象</h3>
+    <ul>
+      <li>适用年龄：<strong>0岁 ~ 48个月</strong>（发展水平）</li>
+      <li>适用人群：孤独症谱系障碍、语言发育迟缓及其他发展障碍儿童</li>
+      <li>广泛应用于ABA机构的入学评估和教学计划制定</li>
+    </ul>
+    <h3>评估内容</h3>
+    <p>VB-MAPP 里程碑评估包含 <strong>16个领域</strong>，分为三个发展阶段（Level 1-3）：</p>
+    <ul>
+      <li><strong>命名（Tact）</strong>：看到物品/事件能说出名称</li>
+      <li><strong>提要求（Mand）</strong>：能用语言表达需求</li>
+      <li><strong>仿说（Echoic）</strong>：能模仿他人语言</li>
+      <li><strong>听者反应（Listener）</strong>：能理解并执行指令</li>
+      <li><strong>视觉配对（VP-MTS）</strong>：视觉辨别和匹配能力</li>
+      <li><strong>独立游戏（Play）</strong>：游戏和休闲技能</li>
+      <li><strong>社交行为（Social）</strong>：社交互动能力</li>
+      <li>以及阅读、书写、数学、语言结构等高阶领域</li>
+    </ul>
+    <h3>评估特点</h3>
+    <ul>
+      <li>基于 <strong>ABA 原理</strong>，评估结果可直接指导教学</li>
+      <li>采用里程碑式评估，清晰展示儿童当前发展水平</li>
+      <li>包含障碍评估和转衔评估等附加模块</li>
+      <li>施测时间约 <strong>45-90分钟</strong>（里程碑评估部分）</li>
+    </ul>
+  `
+};
+
+/* ===== 工具图标映射 ===== */
+function getToolIconText(id) {
+  const map = { pep3: 'P3', cpep: 'CP', vbmapp: 'VB' };
+  return map[id] || id.substring(0, 2).toUpperCase();
+}
+
+/* ===== 适用年龄映射 ===== */
+function getAgeRange(id) {
+  const map = { pep3: '2-7.5岁', cpep: '0-6岁', vbmapp: '0-48月龄' };
+  return map[id] || '—';
+}
+
+/* ===== 页面初始化 ===== */
+function init() {
+  // 从 localStorage 读取工具列表
+  let tools = JSON.parse(localStorage.getItem(TOOLS_KEY) || 'null');
+  if (!tools) {
+    tools = getDefaultTools();
+    localStorage.setItem(TOOLS_KEY, JSON.stringify(tools));
+  }
+
+  // 找到当前工具
+  const tool = tools.find(t => t.id === toolId);
+  if (!tool) {
+    document.getElementById('toolName').textContent = '未找到评估工具';
+    document.getElementById('introContent').innerHTML = '<p style="color:var(--app-danger);">未找到 ID 为 "' + toolId + '" 的评估工具，请返回重新选择。</p>';
+    return;
+  }
+
+  // 渲染顶部标题
+  document.getElementById('headerTitle').textContent = tool.name + ' - 评估工具介绍';
+
+  // 渲染工具图标
+  document.getElementById('toolIcon').textContent = getToolIconText(tool.id);
+
+  // 渲染工具名称和描述
+  document.getElementById('toolName').textContent = tool.name;
+  document.getElementById('toolDesc').textContent = tool.desc || '';
+
+  // 渲染评估信息标签
+  renderMeta(tool);
+
+  // 渲染介绍内容
+  renderIntro(tool);
+}
+
+/* ===== 渲染评估信息标签 ===== */
+function renderMeta(tool) {
+  const metaEl = document.getElementById('toolMeta');
+  const tags = [];
+
+  // 题目数量
+  if (tool.questionCount) {
+    tags.push('<div class="meta-tag"><span class="meta-icon">📝</span> 题目数量 <span class="meta-value">' + tool.questionCount + ' 题</span></div>');
+  }
+
+  // 评估时长
+  const timeText = tool.estimatedTime || '约45-90分钟';
+  tags.push('<div class="meta-tag"><span class="meta-icon">⏱️</span> 评估时长 <span class="meta-value">' + timeText + '</span></div>');
+
+  // 适用年龄
+  const ageText = tool.ageRange || getAgeRange(tool.id);
+  tags.push('<div class="meta-tag"><span class="meta-icon">👶</span> 适用年龄 <span class="meta-value">' + ageText + '</span></div>');
+
+  // 工具类型
+  if (tool.type) {
+    tags.push('<div class="meta-tag"><span class="meta-icon">📋</span> 类型 <span class="meta-value">' + tool.type + '</span></div>');
+  }
+
+  metaEl.innerHTML = tags.join('');
+}
+
+/* ===== 渲染介绍内容 ===== */
+function renderIntro(tool) {
+  const contentEl = document.getElementById('introContent');
+
+  // 优先使用工具的 intro 字段（HTML 富文本）
+  if (tool.intro && tool.intro.trim()) {
+    contentEl.innerHTML = tool.intro;
+    return;
+  }
+
+  // 其次使用预设的默认介绍
+  const defaultIntro = DEFAULT_INTROS[tool.id];
+  if (defaultIntro) {
+    contentEl.innerHTML = defaultIntro;
+    return;
+  }
+
+  // 最后兜底：生成简短介绍
+  contentEl.innerHTML = '<h3>' + tool.name + '</h3>'
+    + '<p>' + (tool.desc || '暂无详细介绍信息。') + '</p>'
+    + '<p>该评估工具共包含 <strong>' + (tool.questionCount || '—') + '</strong> 个评估项目，'
+    + '预计评估时长 <strong>' + (tool.estimatedTime || '约45-90分钟') + '</strong>。</p>'
+    + '<p style="color:var(--app-text-sec);font-size:13px;">如需了解更多信息，请联系管理员在后台配置评估工具的详细介绍内容。</p>';
+}
+
+/* ===== 开始评估 ===== */
+function startAssessment() {
+  const url = 'assessment-answer.html?tool=' + encodeURIComponent(toolId) + '&record=' + encodeURIComponent(recordId);
+  location.href = url;
+}
+
+/* ===== 返回 ===== */
+function goBack() {
+  if (document.referrer && document.referrer.indexOf('assessment-list') !== -1) {
+    history.back();
+  } else {
+    location.href = 'assessment-list.html';
+  }
+}
+
+/* ===== 弹窗 / Toast ===== */
+function closeModal(id) { document.getElementById(id).classList.remove('show'); }
+function showToast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast show';
+  setTimeout(function() { t.className = 'toast'; }, 2000);
+}
+
+/* ===== 重置 ===== */
+function resetAll() {
+  document.getElementById('resetModal').classList.add('show');
+}
+function doReset() {
+  closeModal('resetModal');
+  Object.keys(localStorage).forEach(function(k) {
+    if (k.startsWith('rice_assessment_')) localStorage.removeItem(k);
+  });
+  showToast('数据已重置');
+  setTimeout(function() { location.reload(); }, 500);
+}
+
+/* ===== 初始化 ===== */
+init();
+</script>
+</body>
+</html>
