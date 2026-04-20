@@ -1,0 +1,315 @@
+{
+  "meta": {
+    "title": "自闭症儿童心理教育评核（第三版）",
+    "titleEn": "Psychoeducational Profile - Third Edition (PEP-3)",
+    "version": "2009-05-28",
+    "organization": "协康会 (Heep Hong Society)"
+  },
+  "scoringRules": {
+    "development": { "0": "不通过", "1": "部分通过/新出现", "2": "通过" },
+    "behavior": { "0": "严重问题", "1": "轻微/中度", "2": "恰当" },
+    "compositeLevel": {
+      "appropriate": { "label": "恰当", "min": 90 },
+      "mild": { "label": "轻微", "min": 75, "max": 89 },
+      "moderate": { "label": "中度", "min": 25, "max": 74 },
+      "severe": { "label": "严重", "max": 24 }
+    }
+  },
+  "composites": {
+    "C":  { "name": "沟通", "nameEn": "Communication", "subtests": ["CVP", "EL", "RL"] },
+    "M":  { "name": "体能", "nameEn": "Motor", "subtests": ["FM", "GM", "VMI"] },
+    "MB": { "name": "行为", "nameEn": "Maladaptive Behavior", "subtests": ["AE", "SR", "CMB", "CVB"] }
+  },
+  "subtests": {
+    "CVP": {
+      "name": "认知(语言/语前)", "nameEn": "Cognitive Verbal/Preverbal",
+      "type": "development", "category": "发展副测验",
+      "items": [
+        { "id": 3,   "label": "目光追视", "page": 2, "materials": ["皮球"] },
+        { "id": 4,   "label": "目光追视跨越中线", "page": 2, "materials": ["皮球"] },
+        { "id": 5,   "label": "检视触觉块", "page": 2, "materials": ["触觉块"] },
+        { "id": 7,   "label": "表现出能够使用惯用眼", "page": 2, "materials": ["万花筒"], "record": ["惯用眼: 左/右____"] },
+        { "id": 8,   "label": "转向手摇铃声", "page": 2, "materials": ["手摇铃"] },
+        { "id": 21,  "label": "指示出3块拼块的正确位置", "page": 3, "materials": ["形状拼板"], "record": ["第1次尝试:____", "第2次尝试:____"] },
+        { "id": 22,  "label": "完成形状拼板", "page": 3, "materials": ["形状拼板"], "record": ["自行完成/部分示范/全部示范"] },
+        { "id": 25,  "label": "完成4块物件拼板", "page": 4, "materials": ["4块物件拼板"], "record": ["完成____块"] },
+        { "id": 26,  "label": "跨越中线取拼块", "page": 4, "materials": ["拼板"] },
+        { "id": 27,  "label": "指示出3块手套拼块的正确位置", "page": 4, "materials": ["手套拼板"], "record": ["第1次尝试:____", "第2次尝试:____"] },
+        { "id": 28,  "label": "完成手套拼板", "page": 4, "materials": ["手套拼板"], "record": ["自行完成/部分示范/全部示范"] },
+        { "id": 29,  "label": "说出物件大小", "page": 4, "materials": ["大小物件"], "alsoIn": ["EL"], "record": ["第1次: 大____小____", "第2次: 大____小____"] },
+        { "id": 31,  "label": "指示出拼块正确的位置", "page": 4, "materials": ["拼板"], "record": ["第1次尝试:____", "第2次尝试:____"] },
+        { "id": 32,  "label": "紧扣4块猫拼图", "page": 4, "materials": ["4块猫拼图"], "record": ["紧扣____块"] },
+        { "id": 33,  "label": "完成6块牛拼图", "page": 4, "materials": ["6块牛拼图"], "record": ["完成____块"] },
+        { "id": 34,  "label": "拼出8块的男孩拼图", "page": 4, "materials": ["8块男孩拼图"], "record": ["完成____块"] },
+        { "id": 35,  "label": "模仿使用3件发声物", "page": 4, "materials": ["响板", "手铃", "鼓"], "alsoIn": ["VMI"], "record": ["响板____", "手铃____", "鼓____"] },
+        { "id": 39,  "label": "实物配对图片5对", "page": 5, "materials": ["实物配对图片"], "record": ["完成____对"] },
+        { "id": 42,  "label": "找寻完全被隐藏的物件", "page": 5, "materials": ["杯", "小物件"], "record": ["第1次观察:____", "第2次观察:____"] },
+        { "id": 43,  "label": "杯下寻物", "page": 5, "materials": ["杯", "小物件"], "record": ["第1次观察:____", "第2次观察:____"] },
+        { "id": 44,  "label": "触觉辨别4件物件", "page": 5, "materials": ["触觉袋", "钥匙", "杯", "锤子", "球"], "record": ["鼓____", "钥匙____", "杯子____", "锤子____"] },
+        { "id": 45,  "label": "恰当地检视及运用测试材料", "page": 5 },
+        { "id": 46,  "label": "恰当地使用视觉检视测试材料", "page": 5 },
+        { "id": 82,  "label": "用剪刀剪纸", "page": 8, "materials": ["剪刀", "纸"] },
+        { "id": 85,  "label": "辨认14幅图画", "page": 8, "materials": ["图画卡"], "record": ["蝴蝶____", "雪梨____", "小鸡____", "雨伞____", "猫____", "屋____", "球____", "狗____", "杯子____", "匙子____", "蜡笔____", "梳子____", "蜡笔____", "硬币____"] },
+        { "id": 88,  "label": "辨别9个生字", "page": 8, "materials": ["生字卡"], "record": ["人____", "口____", "上____", "山____", "刀____", "天____", "火____", "手____", "田____"] },
+        { "id": 90,  "label": "生字配对", "page": 9, "materials": ["生字卡"] },
+        { "id": 97,  "label": "把1块积木放进盒中", "page": 9, "materials": ["积木", "盒"] },
+        { "id": 99,  "label": "叠8块积木", "page": 9, "materials": ["积木"], "record": ["完成积木____块"] },
+        { "id": 100, "label": "执行2步骤的指令", "page": 9, "materials": ["积木", "杯"], "record": ["坐下____", "拿走积木____"] },
+        { "id": 102, "label": "数出2块及7块积木", "page": 9, "materials": ["积木"], "record": ["2块____", "7块____"] },
+        { "id": 103, "label": "唱数1-10", "page": 9 },
+        { "id": 104, "label": "2种物件分类(积木及筹码)", "page": 10, "materials": ["积木", "筹码"], "record": ["完成积木____块", "完成筹码____块"] },
+        { "id": 105, "label": "配对5种颜色积木在图形上", "page": 10, "materials": ["颜色积木", "图形板"], "record": ["红____", "黄____", "蓝____", "白____", "绿____"] },
+        { "id": 108, "label": "自行根据颜色或形状作12张图卡分类", "page": 10, "materials": ["图卡"], "record": ["完成____张"] }
+      ]
+    },
+    "EL": {
+      "name": "语言表达", "nameEn": "Expressive Language",
+      "type": "development", "category": "发展副测验",
+      "items": [
+        { "id": 17,  "label": "指出手偶的3个身体部位", "page": 3, "materials": ["手偶"], "record": ["头____", "头发____", "双眼____", "鼻____", "口____", "身____", "腳____"] },
+        { "id": 18,  "label": "指出3个自己的身体部位", "page": 3, "record": ["眼____", "耳____", "鼻____", "口____", "身____"] },
+        { "id": 19,  "label": "使用两个手偶演出故事", "page": 3, "materials": ["手偶×2"] },
+        { "id": 23,  "label": "说出形状名称", "page": 3, "materials": ["形状拼板"], "record": ["圆形____", "正方形____", "三角形____", "菱形____"] },
+        { "id": 36,  "label": "说出5件物件名称", "page": 5, "materials": ["杯子", "匙子", "襪子", "牙刷", "蜡笔"], "record": ["杯子____", "匙子____", "襪子____", "牙刷____", "蜡笔____"] },
+        { "id": 83,  "label": "对图画书感兴趣", "page": 8, "materials": ["图画书"] },
+        { "id": 84,  "label": "假装使用5件图画中的物件", "page": 8, "materials": ["图画卡"] },
+        { "id": 86,  "label": "说出14幅图画名称", "page": 8, "materials": ["图画卡"], "record": ["儿童使用的词语:____"] },
+        { "id": 87,  "label": "说出一句4-5词片语", "page": 8, "record": ["儿童的词语:____"] },
+        { "id": 89,  "label": "读出9个生字", "page": 8, "materials": ["生字卡"], "record": ["人____", "口____", "上____", "山____", "刀____", "天____", "火____", "手____", "田____"] },
+        { "id": 91,  "label": "读出数字1-10", "page": 9 },
+        { "id": 92,  "label": "读出3个单字", "page": 9, "materials": ["单字卡"] },
+        { "id": 93,  "label": "读出1句短句子", "page": 9, "materials": ["句子卡"] },
+        { "id": 94,  "label": "诵读篇章少于3个犯错", "page": 9, "materials": ["篇章卡"] },
+        { "id": 95,  "label": "阅读理解及回答2条问题", "page": 9, "materials": ["阅读篇章"], "record": ["1.小明有什么动物?____", "2.小明玩什么?____", "3.什么跳过小明的皮球?____"] },
+        { "id": 96,  "label": "阅读句子及遵从指令", "page": 9, "materials": ["句子卡", "颜色笔"], "record": ["交回颜色笔____"] },
+        { "id": 106, "label": "说出5种颜色", "page": 10, "materials": ["颜色积木"], "record": ["红____", "黄____", "蓝____", "白____", "绿____"] },
+        { "id": 112, "label": "重复2个数字", "page": 10, "record": ["2-4-1____", "5-7-9____"] },
+        { "id": 113, "label": "重复3个数字", "page": 10, "record": ["7-9____", "5-3____"] },
+        { "id": 114, "label": "重复2个字词", "page": 10, "record": ["儿童答案:____"] },
+        { "id": 118, "label": "要求食物或饮品", "page": 10 },
+        { "id": 120, "label": "运用众数的量词2次", "page": 10, "record": ["儿童答案:____"] },
+        { "id": 121, "label": "运用1个代名词", "page": 10, "record": ["儿童答案:____"] },
+        { "id": 122, "label": "运用3句双词片语", "page": 10, "record": ["儿童答案:____"] },
+        { "id": 143, "label": "能使用语言或手势求助", "page": 10 },
+        { "id": 155, "label": "语句组织能力", "page": 10, "record": ["儿童答案:____"] }
+      ]
+    },
+    "RL": {
+      "name": "语言理解", "nameEn": "Receptive Language",
+      "type": "development", "category": "发展副测验",
+      "items": [
+        { "id": 24,  "label": "挑选形状", "page": 3, "materials": ["形状拼板"], "record": ["圆形____", "正方形____", "三角形____", "菱形____"] },
+        { "id": 30,  "label": "挑选大小物件", "page": 4, "materials": ["大小物件"], "record": ["大____", "中____", "小____"] },
+        { "id": 38,  "label": "在要求下交出3件物件", "page": 5, "materials": ["杯子", "匙子", "积木"], "record": ["指出物件:____"] },
+        { "id": 40,  "label": "明白3个常见物件的名称", "page": 5, "materials": ["杯子", "匙子", "球"], "record": ["杯子____", "匙子____", "球____"] },
+        { "id": 101, "label": "按指示交出2块及6块积木", "page": 9, "materials": ["积木"], "record": ["2块____", "6块____"] },
+        { "id": 107, "label": "按指示挑选5种颜色", "page": 10, "materials": ["颜色积木"], "record": ["红____", "黄____", "蓝____", "白____", "绿____"] },
+        { "id": 119, "label": "明白代名词", "page": 10, "record": ["儿童答案:____"] },
+        { "id": 123, "label": "遵从4项1-2步骤的口语指令", "page": 10, "record": ["坐低____", "起身____", "拜拜____", "叫名字+招手____"] },
+        { "id": 124, "label": "开关灯掣(按钮)", "page": 10, "materials": ["灯掣/按钮"] },
+        { "id": 125, "label": "对手势的反应", "page": 10 },
+        { "id": 126, "label": "回应「不要」或「停止」的指令", "page": 10 },
+        { "id": 127, "label": "对听到自己名字的反应", "page": 10 },
+        { "id": 128, "label": "明白「过来」的指令", "page": 10, "record": ["过来____", "给我____"] },
+        { "id": 129, "label": "回答「你是谁」", "page": 10, "record": ["儿童答案:____"] },
+        { "id": 130, "label": "能回答自己的性别", "page": 10, "record": ["儿童答案:____"] },
+        { "id": 131, "label": "明白3个动词并示范动作", "page": 10, "record": ["坐低____", "起身____", "跳____"] },
+        { "id": 132, "label": "正确运用代名词", "page": 10, "record": ["儿童答案:____"] },
+        { "id": 133, "label": "回答3句问句", "page": 10, "record": ["何人____", "何事____", "何地____", "何时____"] },
+        { "id": 134, "label": "遵从3个简单的动作指令", "page": 10, "record": ["放低手____", "开门____", "举单手____", "摸鼻____"] }
+      ]
+    },
+    "FM": {
+      "name": "小肌肉", "nameEn": "Fine Motor",
+      "type": "development", "category": "发展副测验",
+      "items": [
+        { "id": 1,   "label": "旋开瓶盖", "page": 2, "materials": ["瓶(有盖)"] },
+        { "id": 2,   "label": "吹肥皂泡", "page": 2, "materials": ["肥皂泡工具"] },
+        { "id": 10,  "label": "手指插入胶泥并做出凹位", "page": 2, "materials": ["胶泥"] },
+        { "id": 11,  "label": "抓握竹棒", "page": 2, "materials": ["竹棒"] },
+        { "id": 14,  "label": "搓胶泥条", "page": 3, "materials": ["胶泥"] },
+        { "id": 15,  "label": "操控手偶", "page": 3, "materials": ["手偶"] },
+        { "id": 16,  "label": "利用手偶模仿日常动作", "page": 3, "materials": ["手偶"] },
+        { "id": 37,  "label": "正确使用4件物件", "page": 5, "materials": ["杯子", "匙子", "蜡笔", "梳子"], "record": ["杯子____", "匙子____", "蜡笔____", "梳子____"] },
+        { "id": 41,  "label": "利用前二指钳法", "page": 5, "materials": ["小物件"] },
+        { "id": 65,  "label": "用绳子穿珠子", "page": 7, "materials": ["绳子", "珠子"], "record": ["完成____粒"] },
+        { "id": 66,  "label": "摆动穿上珠子的绳子", "page": 7, "materials": ["穿有珠子的绳子"], "record": ["观看____", "扭动____"] },
+        { "id": 67,  "label": "拿走包绒铁丝上的珠粒", "page": 7, "materials": ["包绒铁丝", "珠粒"], "record": ["完成____粒"] },
+        { "id": 68,  "label": "协调地运用双手", "page": 7 },
+        { "id": 69,  "label": "将物件由一只手交到另一只手", "page": 7 },
+        { "id": 70,  "label": "自发地涂画", "page": 7, "materials": ["蜡笔", "纸"] },
+        { "id": 71,  "label": "表现出使用惯用手", "page": 7, "record": ["惯用手: 左/右____"] },
+        { "id": 72,  "label": "沿线描画3个图形", "page": 7, "materials": ["蜡笔", "图形纸"], "record": ["三角形____", "圆形____", "正方形____"] },
+        { "id": 73,  "label": "仿画垂直线", "page": 7, "materials": ["蜡笔", "纸"] },
+        { "id": 74,  "label": "仿画圆形", "page": 7, "materials": ["蜡笔", "纸"], "record": ["三角形____", "圆形____"] },
+        { "id": 75,  "label": "仿画正方形", "page": 7, "materials": ["蜡笔", "纸"], "record": ["正方形____"] },
+        { "id": 76,  "label": "仿画三角形", "page": 7, "materials": ["蜡笔", "纸"], "record": ["三角形____", "菱形____"] },
+        { "id": 77,  "label": "仿画菱形", "page": 7, "materials": ["蜡笔", "纸"] },
+        { "id": 78,  "label": "界内着色", "page": 8, "materials": ["蜡笔", "着色纸"] },
+        { "id": 79,  "label": "抄写7个字母", "page": 8, "materials": ["铅笔", "纸"] },
+        { "id": 80,  "label": "绘画1个完整的人形", "page": 8, "materials": ["铅笔", "纸"] },
+        { "id": 81,  "label": "写下名字", "page": 8, "materials": ["铅笔", "纸"] }
+      ]
+    },
+    "GM": {
+      "name": "大肌肉", "nameEn": "Gross Motor",
+      "type": "development", "category": "发展副测验",
+      "items": [
+        { "id": 47,  "label": "拍手", "page": 5 },
+        { "id": 48,  "label": "单脚站立", "page": 5 },
+        { "id": 53,  "label": "双脚离地跳跃", "page": 6, "record": ["跳____", "坐低____"] },
+        { "id": 54,  "label": "模仿3项大肌肉动作", "page": 6, "alsoIn": ["VMI"], "record": ["1.拍盒____", "2.摸狗____", "3.企起身跳____"] },
+        { "id": 55,  "label": "双脚交替地上梯级", "page": 6, "record": ["上梯级____"] },
+        { "id": 56,  "label": "用杯子喝饮品", "page": 6, "materials": ["杯子", "饮品"] },
+        { "id": 57,  "label": "聆听及转向哨子声", "page": 6, "materials": ["哨子"], "record": ["哨子____", "球____"] },
+        { "id": 58,  "label": "接球", "page": 6, "materials": ["球"] },
+        { "id": 59,  "label": "抛球", "page": 6, "materials": ["球"] },
+        { "id": 60,  "label": "踢球", "page": 6, "materials": ["球"], "record": ["踢球____"] },
+        { "id": 61,  "label": "表现出使用惯用脚", "page": 6, "record": ["惯用脚: 左/右____"] },
+        { "id": 62,  "label": "持球并向前行4步", "page": 6, "materials": ["球"], "record": ["拿起皮球____"] },
+        { "id": 63,  "label": "推球", "page": 6, "materials": ["球"], "record": ["皮球放桌子上____"] }
+      ]
+    },
+    "VMI": {
+      "name": "模仿(视觉/动作)", "nameEn": "Visual-Motor Imitation",
+      "type": "development", "category": "发展副测验",
+      "items": [
+        { "id": 6,   "label": "使用万花筒", "page": 2, "materials": ["万花筒"] },
+        { "id": 9,   "label": "模仿按动响铃2次", "page": 2, "materials": ["响铃"] },
+        { "id": 12,  "label": "听生日歌假装吹蜡烛", "page": 2, "materials": ["蜡烛(假)"] },
+        { "id": 13,  "label": "享受音乐", "page": 2, "materials": ["音乐播放器"] },
+        { "id": 109, "label": "对他人模仿自己的动作有反应", "page": 10 },
+        { "id": 110, "label": "对他人模仿自己的声音有反应", "page": 10 },
+        { "id": 111, "label": "模仿3种声音", "page": 10, "record": ["1. m-m-m____", "2. ba-ba____", "3. pa-ta____", "4. la-la____"] },
+        { "id": 115, "label": "重复2至3词短句", "page": 10, "record": ["儿童答案:____"] }
+      ]
+    },
+    "AE": {
+      "name": "情感表达", "nameEn": "Affective Expression",
+      "type": "behavior", "category": "行为副测验",
+      "items": [
+        { "id": 49,  "label": "享受身体接触", "page": 6 },
+        { "id": 50,  "label": "享受被搔痒", "page": 6 },
+        { "id": 156, "label": "用面部表情表达情感", "page": 10 },
+        { "id": 157, "label": "用身体语言表达情感", "page": 10 },
+        { "id": 158, "label": "情绪表达", "page": 10 },
+        { "id": 159, "label": "恰当的情感", "page": 10 },
+        { "id": 160, "label": "恐惧的反应", "page": 10 },
+        { "id": 161, "label": "合乎年龄的专注力", "page": 10 },
+        { "id": 163, "label": "自我改正", "page": 10 },
+        { "id": 164, "label": "活动持久性", "page": 10 },
+        { "id": 165, "label": "分享兴趣", "page": 10 }
+      ]
+    },
+    "SR": {
+      "name": "社交互动", "nameEn": "Social Reciprocity",
+      "type": "behavior", "category": "行为副测验",
+      "items": [
+        { "id": 20,  "label": "与手偶作假想游戏", "page": 3, "materials": ["手偶"] },
+        { "id": 51,  "label": "主动重复社交游戏", "page": 6 },
+        { "id": 52,  "label": "主动与测试员有社交沟通", "page": 6 },
+        { "id": 98,  "label": "轮流摆放积木进盒中", "page": 9, "materials": ["积木", "盒"] },
+        { "id": 116, "label": "测试员向儿童说话时儿童能望着测试员的面孔", "page": 10 },
+        { "id": 154, "label": "与测试员合作", "page": 10 },
+        { "id": 166, "label": "保持眼神接触", "page": 10 },
+        { "id": 167, "label": "对测试员的声音有反应", "page": 10 },
+        { "id": 168, "label": "向测试员求助", "page": 10 },
+        { "id": 169, "label": "动作及动静", "page": 10, "alsoIn": ["CMB"] },
+        { "id": 170, "label": "能恰当地回应测试员", "page": 10 },
+        { "id": 171, "label": "对物质奖励有反应", "page": 10 },
+        { "id": 172, "label": "对社交赞赏有反应", "page": 10 }
+      ]
+    },
+    "CMB": {
+      "name": "行为特征-非语言", "nameEn": "Characteristic Motor Behavior",
+      "type": "behavior", "category": "行为副测验",
+      "items": [
+        { "id": 64,  "label": "对绳子的反应", "page": 7, "materials": ["绳子"] },
+        { "id": 135, "label": "使用视觉讯息", "page": 10 },
+        { "id": 136, "label": "单独玩耍时能恰当地使用空间及材料", "page": 10 },
+        { "id": 137, "label": "恰当地探索测试房间的环境", "page": 10 },
+        { "id": 138, "label": "恰当地对声音作出反应", "page": 10 },
+        { "id": 139, "label": "恰当地探索不同质感", "page": 10 },
+        { "id": 140, "label": "恰当地使用味觉", "page": 10 },
+        { "id": 141, "label": "对嗅觉有恰当的兴趣", "page": 10 },
+        { "id": 142, "label": "完成大部分适龄的测试项目", "page": 10 },
+        { "id": 162, "label": "从容地转换活动", "page": 10 }
+      ]
+    },
+    "CVB": {
+      "name": "行为特征-语言", "nameEn": "Characteristic Verbal Behavior",
+      "type": "behavior", "category": "行为副测验",
+      "items": [
+        { "id": 117, "label": "没有延迟性鹦鹉式讲话", "page": 10 },
+        { "id": 144, "label": "没有不恰当地重复刚听到的字词或片语", "page": 10 },
+        { "id": 145, "label": "没有持续地重复某些字词或声音", "page": 10 },
+        { "id": 146, "label": "表现恰当的说话语调、声量和速度", "page": 10 },
+        { "id": 147, "label": "没有无意义的声音(玩声)", "page": 10 },
+        { "id": 148, "label": "使用与其年龄相符的词汇沟通", "page": 10 },
+        { "id": 149, "label": "没有说奇异语句与自创语", "page": 10 },
+        { "id": 150, "label": "与年龄相符的发音能力", "page": 10 },
+        { "id": 151, "label": "与年龄相符的自发性沟通", "page": 10 },
+        { "id": 152, "label": "与测试员主动沟通", "page": 10 },
+        { "id": 153, "label": "与测试员持续对话", "page": 10 }
+      ]
+    }
+  },
+  "caregiverReport": {
+    "问题行为": {
+      "nameEn": "Problem Behavior",
+      "items": [
+        { "id": 173, "label": "对他人表现出感情", "page": 11 },
+        { "id": 174, "label": "对环境变化有恐惧或焦虑反应", "page": 11 },
+        { "id": 175, "label": "退缩或不与人接触", "page": 11 },
+        { "id": 176, "label": "使用物件时有异常沉迷", "page": 11 },
+        { "id": 177, "label": "对感官刺激有异常反应", "page": 11 },
+        { "id": 178, "label": "有自伤行为", "page": 11 },
+        { "id": 179, "label": "有攻击性行为", "page": 11 },
+        { "id": 180, "label": "有重复或刻板的动作", "page": 11 },
+        { "id": 181, "label": "有异常的情绪反应", "page": 11 },
+        { "id": 182, "label": "有异常的饮食习惯", "page": 11 },
+        { "id": 183, "label": "有睡眠问题", "page": 12 }
+      ]
+    },
+    "个人自理": {
+      "nameEn": "Personal Self-Care",
+      "items": [
+        { "id": 184, "label": "喂食", "page": 12 },
+        { "id": 185, "label": "饮水", "page": 12 },
+        { "id": 186, "label": "使用匙子进食", "page": 12 },
+        { "id": 187, "label": "使用筷子进食", "page": 12 },
+        { "id": 188, "label": "穿衣服", "page": 12 },
+        { "id": 189, "label": "脱衣服", "page": 12 },
+        { "id": 190, "label": "穿鞋子", "page": 13 },
+        { "id": 191, "label": "脱鞋子", "page": 13 },
+        { "id": 192, "label": "扣纽扣", "page": 13 },
+        { "id": 193, "label": "拉拉链", "page": 13 },
+        { "id": 194, "label": "刷牙", "page": 13 },
+        { "id": 195, "label": "洗手", "page": 13 },
+        { "id": 196, "label": "抹鼻", "page": 13 },
+        { "id": 197, "label": "如厕", "page": 13 }
+      ]
+    },
+    "适应行为": {
+      "nameEn": "Adaptive Behavior",
+      "items": [
+        { "id": 198, "label": "与同龄儿童一起玩耍", "page": 14 },
+        { "id": 199, "label": "遵从简单的家庭规则", "page": 14 },
+        { "id": 200, "label": "在公共场所表现恰当", "page": 14 },
+        { "id": 201, "label": "轮流等候", "page": 14 },
+        { "id": 202, "label": "接受日常作息的改变", "page": 14 },
+        { "id": 203, "label": "对危险有适当的反应", "page": 14 },
+        { "id": 204, "label": "独自玩耍", "page": 14 },
+        { "id": 205, "label": "参与小组活动", "page": 15 },
+        { "id": 206, "label": "模仿其他儿童的行为", "page": 15 },
+        { "id": 207, "label": "对别人的感受有反应", "page": 15 },
+        { "id": 208, "label": "与照顾者分离时的反应", "page": 15 },
+        { "id": 209, "label": "对陌生人的反应", "page": 15 },
+        { "id": 210, "label": "使用语言或手势表达需要", "page": 15 },
+        { "id": 211, "label": "回应别人的说话", "page": 15 },
+        { "id": 212, "label": "主动与人沟通", "page": 15 },
+        { "id": 213, "label": "注意力集中", "page": 15 }
+      ]
+    }
+  }
+}

@@ -784,19 +784,21 @@ function doImportUpload(fileInput) {
       const cols = rows[i].map(c => String(c).trim());
       const group = cols[groupIdx] || '';
       const domain = cols[domainIdx] || '';
-      const desc = cols[descIdx] || '';
+      const desc = (cols[descIdx] || '').replace(/\\n/g, '\n');
       if (!group || !domain) { invalidCount++; continue; }
       const key = group + '__' + domain;
       if (!config[key]) config[key] = [];
-      // 构建行级 scores 数组
+      // 构建行级 scores 数组（跳过分值列为空的评分等级）
       const scores = scoreLetters.map(letter => {
         const sc = scoreColMap[letter];
+        const rawValue = sc.valueIdx != null ? (cols[sc.valueIdx] || '').trim() : '';
+        if (rawValue === '') return null; // 分值为空，跳过该等级
         return {
-          value: sc.valueIdx != null ? (parseFloat(cols[sc.valueIdx]) || 0) : 0,
+          value: parseFloat(rawValue) || 0,
           label: sc.labelIdx != null ? (cols[sc.labelIdx] || '') : '',
           desc: sc.descIdx != null ? (cols[sc.descIdx] || '') : ''
         };
-      });
+      }).filter(s => s !== null);
       const row = {
         id: 'q_' + Date.now() + '_' + totalCount,
         number: sortIdx >= 0 ? parseInt(cols[sortIdx]) || (config[key].length + 1) : config[key].length + 1,

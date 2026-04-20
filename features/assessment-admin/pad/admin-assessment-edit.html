@@ -929,18 +929,20 @@ function loadPresetFromCSV(toolId) {
       const cols = parseCSVLine(lines[i]);
       const group = (cols[groupIdx] || '').trim();
       const domain = (cols[domainIdx] || '').trim();
-      const desc = (cols[descIdx] || '').trim();
+      const desc = (cols[descIdx] || '').trim().replace(/\\n/g, '\n');
       if (!group || !domain) continue;
       const dk = group + '__' + domain;
       if (!config[dk]) config[dk] = [];
       const scores = scoreLetters.map(letter => {
         const sc = scoreColMap[letter];
+        const rawValue = sc.valueIdx != null ? (cols[sc.valueIdx] || '').trim() : '';
+        if (rawValue === '') return null; // 分值为空，跳过该等级
         return {
-          value: sc.valueIdx != null ? (parseFloat(cols[sc.valueIdx]) || 0) : 0,
+          value: parseFloat(rawValue) || 0,
           label: sc.labelIdx != null ? (cols[sc.labelIdx] || '').trim() : '',
           desc: sc.descIdx != null ? (cols[sc.descIdx] || '').trim() : ''
         };
-      });
+      }).filter(s => s !== null);
       config[dk].push({
         id: 'q_' + toolId + '_' + totalCount,
         number: sortIdx >= 0 ? parseInt(cols[sortIdx]) || (config[dk].length + 1) : config[dk].length + 1,

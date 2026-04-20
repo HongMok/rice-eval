@@ -522,7 +522,7 @@ function renderMilestoneGrid(level) {
   const lv = MILESTONE_LEVELS.find(l => l.level === level);
   const startM = (level - 1) * 5 + 1;
   let html = '<table class="grid-table milestone-theme"><thead><tr><th></th>';
-  lv.domains.forEach(d => { const n = d.name; html += `<th>${n.length > 4 ? n.slice(0, 3) : n}</th>`; });
+  lv.domains.forEach(d => { html += `<th style="font-size:11px;white-space:nowrap">${d.name}</th>`; });
   html += '</tr></thead><tbody>';
   for (let m = startM + 4; m >= startM; m--) {
     html += `<tr><td style="font-weight:600">${m}M</td>`;
@@ -550,7 +550,7 @@ function renderBarrierGrid() {
     const rowBarriers = BARRIERS.slice(startIdx, endIdx);
     html += '<table class="grid-table barrier-theme" style="margin-bottom:12px"><thead><tr><th></th>';
     rowBarriers.forEach(b => {
-      html += `<th style="font-size:11px;max-width:80px;word-break:break-all">${b.length > 6 ? b.slice(0, 6) : b}</th>`;
+      html += `<th style="font-size:10px;max-width:80px;word-break:break-all">${b}</th>`;
     });
     html += '</tr></thead><tbody>';
     for (let score = 4; score >= 1; score--) {
@@ -575,7 +575,7 @@ function renderTransitionGrid() {
     html += `<div style="font-size:13px;font-weight:600;color:#1565C0;margin:12px 0 6px">${cat.title}</div>`;
     html += '<table class="grid-table transition-theme" style="margin-bottom:12px"><thead><tr><th></th>';
     catScores.forEach(t => {
-      const shortName = t.name.length > 6 ? t.name.slice(0, 6) : t.name;
+      const shortName = t.name;
       html += `<th style="font-size:11px;max-width:80px;word-break:break-all">${shortName}</th>`;
     });
     html += '</tr></thead><tbody>';

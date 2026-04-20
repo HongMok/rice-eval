@@ -429,6 +429,13 @@ let notes = {};
 let currentDomain = '';
 let mergedQuestions = []; // byOrder 模式：按排序号合并后的题目数组
 
+/* ===== 过滤并排序评分选项：去掉分值为空的，按分值从低到高 ===== */
+function filterAndSortScores(scores) {
+  return (scores || [])
+    .filter(s => s.value !== '' && s.value !== null && s.value !== undefined)
+    .sort((a, b) => Number(a.value) - Number(b.value));
+}
+
 /* ===== 评分按钮颜色 ===== */
 function getScoreColor(index, total) {
   if (total <= 1) return '#52C41A';
@@ -818,7 +825,7 @@ function renderByOrder() {
     const hasAge = showAgeRange && primaryQ.ageRange;
     if (hasDesc || hasMaterials || hasAge) {
       infoBoxHtml = '<div class="q-card-info-box">';
-      if (hasDesc) infoBoxHtml += '<div class="info-desc">' + escHtml(primaryQ.desc) + '</div>';
+      if (hasDesc) infoBoxHtml += '<div class="info-desc">' + escHtmlNl(primaryQ.desc) + '</div>';
       if (hasMaterials) infoBoxHtml += '<div class="info-materials"><span class="info-materials-label">材料：</span>' + escHtml(primaryQ.materials) + '</div>';
       if (hasAge) infoBoxHtml += '<span class="info-age">' + escHtml(primaryQ.ageRange) + '</span>';
       infoBoxHtml += '</div>';
@@ -877,14 +884,14 @@ function renderSingleScoreRow(q, showDesc) {
   // 直接评分模式（原逻辑）
   let scoreButtonsHtml = '';
   if (total > 0) {
-    const displayScores = [...scores].reverse();
+    const displayScores = filterAndSortScores(scores);
     const displayTotal = displayScores.length;
     scoreButtonsHtml = '<div class="q-card-scores">' + displayScores.map((s, i) => {
       const color = getScoreColor(displayTotal - 1 - i, displayTotal);
       const colorClass = getScoreClass(displayTotal - 1 - i, displayTotal);
       const selected = ans && ans.value === s.value;
       const style = selected ? 'background:' + color + ';color:#fff;border-color:' + color : '';
-      const btnText = s.value + ' ' + (s.label || '');
+      const btnText = s.label ? (s.value + '分（' + s.label + '）') : (s.value + '分');
       return '<div class="score-radio ' + colorClass + ' ' + (selected ? 'selected' : '') + '" data-idx="' + i + '" data-color="' + color + '" data-value="' + s.value + '" data-label="' + escAttr(s.label || '') + '" onclick="scoreQuestion(\'' + q.id + '\',' + s.value + ',\'' + escAttr(s.label || '') + '\',this)" style="' + style + '" title="' + escAttr(s.desc || '') + '">' + escHtml(btnText) + '</div>';
     }).join('')
       + '</div>';
@@ -919,14 +926,14 @@ function renderDomainScoreRow(q, showDesc) {
 
   // 直接评分模式（原逻辑）
   if (total > 0) {
-    const displayScores = [...scores].reverse();
+    const displayScores = filterAndSortScores(scores);
     const displayTotal = displayScores.length;
     html += '<div class="q-card-scores">' + displayScores.map((s, i) => {
       const color = getScoreColor(displayTotal - 1 - i, displayTotal);
       const colorClass = getScoreClass(displayTotal - 1 - i, displayTotal);
       const selected = ans && ans.value === s.value;
       const style = selected ? 'background:' + color + ';color:#fff;border-color:' + color : '';
-      const btnText = s.value + ' ' + (s.label || '');
+      const btnText = s.label ? (s.value + '分（' + s.label + '）') : (s.value + '分');
       return '<div class="score-radio ' + colorClass + ' ' + (selected ? 'selected' : '') + '" data-idx="' + i + '" data-color="' + color + '" data-value="' + s.value + '" data-label="' + escAttr(s.label || '') + '" onclick="scoreQuestion(\'' + q.id + '\',' + s.value + ',\'' + escAttr(s.label || '') + '\',this)" style="' + style + '" title="' + escAttr(s.desc || '') + '">' + escHtml(btnText) + '</div>';
     }).join('')
       + '</div>';
@@ -979,7 +986,7 @@ function renderQuestions() {
     const hasAge = showAgeRange && q.ageRange;
     if (hasDescContent || hasMaterials || hasAge) {
       infoBoxHtml = '<div class="q-card-info-box">';
-      if (hasDescContent) infoBoxHtml += '<div class="info-desc">' + escHtml(q.desc) + '</div>';
+      if (hasDescContent) infoBoxHtml += '<div class="info-desc">' + escHtmlNl(q.desc) + '</div>';
       if (hasMaterials) infoBoxHtml += '<div class="info-materials"><span class="info-materials-label">材料：</span>' + escHtml(q.materials) + '</div>';
       if (hasAge) infoBoxHtml += '<span class="info-age">' + escHtml(q.ageRange) + '</span>';
       infoBoxHtml += '</div>';
@@ -990,14 +997,14 @@ function renderQuestions() {
     if (scoringMode === 'rounds' && total > 0) {
       scoreButtonsHtml = '<div id="rounds_' + q.id + '">' + renderRoundsUI(q.id, scores) + '</div>';
     } else if (total > 0) {
-      const displayScores = [...scores].reverse();
+      const displayScores = filterAndSortScores(scores);
       const displayTotal = displayScores.length;
       scoreButtonsHtml = '<div class="q-card-scores">' + displayScores.map((s, i) => {
         const color = getScoreColor(displayTotal - 1 - i, displayTotal);
         const colorClass = getScoreClass(displayTotal - 1 - i, displayTotal);
         const selected = ans && ans.value === s.value;
         const style = selected ? 'background:' + color + ';color:#fff;border-color:' + color : '';
-        const btnText = s.value + ' ' + (s.label || '');
+        const btnText = s.label ? (s.value + '分（' + s.label + '）') : (s.value + '分');
         return '<div class="score-radio ' + colorClass + ' ' + (selected ? 'selected' : '') + '" data-idx="' + i + '" data-color="' + color + '" data-value="' + s.value + '" data-label="' + escAttr(s.label || '') + '" onclick="scoreQuestion(\'' + q.id + '\',' + s.value + ',\'' + escAttr(s.label || '') + '\',this)" style="' + style + '" title="' + escAttr(s.desc || '') + '">' + escHtml(btnText) + '</div>';
       }).join('') + '</div>';
     }
@@ -1034,6 +1041,9 @@ function renderQuestions() {
 
 function escHtml(s) {
   return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function escHtmlNl(s) {
+  return escHtml(s).replace(/\\n/g, '<br>').replace(/\n/g, '<br>');
 }
 function escAttr(s) {
   return (s || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
@@ -1438,6 +1448,7 @@ function applyScoringMode(mode) {
 }
 
 function renderRoundsUI(qId, scores) {
+  scores = (scores || []).filter(s => s.value !== '' && s.value !== null && s.value !== undefined);
   const rounds = roundsData[qId] || [{round:1,result:null},{round:2,result:null},{round:3,result:null}];
   if (!roundsData[qId]) roundsData[qId] = rounds;
   
@@ -1467,27 +1478,47 @@ function renderRoundsUI(qId, scores) {
     const indepRate = indep / total;
     const promptedRate = prompted / total;
     
-    let resultScore, resultLabel;
-    const maxScore = scores[0];
-    const midScore = scores.length >= 3 ? scores[Math.floor(scores.length / 2)] : scores[scores.length > 1 ? 1 : 0];
-    const minScore = scores[scores.length - 1];
+    // 按分值从低到高排序
+    const sorted = [...scores].sort((a, b) => a.value - b.value);
+    const minVal = sorted[0].value;
+    const maxVal = sorted[sorted.length - 1].value;
     
-    // 量化换算规则（基于独立完成率和辅助完成率）：
-    // 1. 独立率 >= 80% → 最高分（scores[0]）
-    // 2. 独立率 >= 30% 且 < 80% → 中间分（scores[mid]）
-    // 3. 独立率 < 30% 且 辅助率 > 0% → 中间分（scores[mid]）
-    // 4. 独立率 < 30% 且 辅助率 == 0%（即全部错误）→ 最低分（scores[last]）
-    if (indepRate >= 0.8) { resultScore = maxScore; resultLabel = '独立率≥80%→最高分'; }
-    else if (indepRate >= 0.3) { resultScore = midScore; resultLabel = '独立率≥30%→中间分'; }
-    else if (promptedRate > 0) { resultScore = midScore; resultLabel = '辅助率>0%→中间分'; }
-    else { resultScore = minScore; resultLabel = '独立率<30%且无辅助→最低分'; }
+    // 计算有效比率：独立率为主，辅助给予基础加成（避免全辅助=最低分）
+    // effectiveRate: 0% ~ 100%，用于线性映射到分值区间
+    let effectiveRate;
+    if (indepRate >= 0.8) {
+      effectiveRate = 1.0; // 稳定掌握 → 最高分
+    } else if (indep === 0 && prompted === 0) {
+      effectiveRate = 0; // 全部错误 → 最低分
+    } else if (indep === 0 && prompted > 0) {
+      // 全辅助无独立：给一个略高于最低分的基础值（映射到第2个等级附近）
+      effectiveRate = sorted.length > 2 ? (1 / (sorted.length - 1)) : 0.3;
+    } else {
+      // 有独立有辅助/错误：用独立率直接映射
+      effectiveRate = indepRate;
+    }
     
-    // 根据评分等级映射颜色：最高分=绿，中间分=橙，最低分=红
-    var resultColor = '#F5A623';
-    if (resultScore === maxScore) resultColor = '#52C41A';
-    else if (resultScore === minScore) resultColor = '#F56C6C';
+    // 线性插值：effectiveRate → 分值
+    const rawValue = minVal + effectiveRate * (maxVal - minVal);
     
-    html += '<div class="rounds-result">换算评分：<span class="result-score" style="font-size:16px;color:' + resultColor + '">' + resultScore.value + ' ' + resultScore.label + '</span> <span style="font-size:12px;color:#8C95A6">（独立 ' + indep + '/' + total + '=' + Math.round(indepRate * 100) + '%，辅助 ' + prompted + '/' + total + '=' + Math.round(promptedRate * 100) + '%，' + resultLabel + '）</span></div>';
+    // 四舍五入到最近的有效评分等级
+    let resultScore = sorted[0];
+    let minDist = Math.abs(rawValue - sorted[0].value);
+    for (let si = 1; si < sorted.length; si++) {
+      const dist = Math.abs(rawValue - sorted[si].value);
+      if (dist < minDist) { minDist = dist; resultScore = sorted[si]; }
+    }
+    
+    const resultLabel = '独立' + Math.round(indepRate * 100) + '%→' + resultScore.value + '分';
+    
+    // 颜色：按在等级中的位置映射
+    const scoreIdx = sorted.indexOf(resultScore);
+    var resultColor = '#F5A623'; // 默认橙色
+    if (scoreIdx === sorted.length - 1) resultColor = '#52C41A'; // 最高分=绿
+    else if (scoreIdx === 0) resultColor = '#F56C6C'; // 最低分=红
+    
+    const resultText = resultScore.label ? (resultScore.value + '分（' + resultScore.label + '）') : (resultScore.value + '分');
+    html += '<div class="rounds-result">换算评分：<span class="result-score" style="font-size:16px;color:' + resultColor + '">' + resultText + '</span> <span style="font-size:12px;color:#8C95A6">（独立 ' + indep + '/' + total + '=' + Math.round(indepRate * 100) + '%，辅助 ' + prompted + '/' + total + '=' + Math.round(promptedRate * 100) + '%，' + resultLabel + '）</span></div>';
     
     // Auto-save the calculated score
     answers[qId] = { value: resultScore.value, label: resultScore.label };
@@ -1501,7 +1532,8 @@ function renderRoundsUI(qId, scores) {
     if (matchedScore === scores[0]) carryColor = '#52C41A';
     else if (matchedScore === scores[scores.length - 1]) carryColor = '#F56C6C';
     else if (matchedScore) carryColor = '#F5A623';
-    html += '<div class="rounds-result" style="color:#8C95A6">当前评分：<span style="font-size:16px;font-weight:600;color:' + carryColor + '">' + existAns.value + ' ' + (existAns.label || '') + '</span> <span style="font-size:12px">（来自直接评分，录入回合后将被覆盖）</span></div>';
+    const carryText = existAns.label ? (existAns.value + '分（' + existAns.label + '）') : (existAns.value + '分');
+    html += '<div class="rounds-result" style="color:#8C95A6">当前评分：<span style="font-size:16px;font-weight:600;color:' + carryColor + '">' + carryText + '</span> <span style="font-size:12px">（来自直接评分，录入回合后将被覆盖）</span></div>';
   }
   
   html += '</div>';
