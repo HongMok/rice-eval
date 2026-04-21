@@ -1,0 +1,97 @@
+{
+  "features": [
+    {
+      "id": "assessment-admin",
+      "name": "评估管理（后台）",
+      "icon": "⚙️",
+      "description": "评估工具配置、导入导出、题目编辑",
+      "pages": [
+        {
+          "id": "admin-assessment-list",
+          "name": "评估工具列表",
+          "html": "features/assessment-admin/pad/admin-assessment-list.html",
+          "doc": "docs/assessment-admin/admin-assessment-list.md",
+          "devices": ["pad"]
+        },
+        {
+          "id": "admin-assessment-edit",
+          "name": "评估工具编辑",
+          "html": "features/assessment-admin/pad/admin-assessment-edit.html",
+          "doc": "docs/assessment-admin/admin-assessment-edit.md",
+          "devices": ["pad"]
+        },
+        {
+          "id": "admin-assessment-import",
+          "name": "评估工具导入",
+          "html": "features/assessment-admin/pad/admin-assessment-import.html",
+          "doc": "docs/assessment-admin/admin-assessment-import.md",
+          "devices": ["pad"]
+        }
+      ]
+    },
+    {
+      "id": "assessment-app",
+      "name": "评估App（康复师端）",
+      "icon": "📋",
+      "description": "评估答题、评估结果、评估报告",
+      "pages": [
+        {
+          "id": "assessment-list",
+          "name": "评估列表",
+          "html": "features/assessment-app/{device}/assessment-list.html",
+          "doc": "docs/assessment-app/assessment-list.md",
+          "devices": ["pad", "mobile"]
+        },
+        {
+          "id": "assessment-intro",
+          "name": "评估介绍",
+          "html": "features/assessment-app/pad/assessment-intro.html",
+          "doc": "docs/assessment-app/assessment-intro.md",
+          "devices": ["pad"]
+        },
+        {
+          "id": "assessment-answer",
+          "name": "评估答题",
+          "html": "features/assessment-app/{device}/assessment-answer.html",
+          "doc": "docs/assessment-app/assessment-answer.md",
+          "devices": ["pad", "mobile"]
+        },
+        {
+          "id": "assessment-result",
+          "name": "评估结果（通用）",
+          "html": "features/assessment-app/{device}/assessment-result.html",
+          "doc": "docs/assessment-app/assessment-result.md",
+          "devices": ["pad", "mobile"]
+        },
+        {
+          "id": "assessment-result-pep3",
+          "name": "评估结果（PEP-3）",
+          "html": "features/assessment-app/{device}/assessment-result-pep3.html",
+          "doc": "docs/assessment-app/assessment-result-pep3.md",
+          "devices": ["pad", "mobile"]
+        },
+        {
+          "id": "assessment-result-cpep",
+          "name": "评估结果（C-PEP）",
+          "html": "features/assessment-app/{device}/assessment-result-cpep.html",
+          "doc": "docs/assessment-app/assessment-result-cpep.md",
+          "devices": ["pad", "mobile"]
+        },
+        {
+          "id": "assessment-result-vbmapp",
+          "name": "评估结果（VB-MAPP）",
+          "html": "features/assessment-app/{device}/assessment-result-vbmapp.html",
+          "doc": "docs/assessment-app/assessment-result-vbmapp.md",
+          "devices": ["pad", "mobile"]
+        },
+        {
+          "id": "assessment-result-parent",
+          "name": "评估结果（照顾者报告）",
+          "html": "features/assessment-app/{device}/assessment-result-parent.html",
+          "doc": "docs/assessment-app/assessment-result-parent.md",
+          "devices": ["pad", "mobile"]
+        }
+      ]
+    }
+  ]
+}

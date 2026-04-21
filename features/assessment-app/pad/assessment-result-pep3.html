@@ -350,24 +350,23 @@ const recordId = params.get('record') || 'rec001';
 
 /* === PEP-3 领域结构 === */
 const FUNC_DOMAINS = [
-  { name: '模仿', code: 'I', total: 16 },
-  { name: '知觉', code: 'P', total: 13 },
-  { name: '小肌肉', code: 'FM', total: 16 },
-  { name: '大肌肉', code: 'GM', total: 18 },
-  { name: '手眼协调', code: 'EH', total: 15 },
-  { name: '认知理解', code: 'CP', total: 26 },
-  { name: '认知表达', code: 'CV', total: 27 }
+  { name: '认知/语前语言', code: 'CVP', total: 34 },
+  { name: '语言表达', code: 'EL', total: 25 },
+  { name: '语言理解', code: 'RL', total: 19 },
+  { name: '小肌肉', code: 'FM', total: 20 },
+  { name: '大肌肉', code: 'GM', total: 17 },
+  { name: '模仿', code: 'VMI', total: 10 }
 ];
 const BEHAVIOR_DOMAINS = [
-  { name: '情感关系', code: 'R', total: 12 },
-  { name: '游戏及兴趣', code: 'M', total: 8 },
-  { name: '感觉反应', code: 'S', total: 12 },
-  { name: '语言异常', code: 'L', total: 11 }
+  { name: '情感表达', code: 'AE', total: 11 },
+  { name: '社交互动', code: 'SR', total: 12 },
+  { name: '行为特征-非语言', code: 'CMB', total: 9 },
+  { name: '行为特征-语言', code: 'CVB', total: 10 }
 ];
 const SUBTESTS = [
   { group: '发展性子测验', items: [
-    { name: '认知/语前语言', count: 20 }, { name: '语言表达', count: 18 }, { name: '语言理解', count: 16 },
-    { name: '精细动作', count: 22 }, { name: '粗大动作', count: 14 }, { name: '视觉动作模仿', count: 12 }
+    { name: '认知/语前语言', count: 34 }, { name: '语言表达', count: 25 }, { name: '语言理解', count: 19 },
+    { name: '小肌肉', count: 20 }, { name: '大肌肉', count: 17 }, { name: '模仿', count: 10 }
   ]},
   { group: '行为特征子测验', items: [
     { name: '情感表达', count: 10 }, { name: '社会互动', count: 10 }, { name: '非语言行为特征', count: 18 }, { name: '语言行为特征', count: 12 }
@@ -409,12 +408,34 @@ function loadAnswers() {
     }
     return result;
   }
-  // fallback: 生成确定性中等分数据 + 部分备注（同一 recordId 始终相同）
+  // fallback: 按领域差异化生成数据，部分领域达标(>65%)部分不达标
+  // 领域题数: CVP=34, EL=25, RL=19, FM=20, GM=17, VMI=10 = 125题发展
+  // 行为: AE=11, SR=12, CMB=9, CVB=10 = 42题行为
+  // 目标: FM(80%), VMI(85%), GM(70%), CVP(50%), EL(35%), RL(30%)
   const sampleNotes = ['需要多次示范才能完成','对材料表现出明显兴趣','注意力持续约30秒','需要手把手辅助','自发完成，表现积极','有轻微抵触情绪','在提示下能完成一半'];
+  const domainRates = [
+    0.50, // CVP 1-34: 认知/语前 - 中等偏弱
+    0.35, // EL 35-59: 语言表达 - 弱
+    0.30, // RL 60-78: 语言理解 - 弱
+    0.80, // FM 79-98: 小肌肉 - 强
+    0.70, // GM 99-115: 大肌肉 - 达标
+    0.85, // VMI 116-125: 模仿 - 强
+  ];
+  const domainBounds = [0, 34, 59, 78, 98, 115, 125]; // 累计题号边界
   const rand = seededRandom(recordId + '_pep3_fallback');
   for (let i = 1; i <= 174; i++) {
     const r = rand();
-    result.scores['pep3_q' + i] = r < 0.5 ? 2 : r < 0.8 ? 1 : 0;
+    let rate = 0.5; // 默认(行为题)
+    if (i <= 125) {
+      // 发展题：按领域分配不同通过率
+      for (let d = 0; d < domainBounds.length - 1; d++) {
+        if (i > domainBounds[d] && i <= domainBounds[d + 1]) { rate = domainRates[d]; break; }
+      }
+      result.scores['pep3_q' + i] = r < rate ? 2 : r < rate + 0.2 ? 1 : 0;
+    } else {
+      // 行为题：大部分恰当，少量轻微/严重
+      result.scores['pep3_q' + i] = r < 0.6 ? 2 : r < 0.85 ? 1 : 0;
+    }
     if (rand() < 0.15) {
       result.notes['pep3_q' + i] = sampleNotes[Math.floor(rand() * sampleNotes.length)];
     }
@@ -474,25 +495,25 @@ function calcDomainScores() {
       else if (v === 1) e++;
       else f++;
     }
-    const pct = Math.round(p / d.total * 100);
+    const pct = d.total > 0 ? Math.round(p / d.total * 100) : 0;
     const devMonths = calcDevAgeMonths(pct);
     const percentile = calcPercentileRank(pct);
     const devLevel = calcDevLevel(percentile);
     return { ...d, p, e, f, pct, devMonths, devAge: monthsToAge(devMonths), percentile, devLevel };
   });
   const behaviorScores = BEHAVIOR_DOMAINS.map(d => {
-    let total = 0, count = 0;
+    let total = 0, count = 0, aCount = 0, mCount = 0, sCount = 0;
     const startIdx = FUNC_DOMAINS.reduce((s, dd) => s + dd.total, 0);
     for (let i = 0; i < d.total; i++) {
       const qIdx = startIdx + BEHAVIOR_DOMAINS.slice(0, BEHAVIOR_DOMAINS.indexOf(d)).reduce((s, dd) => s + dd.total, 0) + i + 1;
       const v = answers['pep3_q' + qIdx];
-      if (v !== undefined) { total += v; count++; }
+      if (v !== undefined) { total += v; count++; if (v >= 2) aCount++; else if (v >= 1) mCount++; else sCount++; }
     }
     const avg = count > 0 ? total / count : 0;
     const rating = avg >= 1.5 ? 'A' : avg >= 0.8 ? 'M' : 'S';
     const percentile = rating === 'A' ? 75 : rating === 'M' ? 50 : 25;
     const devLevel = calcDevLevel(percentile);
-    return { ...d, score: total, rating, percentile, devLevel };
+    return { ...d, score: total, rating, percentile, devLevel, aCount, mCount, sCount };
   });
   return { funcScores, behaviorScores };
 }
@@ -500,13 +521,13 @@ function calcDomainScores() {
 /* === 合成分数计算 === */
 function calcCompositeScores() {
   // 沟通(C) = 认知表达(CV) + 认知理解(CP) + 模仿(I) 的标准分总和
-  const commDomains = funcScores.filter(d => ['CV','CP','I'].includes(d.code));
+  const commDomains = funcScores.filter(d => ['CVP','EL','RL'].includes(d.code));
   const commSum = commDomains.reduce((s, d) => s + d.percentile, 0);
   const commMax = commDomains.length * 95;
   const commPct = commMax > 0 ? Math.round(commSum / commMax * 100) : 0;
 
   // 体能(M) = 小肌肉(FM) + 大肌肉(GM) + 手眼协调(EH) 的标准分总和
-  const motorDomains = funcScores.filter(d => ['FM','GM','EH'].includes(d.code));
+  const motorDomains = funcScores.filter(d => ['FM','GM'].includes(d.code));
   const motorSum = motorDomains.reduce((s, d) => s + d.percentile, 0);
   const motorMax = motorDomains.length * 95;
   const motorPct = motorMax > 0 ? Math.round(motorSum / motorMax * 100) : 0;
@@ -634,15 +655,7 @@ function renderReport() {
 
     <div class="card">
       <div class="section-label">行为表现评分</div>
-      ${behaviorScores.map(d => `
-        <div class="behavior-row">
-          <div class="bname">${d.code} ${d.name}</div>
-          <div class="bscore">${d.score}分</div>
-          <div class="brating">
-            ${['A','M','S'].map(r => `<span class="rating-opt ${d.rating === r ? 'selected' : ''}">${r}</span>`).join('')}
-          </div>
-        </div>
-      `).join('')}
+      <svg id="behaviorChart" viewBox="0 0 600 200" style="width:100%;max-width:600px;display:block;margin:0 auto 16px;"></svg>
     </div>
 
     <div class="card editable-area" id="eduOutlineArea">
@@ -669,9 +682,9 @@ function renderReport() {
       </table>
     </div>
 
-    <div class="card chart-center">
-      <div style="text-align:left;margin-bottom:16px;"><span class="section-label">发展概况</span></div>
-      <svg class="radar-svg" id="radarChart" viewBox="0 0 440 440"></svg>
+    <div class="card">
+      <div style="margin-bottom:16px;"><span class="section-label">发展概况</span></div>
+      <svg id="devBarChart" viewBox="0 0 650 280" style="width:100%;max-width:650px;display:block;margin:0 auto;"></svg>
     </div>
 
     <div class="card editable-area" id="analysisArea">
@@ -688,40 +701,117 @@ function renderReport() {
     </div>`;
 
   document.getElementById('tabReport').innerHTML = html;
-  drawRadar();
+  drawDevBar();
+  drawBehaviorChart();
   drawDevProfile();
   renderAnalysis();
 }
 
-/* === 雷达图 === */
-function drawRadar() {
-  const svg = document.getElementById('radarChart');
+/* === 发展概况水平柱状图（P+E双色 + 65%参照线） === */
+function drawDevBar() {
+  const svg = document.getElementById('devBarChart');
   if (!svg) return;
-  const cx = 220, cy = 220, r = 150;
-  const data = funcScores;
+  const W = 700, padL = 110, padR = 140, padT = 30, padB = 20;
+  const chartW = W - padL - padR;
+  const barH = 26, gap = 10;
+  const data = funcScores.slice().sort((a, b) => a.pct - b.pct);
   const n = data.length;
-  const colors = ['#7EC8F0','#FFB88C','#FFD966','#7ED6A8','#B8A0E0','#FFB0C8','#A0D8EF'];
-  let grid = '', axes = '', pts = [], dots = '', labels = '';
-  for (let lv = 1; lv <= 4; lv++) {
-    const lr = r * lv / 4;
-    let gpts = [];
-    for (let i = 0; i < n; i++) {
-      const a = (Math.PI * 2 * i / n) - Math.PI / 2;
-      gpts.push(`${cx + lr * Math.cos(a)},${cy + lr * Math.sin(a)}`);
-    }
-    grid += `<polygon points="${gpts.join(' ')}" fill="none" stroke="#E8ECF0" stroke-width="1"/>`;
+  const H = padT + n * (barH + gap) + padB;
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+
+  let s = '';
+  // 图例
+  s += `<rect x="${padL}" y="4" width="14" height="10" rx="2" fill="#3B9BF5"/>`;
+  s += `<text x="${padL+18}" y="13" font-size="10" fill="#666">通过(P)</text>`;
+  s += `<rect x="${padL+75}" y="4" width="14" height="10" rx="2" fill="#93C5FD"/>`;
+  s += `<text x="${padL+93}" y="13" font-size="10" fill="#666">萌芽(E)</text>`;
+  s += `<line x1="${padL+155}" y1="9" x2="${padL+175}" y2="9" stroke="#F56C6C" stroke-width="1.5" stroke-dasharray="4,3"/>`;
+  s += `<text x="${padL+179}" y="13" font-size="10" fill="#F56C6C">65% 薄弱线</text>`;
+
+  // 网格线 25% 50% 75% 100%
+  for (const pct of [25, 50, 75, 100]) {
+    const x = padL + chartW * pct / 100;
+    s += `<line x1="${x}" y1="${padT}" x2="${x}" y2="${padT + n*(barH+gap) - gap}" stroke="#f0f0f0" stroke-width="1"/>`;
+    s += `<text x="${x}" y="${padT + n*(barH+gap) + 4}" text-anchor="middle" font-size="9" fill="#bbb">${pct}%</text>`;
   }
-  for (let i = 0; i < n; i++) {
-    const a = (Math.PI * 2 * i / n) - Math.PI / 2;
-    axes += `<line x1="${cx}" y1="${cy}" x2="${cx + r * Math.cos(a)}" y2="${cy + r * Math.sin(a)}" stroke="#E8ECF0"/>`;
-    const val = data[i].pct / 100;
-    pts.push(`${cx + r * val * Math.cos(a)},${cy + r * val * Math.sin(a)}`);
-    dots += `<circle cx="${cx + r * val * Math.cos(a)}" cy="${cy + r * val * Math.sin(a)}" r="5" fill="${colors[i]}" stroke="#fff" stroke-width="2"/>`;
-    const lx = cx + (r + 30) * Math.cos(a);
-    const ly = cy + (r + 30) * Math.sin(a);
-    labels += `<text x="${lx}" y="${ly}" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="#5A6478">${data[i].name}</text>`;
-  }
-  svg.innerHTML = `${grid}${axes}<polygon points="${pts.join(' ')}" fill="rgba(59,155,245,0.15)" stroke="#3B9BF5" stroke-width="2"/>${dots}${labels}`;
+
+  // 柱子
+  data.forEach((d, i) => {
+    const y = padT + i * (barH + gap);
+    const pPct = d.total > 0 ? d.p / d.total : 0;
+    const ePct = d.total > 0 ? d.e / d.total : 0;
+    const wP = chartW * pPct;
+    const wE = chartW * ePct;
+
+    // ≤65% 全部标红，>65% 标绿
+    const isWeak = d.pct <= 65;
+    const nameColor = isWeak ? '#ef4444' : '#22c55e';
+
+    s += `<text x="${padL - 8}" y="${y + barH/2 + 4}" text-anchor="end" font-size="12" fill="${nameColor}" font-weight="500">${d.name}</text>`;
+    s += `<rect x="${padL}" y="${y}" width="${chartW}" height="${barH}" rx="4" fill="#f5f5f5"/>`;
+    if (wP > 0) s += `<rect x="${padL}" y="${y}" width="${wP}" height="${barH}" rx="4" fill="#3B9BF5"/>`;
+    if (wE > 0) s += `<rect x="${padL + wP}" y="${y}" width="${wE}" height="${barH}" fill="#93C5FD"/>`;
+
+    // 右侧：百分比 + 通过/萌芽/不通过
+    s += `<text x="${padL + chartW + 8}" y="${y + barH/2 + 1}" font-size="12" font-weight="600" fill="${nameColor}">${d.pct}%</text>`;
+    s += `<text x="${padL + chartW + 8}" y="${y + barH/2 + 13}" font-size="9" fill="#aaa">通过${d.p} 萌芽${d.e} 不通过${d.f}</text>`;
+  });
+
+  // 65% 参照线（最后画，在最上层）
+  const refX = padL + chartW * 0.65;
+  s += `<line x1="${refX}" y1="${padT}" x2="${refX}" y2="${padT + n*(barH+gap) - gap}" stroke="#F56C6C" stroke-width="1.5" stroke-dasharray="5,4"/>`;
+
+  svg.innerHTML = s;
+}
+
+/* === 行为堆叠柱状图（优化版：加评级徽章+说明） === */
+function drawBehaviorChart() {
+  const svg = document.getElementById('behaviorChart');
+  if (!svg) return;
+  const W = 650, padL = 130, padR = 120, padT = 24, padB = 10;
+  const barH = 28, gap = 12;
+  const chartW = W - padL - padR;
+  const data = behaviorScores;
+  const n = data.length;
+  const H = padT + n * (barH + gap) + padB;
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+
+  let s = '';
+  // Legend
+  s += `<rect x="${padL}" y="2" width="12" height="10" rx="2" fill="#22c55e"/>`;
+  s += `<text x="${padL+16}" y="11" font-size="10" fill="#666">A 恰当</text>`;
+  s += `<rect x="${padL+65}" y="2" width="12" height="10" rx="2" fill="#f59e0b"/>`;
+  s += `<text x="${padL+81}" y="11" font-size="10" fill="#666">M 轻微</text>`;
+  s += `<rect x="${padL+130}" y="2" width="12" height="10" rx="2" fill="#ef4444"/>`;
+  s += `<text x="${padL+146}" y="11" font-size="10" fill="#666">S 严重</text>`;
+
+  data.forEach((d, i) => {
+    const y = padT + i * (barH + gap);
+    const total = d.aCount + d.mCount + d.sCount;
+    if (total === 0) return;
+    const wA = (d.aCount / total) * chartW;
+    const wM = (d.mCount / total) * chartW;
+    const wS = (d.sCount / total) * chartW;
+
+    // Label
+    const rColor = d.rating === 'A' ? '#22c55e' : d.rating === 'M' ? '#f59e0b' : '#ef4444';
+    s += `<text x="${padL - 8}" y="${y + barH/2 + 4}" text-anchor="end" font-size="12" fill="#333" font-weight="500">${d.name}</text>`;
+
+    // Background
+    s += `<rect x="${padL}" y="${y}" width="${chartW}" height="${barH}" rx="4" fill="#f5f5f5"/>`;
+
+    // Stacked bars
+    let x = padL;
+    if (wA > 0) { s += `<rect x="${x}" y="${y}" width="${wA}" height="${barH}" rx="4" fill="#22c55e"/>`; x += wA; }
+    if (wM > 0) { s += `<rect x="${x}" y="${y}" width="${wM}" height="${barH}" fill="#f59e0b"/>`; x += wM; }
+    if (wS > 0) { s += `<rect x="${x}" y="${y}" width="${wS}" height="${barH}" fill="#ef4444"/>`; }
+
+    // Right: A/M/S counts only
+    const bx = padL + chartW + 10;
+    s += `<text x="${bx}" y="${y + barH/2 + 4}" font-size="11" fill="#888">A${d.aCount} M${d.mCount} S${d.sCount}</text>`;
+  });
+
+  svg.innerHTML = s;
 }
 
 /* === 发展表现图（折线图） === */
@@ -733,7 +823,7 @@ function drawDevProfile() {
   const chartW = W - padL - padR;
   const chartH = H - padT - padB;
   const n = funcScores.length;
-  const colors = ['#7EC8F0','#FFB88C','#FFD966','#7ED6A8','#B8A0E0','#FFB0C8','#A0D8EF'];
+  const colors = ['#7EC8F0','#FFB88C','#FFD966','#7ED6A8','#B8A0E0','#FFB0C8'];
 
   // Y轴：发展年龄（月），范围 0~60月
   const yMin = 0, yMax = 60;
