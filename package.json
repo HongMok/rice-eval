@@ -1,0 +1,27 @@
+{
+  "name": "rice-eval",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HongMok/rice-eval.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HongMok/rice-eval/issues"
+  },
+  "homepage": "https://github.com/HongMok/rice-eval#readme",
+  "dependencies": {
+    "puppeteer": "^24.42.0",
+    "puppeteer-core": "^24.42.0"
+  }
+}
