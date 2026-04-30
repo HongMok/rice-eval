@@ -195,7 +195,7 @@ P6：轻度行为问题
 
 ```
 对每个薄弱领域：
-  1. 通过领域映射表（见各工具专属prompt）→ 得到课包 territory + subdivide
+  1. 通过领域映射规则（见各工具专属prompt）→ 按语义匹配和能力维度匹配，从课包中找到对应的 territory + subdivide
   2. 筛选：该 territory + subdivide + 干预年龄段 的所有干预项目
   3. 排序匹配：
      a. 与萌芽技能直接对应的干预项目（最优先）
