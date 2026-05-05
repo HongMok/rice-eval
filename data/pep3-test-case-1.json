@@ -1,0 +1,7379 @@
+{
+  "childInfo": {
+    "name": "林小宇",
+    "gender": "男",
+    "birthDate": "2021-07-12",
+    "assessmentDate": "2026-04-18",
+    "assessmentEndDate": "2026-04-20",
+    "ageAtAssessment": "4岁9个月",
+    "diagnosisAge": "3岁6个月",
+    "diagnosisResult": "孤独症谱系障碍",
+    "diagnosisHospital": "市儿童医院发育行为科",
+    "family": "父母及外祖母共同照看",
+    "educationHistory": "曾接受半年机构一对一训练，近期每周3次语言与认知课程",
+    "isFirstAssessment": false
+  },
+  "summary": {
+    "profile": "精细动作、粗大动作和视觉动作模仿相对较好，语言表达、语言理解和社交互动为主要薄弱领域",
+    "developmentDomains": {
+      "小肌肉-FM": {
+        "total": 20,
+        "scoreTotal": 35,
+        "counts": {
+          "通过": 16,
+          "萌芽": 3,
+          "不通过": 1
+        }
+      },
+      "模仿(视觉/动作)-VMI": {
+        "total": 10,
+        "scoreTotal": 17,
+        "counts": {
+          "通过": 8,
+          "萌芽": 1,
+          "不通过": 1
+        }
+      },
+      "认知(语言/语前)-CVP": {
+        "total": 34,
+        "scoreTotal": 38,
+        "counts": {
+          "通过": 15,
+          "萌芽": 8,
+          "不通过": 11
+        }
+      },
+      "语言理解-RL": {
+        "total": 19,
+        "scoreTotal": 17,
+        "counts": {
+          "通过": 6,
+          "萌芽": 5,
+          "不通过": 8
+        }
+      },
+      "语言表达-EL": {
+        "total": 25,
+        "scoreTotal": 22,
+        "counts": {
+          "通过": 7,
+          "萌芽": 8,
+          "不通过": 10
+        }
+      },
+      "大肌肉-GM": {
+        "total": 15,
+        "scoreTotal": 25,
+        "counts": {
+          "通过": 11,
+          "萌芽": 3,
+          "不通过": 1
+        }
+      }
+    },
+    "behaviorDomains": {
+      "行为特征-非语言-CMB": {
+        "total": 15,
+        "scoreTotal": 20,
+        "counts": {
+          "恰当": 4,
+          "轻微": 4,
+          "严重": 3,
+          "通过": 4,
+          "萌芽": 0,
+          "不通过": 0
+        }
+      },
+      "社交互动-SR": {
+        "total": 12,
+        "scoreTotal": 13,
+        "counts": {
+          "恰当": 4,
+          "轻微": 5,
+          "严重": 3,
+          "通过": 0,
+          "萌芽": 0,
+          "不通过": 0
+        }
+      },
+      "情感表达-AE": {
+        "total": 11,
+        "scoreTotal": 15,
+        "counts": {
+          "恰当": 6,
+          "轻微": 3,
+          "严重": 2,
+          "通过": 0,
+          "萌芽": 0,
+          "不通过": 0
+        }
+      },
+      "行为特征-语言-CVB": {
+        "total": 11,
+        "scoreTotal": 10,
+        "counts": {
+          "恰当": 3,
+          "轻微": 4,
+          "严重": 4,
+          "通过": 0,
+          "萌芽": 0,
+          "不通过": 0
+        }
+      }
+    },
+    "developmentTotal": 154,
+    "behaviorTotal": 58,
+    "caregiverSummary": "照顾者报告提示沟通、社交和问题行为仍需持续支持，自理能力部分具备基础。"
+  },
+  "observations": {
+    "assessmentBehavior": "儿童能在熟悉材料出现时较快进入任务，语言类任务中等待时间较短。",
+    "cooperation": "精细操作和拼图类任务配合较好，转换到口语问答时需要重复提示。",
+    "attention": "单项任务注意约1-3分钟，视觉提示和实物强化可延长参与时间。",
+    "communication": "以手势、拿取和少量单词表达需要，主动口语表达不足。",
+    "socialResponse": "能接受成人短暂互动，但眼神接触和主动回应不稳定。",
+    "sensoryResponse": "对部分声音和触觉材料反应偏敏感，强度不高但会影响任务持续。",
+    "caregiverNotes": "家长反映在家中可完成部分生活自理步骤，但需要成人提醒和等待。"
+  },
+  "answers": [
+    {
+      "sort": 1,
+      "category1": "发展副测验",
+      "category2": "小肌肉-FM",
+      "itemName": "旋开瓶盖",
+      "description": "",
+      "materials": "肥皂泡液(有盖)",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "需要多次示范后才能进入任务",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 2,
+      "category1": "发展副测验",
+      "category2": "小肌肉-FM",
+      "itemName": "吹肥皂泡",
+      "description": "",
+      "materials": "肥皂泡液(有盖)",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 3,
+      "category1": "发展副测验",
+      "category2": "小肌肉-FM",
+      "itemName": "目光追视",
+      "description": "",
+      "materials": "肥皂泡液(有盖)",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 4,
+      "category1": "发展副测验",
+      "category2": "小肌肉-FM",
+      "itemName": "目光追视跨越中线",
+      "description": "",
+      "materials": "肥皂泡液(有盖)",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 5,
+      "category1": "行为副测验",
+      "category2": "行为特征-非语言-CMB",
+      "itemName": "检视触觉块",
+      "description": "无兴趣/怪异兴趣",
+      "materials": "触觉块",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 6,
+      "category1": "发展副测验",
+      "category2": "模仿(视觉/动作)-VMI",
+      "itemName": "使用万花筒",
+      "description": "观看____扭动____\\n观看+扭动____",
+      "materials": "万花筒",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 7,
+      "category1": "发展副测验",
+      "category2": "小肌肉-FM",
+      "itemName": "表现出能够使用惯用眼",
+      "description": "惯用眼: 左/右\\n第1次观察____\\n第2次观察____",
+      "materials": "万花筒",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 8,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "转向手摇铃声",
+      "description": "",
+      "materials": "手摇铃",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 9,
+      "category1": "发展副测验",
+      "category2": "模仿(视觉/动作)-VMI",
+      "itemName": "模仿按动响铃2次",
+      "description": "第1次尝试____\\n第2次尝试____",
+      "materials": "响铃",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 10,
+      "category1": "发展副测验",
+      "category2": "模仿(视觉/动作)-VMI",
+      "itemName": "手指插入胶泥并做出凹位",
+      "description": "",
+      "materials": "胶泥及竹棒",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 11,
+      "category1": "发展副测验",
+      "category2": "小肌肉-FM",
+      "itemName": "抓握竹棒",
+      "description": "",
+      "materials": "胶泥及竹棒",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 12,
+      "category1": "发展副测验",
+      "category2": "模仿(视觉/动作)-VMI",
+      "itemName": "听生日歌假装吹蜡烛",
+      "description": "",
+      "materials": "胶泥及竹棒",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 13,
+      "category1": "发展副测验",
+      "category2": "模仿(视觉/动作)-VMI",
+      "itemName": "享受音乐",
+      "description": "",
+      "materials": "胶泥及竹棒",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 14,
+      "category1": "发展副测验",
+      "category2": "模仿(视觉/动作)-VMI",
+      "itemName": "搓胶泥条",
+      "description": "",
+      "materials": "胶泥及竹棒",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 15,
+      "category1": "发展副测验",
+      "category2": "模仿(视觉/动作)-VMI",
+      "itemName": "操控手偶",
+      "description": "",
+      "materials": "手偶及物件",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 16,
+      "category1": "发展副测验",
+      "category2": "模仿(视觉/动作)-VMI",
+      "itemName": "利用手偶模仿日常动作",
+      "description": "喂食____饮水____\\n刷牙____抹鼻____",
+      "materials": "手偶及物件",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 17,
+      "category1": "发展副测验",
+      "category2": "语言理解-RL",
+      "itemName": "指出手偶的3个身体部位",
+      "description": "眼____耳____\\n口____鼻____",
+      "materials": "手偶及物件",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 18,
+      "category1": "发展副测验",
+      "category2": "语言理解-RL",
+      "itemName": "指出3个自己的身体部位",
+      "description": "眼____耳____\\n口____鼻____",
+      "materials": "手偶及物件",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 19,
+      "category1": "发展副测验",
+      "category2": "语言表达-EL",
+      "itemName": "使用两个手偶演出故事",
+      "description": "",
+      "materials": "手偶及物件",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 20,
+      "category1": "行为副测验",
+      "category2": "社交互动-SR",
+      "itemName": "与手偶作假想游戏",
+      "description": "",
+      "materials": "手偶及物件",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "恰当",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 21,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "指示出3块拼块的正确位置",
+      "description": "三角形____圆形____\\n正方形____",
+      "materials": "几何形状拼板",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 22,
+      "category1": "发展副测验",
+      "category2": "小肌肉-FM",
+      "itemName": "完成形状拼板",
+      "description": "三角形____圆形____\\n正方形____",
+      "materials": "几何形状拼板",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 23,
+      "category1": "发展副测验",
+      "category2": "语言表达-EL",
+      "itemName": "说出形状名称",
+      "description": "三角形____圆形____\\n正方形____",
+      "materials": "几何形状拼板",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 24,
+      "category1": "发展副测验",
+      "category2": "语言理解-RL",
+      "itemName": "挑选形状",
+      "description": "三角形____圆形____\\n正方形____",
+      "materials": "几何形状拼板",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 25,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "完成4块物件拼板",
+      "description": "小鸡____雨伞____\\n蝴蝶____雪梨____",
+      "materials": "物件拼版（雨伞、小鸡、蝴蝶及雪梨）",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 26,
+      "category1": "发展副测验",
+      "category2": "大肌肉-GM",
+      "itemName": "跨越中线取拼块",
+      "description": "",
+      "materials": "物件拼版（雨伞、小鸡、蝴蝶及雪梨）",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 27,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "指示出3块手套拼块的正确位置",
+      "description": "大____中____小____",
+      "materials": "大小拼块：手套",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 28,
+      "category1": "发展副测验",
+      "category2": "小肌肉-FM",
+      "itemName": "完成手套拼板",
+      "description": "大____中____小____",
+      "materials": "大小拼块：手套",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 29,
+      "category1": "发展副测验",
+      "category2": "语言表达-EL",
+      "itemName": "说出物件大小",
+      "description": "第1次: 大____小____\\n第2次: 大____小____",
+      "materials": "大小拼块：手套",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 30,
+      "category1": "发展副测验",
+      "category2": "语言理解-RL",
+      "itemName": "挑选大小物件",
+      "description": "第1次: 大____小____\\n第2次: 大____小____",
+      "materials": "大小拼块：手套",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "对泡泡、拼图和积木材料兴趣较高",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 31,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "指示出拼块正确的位置",
+      "description": "自行/需示范\\n完成块数:____",
+      "materials": "相连拼图：猫",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 32,
+      "category1": "发展副测验",
+      "category2": "小肌肉-FM",
+      "itemName": "紧扣4块猫拼图",
+      "description": "紧扣____块",
+      "materials": "相连拼图：猫",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 33,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "完成6块牛拼图",
+      "description": "自行/需示范\\n完成块数:____",
+      "materials": "6块牛拼图：牛",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 34,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "拼出8块的男孩拼图",
+      "description": "头____头发____\\n双眼____鼻____\\n口____身____\\n脚____",
+      "materials": "磁石板及男孩磁石拼块",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 35,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "模仿使用3件发声物",
+      "description": "响板____\\n手铃____\\n匙子____",
+      "materials": "响板、手铃、匙子",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 36,
+      "category1": "发展副测验",
+      "category2": "语言表达-EL",
+      "itemName": "说出5件物件名称",
+      "description": "袜子____杯子____\\n牙刷____蜡笔____\\n剪刀____梳子____\\n铅笔____",
+      "materials": "实物及图卡",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 37,
+      "category1": "发展副测验",
+      "category2": "模仿(视觉/动作)-VMI",
+      "itemName": "正确使用4件物件",
+      "description": "杯子____匙子____\\n蜡笔____梳子____\\n剪刀____",
+      "materials": "实物及图卡",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "萌芽",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 38,
+      "category1": "发展副测验",
+      "category2": "语言理解-RL",
+      "itemName": "在要求下交出3件物件",
+      "description": "杯子____匙子____\\n蜡笔____梳子____\\n剪刀____",
+      "materials": "实物及图卡",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 39,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "实物配对图片5对",
+      "description": "袜子____杯子____\\n牙刷____匙子____\\n剪刀____梳子____\\n铅笔____",
+      "materials": "实物及图卡",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 40,
+      "category1": "发展副测验",
+      "category2": "语言理解-RL",
+      "itemName": "明白3个常见物件的名称",
+      "description": "指出物件____",
+      "materials": "实物及图卡",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 41,
+      "category1": "发展副测验",
+      "category2": "小肌肉-FM",
+      "itemName": "利用前二指钳法",
+      "description": "",
+      "materials": "M & Ms",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 42,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "找寻完全被隐藏的物件",
+      "description": "",
+      "materials": "杯子及喜爱玩具",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 43,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "杯下寻物",
+      "description": "第1次:____\\n第2次:____\\n第3次:____",
+      "materials": "3双杯子及糖果",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 44,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "触觉辨别4件物件（无视觉提示）",
+      "description": "球____积木____\\n蜡笔____硬币____\\n匙子____",
+      "materials": "5件物件及布袋",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 45,
+      "category1": "行为副测验",
+      "category2": "行为特征-非语言-CMB",
+      "itemName": "恰当地检视及运用测试材料",
+      "description": "短暂/没有",
+      "materials": "5件物件及布袋",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 46,
+      "category1": "行为副测验",
+      "category2": "行为特征-非语言-CMB",
+      "itemName": "恰当地使用视觉检视测试材料",
+      "description": "过分兴趣/过分抗拒",
+      "materials": "5件物件及布袋",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 47,
+      "category1": "发展副测验",
+      "category2": "大肌肉-GM",
+      "itemName": "拍手",
+      "description": "",
+      "materials": "5件物件及布袋",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 48,
+      "category1": "发展副测验",
+      "category2": "大肌肉-GM",
+      "itemName": "单脚站立",
+      "description": "",
+      "materials": "5件物件及布袋",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 49,
+      "category1": "行为副测验",
+      "category2": "情感表达-AE",
+      "itemName": "享受身体接触",
+      "description": "拒绝/过分抗拒",
+      "materials": "5件物件及布袋",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "恰当",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 50,
+      "category1": "行为副测验",
+      "category2": "情感表达-AE",
+      "itemName": "享受被搔痒",
+      "description": "拒绝/过分反应",
+      "materials": "5件物件及布袋",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "恰当",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 51,
+      "category1": "行为副测验",
+      "category2": "社交互动-SR",
+      "itemName": "主动重复社交游戏",
+      "description": "",
+      "materials": "软布",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "恰当",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 52,
+      "category1": "行为副测验",
+      "category2": "社交互动-SR",
+      "itemName": "主动与测试员有社交沟通",
+      "description": "被动/完全无反应",
+      "materials": "软布",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "恰当",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 53,
+      "category1": "发展副测验",
+      "category2": "大肌肉-GM",
+      "itemName": "双脚离地跳跃",
+      "description": "",
+      "materials": "软布",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 54,
+      "category1": "发展副测验",
+      "category2": "模仿(视觉/动作)-VMI",
+      "itemName": "模仿3项大肌肉动作",
+      "description": "举单手____\\n摸鼻____\\n举手+摸鼻____",
+      "materials": "软布",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 55,
+      "category1": "发展副测验",
+      "category2": "大肌肉-GM",
+      "itemName": "双脚交替地上梯级",
+      "description": "",
+      "materials": "梯级",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 56,
+      "category1": "发展副测验",
+      "category2": "大肌肉-GM",
+      "itemName": "用杯子喝饮品",
+      "description": "",
+      "materials": "杯子及果汁",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 57,
+      "category1": "行为副测验",
+      "category2": "行为特征-非语言-CMB",
+      "itemName": "聆听及转向哨子声",
+      "description": "",
+      "materials": "哨子",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 58,
+      "category1": "发展副测验",
+      "category2": "大肌肉-GM",
+      "itemName": "接球",
+      "description": "第1次____\\n第2次____\\n第3次____",
+      "materials": "球及梯级",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 59,
+      "category1": "发展副测验",
+      "category2": "大肌肉-GM",
+      "itemName": "抛球",
+      "description": "第1次____\\n第2次____\\n第3次____",
+      "materials": "球及梯级",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "口语回应较少，多以手势或拿取表达需要",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 60,
+      "category1": "发展副测验",
+      "category2": "大肌肉-GM",
+      "itemName": "踢球",
+      "description": "第1次____\\n第2次____\\n第3次____",
+      "materials": "球及梯级",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 61,
+      "category1": "发展副测验",
+      "category2": "大肌肉-GM",
+      "itemName": "表现出使用惯用脚",
+      "description": "踢球____\\n上梯级____",
+      "materials": "球及梯级",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 62,
+      "category1": "发展副测验",
+      "category2": "大肌肉-GM",
+      "itemName": "持球并向前行4步",
+      "description": "",
+      "materials": "球及梯级",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 63,
+      "category1": "发展副测验",
+      "category2": "大肌肉-GM",
+      "itemName": "推球",
+      "description": "",
+      "materials": "球及梯级",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "萌芽",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 64,
+      "category1": "行为副测验",
+      "category2": "行为特征-非语言-CMB",
+      "itemName": "对绳子的反应",
+      "description": "无兴趣/怪异兴趣",
+      "materials": "绳子、珠子",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "恰当",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 65,
+      "category1": "发展副测验",
+      "category2": "小肌肉-FM",
+      "itemName": "用绳子穿珠子",
+      "description": "完成____粒",
+      "materials": "绳子、珠子",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 66,
+      "category1": "发展副测验",
+      "category2": "大肌肉-GM",
+      "itemName": "摆动穿上珠子的绳子",
+      "description": "",
+      "materials": "绳子、珠子",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "萌芽",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 67,
+      "category1": "发展副测验",
+      "category2": "小肌肉-FM",
+      "itemName": "拿走包绒铁丝上的珠粒",
+      "description": "完成____粒",
+      "materials": "包绒铁丝、珠子",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 68,
+      "category1": "发展副测验",
+      "category2": "小肌肉-FM",
+      "itemName": "协调地运用双手",
+      "description": "",
+      "materials": "包绒铁丝、珠子",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 69,
+      "category1": "发展副测验",
+      "category2": "大肌肉-GM",
+      "itemName": "将物件由一只手交到另一只手",
+      "description": "",
+      "materials": "包绒铁丝、珠子",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "萌芽",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 70,
+      "category1": "发展副测验",
+      "category2": "小肌肉-FM",
+      "itemName": "自发地涂画",
+      "description": "",
+      "materials": "画写簿",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 71,
+      "category1": "发展副测验",
+      "category2": "大肌肉-GM",
+      "itemName": "表现出使用惯用手",
+      "description": "惯用手: 左/右____",
+      "materials": "画写簿",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 72,
+      "category1": "发展副测验",
+      "category2": "小肌肉-FM",
+      "itemName": "沿线描画3个图形",
+      "description": "圆形____\\n正方形____\\n三角形____\\n菱形____",
+      "materials": "画写簿",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 73,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "仿画垂直线（若70=0分，给0分）",
+      "description": "",
+      "materials": "画写簿",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 74,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "仿画圆形（若73=0分，给0分）",
+      "description": "",
+      "materials": "画写簿",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 75,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "仿画正方形（若73=0分，给0分）",
+      "description": "",
+      "materials": "画写簿",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 76,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "仿画三角形（若73=0分，给0分）",
+      "description": "",
+      "materials": "画写簿",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "萌芽",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 77,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "仿画菱形（若73=0分，给0分）",
+      "description": "",
+      "materials": "画写簿",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "萌芽",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 78,
+      "category1": "发展副测验",
+      "category2": "小肌肉-FM",
+      "itemName": "界内着色（若73=0分，给0分）",
+      "description": "",
+      "materials": "画写簿",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 79,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "抄写7个字母（若73=0分，给0分）",
+      "description": "",
+      "materials": "画写簿",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "萌芽",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 80,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "绘画1个完整的人形（若73=0分，给0分）",
+      "description": "",
+      "materials": "画写簿",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "萌芽",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 81,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "写下名字（若79=0分，给0分）",
+      "description": "",
+      "materials": "画写簿",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "萌芽",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 82,
+      "category1": "发展副测验",
+      "category2": "小肌肉-FM",
+      "itemName": "用剪刀剪纸",
+      "description": "",
+      "materials": "纸及剪刀",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "萌芽",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 83,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "对图画书感兴趣",
+      "description": "",
+      "materials": "测试用书",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "萌芽",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 84,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "假装使用5件图画中的物件",
+      "description": "",
+      "materials": "测试用书",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "萌芽",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 85,
+      "category1": "发展副测验",
+      "category2": "语言理解-RL",
+      "itemName": "辨认14幅图画",
+      "description": "项目       提问词\\nA.杯子  答案____\\nB.洋娃娃  答案____\\nC.钥匙  答案____\\nD.飞机  答案____\\nE.鸟笼  答案____\\nF.雨伞  答案____\\nG.煮食  答案____\\nH.系鞋带  答案____\\nI.门  答案____\\nJ.木偶  答案____\\nK.公鸡  答案____\\nL.接球  答案____\\nM.建筑  答案____\\nN.警察  答案____\\nO.砌积木  答案____\\nP.烧烤  答案____\\nQ.洗澡  答案____\\nR.水壶  答案____\\nS.火车头  答案____\\nT.火箭起飞  答案____",
+      "materials": "测试用书",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "萌芽",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 86,
+      "category1": "发展副测验",
+      "category2": "语言表达-EL",
+      "itemName": "说出14幅图画名称",
+      "description": "正确答案       答案\\nA.牛____\\nB.皮球/波____\\nC.花____\\nD.婴儿车____\\nE.牙刷____\\nF.冰箱____\\nG.油____\\nH.打秋鞭____\\nI.樽____\\nJ.电风扇____\\nK.企鹅____\\nL.溜冰____\\nM.抱住只狗____\\nN.医生____\\nO.跳水____\\nP.踏（三轮车/单车）____\\nQ.举起____\\nR.教堂____\\nS.炉____\\nT.（整）路____",
+      "materials": "测试用书",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 87,
+      "category1": "发展副测验",
+      "category2": "语言表达-EL",
+      "itemName": "说出一句4-5词片语",
+      "description": "儿童的词语:____",
+      "materials": "测试用书",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 88,
+      "category1": "发展副测验",
+      "category2": "语言理解-RL",
+      "itemName": "辨别9个生字",
+      "description": "人____口____上____\\n山____刀____天____\\n火____手____田____",
+      "materials": "字卡",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "萌芽",
+      "note": "转换任务时有短暂抗拒，视觉提示后可继续",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 89,
+      "category1": "发展副测验",
+      "category2": "语言表达-EL",
+      "itemName": "读出9个生字",
+      "description": "人____口____上____\\n山____刀____天____\\n火____手____田____",
+      "materials": "字卡",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 90,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "生字配对",
+      "description": "人____口____上____\\n山____刀____天____\\n火____手____田____",
+      "materials": "测试用书及字卡",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "萌芽",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 91,
+      "category1": "发展副测验",
+      "category2": "语言表达-EL",
+      "itemName": "读出数字1-10",
+      "description": "1,2,3,4,5,6,7,8,9,10",
+      "materials": "测试用书",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "萌芽",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 92,
+      "category1": "发展副测验",
+      "category2": "语言表达-EL",
+      "itemName": "读出3个单字",
+      "description": "球____狗____\\n猫____屋____",
+      "materials": "测试用书",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "萌芽",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 93,
+      "category1": "发展副测验",
+      "category2": "语言表达-EL",
+      "itemName": "读出1句短句子（若92=0或1分，给0分）",
+      "description": "小明有一只狗和一只猫。小明又有一个皮球。小明、小猫和小狗住在屋子里。\\n一天，小明和小猫、小狗玩皮球。小狗跳过小明的皮球向前走，小明捉住了小狗，他们回家去。\\n小明拿着皮球把它放在桌子上。",
+      "materials": "测试用书",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "萌芽",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 94,
+      "category1": "发展副测验",
+      "category2": "语言表达-EL",
+      "itemName": "诵读篇章少于3个犯错（若92=0或1分，给0分）",
+      "description": "",
+      "materials": "测试用书",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "萌芽",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 95,
+      "category1": "发展副测验",
+      "category2": "语言表达-EL",
+      "itemName": "阅读理解及回答2条问题（若92=0或1分，给0分）",
+      "description": "1.小明有什么动物?（狗/猫）____\\n2.小明玩什么?（狗/猫/皮球）____\\n3.什么跳过小明的皮球?（狗）____",
+      "materials": "测试用书",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "萌芽",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 96,
+      "category1": "发展副测验",
+      "category2": "语言表达-EL",
+      "itemName": "阅读句子及遵从指令（若92=0或1分，给0分）",
+      "description": "拿起皮球____\\n皮球放桌子上____",
+      "materials": "测试用书及皮球",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "萌芽",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 97,
+      "category1": "发展副测验",
+      "category2": "小肌肉-FM",
+      "itemName": "把1块积木放进盒中",
+      "description": "放入____块",
+      "materials": "小积木及盒子",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "萌芽",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 98,
+      "category1": "行为副测验",
+      "category2": "社交互动-SR",
+      "itemName": "轮流摆放积木进盒中",
+      "description": "",
+      "materials": "小积木及盒子",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "恰当",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 99,
+      "category1": "发展副测验",
+      "category2": "小肌肉-FM",
+      "itemName": "叠8块积木",
+      "description": "第1次：____块\\n第2次：____块\\n第3次：____块",
+      "materials": "小积木",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "萌芽",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 100,
+      "category1": "发展副测验",
+      "category2": "语言理解-RL",
+      "itemName": "执行2步骤的指令",
+      "description": "第1步：把积木放入杯里\\n第2步：把杯子放地上",
+      "materials": "杯子及积木",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "萌芽",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 101,
+      "category1": "发展副测验",
+      "category2": "语言理解-RL",
+      "itemName": "按指示交出2块及6块积木",
+      "description": "2块____\\n6块____",
+      "materials": "8块积木",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "萌芽",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 102,
+      "category1": "发展副测验",
+      "category2": "语言表达-EL",
+      "itemName": "数出2块及7块积木",
+      "description": "2块____\\n7块____",
+      "materials": "7块积木",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "萌芽",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 103,
+      "category1": "发展副测验",
+      "category2": "语言表达-EL",
+      "itemName": "唱数1-10",
+      "description": "1,2,3,4,5,6,7,8,9,10",
+      "materials": "7块积木",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "萌芽",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 104,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "2种物件分类(积木及筹码)",
+      "description": "完成积木____块\\n完成筹码____块",
+      "materials": "积木、筹码及透明罐",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 105,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "配对5种颜色积木在图形上",
+      "description": "红____\\n黄____\\n蓝____\\n白____\\n绿____",
+      "materials": "测试用书及积木",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 106,
+      "category1": "发展副测验",
+      "category2": "语言表达-EL",
+      "itemName": "说出5种颜色",
+      "description": "红____\\n黄____\\n蓝____\\n白____\\n绿____",
+      "materials": "测试用书及积木",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 107,
+      "category1": "发展副测验",
+      "category2": "语言理解-RL",
+      "itemName": "按指示挑选5种颜色",
+      "description": "红____\\n黄____\\n蓝____\\n白____\\n绿____",
+      "materials": "测试用书及积木",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "萌芽",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 108,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "自行根据颜色或形状作12张图卡分类（若105=0或1分，给0分）",
+      "description": "自行完成/部分示范/全部示范\\n颜色/形状\\n完成____张",
+      "materials": "形状色卡",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 109,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "对他人模仿自己的动作有反应",
+      "description": "",
+      "materials": "形状色卡",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 110,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "对他人模仿自己的声音有反应",
+      "description": "",
+      "materials": "形状色卡",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 111,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "模仿3种声音",
+      "description": "练习：da-da\\n1. m-m-m____\\n2. ba-ba____\\n3. pa-ta____\\n4. la-la____",
+      "materials": "形状色卡",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 112,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "重复2个数字",
+      "description": "7-9____\\n5-3____",
+      "materials": "形状色卡",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 113,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "重复3个数字",
+      "description": "2-4-1____\\n5-7-9____",
+      "materials": "形状色卡",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 114,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "重复2个字词",
+      "description": "街街____车车____拜拜____",
+      "materials": "形状色卡",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 115,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "重复2至3词短句（若114=0，给0分）",
+      "description": "1.宝宝看过来\\n2.我要饼干\\n3.他大声叫",
+      "materials": "形状色卡",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 116,
+      "category1": "行为副测验",
+      "category2": "社交互动-SR",
+      "itemName": "测试员向儿童说话时儿童能望着测试员的面孔",
+      "description": "短暂/没有",
+      "materials": "形状色卡",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "轻微",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 117,
+      "category1": "行为副测验",
+      "category2": "行为特征-语言-CVB",
+      "itemName": "没有延迟性鹦鹉式讲话",
+      "description": "不适用/过多",
+      "materials": "形状色卡",
+      "score": 2,
+      "selectedOption": "d",
+      "selectedScore": 2,
+      "selectedLabel": "恰当",
+      "note": "在精细操作任务中配合度较好",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "NA",
+          "description": ""
+        },
+        "b": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "c": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "d": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 118,
+      "category1": "发展副测验",
+      "category2": "语言表达-EL",
+      "itemName": "要求食物或饮品",
+      "description": "",
+      "materials": "罐及喜爱的物件",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 119,
+      "category1": "发展副测验",
+      "category2": "语言理解-RL",
+      "itemName": "明白代名词",
+      "description": "给我____",
+      "materials": "罐及喜爱的物件",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 120,
+      "category1": "发展副测验",
+      "category2": "语言表达-EL",
+      "itemName": "运用众数的量词2次",
+      "description": "儿童使用的词语:____",
+      "materials": "测试用书内图卡或宝物",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 121,
+      "category1": "发展副测验",
+      "category2": "语言表达-EL",
+      "itemName": "运用1个代名词",
+      "description": "儿童使用的词语:____",
+      "materials": "果汁、杯、曲奇饼及动物手偶",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 122,
+      "category1": "发展副测验",
+      "category2": "语言表达-EL",
+      "itemName": "运用3句双词片语",
+      "description": "儿童的词语:____",
+      "materials": "果汁、杯、曲奇饼、梳子及肥皂泡",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 123,
+      "category1": "发展副测验",
+      "category2": "语言理解-RL",
+      "itemName": "遵从4项1-2步骤的口语指令",
+      "description": "1.拍一下盒子____\\n2.摸一下那只狗____\\n3.站起身并跳起来____\\n4.放杯子进袋子，然后坐下来____\\n5.敲一下门，然后摸一下墙壁____",
+      "materials": "小球、杯子、手偶、袋子、盒子",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 124,
+      "category1": "发展副测验",
+      "category2": "小肌肉-FM",
+      "itemName": "开关灯掣(按钮)",
+      "description": "",
+      "materials": "灯的开关",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 125,
+      "category1": "发展副测验",
+      "category2": "语言理解-RL",
+      "itemName": "对手势的反应",
+      "description": "叫名字+招手____\\n坐下____拿走积木____\\n交回颜色笔____\\n其他：____",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 126,
+      "category1": "发展副测验",
+      "category2": "语言理解-RL",
+      "itemName": "回应「不要」或「停止」的指令",
+      "description": "不要：____\\n停止：____",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 127,
+      "category1": "发展副测验",
+      "category2": "语言理解-RL",
+      "itemName": "对听到自己名字的反应",
+      "description": "",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 128,
+      "category1": "发展副测验",
+      "category2": "语言理解-RL",
+      "itemName": "明白「过来」的指令",
+      "description": "",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 129,
+      "category1": "发展副测验",
+      "category2": "语言表达-EL",
+      "itemName": "回答「你是谁」",
+      "description": "儿童答案:____",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 130,
+      "category1": "发展副测验",
+      "category2": "语言表达-EL",
+      "itemName": "能回答自己的性别",
+      "description": "儿童答案:____",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 131,
+      "category1": "发展副测验",
+      "category2": "语言理解-RL",
+      "itemName": "明白3个动词并示范动作",
+      "description": "跳____坐低____\\n站起来____",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 132,
+      "category1": "发展副测验",
+      "category2": "语言表达-EL",
+      "itemName": "正确运用代名词",
+      "description": "",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 133,
+      "category1": "发展副测验",
+      "category2": "语言理解-RL",
+      "itemName": "回答3句问句",
+      "description": "何人____何事____\\n何地____何时____",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 134,
+      "category1": "发展副测验",
+      "category2": "认知(语言/语前)-CVP",
+      "itemName": "遵从3个简单的动作指令",
+      "description": "坐低____起身____\\n过来____给我____\\n放下手____开门____\\n其他：____",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 135,
+      "category1": "行为副测验",
+      "category2": "行为特征-非语言-CMB",
+      "itemName": "使用视觉讯息",
+      "description": "正常/过分刺激",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "恰当",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 136,
+      "category1": "行为副测验",
+      "category2": "行为特征-非语言-CMB",
+      "itemName": "单独玩耍时能恰当地使用空间及材料",
+      "description": "无兴趣/怪异行为",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "恰当",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 137,
+      "category1": "行为副测验",
+      "category2": "行为特征-非语言-CMB",
+      "itemName": "恰当地探索测试房间的环境",
+      "description": "无兴趣/怪异行为",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "恰当",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 138,
+      "category1": "行为副测验",
+      "category2": "行为特征-非语言-CMB",
+      "itemName": "恰当地对声音作出反应",
+      "description": "无反应/过度反应",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "轻微",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 139,
+      "category1": "行为副测验",
+      "category2": "行为特征-非语言-CMB",
+      "itemName": "恰当地探索不同质感",
+      "description": "抗拒/怪异兴趣",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "轻微",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 140,
+      "category1": "行为副测验",
+      "category2": "行为特征-非语言-CMB",
+      "itemName": "恰当地使用味觉",
+      "description": "正常/过分兴趣",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "轻微",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 141,
+      "category1": "行为副测验",
+      "category2": "行为特征-非语言-CMB",
+      "itemName": "对嗅觉有恰当的兴趣",
+      "description": "正常/过分兴趣",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "轻微",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 142,
+      "category1": "行为副测验",
+      "category2": "行为特征-非语言-CMB",
+      "itemName": "完成大部分适龄的测试项目",
+      "description": "混乱/怪异行为",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "严重",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 143,
+      "category1": "发展副测验",
+      "category2": "语言表达-EL",
+      "itemName": "能使用语言或手势求助",
+      "description": "",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 144,
+      "category1": "行为副测验",
+      "category2": "行为特征-语言-CVB",
+      "itemName": "没有不恰当地重复刚听到的字词或片语",
+      "description": "不适用/过多",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "d",
+      "selectedScore": 2,
+      "selectedLabel": "恰当",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "NA",
+          "description": ""
+        },
+        "b": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "c": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "d": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 145,
+      "category1": "行为副测验",
+      "category2": "行为特征-语言-CVB",
+      "itemName": "没有持续地重复某些字词或声音",
+      "description": "不适用/过多",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "d",
+      "selectedScore": 2,
+      "selectedLabel": "恰当",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "NA",
+          "description": ""
+        },
+        "b": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "c": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "d": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 146,
+      "category1": "行为副测验",
+      "category2": "行为特征-语言-CVB",
+      "itemName": "表现恰当的说话语调、声量和速度",
+      "description": "不适用/怪异",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "c",
+      "selectedScore": 1,
+      "selectedLabel": "轻微",
+      "note": "听觉指令需要重复或结合手势提示",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "NA",
+          "description": ""
+        },
+        "b": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "c": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "d": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 147,
+      "category1": "行为副测验",
+      "category2": "行为特征-语言-CVB",
+      "itemName": "没有无意义的声音(玩声)",
+      "description": "不适用/过多",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "c",
+      "selectedScore": 1,
+      "selectedLabel": "轻微",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "NA",
+          "description": ""
+        },
+        "b": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "c": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "d": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 148,
+      "category1": "行为副测验",
+      "category2": "行为特征-语言-CVB",
+      "itemName": "使用与其年龄相符的词汇沟通",
+      "description": "不适用/不恰当",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "c",
+      "selectedScore": 1,
+      "selectedLabel": "轻微",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "NA",
+          "description": ""
+        },
+        "b": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "c": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "d": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 149,
+      "category1": "行为副测验",
+      "category2": "行为特征-语言-CVB",
+      "itemName": "没有说奇异语句与自创语",
+      "description": "不适用/过多",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "c",
+      "selectedScore": 1,
+      "selectedLabel": "轻微",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "NA",
+          "description": ""
+        },
+        "b": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "c": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "d": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 150,
+      "category1": "行为副测验",
+      "category2": "行为特征-语言-CVB",
+      "itemName": "与年龄相符的发音能力",
+      "description": "不适用/无法明白",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "b",
+      "selectedScore": 0,
+      "selectedLabel": "严重",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "NA",
+          "description": ""
+        },
+        "b": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "c": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "d": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 151,
+      "category1": "行为副测验",
+      "category2": "行为特征-语言-CVB",
+      "itemName": "与年龄相符的自发性沟通",
+      "description": "无/怪异沉迷",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "严重",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 152,
+      "category1": "行为副测验",
+      "category2": "行为特征-语言-CVB",
+      "itemName": "与测试员主动沟通",
+      "description": "",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "严重",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 153,
+      "category1": "行为副测验",
+      "category2": "行为特征-语言-CVB",
+      "itemName": "与测试员持续对话",
+      "description": "",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "严重",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 154,
+      "category1": "行为副测验",
+      "category2": "社交互动-SR",
+      "itemName": "与测试员合作",
+      "description": "反复/过分反抗",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "轻微",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 155,
+      "category1": "发展副测验",
+      "category2": "语言表达-EL",
+      "itemName": "语句组织能力",
+      "description": "偶尔/经常混乱",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不通过",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不通过",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "萌芽",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "通过",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 156,
+      "category1": "行为副测验",
+      "category2": "情感表达-AE",
+      "itemName": "用面部表情表达情感",
+      "description": "",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "恰当",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 157,
+      "category1": "行为副测验",
+      "category2": "情感表达-AE",
+      "itemName": "用身体语言表达情感",
+      "description": "",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "恰当",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 158,
+      "category1": "行为副测验",
+      "category2": "情感表达-AE",
+      "itemName": "情绪表达",
+      "description": "",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "恰当",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 159,
+      "category1": "行为副测验",
+      "category2": "情感表达-AE",
+      "itemName": "恰当的情感",
+      "description": "无变化/怪异反应",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "恰当",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 160,
+      "category1": "行为副测验",
+      "category2": "情感表达-AE",
+      "itemName": "恐惧的反应",
+      "description": "无/过多",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "轻微",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 161,
+      "category1": "行为副测验",
+      "category2": "情感表达-AE",
+      "itemName": "合乎年龄的专注力",
+      "description": "短/极端反应",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "轻微",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 162,
+      "category1": "行为副测验",
+      "category2": "行为特征-非语言-CMB",
+      "itemName": "从容地转换活动",
+      "description": "接受/极端反应",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "严重",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 163,
+      "category1": "行为副测验",
+      "category2": "情感表达-AE",
+      "itemName": "自我改正",
+      "description": "",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "轻微",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 164,
+      "category1": "行为副测验",
+      "category2": "情感表达-AE",
+      "itemName": "活动持久性",
+      "description": "",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "严重",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 165,
+      "category1": "行为副测验",
+      "category2": "情感表达-AE",
+      "itemName": "分享兴趣",
+      "description": "",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "严重",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 166,
+      "category1": "行为副测验",
+      "category2": "社交互动-SR",
+      "itemName": "保持眼神接触",
+      "description": "",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "轻微",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 167,
+      "category1": "行为副测验",
+      "category2": "社交互动-SR",
+      "itemName": "对测试员的声音有反应",
+      "description": "",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "轻微",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 168,
+      "category1": "行为副测验",
+      "category2": "社交互动-SR",
+      "itemName": "向测试员求助",
+      "description": "无/过分要求",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "轻微",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 169,
+      "category1": "行为副测验",
+      "category2": "行为特征-非语言-CMB",
+      "itemName": "动作及动静",
+      "description": "正常/怪异动作",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "严重",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 170,
+      "category1": "行为副测验",
+      "category2": "社交互动-SR",
+      "itemName": "能恰当地回应测试员",
+      "description": "不察觉/被动",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "严重",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 171,
+      "category1": "行为副测验",
+      "category2": "社交互动-SR",
+      "itemName": "对物质奖励有反应",
+      "description": "不一致/无",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "严重",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 172,
+      "category1": "行为副测验",
+      "category2": "社交互动-SR",
+      "itemName": "对社交赞赏有反应",
+      "description": "不一致/无",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "严重",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 173,
+      "category1": "照顾者报告",
+      "category2": "儿童现时发展程度",
+      "itemName": "与一般同龄儿童比较，我的孩子的沟通表现（例如：模仿声音、牙牙学语、跟从指令、与人说话及明白他人说话内容）",
+      "description": "与其他没有特殊需要的儿童比较，请估计现时你的孩子在以上表现，约为几岁水平？",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "2-3岁",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "<2岁",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "2-3岁",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "3-4岁",
+          "description": ""
+        },
+        "d": {
+          "value": "3",
+          "label": "4-5岁",
+          "description": ""
+        },
+        "e": {
+          "value": "4",
+          "label": "5-7岁",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 174,
+      "category1": "照顾者报告",
+      "category2": "儿童现时发展程度",
+      "itemName": "与一般同龄儿童比较，我的孩子的大小肌肉能力（例如：使用肌肉来活动及使用手部操控物件）",
+      "description": "与其他没有特殊需要的儿童比较，请估计现时你的孩子在以上表现，约为几岁水平？",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "3-4岁",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "<2岁",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "2-3岁",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "3-4岁",
+          "description": ""
+        },
+        "d": {
+          "value": "3",
+          "label": "4-5岁",
+          "description": ""
+        },
+        "e": {
+          "value": "4",
+          "label": "5-7岁",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 175,
+      "category1": "照顾者报告",
+      "category2": "儿童现时发展程度",
+      "itemName": "与一般同龄儿童比较，我的孩子的社交能力（例如：享受拥抱及谈话、与人交往、合作地玩耍、交朋友及跟随游戏规则）",
+      "description": "与其他没有特殊需要的儿童比较，请估计现时你的孩子在以上表现，约为几岁水平？",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "2-3岁",
+      "note": "需要多次示范后才能进入任务",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "<2岁",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "2-3岁",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "3-4岁",
+          "description": ""
+        },
+        "d": {
+          "value": "3",
+          "label": "4-5岁",
+          "description": ""
+        },
+        "e": {
+          "value": "4",
+          "label": "5-7岁",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 176,
+      "category1": "照顾者报告",
+      "category2": "儿童现时发展程度",
+      "itemName": "与一般同龄儿童比较，我的孩子的自理能力（例如：进食/饮、穿衣、洗澡和如厕）",
+      "description": "与其他没有特殊需要的儿童比较，请估计现时你的孩子在以上表现，约为几岁水平？",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "3-4岁",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "<2岁",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "2-3岁",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "3-4岁",
+          "description": ""
+        },
+        "d": {
+          "value": "3",
+          "label": "4-5岁",
+          "description": ""
+        },
+        "e": {
+          "value": "4",
+          "label": "5-7岁",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 177,
+      "category1": "照顾者报告",
+      "category2": "儿童现时发展程度",
+      "itemName": "与一般同龄儿童比较，我的孩子的思考能力（例如：完成砌图、找寻隐藏物件及解决问题）",
+      "description": "与其他没有特殊需要的儿童比较，请估计现时你的孩子在以上表现，约为几岁水平？",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "3-4岁",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "<2岁",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "2-3岁",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "3-4岁",
+          "description": ""
+        },
+        "d": {
+          "value": "3",
+          "label": "4-5岁",
+          "description": ""
+        },
+        "e": {
+          "value": "4",
+          "label": "5-7岁",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 178,
+      "category1": "照顾者报告",
+      "category2": "儿童现时发展程度",
+      "itemName": "与一般同龄儿童比较，我的孩子的整体能力（所有技巧）",
+      "description": "与其他没有特殊需要的儿童比较，请估计现时你的孩子在以上表现，约为几岁水平？",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "2-3岁",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "<2岁",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "2-3岁",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "3-4岁",
+          "description": ""
+        },
+        "d": {
+          "value": "3",
+          "label": "4-5岁",
+          "description": ""
+        },
+        "e": {
+          "value": "4",
+          "label": "5-7岁",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 179,
+      "category1": "照顾者报告",
+      "category2": "诊断类别及程度",
+      "itemName": "语言障碍-诊断类别",
+      "description": "你的孩子是否属于以下问题类别？",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "是",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不是",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "不知道",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "是",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 180,
+      "category1": "照顾者报告",
+      "category2": "诊断类别及程度",
+      "itemName": "语言障碍-对孩子发展的影响程度",
+      "description": "请选择对孩子发展的影响程度",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "轻微",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "中度",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "轻微",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 181,
+      "category1": "照顾者报告",
+      "category2": "诊断类别及程度",
+      "itemName": "自闭症-诊断类别",
+      "description": "你的孩子是否属于以下问题类别？",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "是",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不是",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "不知道",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "是",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 182,
+      "category1": "照顾者报告",
+      "category2": "诊断类别及程度",
+      "itemName": "自闭症-对孩子发展的影响程度",
+      "description": "请选择对孩子发展的影响程度",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "中度",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "中度",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "轻微",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 183,
+      "category1": "照顾者报告",
+      "category2": "诊断类别及程度",
+      "itemName": "情绪困扰-诊断类别",
+      "description": "你的孩子是否属于以下问题类别？",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不是",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不是",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "不知道",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "是",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 184,
+      "category1": "照顾者报告",
+      "category2": "诊断类别及程度",
+      "itemName": "情绪困扰-对孩子发展的影响程度",
+      "description": "请选择对孩子发展的影响程度",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "轻微",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "中度",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "轻微",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 185,
+      "category1": "照顾者报告",
+      "category2": "诊断类别及程度",
+      "itemName": "学习障碍-诊断类别",
+      "description": "你的孩子是否属于以下问题类别？",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不是",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不是",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "不知道",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "是",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 186,
+      "category1": "照顾者报告",
+      "category2": "诊断类别及程度",
+      "itemName": "学习障碍-对孩子发展的影响程度",
+      "description": "请选择对孩子发展的影响程度",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "轻微",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "中度",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "轻微",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 187,
+      "category1": "照顾者报告",
+      "category2": "诊断类别及程度",
+      "itemName": "智力迟缓-诊断类别",
+      "description": "你的孩子是否属于以下问题类别？",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不是",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不是",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "不知道",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "是",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 188,
+      "category1": "照顾者报告",
+      "category2": "诊断类别及程度",
+      "itemName": "智力迟缓-对孩子发展的影响程度",
+      "description": "请选择对孩子发展的影响程度",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "轻微",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "中度",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "轻微",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 189,
+      "category1": "照顾者报告",
+      "category2": "诊断类别及程度",
+      "itemName": "专注力不足/过度活跃症-诊断类别",
+      "description": "你的孩子是否属于以下问题类别？",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不是",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不是",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "不知道",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "是",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 190,
+      "category1": "照顾者报告",
+      "category2": "诊断类别及程度",
+      "itemName": "专注力不足/过度活跃症-对孩子发展的影响程度",
+      "description": "请选择对孩子发展的影响程度",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "轻微",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "中度",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "轻微",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 191,
+      "category1": "照顾者报告",
+      "category2": "诊断类别及程度",
+      "itemName": "亚氏保加症-诊断类别",
+      "description": "你的孩子是否属于以下问题类别？",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不是",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不是",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "不知道",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "是",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 192,
+      "category1": "照顾者报告",
+      "category2": "诊断类别及程度",
+      "itemName": "亚氏保加症-对孩子发展的影响程度",
+      "description": "请选择对孩子发展的影响程度",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "轻微",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "中度",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "轻微",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 193,
+      "category1": "照顾者报告",
+      "category2": "诊断类别及程度",
+      "itemName": "精神分裂症-诊断类别",
+      "description": "你的孩子是否属于以下问题类别？",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不是",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不是",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "不知道",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "是",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 194,
+      "category1": "照顾者报告",
+      "category2": "诊断类别及程度",
+      "itemName": "精神分裂症-对孩子发展的影响程度",
+      "description": "请选择对孩子发展的影响程度",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "轻微",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "中度",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "轻微",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 195,
+      "category1": "照顾者报告",
+      "category2": "诊断类别及程度",
+      "itemName": "广泛发展障碍-诊断类别",
+      "description": "你的孩子是否属于以下问题类别？",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不是",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不是",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "不知道",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "是",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 196,
+      "category1": "照顾者报告",
+      "category2": "诊断类别及程度",
+      "itemName": "广泛发展障碍-对孩子发展的影响程度",
+      "description": "请选择对孩子发展的影响程度",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "轻微",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "中度",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "轻微",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 197,
+      "category1": "照顾者报告",
+      "category2": "诊断类别及程度",
+      "itemName": "蕾特氏症-诊断类别",
+      "description": "你的孩子是否属于以下问题类别？",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不是",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不是",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "不知道",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "是",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 198,
+      "category1": "照顾者报告",
+      "category2": "诊断类别及程度",
+      "itemName": "蕾特氏症-对孩子发展的影响程度",
+      "description": "请选择对孩子发展的影响程度",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "轻微",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "中度",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "轻微",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 199,
+      "category1": "照顾者报告",
+      "category2": "诊断类别及程度",
+      "itemName": "其他-诊断类别",
+      "description": "你的孩子是否属于以下问题类别？",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不是",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不是",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "不知道",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "是",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 200,
+      "category1": "照顾者报告",
+      "category2": "诊断类别及程度",
+      "itemName": "其他-对孩子发展的影响程度",
+      "description": "请选择对孩子发展的影响程度",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "轻微",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": ""
+        },
+        "b": {
+          "value": "1",
+          "label": "中度",
+          "description": ""
+        },
+        "c": {
+          "value": "2",
+          "label": "轻微",
+          "description": ""
+        }
+      }
+    },
+    {
+      "sort": 201,
+      "category1": "照顾者报告",
+      "category2": "问题行为-PB",
+      "itemName": "缺乏或不适当的眼神接触、缺乏面部表情以及缺乏沟通上的身体语言",
+      "description": "",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "没有出现",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": "此问题有出现，程度是严重"
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微/中度",
+          "description": "此问题有出现，程度是轻微/中度"
+        },
+        "c": {
+          "value": "2",
+          "label": "没有出现",
+          "description": "此问题没有出现"
+        }
+      }
+    },
+    {
+      "sort": 202,
+      "category1": "照顾者报告",
+      "category2": "问题行为-PB",
+      "itemName": "语言发展迟缓或完全不说话",
+      "description": "",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "没有出现",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": "此问题有出现，程度是严重"
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微/中度",
+          "description": "此问题有出现，程度是轻微/中度"
+        },
+        "c": {
+          "value": "2",
+          "label": "没有出现",
+          "description": "此问题没有出现"
+        }
+      }
+    },
+    {
+      "sort": 203,
+      "category1": "照顾者报告",
+      "category2": "问题行为-PB",
+      "itemName": "经常投入在一个或多个重复的兴趣或活动，兴趣异常强烈，或者兴趣过分狭窄",
+      "description": "",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "轻微/中度",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": "此问题有出现，程度是严重"
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微/中度",
+          "description": "此问题有出现，程度是轻微/中度"
+        },
+        "c": {
+          "value": "2",
+          "label": "没有出现",
+          "description": "此问题没有出现"
+        }
+      }
+    },
+    {
+      "sort": 204,
+      "category1": "照顾者报告",
+      "category2": "问题行为-PB",
+      "itemName": "不能如其他同龄孩子一样发展友谊",
+      "description": "",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "轻微/中度",
+      "note": "对泡泡、拼图和积木材料兴趣较高",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": "此问题有出现，程度是严重"
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微/中度",
+          "description": "此问题有出现，程度是轻微/中度"
+        },
+        "c": {
+          "value": "2",
+          "label": "没有出现",
+          "description": "此问题没有出现"
+        }
+      }
+    },
+    {
+      "sort": 205,
+      "category1": "照顾者报告",
+      "category2": "问题行为-PB",
+      "itemName": "有适当的言语，但不能主动与人开展对话或与人保持对话",
+      "description": "",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "轻微/中度",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": "此问题有出现，程度是严重"
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微/中度",
+          "description": "此问题有出现，程度是轻微/中度"
+        },
+        "c": {
+          "value": "2",
+          "label": "没有出现",
+          "description": "此问题没有出现"
+        }
+      }
+    },
+    {
+      "sort": 206,
+      "category1": "照顾者报告",
+      "category2": "问题行为-PB",
+      "itemName": "坚持某个/某些重复而没实际功能的常规或仪式",
+      "description": "",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "轻微/中度",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": "此问题有出现，程度是严重"
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微/中度",
+          "description": "此问题有出现，程度是轻微/中度"
+        },
+        "c": {
+          "value": "2",
+          "label": "没有出现",
+          "description": "此问题没有出现"
+        }
+      }
+    },
+    {
+      "sort": 207,
+      "category1": "照顾者报告",
+      "category2": "问题行为-PB",
+      "itemName": "不会自发地与人分享开心的活动、有趣的事物或成功的事情",
+      "description": "",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "轻微/中度",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": "此问题有出现，程度是严重"
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微/中度",
+          "description": "此问题有出现，程度是轻微/中度"
+        },
+        "c": {
+          "value": "2",
+          "label": "没有出现",
+          "description": "此问题没有出现"
+        }
+      }
+    },
+    {
+      "sort": 208,
+      "category1": "照顾者报告",
+      "category2": "问题行为-PB",
+      "itemName": "使用重复或古怪的言语",
+      "description": "",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "严重",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": "此问题有出现，程度是严重"
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微/中度",
+          "description": "此问题有出现，程度是轻微/中度"
+        },
+        "c": {
+          "value": "2",
+          "label": "没有出现",
+          "description": "此问题没有出现"
+        }
+      }
+    },
+    {
+      "sort": 209,
+      "category1": "照顾者报告",
+      "category2": "问题行为-PB",
+      "itemName": "出现重复的身体活动，例如拍打或摆动手/手指、扭曲身体或作出复杂的身体动作",
+      "description": "",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "严重",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": "此问题有出现，程度是严重"
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微/中度",
+          "description": "此问题有出现，程度是轻微/中度"
+        },
+        "c": {
+          "value": "2",
+          "label": "没有出现",
+          "description": "此问题没有出现"
+        }
+      }
+    },
+    {
+      "sort": 210,
+      "category1": "照顾者报告",
+      "category2": "问题行为-PB",
+      "itemName": "与人沟通时，不表达自己感受或不回应别人所表达的情绪",
+      "description": "",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "严重",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": "此问题有出现，程度是严重"
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微/中度",
+          "description": "此问题有出现，程度是轻微/中度"
+        },
+        "c": {
+          "value": "2",
+          "label": "没有出现",
+          "description": "此问题没有出现"
+        }
+      }
+    },
+    {
+      "sort": 211,
+      "category1": "照顾者报告",
+      "category2": "个人自理-PSC",
+      "itemName": "在饭餐或小食时间，你的孩子会否拿起细小食物、咀嚼然后吞咽？",
+      "description": "",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "能做到",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不能做到",
+          "description": "不会自行放食物进口中、咀嚼及吞咽"
+        },
+        "b": {
+          "value": "1",
+          "label": "部分做到",
+          "description": "在放食物进口中、咀嚼及吞咽过程会出现问题"
+        },
+        "c": {
+          "value": "2",
+          "label": "能做到",
+          "description": "能自行把食物放进口中、咀嚼及吞咽而没出现问题"
+        }
+      }
+    },
+    {
+      "sort": 212,
+      "category1": "照顾者报告",
+      "category2": "个人自理-PSC",
+      "itemName": "在饭餐或小食时间，你的孩子能否以一只手拿起杯及饮用时不弄泻？",
+      "description": "",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "能做到",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不能做到",
+          "description": "需要协助才能以杯进饮"
+        },
+        "b": {
+          "value": "1",
+          "label": "部分做到",
+          "description": "未能灵巧地以杯进饮及饮用时会弄泻"
+        },
+        "c": {
+          "value": "2",
+          "label": "能做到",
+          "description": "能以一只手拿起杯及饮用时不弄泻"
+        }
+      }
+    },
+    {
+      "sort": 213,
+      "category1": "照顾者报告",
+      "category2": "个人自理-PSC",
+      "itemName": "在饭餐时，你的孩子能否以匙羹和叉自行进食？",
+      "description": "",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "能做到",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不能做到",
+          "description": "未能使用任何一种餐具自行进食"
+        },
+        "b": {
+          "value": "1",
+          "label": "部分做到",
+          "description": "能以匙羹或叉自行进食一点食物"
+        },
+        "c": {
+          "value": "2",
+          "label": "能做到",
+          "description": "能以匙羹和叉自行进食，或许进食时会有一点食物跌在桌子上"
+        }
+      }
+    },
+    {
+      "sort": 214,
+      "category1": "照顾者报告",
+      "category2": "个人自理-PSC",
+      "itemName": "在饭餐或小食时间，你的孩子能否拿起一个盛着饮品的小容器，然后把饮品倒进一个杯内而只有少许弄泻？",
+      "description": "",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "能做到",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不能做到",
+          "description": "从未尝试把饮品倒进杯内，或把饮品倒进杯内时会大量弄泻"
+        },
+        "b": {
+          "value": "1",
+          "label": "部分做到",
+          "description": "尝试把饮品倒进杯内时会有一些弄泻"
+        },
+        "c": {
+          "value": "2",
+          "label": "能做到",
+          "description": "能把饮品倒进杯内而只有少许弄泻"
+        }
+      }
+    },
+    {
+      "sort": 215,
+      "category1": "照顾者报告",
+      "category2": "个人自理-PSC",
+      "itemName": "在饭餐或小食时间后，你的孩子能否自行洗手和洗脸？",
+      "description": "",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "能做到",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不能做到",
+          "description": "未尝试自己洗手和洗脸"
+        },
+        "b": {
+          "value": "1",
+          "label": "部分做到",
+          "description": "尝试自己洗手和洗脸，但需要成人协助"
+        },
+        "c": {
+          "value": "2",
+          "label": "能做到",
+          "description": "不需要成人协助下，能自行以水和肥皂洗手和洗脸"
+        }
+      }
+    },
+    {
+      "sort": 216,
+      "category1": "照顾者报告",
+      "category2": "个人自理-PSC",
+      "itemName": "你的孩子能否自行洗澡？",
+      "description": "",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "能做到",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不能做到",
+          "description": "未尝试自行洗澡"
+        },
+        "b": {
+          "value": "1",
+          "label": "部分做到",
+          "description": "尝试自行洗澡，但需要成人协助"
+        },
+        "c": {
+          "value": "2",
+          "label": "能做到",
+          "description": "不需要成人协助，能自行洗澡"
+        }
+      }
+    },
+    {
+      "sort": 217,
+      "category1": "照顾者报告",
+      "category2": "个人自理-PSC",
+      "itemName": "在饭餐或小食时间后，你的孩子能否自行刷牙？",
+      "description": "",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "能做到",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不能做到",
+          "description": "未尝试自行刷牙"
+        },
+        "b": {
+          "value": "1",
+          "label": "部分做到",
+          "description": "尝试刷牙，但需要成人协助"
+        },
+        "c": {
+          "value": "2",
+          "label": "能做到",
+          "description": "能自行刷牙而不需要成人协助"
+        }
+      }
+    },
+    {
+      "sort": 218,
+      "category1": "照顾者报告",
+      "category2": "个人自理-PSC",
+      "itemName": "你的孩子能否自行脱衣服？",
+      "description": "",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "部分做到",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不能做到",
+          "description": "需要很多协助才能脱衣服"
+        },
+        "b": {
+          "value": "1",
+          "label": "部分做到",
+          "description": "尝试自行脱衣服，但需要成人协助"
+        },
+        "c": {
+          "value": "2",
+          "label": "能做到",
+          "description": "能自行脱衣服而不需要成人协助"
+        }
+      }
+    },
+    {
+      "sort": 219,
+      "category1": "照顾者报告",
+      "category2": "个人自理-PSC",
+      "itemName": "你的孩子能否自行完成穿衣服过程，包括绑鞋带？",
+      "description": "",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "部分做到",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不能做到",
+          "description": "需要很多协助才能穿衣服"
+        },
+        "b": {
+          "value": "1",
+          "label": "部分做到",
+          "description": "尝试自行完成穿衣服过程，但需要成人协助"
+        },
+        "c": {
+          "value": "2",
+          "label": "能做到",
+          "description": "能自行完成穿衣服过程，包括绑鞋带，而不需要成人协助"
+        }
+      }
+    },
+    {
+      "sort": 220,
+      "category1": "照顾者报告",
+      "category2": "个人自理-PSC",
+      "itemName": "你的孩子能否自行挑选当日要穿的衣服，包括能选择适合当日天气及活动的衣服？",
+      "description": "",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "部分做到",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不能做到",
+          "description": "未能独立选择合适衣服"
+        },
+        "b": {
+          "value": "1",
+          "label": "部分做到",
+          "description": "在成人协助下，能选择适合当日天气及活动的衣服"
+        },
+        "c": {
+          "value": "2",
+          "label": "能做到",
+          "description": "能独立选择适合当日天气及活动的衣服"
+        }
+      }
+    },
+    {
+      "sort": 221,
+      "category1": "照顾者报告",
+      "category2": "个人自理-PSC",
+      "itemName": "你的孩子能否使用厕所如厕而没有意外（遗尿/遗便）？",
+      "description": "",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "部分做到",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不能做到",
+          "description": "未能使用厕所如厕"
+        },
+        "b": {
+          "value": "1",
+          "label": "部分做到",
+          "description": "需成人协助才能使用厕所如厕，而每星期超过两次意外"
+        },
+        "c": {
+          "value": "2",
+          "label": "能做到",
+          "description": "无需成人协助，能使用厕所如厕，而每星期不多过两次意外"
+        }
+      }
+    },
+    {
+      "sort": 222,
+      "category1": "照顾者报告",
+      "category2": "个人自理-PSC",
+      "itemName": "你的孩子能否记得他/她的玩具或其他日常物件的摆放位置？",
+      "description": "",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不能做到",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不能做到",
+          "description": "未能记得物件的摆放位置"
+        },
+        "b": {
+          "value": "1",
+          "label": "部分做到",
+          "description": "如经过练习，能记得一些物件的摆放位置"
+        },
+        "c": {
+          "value": "2",
+          "label": "能做到",
+          "description": "能记得他/她的玩具或其他日常物件的摆放位置"
+        }
+      }
+    },
+    {
+      "sort": 223,
+      "category1": "照顾者报告",
+      "category2": "个人自理-PSC",
+      "itemName": "你的孩子是否整晚都能安睡？",
+      "description": "",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "不能做到",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "不能做到",
+          "description": "很少可以整晚安睡"
+        },
+        "b": {
+          "value": "1",
+          "label": "部分做到",
+          "description": "有时整晚都能安睡"
+        },
+        "c": {
+          "value": "2",
+          "label": "能做到",
+          "description": "通常整晚都能安睡"
+        }
+      }
+    },
+    {
+      "sort": 224,
+      "category1": "照顾者报告",
+      "category2": "适应行为-AB",
+      "itemName": "你的孩子会否在一天之中自发转换活动？能否无须你的帮助，从一项活动转至另一项活动？",
+      "description": "",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "恰当",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": "喜欢不断重复同一项活动"
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": "偶然会尝试新活动或转换活动"
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": "在一天之中，会自发转换活动"
+        }
+      }
+    },
+    {
+      "sort": 225,
+      "category1": "照顾者报告",
+      "category2": "适应行为-AB",
+      "itemName": "你的孩子会否望着周围的人？当对人说话或有人对他/她说话时，会否望着对方的脸？",
+      "description": "",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "恰当",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": "避开与人有眼神接触"
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": "有时与人有眼神接触"
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": "经常与人有眼神接触"
+        }
+      }
+    },
+    {
+      "sort": 226,
+      "category1": "照顾者报告",
+      "category2": "适应行为-AB",
+      "itemName": "如果你拥抱你的孩子，他/她会否正面地回应你？他/她会否自发拥抱别人？",
+      "description": "",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "恰当",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": "被熟识的成人拥抱时，他/她有负面反应或表现被动"
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": "被熟识的成人拥抱时，他/她有时会有正面回应"
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": "被熟识的成人拥抱时，他/她经常会有正面回应"
+        }
+      }
+    },
+    {
+      "sort": 227,
+      "category1": "照顾者报告",
+      "category2": "适应行为-AB",
+      "itemName": "你的孩子会否对身边发生的事显得有兴趣？会否主动走去观看有趣的事情以及尝试加入其活动？",
+      "description": "",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "恰当",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": "对身边所发生的事显得没有兴趣"
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": "对身边所发生的事显得有少许兴趣"
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": "常常四处观看以及回应身边所发生的事"
+        }
+      }
+    },
+    {
+      "sort": 228,
+      "category1": "照顾者报告",
+      "category2": "适应行为-AB",
+      "itemName": "你的孩子会否望着周围的孩子？会否主动地接近其他同龄孩子以及尝试与他们一起玩耍？",
+      "description": "",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "恰当",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": "通常独自玩耍"
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": "有时会主动接近其他同龄孩子以及与他们一起玩耍"
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": "常常会主动接近其他同龄孩子以及尝试与他们一起玩耍"
+        }
+      }
+    },
+    {
+      "sort": 229,
+      "category1": "照顾者报告",
+      "category2": "适应行为-AB",
+      "itemName": "当有新活动时，你的孩子会否参与？会否毫无犹疑地尝试不同的新经验？",
+      "description": "",
+      "materials": "",
+      "score": 2,
+      "selectedOption": "c",
+      "selectedScore": 2,
+      "selectedLabel": "恰当",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": "常常自顾自进行自己的活动，被打扰时显得不快"
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": "在尝试新活动前，会表现犹疑不决"
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": "毫无犹疑地尝试不同的新活动"
+        }
+      }
+    },
+    {
+      "sort": 230,
+      "category1": "照顾者报告",
+      "category2": "适应行为-AB",
+      "itemName": "你的孩子是否可以快速地学习新技巧？你有否发现他/她常常用新学的技巧？",
+      "description": "",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "轻微",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": "很少学习新技巧，通常投入于仪式化行为"
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": "有时会学习新技巧"
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": "能经常学习新技巧"
+        }
+      }
+    },
+    {
+      "sort": 231,
+      "category1": "照顾者报告",
+      "category2": "适应行为-AB",
+      "itemName": "你的孩子是否投入于每天所发生的事情？是否表现明白现实世界，而无显得混沌或「脱离现实」？",
+      "description": "",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "轻微",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": "经常自我刺激，不投入环境中的事和物"
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": "有时投入于环境中的事和物，但有时脱离现实"
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": "身体上和心智上都经常投入于环境中的事和物"
+        }
+      }
+    },
+    {
+      "sort": 232,
+      "category1": "照顾者报告",
+      "category2": "适应行为-AB",
+      "itemName": "你的孩子在玩玩具时有否出现假想的情节？会否以人的特性加入成为玩具的性情，赋予玩具生命力？",
+      "description": "",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "轻微",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": "没有假想的情节，似是对玩具或物件的部分表现过分着迷"
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": "有时玩玩具时有假想的情节"
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": "经常玩玩具时有假想的情节"
+        }
+      }
+    },
+    {
+      "sort": 233,
+      "category1": "照顾者报告",
+      "category2": "适应行为-AB",
+      "itemName": "你的孩子能否常常在日常活动中表现已有的常识，以及避免发生意外或受伤？他/她会否在感到挫败时，克制自己而不会咬或拍打自己？",
+      "description": "",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "轻微",
+      "note": "口语回应较少，多以手势或拿取表达需要",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": "经常使自己受伤，或在感到挫败时咬或拍打自己"
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": "玩耍时有时表现笨拙和可能会使自己受伤"
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": "玩耍时经常表现很小心和能避免发生意外或受伤"
+        }
+      }
+    },
+    {
+      "sort": 234,
+      "category1": "照顾者报告",
+      "category2": "适应行为-AB",
+      "itemName": "你的孩子能否安定地坐或立，而没有如摇晃、拍打手或其他怪异动作？",
+      "description": "",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "轻微",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": "在坐或立时经常做出怪异的动作"
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": "有时站立竖直和能安坐，但当感到疲倦时，有时会做出怪异的动作"
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": "站立时竖直和能安坐，并没有怪异的动作"
+        }
+      }
+    },
+    {
+      "sort": 235,
+      "category1": "照顾者报告",
+      "category2": "适应行为-AB",
+      "itemName": "你的孩子会否主动地请你留意他/她的成功表现？",
+      "description": "",
+      "materials": "",
+      "score": 1,
+      "selectedOption": "b",
+      "selectedScore": 1,
+      "selectedLabel": "轻微",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": "不会因自己的成功而表现满足"
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": "很少或不恒常地对自己的成功表现满足"
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": "经常主动地请你留意他/她的成功表现"
+        }
+      }
+    },
+    {
+      "sort": 236,
+      "category1": "照顾者报告",
+      "category2": "适应行为-AB",
+      "itemName": "你的孩子会否与其他孩子一起玩耍？",
+      "description": "",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "严重",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": "对在场的孩子没有兴趣"
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": "会对在场的孩子有反应"
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": "会回应及与其他孩子一起玩耍"
+        }
+      }
+    },
+    {
+      "sort": 237,
+      "category1": "照顾者报告",
+      "category2": "适应行为-AB",
+      "itemName": "你的孩子能否不需你的协助而从一个房间走到另一个房间？",
+      "description": "",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "严重",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": "不察觉环境，需要协助才能在转换活动时到另一个房间"
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": "不常常自行从一个房间走到另一个房间，或需成人协助才能做到"
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": "能无需成人协助，从一个房间走到另一个房间"
+        }
+      }
+    },
+    {
+      "sort": 238,
+      "category1": "照顾者报告",
+      "category2": "适应行为-AB",
+      "itemName": "你的孩子会否在行人路行走时和过马路前在街角停顿？",
+      "description": "",
+      "materials": "",
+      "score": 0,
+      "selectedOption": "a",
+      "selectedScore": 0,
+      "selectedLabel": "严重",
+      "note": "",
+      "options": {
+        "a": {
+          "value": "0",
+          "label": "严重",
+          "description": "不察觉在街上行走时所需要注意的事情"
+        },
+        "b": {
+          "value": "1",
+          "label": "轻微",
+          "description": "会在行人路行走，但需要你协助才会在街角停顿"
+        },
+        "c": {
+          "value": "2",
+          "label": "恰当",
+          "description": "会在行人路行走、在街角停顿和等待你与他/她一起过马路"
+        }
+      }
+    }
+  ]
+}
