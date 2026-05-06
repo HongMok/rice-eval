@@ -180,7 +180,13 @@ body { font-family: var(--font-family); background: var(--color-bg-page); color:
         <option value="active">启用</option>
         <option value="inactive">停用</option>
       </select>
-      <button class="btn-search" onclick="filterCards()">🔍 搜索</button>
+      <button class="btn-search" onclick="filterCards()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="16.65" y1="16.65" x2="21" y2="21"></line>
+        </svg>
+        搜索
+      </button>
       <button class="btn-secondary" onclick="resetFilter()">重置</button>
       <span style="flex:1"></span>
       <button class="btn-secondary" onclick="openTypeManager()" style="display:flex;align-items:center;gap:6px;border-color:var(--color-primary);color:var(--color-primary);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>类型管理</button>
