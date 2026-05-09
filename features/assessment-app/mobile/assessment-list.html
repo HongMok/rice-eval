@@ -330,6 +330,12 @@ body {
   font-size: 18px;
   flex-shrink: 0;
 }
+.tool-card .card-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: inherit;
+}
 .tool-card .card-icon.pep3 { background: #EDE9FE; }
 .tool-card .card-icon.vbmapp { background: #DBEAFE; }
 .tool-card .card-name { font-size: 15px; font-weight: 600; }
@@ -539,6 +545,11 @@ body {
 /* === 数据管理 === */
 const RECORDS_KEY = 'rice_assessment_records';
 const TOOLS_KEY = 'rice_assessment_tools';
+const TOOL_ICON_SRC = {
+  pep3: '../../../assets/tool-icons/pep3.png',
+  cpep: '../../../assets/tool-icons/cpep.png',
+  vbmapp: '../../../assets/tool-icons/vbmapp.png'
+};
 
 // 默认评估工具
 function getDefaultTools() {
@@ -654,7 +665,7 @@ function openNewModal() {
   document.getElementById('toolList').innerHTML = tools.map(t => {
     const iconHtml = t.avatar
       ? `<div class="card-icon" style="overflow:hidden"><img src="${t.avatar}" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>`
-      : `<div class="card-icon ${t.id || ''}">${t.id === 'pep3' ? '📋' : t.id === 'vbmapp' ? '📊' : t.id === 'cpep' ? '🧩' : '📝'}</div>`;
+      : `<div class="card-icon ${t.id || ''}"><img src="${TOOL_ICON_SRC[t.id] || TOOL_ICON_SRC.pep3}" alt="${t.name}"></div>`;
     return `
     <div class="tool-card" onclick="createAssessment('${t.id}')">
       <div class="card-top">

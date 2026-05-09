@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>评估列表 - 三态差异化操作</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+    background: #f5f6f8;
+    padding: 40px;
+    color: #1f2937;
+  }
+  .wrap { max-width: 1200px; margin: 0 auto; }
+  h2 { font-size: 18px; margin: 32px 0 12px; color: #111827; }
+  h2:first-child { margin-top: 0; }
+  h3 { font-size: 13px; color: #6b7280; font-weight: 500; margin: 16px 0 8px; padding-left: 4px; }
+
+  /* Tabs */
+  .tabs {
+    display: flex;
+    gap: 36px;
+    padding: 0 4px 16px;
+    border-bottom: 1px solid #eef0f3;
+    margin-bottom: 20px;
+    align-items: center;
+  }
+  .tab { font-size: 16px; color: #6b7280; cursor: pointer; padding-bottom: 10px; margin-bottom: -17px; }
+  .tab.active { color: #111827; font-weight: 600; border-bottom: 2px solid #3B9BF5; }
+  .tab-new { margin-left: auto; display: flex; align-items: center; gap: 6px; color: #3B9BF5; font-size: 15px; font-weight: 500; cursor: pointer; }
+
+  /* Button */
+  .btn {
+    font-size: 14px;
+    padding: 7px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    font-weight: 500;
+    font-family: inherit;
+    transition: all .15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+  }
+  .btn-primary { background: #3B9BF5; color: #fff; }
+  .btn-primary:hover { background: #2484de; }
+  .btn-ghost { background: transparent; color: #3B9BF5; border: 1px solid #d6e7fb; }
+  .btn-ghost:hover { background: #eef7ff; }
+  .btn-warning { background: #fff7e6; color: #d97706; border: 1px solid #fed7aa; }
+  .btn-warning:hover { background: #fff1d6; }
+  .btn-text { background: transparent; color: #3B9BF5; padding: 7px 8px; }
+  .btn-danger-ghost { background: transparent; color: #ef4444; border: 1px solid #fecaca; }
+
+  .icon-btn {
+    width: 32px; height: 32px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 8px;
+    color: #9ca3af;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    transition: all .15s;
+  }
+  .icon-btn:hover { background: #fef2f2; color: #ef4444; }
+
+  /* Status */
+  .status {
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+    line-height: 18px;
+  }
+  .status.ongoing { background: #fff7e6; color: #d97706; }
+  .status.pending-finalize { background: #eef4ff; color: #3b5cf5; }
+  .status.finalized { background: #e6f4ff; color: #1677ff; }
+  .status.pending { background: #f3f4f6; color: #6b7280; }
+  .status.iep { background: #ecfdf5; color: #047857; }
+  .status.generating { background: #f3ecff; color: #7c3aed; }
+  .status.failed { background: #fef2f2; color: #ef4444; }
+
+  /* Cards */
+  .list {
+    background: #fff;
+    border-radius: 14px;
+    padding: 12px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  }
+  .card {
+    display: flex;
+    align-items: center;
+    padding: 16px 18px;
+    border-radius: 10px;
+    gap: 18px;
+  }
+  .card + .card { border-top: 1px solid #f3f4f6; }
+  .card:hover { background: #fafbfc; }
+
+  .tool-badge {
+    width: 48px; height: 48px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.3px;
+    flex-shrink: 0;
+  }
+  .tool-badge img,
+  .mini-card .mc-badge img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: inherit;
+  }
+  .tool-badge.pep3 { background: #eef4ff; color: #3b5cf5; }
+  .tool-badge.cpep { background: #e8f7ef; color: #16a34a; }
+  .tool-badge.vbmapp { background: #fff4e6; color: #ea7b0c; }
+  .tool-badge.rice { background: #f3ecff; color: #7c3aed; }
+
+  .main { flex: 1; min-width: 0; }
+  .row1 { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; flex-wrap: wrap; }
+  .tool-name { font-size: 15px; font-weight: 600; color: #111827; }
+  .row2 { font-size: 13px; color: #6b7280; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .dot { width: 3px; height: 3px; background: #d1d5db; border-radius: 50%; }
+  .progress { display: flex; align-items: center; gap: 8px; }
+  .progress-bar { width: 100px; height: 4px; background: #f3f4f6; border-radius: 2px; overflow: hidden; }
+  .progress-bar .fill { height: 100%; background: #d97706; border-radius: 2px; }
+
+  .actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+
+  /* 状态说明板 */
+  .state-map {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .state-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid #eef0f3;
+  }
+  .state-card .title { font-size: 14px; font-weight: 600; color: #111827; margin-bottom: 4px; }
+  .state-card .subtitle { font-size: 12px; color: #6b7280; margin-bottom: 12px; }
+  .state-card .ops { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+  .state-card .ops span {
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: #f3f4f6;
+    color: #374151;
+  }
+  .state-card .ops span.danger { background: #fef2f2; color: #ef4444; }
+  .state-card .ops span.primary { background: #eff6ff; color: #1677ff; }
+  .state-card .ops span.disabled { background: #f9fafb; color: #9ca3af; text-decoration: line-through; }
+  .state-card .why {
+    font-size: 12px;
+    color: #6b7280;
+    line-height: 1.6;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed #eef0f3;
+  }
+
+  .hint {
+    background: #e6f4ff;
+    border-left: 3px solid #3B9BF5;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #0369a1;
+    margin-bottom: 16px;
+    line-height: 1.7;
+  }
+  .hint b { font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hint">
+    <b>v3.1 更新</b>：① 评估工具命名统一为「RICE综合评估 / PEP-3评估 / C-PEP-3评估 / VB-MAPP评估」；② 所有卡片都支持删除（有答题数据或报告时走二次确认）；③ 列表不展示 IEP 入口（挪到报告详情页）；④ 已生成报告的卡片增加「修改评估量表」按钮，对应二次编辑路径；⑤ 补全各工具的专业摘要字段。
+  </div>
+
+  <!-- 状态说明 -->
+  <h2>三态模型</h2>
+  <div class="state-map">
+    <div class="state-card">
+      <div class="title">① 未提交的评估</div>
+      <div class="subtitle">答题中，尚未完成全部题目</div>
+      <span class="status ongoing">评估中</span>
+      <div class="ops">
+        <span>🗑 删除</span>
+        <span class="primary">继续评估</span>
+      </div>
+      <div class="why">答题数据可能有价值，删除走二次确认。没有报告所以无"查看/修改"入口。</div>
+    </div>
+
+    <div class="state-card">
+      <div class="title">② 未确认报告的评估</div>
+      <div class="subtitle">报告已生成，尚未确认定稿</div>
+      <span class="status pending-finalize">报告未确认</span>
+      <div class="ops">
+        <span>修改评分</span>
+        <span class="primary">查看报告</span>
+        <span>🗑 删除</span>
+      </div>
+      <div class="why">可二次编辑评估项目，修改后重新生成报告会覆盖原报告。</div>
+    </div>
+
+    <div class="state-card">
+      <div class="title">③ 已确认报告的评估</div>
+      <div class="subtitle">报告已定稿，仍可二次编辑</div>
+      <span class="status finalized">已确认</span>
+      <div class="ops">
+        <span>修改评分</span>
+        <span class="primary">查看报告</span>
+        <span>🗑 删除</span>
+      </div>
+      <div class="why">按钮组与 ② 相同。二次编辑重新生成后报告会回到"报告未确认"状态。</div>
+    </div>
+  </div>
+
+  <!-- 列表 -->
+  <h2>整合到列表</h2>
+
+  <div class="tabs">
+    <div class="tab active">全部</div>
+    <div class="tab">已完成</div>
+    <div class="tab">评估中</div>
+    <div class="tab-new">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="3" y="2" width="10" height="12" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M8 6v4M6 8h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      新建评估
+    </div>
+  </div>
+
+  <div class="list">
+
+    <!-- 状态①：未提交的评估 -->
+    <div class="card">
+      <div class="tool-badge pep3"><img src="../assets/tool-icons/pep3.png" alt="PEP-3"></div>
+      <div class="main">
+        <div class="row1">
+          <div class="tool-name">PEP-3评估</div>
+          <span class="status ongoing">评估中</span>
+        </div>
+        <div class="row2">
+          <div class="progress">
+            <div class="progress-bar"><div class="fill" style="width:45%"></div></div>
+            <span>107/238 题 · 45%</span>
+          </div>
+          <span class="dot"></span>
+          <span>雪莹老师</span>
+          <span class="dot"></span>
+          <span>创建于 2026-05-06 14:30</span>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn btn-primary">继续评估</button>
+        <button class="icon-btn" title="删除">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 4h10M6.5 4V2.5h3V4M4.5 4l.5 9h6l.5-9M6.5 7v4M9.5 7v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="tool-badge cpep"><img src="../assets/tool-icons/cpep.png" alt="C-PEP"></div>
+      <div class="main">
+        <div class="row1">
+          <div class="tool-name">C-PEP-3评估</div>
+          <span class="status ongoing">评估中</span>
+        </div>
+        <div class="row2">
+          <div class="progress">
+            <div class="progress-bar"><div class="fill" style="width:88%"></div></div>
+            <span>151/171 题 · 88%</span>
+          </div>
+          <span class="dot"></span>
+          <span>哈哈哈哈</span>
+          <span class="dot"></span>
+          <span>创建于 2026-05-05 09:15</span>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn btn-primary">继续评估</button>
+        <button class="icon-btn" title="删除">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 4h10M6.5 4V2.5h3V4M4.5 4l.5 9h6l.5-9M6.5 7v4M9.5 7v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- 状态②：未确认报告 -->
+    <div class="card">
+      <div class="tool-badge vbmapp"><img src="../assets/tool-icons/vbmapp.png" alt="VB-MAPP"></div>
+      <div class="main">
+        <div class="row1">
+          <div class="tool-name">VB-MAPP评估</div>
+          <span class="status pending-finalize">报告未确认</span>
+        </div>
+        <div class="row2">
+          <span>创建于 2026-04-29 16:48</span>
+          <span class="dot"></span>
+          <span>哈哈哈哈</span>
+          <span class="dot"></span>
+          <span style="color:#3B9BF5;">里程碑 85/170 · 障碍 4项 · 第2阶段</span>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn btn-ghost">修改评分</button>
+        <button class="btn btn-ghost">查看报告</button>
+        <button class="icon-btn" title="删除">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 4h10M6.5 4V2.5h3V4M4.5 4l.5 9h6l.5-9M6.5 7v4M9.5 7v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="tool-badge cpep"><img src="../assets/tool-icons/cpep.png" alt="C-PEP"></div>
+      <div class="main">
+        <div class="row1">
+          <div class="tool-name">C-PEP-3评估</div>
+          <span class="status pending-finalize">报告未确认</span>
+        </div>
+        <div class="row2">
+          <span>创建于 2026-04-29 16:41</span>
+          <span class="dot"></span>
+          <span>哈哈哈哈</span>
+          <span class="dot"></span>
+          <span style="color:#3B9BF5;">发展年龄 3.8 岁 · 病理行为 轻度</span>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn btn-ghost">修改评分</button>
+        <button class="btn btn-ghost">查看报告</button>
+        <button class="icon-btn" title="删除">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 4h10M6.5 4V2.5h3V4M4.5 4l.5 9h6l.5-9M6.5 7v4M9.5 7v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- 状态③：已确认报告 -->
+    <div class="card">
+      <div class="tool-badge pep3"><img src="../assets/tool-icons/pep3.png" alt="PEP-3"></div>
+      <div class="main">
+        <div class="row1">
+          <div class="tool-name">PEP-3评估</div>
+          <span class="status finalized">✓ 报告已确认</span>
+        </div>
+        <div class="row2">
+          <span>创建于 2026-04-30 10:39</span>
+          <span class="dot"></span>
+          <span>雪莹老师</span>
+          <span class="dot"></span>
+          <span style="color:#3B9BF5;">发育年龄 4.2 岁 · 6领域得分率 65%</span>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn btn-ghost">修改评分</button>
+        <button class="btn btn-ghost">查看报告</button>
+        <button class="icon-btn" title="删除">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 4h10M6.5 4V2.5h3V4M4.5 4l.5 9h6l.5-9M6.5 7v4M9.5 7v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="tool-badge cpep"><img src="../assets/tool-icons/cpep.png" alt="C-PEP"></div>
+      <div class="main">
+        <div class="row1">
+          <div class="tool-name">C-PEP-3评估</div>
+          <span class="status finalized">✓ 报告已确认</span>
+        </div>
+        <div class="row2">
+          <span>创建于 2026-04-29 17:24</span>
+          <span class="dot"></span>
+          <span>哈哈哈哈</span>
+          <span class="dot"></span>
+          <span style="color:#3B9BF5;">发展年龄 3.6 岁 · 病理行为 中度</span>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn btn-ghost">修改评分</button>
+        <button class="btn btn-ghost">查看报告</button>
+        <button class="icon-btn" title="删除">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 4h10M6.5 4V2.5h3V4M4.5 4l.5 9h6l.5-9M6.5 7v4M9.5 7v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="tool-badge rice">RICE</div>
+      <div class="main">
+        <div class="row1">
+          <div class="tool-name">RICE综合评估</div>
+          <span class="status finalized">✓ 报告已确认</span>
+        </div>
+        <div class="row2">
+          <span>创建于 2026-04-28 15:15</span>
+          <span class="dot"></span>
+          <span>雪莹老师</span>
+          <span class="dot"></span>
+          <span style="color:#3B9BF5;">能力画像 3.5岁 · 优先领域：社交/语言</span>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn btn-ghost">修改评分</button>
+        <button class="btn btn-ghost">查看报告</button>
+        <button class="icon-btn" title="删除">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 4h10M6.5 4V2.5h3V4M4.5 4l.5 9h6l.5-9M6.5 7v4M9.5 7v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- 特殊：报告生成中 -->
+    <div class="card">
+      <div class="tool-badge vbmapp"><img src="../assets/tool-icons/vbmapp.png" alt="VB-MAPP"></div>
+      <div class="main">
+        <div class="row1">
+          <div class="tool-name">VB-MAPP评估</div>
+          <span class="status generating">
+            <svg width="10" height="10" viewBox="0 0 10 10" style="vertical-align:-1px;"><circle cx="5" cy="5" r="4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="6 12"><animateTransform attributeName="transform" type="rotate" from="0 5 5" to="360 5 5" dur="1s" repeatCount="indefinite"/></circle></svg>
+            报告生成中
+          </span>
+        </div>
+        <div class="row2">
+          <span>创建于 2026-04-29 14:10</span>
+          <span class="dot"></span>
+          <span>哈哈哈哈</span>
+          <span class="dot"></span>
+          <span>预计 1 分钟内完成</span>
+        </div>
+      </div>
+      <div class="actions"></div>
+    </div>
+
+    <!-- 特殊:生成失败 -->
+    <div class="card">
+      <div class="tool-badge rice">RICE</div>
+      <div class="main">
+        <div class="row1">
+          <div class="tool-name">RICE综合评估</div>
+          <span class="status failed">生成失败</span>
+        </div>
+        <div class="row2">
+          <span>创建于 2026-04-29 11:20</span>
+          <span class="dot"></span>
+          <span>雪莹老师</span>
+          <span class="dot"></span>
+          <span style="color:#ef4444;">AI 服务超时，可重试</span>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn btn-danger-ghost">⟲ 重新生成</button>
+        <button class="icon-btn" title="删除">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 4h10M6.5 4V2.5h3V4M4.5 4l.5 9h6l.5-9M6.5 7v4M9.5 7v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 状态切换说明 -->
+  <h2>状态流转图</h2>
+  <div style="background:#fff;padding:20px;border-radius:12px;font-size:14px;color:#374151;line-height:2;">
+    <div>① <b>未提交</b>（评估中）&nbsp;&nbsp;—— <i>完成所有必答题 + 生成报告</i> →&nbsp;&nbsp; ② <b>报告未确认</b></div>
+    <div>② <b>报告未确认</b>&nbsp;&nbsp;—— <i>在报告详情页点击「确认报告」</i> →&nbsp;&nbsp; ③ <b>报告已确认</b></div>
+    <div>③ <b>报告已确认</b>&nbsp;&nbsp;—— <i>点「修改评分」改答题并重新生成报告</i> →&nbsp;&nbsp; ② <b>回到未确认</b></div>
+    <div style="margin-top:10px;color:#6b7280;font-size:12px;">
+      💡 二次编辑支持中途退出缓存；重新生成报告会覆盖当前版本。列表页不再暴露 IEP 入口，IEP 相关操作统一在报告详情页内。
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- 方案对比：多列小卡片形式 -->
+  <!-- ============================================ -->
+  <h2 style="margin-top:48px;">方案对比：多列小卡片形式</h2>
+  <div style="background:#fffbea;border-left:3px solid #f59e0b;padding:12px 16px;border-radius:6px;font-size:13px;color:#92400e;margin-bottom:16px;line-height:1.7;">
+    <b>对比说明</b>：上面是单行列表，这里是 3 列卡片。卡片式的代价：① 每张卡重复"徽标+工具名+状态+摘要+按钮"，信息密度反而降低；② 宽度变窄时摘要字段要换行或截断；③ 按钮被压缩为更小的尺寸。适合场景是"数据量少+视觉展示重于批量操作"。
+  </div>
+
+  <style>
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .mini-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px;
+      border: 1px solid #eef0f3;
+      transition: all .15s;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .mini-card:hover { border-color: #d6e7fb; box-shadow: 0 4px 12px rgba(59,155,245,0.08); }
+    .mini-card .mc-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .mini-card .mc-badge {
+      width: 36px; height: 36px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.2px;
+      flex-shrink: 0;
+    }
+    .mini-card .mc-badge.pep3 { background:#eef4ff;color:#3b5cf5; }
+    .mini-card .mc-badge.cpep { background:#e8f7ef;color:#16a34a; }
+    .mini-card .mc-badge.vbmapp { background:#fff4e6;color:#ea7b0c; }
+    .mini-card .mc-badge.rice { background:#f3ecff;color:#7c3aed; }
+    .mini-card .mc-title { font-size: 14px; font-weight: 600; color: #111827; }
+    .mini-card .mc-status-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+    .mini-card .mc-meta {
+      font-size: 12px; color: #6b7280;
+      display: flex; flex-direction: column; gap: 4px;
+      padding: 8px 0;
+      border-top: 1px solid #f3f4f6;
+      border-bottom: 1px solid #f3f4f6;
+    }
+    .mini-card .mc-meta b { color: #374151; font-weight: 500; }
+    .mini-card .mc-summary {
+      font-size: 13px; color: #3B9BF5;
+      padding: 8px 10px; background: #f0f7ff; border-radius: 6px;
+      line-height: 1.5;
+      min-height: 40px;
+      display: flex; align-items: center;
+    }
+    .mini-card .mc-progress {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 10px; background: #fff7e6; border-radius: 6px;
+      font-size: 12px; color: #d97706;
+    }
+    .mini-card .mc-progress .bar { flex: 1; height: 4px; background: rgba(217,119,6,0.15); border-radius: 2px; overflow: hidden; }
+    .mini-card .mc-progress .fill { height: 100%; background: #d97706; border-radius: 2px; }
+    .mini-card .mc-actions {
+      display: flex; gap: 6px; margin-top: auto; align-items: center;
+    }
+    .mini-card .mc-actions .btn { flex: 1; justify-content: center; padding: 6px 8px; font-size: 13px; }
+    .mini-card .mc-actions .icon-btn { width: 28px; height: 28px; flex-shrink: 0; }
+  </style>
+
+  <div class="grid-cards">
+    <!-- 未提交 -->
+    <div class="mini-card">
+      <div class="mc-head">
+        <div class="mc-badge pep3"><img src="../assets/tool-icons/pep3.png" alt="PEP-3"></div>
+        <div class="mc-title">PEP-3评估</div>
+      </div>
+      <div class="mc-status-row">
+        <span class="status ongoing">评估中</span>
+      </div>
+      <div class="mc-meta">
+        <span><b>创建</b> 2026-05-06 14:30</span>
+        <span><b>评估师</b> 雪莹老师</span>
+      </div>
+      <div class="mc-progress">
+        <span>107/238 题</span>
+        <div class="bar"><div class="fill" style="width:45%"></div></div>
+        <span>45%</span>
+      </div>
+      <div class="mc-actions">
+        <button class="btn btn-primary">继续评估</button>
+        <button class="icon-btn" title="删除">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 4h10M6.5 4V2.5h3V4M4.5 4l.5 9h6l.5-9M6.5 7v4M9.5 7v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mini-card">
+      <div class="mc-head">
+        <div class="mc-badge cpep"><img src="../assets/tool-icons/cpep.png" alt="C-PEP"></div>
+        <div class="mc-title">C-PEP-3评估</div>
+      </div>
+      <div class="mc-status-row">
+        <span class="status ongoing">评估中</span>
+      </div>
+      <div class="mc-meta">
+        <span><b>创建</b> 2026-05-05 09:15</span>
+        <span><b>评估师</b> 哈哈哈哈</span>
+      </div>
+      <div class="mc-progress">
+        <span>151/171 题</span>
+        <div class="bar"><div class="fill" style="width:88%"></div></div>
+        <span>88%</span>
+      </div>
+      <div class="mc-actions">
+        <button class="btn btn-primary">继续评估</button>
+        <button class="icon-btn" title="删除">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 4h10M6.5 4V2.5h3V4M4.5 4l.5 9h6l.5-9M6.5 7v4M9.5 7v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- 未确认 -->
+    <div class="mini-card">
+      <div class="mc-head">
+        <div class="mc-badge vbmapp"><img src="../assets/tool-icons/vbmapp.png" alt="VB-MAPP"></div>
+        <div class="mc-title">VB-MAPP评估</div>
+      </div>
+      <div class="mc-status-row">
+        <span class="status pending-finalize">报告未确认</span>
+      </div>
+      <div class="mc-meta">
+        <span><b>创建</b> 2026-04-29 16:48</span>
+        <span><b>评估师</b> 哈哈哈哈</span>
+      </div>
+      <div class="mc-summary">里程碑 85/170 · 障碍 4项 · 第2阶段</div>
+      <div class="mc-actions">
+        <button class="btn btn-ghost">修改评分</button>
+        <button class="btn btn-ghost">查看报告</button>
+        <button class="icon-btn" title="删除">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 4h10M6.5 4V2.5h3V4M4.5 4l.5 9h6l.5-9M6.5 7v4M9.5 7v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mini-card">
+      <div class="mc-head">
+        <div class="mc-badge cpep"><img src="../assets/tool-icons/cpep.png" alt="C-PEP"></div>
+        <div class="mc-title">C-PEP-3评估</div>
+      </div>
+      <div class="mc-status-row">
+        <span class="status pending-finalize">报告未确认</span>
+      </div>
+      <div class="mc-meta">
+        <span><b>创建</b> 2026-04-29 16:41</span>
+        <span><b>评估师</b> 哈哈哈哈</span>
+      </div>
+      <div class="mc-summary">发展年龄 3.8 岁 · 病理行为 轻度</div>
+      <div class="mc-actions">
+        <button class="btn btn-ghost">修改评分</button>
+        <button class="btn btn-ghost">查看报告</button>
+        <button class="icon-btn" title="删除">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 4h10M6.5 4V2.5h3V4M4.5 4l.5 9h6l.5-9M6.5 7v4M9.5 7v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- 已确认 -->
+    <div class="mini-card">
+      <div class="mc-head">
+        <div class="mc-badge pep3"><img src="../assets/tool-icons/pep3.png" alt="PEP-3"></div>
+        <div class="mc-title">PEP-3评估</div>
+      </div>
+      <div class="mc-status-row">
+        <span class="status finalized">✓ 报告已确认</span>
+      </div>
+      <div class="mc-meta">
+        <span><b>创建</b> 2026-04-30 10:39</span>
+        <span><b>评估师</b> 雪莹老师</span>
+      </div>
+      <div class="mc-summary">发育年龄 4.2 岁 · 6领域得分率 65%</div>
+      <div class="mc-actions">
+        <button class="btn btn-ghost">修改评分</button>
+        <button class="btn btn-ghost">查看报告</button>
+        <button class="icon-btn" title="删除">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 4h10M6.5 4V2.5h3V4M4.5 4l.5 9h6l.5-9M6.5 7v4M9.5 7v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mini-card">
+      <div class="mc-head">
+        <div class="mc-badge cpep"><img src="../assets/tool-icons/cpep.png" alt="C-PEP"></div>
+        <div class="mc-title">C-PEP-3评估</div>
+      </div>
+      <div class="mc-status-row">
+        <span class="status finalized">✓ 报告已确认</span>
+      </div>
+      <div class="mc-meta">
+        <span><b>创建</b> 2026-04-29 17:24</span>
+        <span><b>评估师</b> 哈哈哈哈</span>
+      </div>
+      <div class="mc-summary">发展年龄 3.6 岁 · 病理行为 中度</div>
+      <div class="mc-actions">
+        <button class="btn btn-ghost">修改评分</button>
+        <button class="btn btn-ghost">查看报告</button>
+        <button class="icon-btn" title="删除">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 4h10M6.5 4V2.5h3V4M4.5 4l.5 9h6l.5-9M6.5 7v4M9.5 7v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mini-card">
+      <div class="mc-head">
+        <div class="mc-badge rice">RICE</div>
+        <div class="mc-title">RICE综合评估</div>
+      </div>
+      <div class="mc-status-row">
+        <span class="status finalized">✓ 报告已确认</span>
+      </div>
+      <div class="mc-meta">
+        <span><b>创建</b> 2026-04-28 15:15</span>
+        <span><b>评估师</b> 雪莹老师</span>
+      </div>
+      <div class="mc-summary">能力画像 3.5岁 · 优先领域：社交/语言</div>
+      <div class="mc-actions">
+        <button class="btn btn-ghost">修改评分</button>
+        <button class="btn btn-ghost">查看报告</button>
+        <button class="icon-btn" title="删除">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 4h10M6.5 4V2.5h3V4M4.5 4l.5 9h6l.5-9M6.5 7v4M9.5 7v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- 生成中 -->
+    <div class="mini-card">
+      <div class="mc-head">
+        <div class="mc-badge vbmapp"><img src="../assets/tool-icons/vbmapp.png" alt="VB-MAPP"></div>
+        <div class="mc-title">VB-MAPP评估</div>
+      </div>
+      <div class="mc-status-row">
+        <span class="status generating">
+          <svg width="10" height="10" viewBox="0 0 10 10" style="vertical-align:-1px;"><circle cx="5" cy="5" r="4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="6 12"><animateTransform attributeName="transform" type="rotate" from="0 5 5" to="360 5 5" dur="1s" repeatCount="indefinite"/></circle></svg>
+          报告生成中
+        </span>
+      </div>
+      <div class="mc-meta">
+        <span><b>创建</b> 2026-04-29 14:10</span>
+        <span><b>评估师</b> 哈哈哈哈</span>
+      </div>
+      <div class="mc-summary" style="color:#7c3aed;background:#f3ecff;">预计 1 分钟内完成</div>
+      <div class="mc-actions"></div>
+    </div>
+
+    <!-- 生成失败 -->
+    <div class="mini-card">
+      <div class="mc-head">
+        <div class="mc-badge rice">RICE</div>
+        <div class="mc-title">RICE综合评估</div>
+      </div>
+      <div class="mc-status-row">
+        <span class="status failed">生成失败</span>
+      </div>
+      <div class="mc-meta">
+        <span><b>创建</b> 2026-04-29 11:20</span>
+        <span><b>评估师</b> 雪莹老师</span>
+      </div>
+      <div class="mc-summary" style="color:#ef4444;background:#fef2f2;">AI 服务超时，可重试</div>
+      <div class="mc-actions">
+        <button class="btn btn-danger-ghost">⟲ 重新生成</button>
+        <button class="icon-btn" title="删除">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 4h10M6.5 4V2.5h3V4M4.5 4l.5 9h6l.5-9M6.5 7v4M9.5 7v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
